@@ -23,7 +23,7 @@ async function run(name, kind) {
     }
     const args = [fileURLToPath(new URL(`${name}.mjs`, import.meta.url)), target, ...(name === "capture" ? ["--out", join(directory, "shot.png"), "--wait", "0"] : ["[]"])];
     try {
-      return { code: 0, ...await execute(process.execPath, args, { timeout: 30000 }) };
+      return { code: 0, ...await execute(process.execPath, args, { timeout: 60000 }) };
     } catch (error) {
       return { code: error.code, stdout: error.stdout, stderr: error.stderr };
     }

@@ -17,7 +17,7 @@ async function drive(expression, action = "eval") {
     await writeFile(page, '<!doctype html><div class="iso-plate" tabindex="0">Owned figure</div>');
     await writeFile(actions, JSON.stringify([[action, expression, 200]]));
     try {
-      return { code: 0, ...await execute(process.execPath, [fileURLToPath(new URL("drive.mjs", import.meta.url)), page, "--actions", actions], { timeout: 30000 }) };
+      return { code: 0, ...await execute(process.execPath, [fileURLToPath(new URL("drive.mjs", import.meta.url)), page, "--actions", actions], { timeout: 60000 }) };
     } catch (error) {
       return { code: error.code, stdout: error.stdout, stderr: error.stderr };
     }

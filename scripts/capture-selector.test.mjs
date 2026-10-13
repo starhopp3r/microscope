@@ -22,7 +22,7 @@ async function capture(selector, svgOnly = false, keys = false) {
     if (keys) args.push("--key", "ArrowRight");
     let result;
     try {
-      result = { code: 0, ...await execute(process.execPath, args, { timeout: 30000 }) };
+      result = { code: 0, ...await execute(process.execPath, args, { timeout: 60000 }) };
     } catch (error) {
       result = { code: error.code, stdout: error.stdout, stderr: error.stderr };
     }

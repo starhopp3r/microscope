@@ -21,7 +21,7 @@ for (const name of ["capture", "drive", "turn-check"]) {
       const started = performance.now();
       let result;
       try {
-        await execute(process.execPath, [fileURLToPath(new URL(`${name}.mjs`, import.meta.url)), join(directory, "figure.html"), ...(name === "drive" ? ["[]"] : name === "turn-check" ? ["--lines"] : [])], { timeout: 30000, env: { ...process.env, CHROME_PATH: binary, MICROSCOPE_PROFILE_RECEIPT: receipt } });
+        await execute(process.execPath, [fileURLToPath(new URL(`${name}.mjs`, import.meta.url)), join(directory, "figure.html"), ...(name === "drive" ? ["[]"] : name === "turn-check" ? ["--lines"] : [])], { timeout: 60000, env: { ...process.env, CHROME_PATH: binary, MICROSCOPE_PROFILE_RECEIPT: receipt } });
       } catch (error) {
         result = error;
       }

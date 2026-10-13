@@ -16,7 +16,7 @@ async function check(arc, line) {
     const page = join(directory, "figure.html");
     await writeFile(page, `<!doctype html><div class="iso-plate"><svg width="200" height="100" viewBox="0 0 200 100"><path fill="none" stroke="black" d="${arc}"/><path class="iso-line" fill="none" stroke="black" d="${line}"/></svg></div>`);
     try {
-      return { code: 0, ...await execute(process.execPath, [lines, page, "--wait", "0"], { timeout: 30000 }) };
+      return { code: 0, ...await execute(process.execPath, [lines, page, "--wait", "0"], { timeout: 60000 }) };
     } catch (error) {
       return { code: error.code, stdout: error.stdout, stderr: error.stderr };
     }

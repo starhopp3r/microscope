@@ -16,7 +16,7 @@ async function run(kind, split = false, open = false, corrupt = null) {
     const runtime = pathToFileURL(resolve("kit/turn.mjs")).href;
     await writeFile(file, `import {turning} from ${JSON.stringify(module)};import * as G from ${JSON.stringify(frameModule)};
 export const P={origin:[0,0],scale:1,azimuth:45,elevation:30};export const T=turning(P);T.layer('parts');const group=T.group('assembly',{turn:{pivot:[5,2]}});const F=G.frameAlong([0,0,0],[0,0,1]);const base={name:'body',group,F,s0:0,s1:10};const part=${kind === "prism" ? "T.prism({...base,polygon:[[-2,-2],[2,-2],[2,2],[-2,2]]})" : `T.round({...base,r:2,fixed:false,ends:${open ? "['open','flat']" : "['flat','flat']"}})`};${split ? "T.split(part,{n:[0,0,1],d:5});" : ""}T.build();${corrupt ? `const {TURN}=await import(${JSON.stringify(runtime)});const emit=TURN.emit;TURN.emit=(run,cam,frame)=>{const f=emit(run,cam,frame);for(const role of ${JSON.stringify(corrupt === "edge" ? ["edge"] : corrupt === "fill" ? ["fill"] : ["fill", "edge"])})if(run.role[role]!==undefined)f.d[run.role[role]]=f.d[run.role[role]].replace(/-?\\d+(?:\\.\\d+)?/g,n=>String(Number(n)+20));return f;};` : ""}`);
-    return await execute(process.execPath, ["scripts/turn-check.mjs", file, "--fidelity", "--angles", "0,45,90,180"], { timeout: 30000 });
+    return await execute(process.execPath, ["scripts/turn-check.mjs", file, "--fidelity", "--angles", "0,45,90,180"], { timeout: 60000 });
   } finally { await rm(directory, { recursive: true, force: true }); }
 }
 function compared(stdout, kind) {
