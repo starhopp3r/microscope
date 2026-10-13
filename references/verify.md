@@ -246,6 +246,14 @@ window.requestAnimationFrame = (callback) => raf((now) => {
 **Both paths, and nested.** The dark build should match its baseline, because every light change is gated on `uLight`. Render a dark plate on a light page and a light plate on its own, each with and without WebGL: a `:not([data-theme="dark"])` rule can reach through the page into a dark plate.
 
 ## The review checklist
+**It is true** (`biology.md`, section 11)
+- [ ] A biologist names the specimen and the organism at a glance.
+- [ ] Every counted feature (subunits, segments, legs, chambers, filaments, layers) matches its true count, from a named constant.
+- [ ] Handedness, polarity and the direction of every flow and motion match the model and the literature.
+- [ ] Every part sits in its real compartment, and one level of scale holds throughout, shown by a correct scale bar.
+- [ ] Every number in the readout and caption is in `SOURCES`; the readout shows the real rate and the playback scale.
+- [ ] Parts are named by numbered legend keys that light them, not by labels in the drawing.
+
 **It is an object**
 - [ ] At a glance it reads as one real, well-made thing, and you can name it.
 - [ ] Its mechanism maps to the concept: what moves and what that means can be said in one sentence.

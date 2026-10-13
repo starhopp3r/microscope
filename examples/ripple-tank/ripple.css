@@ -36,7 +36,7 @@
 }
 
 .rt-stage:focus-visible {
-  outline: 1px solid var(--anatomy-muted);
+  outline: 1px solid var(--microscope-muted);
   outline-offset: 6px;
 }
 
@@ -67,7 +67,7 @@
 }
 
 .rt-water > .iso-fill {
-  fill: var(--anatomy-shade-2);
+  fill: var(--microscope-shade-2);
   opacity: calc(0.7 * (1 - var(--rt-lamp, 0)));
 }
 
@@ -97,7 +97,7 @@
   }
 
   .rt .iso-plate:has(.rt-stage:focus-visible) {
-    outline: 1px solid var(--anatomy-muted);
+    outline: 1px solid var(--microscope-muted);
     outline-offset: 4px;
   }
 }

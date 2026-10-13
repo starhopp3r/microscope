@@ -389,28 +389,28 @@ crtFrame();
 `;
 
 const css = `<style>
-.pc-well{fill:var(--anatomy-shade-1)}
-.pc-bezel{fill:var(--anatomy-top)}
-.pc-dark{fill:var(--anatomy-shade-0)}
-.pc-glass{fill:var(--anatomy-shade-0);transition:fill .5s var(--anatomy-ease)}
-.pc-glass[data-on]{fill:var(--anatomy-lit-shade)}
-.pc-glow{fill:var(--anatomy-lit);opacity:.07;filter:blur(6px)}
-.pc-scan{fill:none;stroke:var(--anatomy-faint);stroke-width:.5px;vector-effect:non-scaling-stroke;opacity:.7}
-.pc-logo{fill:var(--anatomy-lit);fill-rule:evenodd}
-.pc-text{fill:var(--anatomy-lit);font-family:var(--anatomy-mono);letter-spacing:.02em}
-.pc-cursor{fill:var(--anatomy-lit);animation:pc-blink 1.06s steps(1,end) infinite}
-.pc-beam{fill:none;stroke:var(--anatomy-lit);stroke-width:1.4px;vector-effect:non-scaling-stroke;stroke-linecap:round}
-.pc-dot{fill:var(--anatomy-lit)}
+.pc-well{fill:var(--microscope-shade-1)}
+.pc-bezel{fill:var(--microscope-top)}
+.pc-dark{fill:var(--microscope-shade-0)}
+.pc-glass{fill:var(--microscope-shade-0);transition:fill .5s var(--microscope-ease)}
+.pc-glass[data-on]{fill:var(--microscope-lit-shade)}
+.pc-glow{fill:var(--microscope-lit);opacity:.07;filter:blur(6px)}
+.pc-scan{fill:none;stroke:var(--microscope-faint);stroke-width:.5px;vector-effect:non-scaling-stroke;opacity:.7}
+.pc-logo{fill:var(--microscope-lit);fill-rule:evenodd}
+.pc-text{fill:var(--microscope-lit);font-family:var(--microscope-mono);letter-spacing:.02em}
+.pc-cursor{fill:var(--microscope-lit);animation:pc-blink 1.06s steps(1,end) infinite}
+.pc-beam{fill:none;stroke:var(--microscope-lit);stroke-width:1.4px;vector-effect:non-scaling-stroke;stroke-linecap:round}
+.pc-dot{fill:var(--microscope-lit)}
 .pc-cord{stroke-width:1.1px}
 .pc-key,.pc-computer{cursor:pointer}
-.pc-key[data-down] .iso-edge{stroke:var(--anatomy-hi)}
-[data-part="led"]{transition:opacity .4s var(--anatomy-ease)}
+.pc-key[data-down] .iso-edge{stroke:var(--microscope-hi)}
+[data-part="led"]{transition:opacity .4s var(--microscope-ease)}
 @keyframes pc-blink{50%{opacity:0}}
 @media (prefers-reduced-motion:reduce){.pc-cursor{animation:none}}
 .pc-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .iso-stage{touch-action:pan-y}
 .iso-stage:focus{outline:none}
-.iso-stage:focus-visible{outline:1px solid var(--anatomy-muted);outline-offset:6px}
+.iso-stage:focus-visible{outline:1px solid var(--microscope-muted);outline-offset:6px}
 </style>`;
 
 const body =

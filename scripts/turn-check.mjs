@@ -347,7 +347,7 @@ const POPS = String.raw`(() => {
   const w = W * SCALE;
   const h = H * SCALE;
   let hidden = null;
-  const svgString = () => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + " " + H + '" width="' + w + '" height="' + h + '" class="iso iso-svg" data-theme="' + theme + '" style="--anatomy-paper:var(--anatomy-card)"><style>' + css + '</style><rect width="100%" height="100%" style="fill:var(--anatomy-card)"/>' + svgs.map((s) => '<g class="' + (s.getAttribute("class") || "") + '">' + s.innerHTML + "</g>").join("") + "</svg>";
+  const svgString = () => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + " " + H + '" width="' + w + '" height="' + h + '" class="iso iso-svg" data-theme="' + theme + '" style="--microscope-paper:var(--microscope-card)"><style>' + css + '</style><rect width="100%" height="100%" style="fill:var(--microscope-card)"/>' + svgs.map((s) => '<g class="' + (s.getAttribute("class") || "") + '">' + s.innerHTML + "</g>").join("") + "</svg>";
   async function render(state, hide = null) {
     setState(state);
     if (hide !== null) {

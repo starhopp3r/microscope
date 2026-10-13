@@ -1,10 +1,19 @@
 # Changelog
 
-All notable changes to Anatomy are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Releases follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html); entries from before the first release are dated.
+All notable changes to Microscope are recorded here. Microscope is a fork of [Anatomy](https://github.com/wheresryan22/anatomy); entries before the fork describe Anatomy and keep its names and links. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Releases follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html); entries from before the first release are dated.
 
 ## [Unreleased]
 
+### Changed
+
+- Forked from Anatomy as Microscope and tuned for biology: molecular biology, cell biology, microbiology, botany and zoology. `name: microscope` in `SKILL.md`, invoked as `/microscope` (`$microscope` in Codex). The CSS tokens are now `--microscope-*`, the repository is `starhopp3r/microscope` and the community gallery `starhopp3r/microscope-community`. Every example is rebuilt with the new names, and the arcade cabinet's marquee reads MICROSCOPE.
+- `SKILL.md` now builds the real specimen on a crafted mount instead of inventing a machine for an idea. Its workflow starts from the organism's true numbers with sources, picks one level of scale, a cut and a mount, names parts through numbered legend keys, shows real rates with a playback scale, and checks the biology before the craft. A short form of the biology rules sits beside the craft rules.
+- The evals are six biology prompts: ATP synthase, the E. coli flagellar motor, a leaf section with stomata, a ribosome translating mRNA, a fish gill's countercurrent exchange and a gel electrophoresis tank.
+
 ### Added
+
+- `examples/atp-synthase/`: the first biology example. Bovine ATP synthase through a patch of inner mitochondrial membrane on a mount with a 10 nm scale bar: an eight-subunit c-ring and central stalk turning in 45° proton steps, protons riding the ring from the a-subunit's inlet to its outlet, one ATP leaving a β subunit every 120°, numbered legend keys that light their parts, and a sourced caption. Its audit and line check pass in both themes, and CI builds it.
+- `references/biology.md`: levels of scale and mounts, concepts and their specimens, true numbers to start from, recipes for living forms in the kit, counts, handedness, polarity and compartments, colour and stains, naming parts without labels, biological time, anti-patterns, the biology review and a worked design for ATP synthase. `references/verify.md` has a biology section in its review checklist.
 
 - Antigravity support, alongside Claude Code, OpenCode and Codex. Documented user and project installation paths in the README and CONTRIBUTING, updated SKILL.md compatibility, and added Antigravity to the bug report form.
 

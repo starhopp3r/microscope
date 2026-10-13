@@ -85,7 +85,7 @@ export const SCREEN = (() => {
     out.push(px(text("1UP", 24, 8) + text("HI-SCORE", 80, 8) + text("2UP", 176, 8)));
     out.push(px(text("00000", 16, 20), ` data-part="score"`));
     out.push(px(text("12500", 92, 20)));
-    out.push(px(text("ANATOMY", centred("ANATOMY", 2), 44, 2)));
+    out.push(px(text("MICROSCOPE", centred("MICROSCOPE", 2), 44, 2)));
     out.push(`<g data-part="formation">`);
     FORMATION.forEach((a, i) => {
       const [fa, fb] = a.kind === "eye" ? [SPRITES.eyeA, SPRITES.eyeB] : [SPRITES.jellyA, SPRITES.jellyB];

@@ -1,155 +1,155 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Stress hand</title><style>
 .iso{
-  --anatomy-page:#0b0b0b;--anatomy-card:#131313;--anatomy-text:#a3a3a3;--anatomy-strong:#e6e6e6;--anatomy-muted:#6e6e6e;
-  --anatomy-paper:#131313;--anatomy-face:#1b1b1b;--anatomy-top:#1c1c1c;
-  --anatomy-shade-0:#0f0f0f;--anatomy-shade-1:#121212;--anatomy-shade-2:#151515;--anatomy-shade-3:#181818;
-  --anatomy-lit-top:#262626;--anatomy-lit-shade:#1d1d1d;
-  --anatomy-hi:#d4d4d4;--anatomy-mid:#6a6a6a;--anatomy-lo:#3e3e3e;--anatomy-faint:#2a2a2a;--anatomy-lit:#ffffff;
-  --anatomy-halo:#050505;--anatomy-halo-opacity:.9;--anatomy-dot:#e6e6e6;
-  --anatomy-red:#ff6b6b;--anatomy-green:#6be0a0;--anatomy-blue:#6b9bff;
-  --anatomy-weight:.6px;--anatomy-ease:cubic-bezier(.32,.72,0,1);
-  --anatomy-mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-  --anatomy-lift:inset 0 1px 0 0 #ffffff0a,inset 0 0 0 1px #ffffff06,0 0 0 1px #00000026,0 1px 1px -.5px #00000014,0 3px 3px -1.5px #00000014,0 6px 6px -3px #00000014,0 12px 12px -6px #00000014;
+  --microscope-page:#0b0b0b;--microscope-card:#131313;--microscope-text:#a3a3a3;--microscope-strong:#e6e6e6;--microscope-muted:#6e6e6e;
+  --microscope-paper:#131313;--microscope-face:#1b1b1b;--microscope-top:#1c1c1c;
+  --microscope-shade-0:#0f0f0f;--microscope-shade-1:#121212;--microscope-shade-2:#151515;--microscope-shade-3:#181818;
+  --microscope-lit-top:#262626;--microscope-lit-shade:#1d1d1d;
+  --microscope-hi:#d4d4d4;--microscope-mid:#6a6a6a;--microscope-lo:#3e3e3e;--microscope-faint:#2a2a2a;--microscope-lit:#ffffff;
+  --microscope-halo:#050505;--microscope-halo-opacity:.9;--microscope-dot:#e6e6e6;
+  --microscope-red:#ff6b6b;--microscope-green:#6be0a0;--microscope-blue:#6b9bff;
+  --microscope-weight:.6px;--microscope-ease:cubic-bezier(.32,.72,0,1);
+  --microscope-mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --microscope-lift:inset 0 1px 0 0 #ffffff0a,inset 0 0 0 1px #ffffff06,0 0 0 1px #00000026,0 1px 1px -.5px #00000014,0 3px 3px -1.5px #00000014,0 6px 6px -3px #00000014,0 12px 12px -6px #00000014;
 }
 .iso[data-theme="light"]{
-  --anatomy-page:#f2f2ef;--anatomy-card:#fbfbfa;--anatomy-text:#57575a;--anatomy-strong:#18181a;--anatomy-muted:#8c8c90;
-  --anatomy-paper:#fbfbfa;--anatomy-face:#ffffff;--anatomy-top:#ffffff;
-  --anatomy-shade-0:#dcdcd9;--anatomy-shade-1:#e5e5e2;--anatomy-shade-2:#ededea;--anatomy-shade-3:#f4f4f1;
-  --anatomy-lit-top:#ffffff;--anatomy-lit-shade:#eeeeeb;
-  --anatomy-hi:#26262a;--anatomy-mid:#8a8a8f;--anatomy-lo:#b4b4b8;--anatomy-faint:#d4d4d6;--anatomy-lit:#000000;
-  --anatomy-halo:#8a8a80;--anatomy-halo-opacity:.32;--anatomy-dot:#3a3a3e;
-  --anatomy-red:#e5484d;--anatomy-green:#30a46c;--anatomy-blue:#3e63dd;
-  --anatomy-lift:inset 0 1px 0 0 #ffffff,0 0 0 1px #0000000f,0 1px 1px -.5px #0000000a,0 3px 3px -1.5px #0000000a,0 6px 6px -3px #0000000a,0 12px 12px -6px #0000000a;
+  --microscope-page:#f2f2ef;--microscope-card:#fbfbfa;--microscope-text:#57575a;--microscope-strong:#18181a;--microscope-muted:#8c8c90;
+  --microscope-paper:#fbfbfa;--microscope-face:#ffffff;--microscope-top:#ffffff;
+  --microscope-shade-0:#dcdcd9;--microscope-shade-1:#e5e5e2;--microscope-shade-2:#ededea;--microscope-shade-3:#f4f4f1;
+  --microscope-lit-top:#ffffff;--microscope-lit-shade:#eeeeeb;
+  --microscope-hi:#26262a;--microscope-mid:#8a8a8f;--microscope-lo:#b4b4b8;--microscope-faint:#d4d4d6;--microscope-lit:#000000;
+  --microscope-halo:#8a8a80;--microscope-halo-opacity:.32;--microscope-dot:#3a3a3e;
+  --microscope-red:#e5484d;--microscope-green:#30a46c;--microscope-blue:#3e63dd;
+  --microscope-lift:inset 0 1px 0 0 #ffffff,0 0 0 1px #0000000f,0 1px 1px -.5px #0000000a,0 3px 3px -1.5px #0000000a,0 6px 6px -3px #0000000a,0 12px 12px -6px #0000000a;
 }
 .iso-svg{display:block;width:100%;height:auto;overflow:visible}
 .iso-svg path,.iso-svg circle{vector-effect:non-scaling-stroke}
-.iso-fill{fill:var(--anatomy-paper);stroke:none}
-.iso-solid[data-lit]>.iso-fill{fill:var(--anatomy-face)}
+.iso-fill{fill:var(--microscope-paper);stroke:none}
+.iso-solid[data-lit]>.iso-fill{fill:var(--microscope-face)}
 .iso-shade,.iso-top{stroke:none}
-.iso-shade[data-shade="0"]{fill:var(--anatomy-shade-0)}
-.iso-shade[data-shade="1"]{fill:var(--anatomy-shade-1)}
-.iso-shade[data-shade="2"]{fill:var(--anatomy-shade-2)}
-.iso-shade[data-shade="3"]{fill:var(--anatomy-shade-3)}
-.iso-top{fill:var(--anatomy-top)}
-.iso-solid[data-lit]>.iso-top{fill:var(--anatomy-lit-top)}
-.iso-solid[data-lit]>.iso-shade{fill:var(--anatomy-lit-shade)}
+.iso-shade[data-shade="0"]{fill:var(--microscope-shade-0)}
+.iso-shade[data-shade="1"]{fill:var(--microscope-shade-1)}
+.iso-shade[data-shade="2"]{fill:var(--microscope-shade-2)}
+.iso-shade[data-shade="3"]{fill:var(--microscope-shade-3)}
+.iso-top{fill:var(--microscope-top)}
+.iso-solid[data-lit]>.iso-top{fill:var(--microscope-lit-top)}
+.iso-solid[data-lit]>.iso-shade{fill:var(--microscope-lit-shade)}
 .iso-solid[data-seamless]>.iso-shade,.iso-solid[data-seamless]>.iso-top{stroke-width:.4;stroke-linejoin:round}
-.iso-solid[data-seamless]>.iso-shade[data-shade="0"]{stroke:var(--anatomy-shade-0)}
-.iso-solid[data-seamless]>.iso-shade[data-shade="1"]{stroke:var(--anatomy-shade-1)}
-.iso-solid[data-seamless]>.iso-shade[data-shade="2"]{stroke:var(--anatomy-shade-2)}
-.iso-solid[data-seamless]>.iso-shade[data-shade="3"]{stroke:var(--anatomy-shade-3)}
-.iso-solid[data-seamless]>.iso-top{stroke:var(--anatomy-top)}
-.iso-solid[data-seamless][data-lit]>.iso-top{stroke:var(--anatomy-lit-top)}
-.iso-solid[data-seamless][data-lit]>.iso-shade{stroke:var(--anatomy-lit-shade)}
-.iso-solid[data-lit]>.iso-edge{stroke:var(--anatomy-lit)}
-.iso-halo{fill:var(--anatomy-halo);stroke:none;filter:blur(9px);opacity:var(--anatomy-halo-opacity);transform:translateY(3px)}
-.iso-line{fill:none;stroke:var(--anatomy-lo);stroke-width:var(--anatomy-weight);stroke-linecap:round;stroke-linejoin:round}
-.iso-line[data-tone="hi"]{stroke:var(--anatomy-hi)}
-.iso-line[data-tone="mid"]{stroke:var(--anatomy-mid)}
-.iso-line[data-tone="lo"]{stroke:var(--anatomy-lo)}
-.iso-line[data-tone="faint"]{stroke:var(--anatomy-faint)}
-.iso-line[data-tone="lit"]{stroke:var(--anatomy-lit)}
-.iso-line[data-tone="red"]{stroke:var(--anatomy-red)}
-.iso-line[data-tone="green"]{stroke:var(--anatomy-green)}
-.iso-line[data-tone="blue"]{stroke:var(--anatomy-blue)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="0"]{stroke:var(--microscope-shade-0)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="1"]{stroke:var(--microscope-shade-1)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="2"]{stroke:var(--microscope-shade-2)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="3"]{stroke:var(--microscope-shade-3)}
+.iso-solid[data-seamless]>.iso-top{stroke:var(--microscope-top)}
+.iso-solid[data-seamless][data-lit]>.iso-top{stroke:var(--microscope-lit-top)}
+.iso-solid[data-seamless][data-lit]>.iso-shade{stroke:var(--microscope-lit-shade)}
+.iso-solid[data-lit]>.iso-edge{stroke:var(--microscope-lit)}
+.iso-halo{fill:var(--microscope-halo);stroke:none;filter:blur(9px);opacity:var(--microscope-halo-opacity);transform:translateY(3px)}
+.iso-line{fill:none;stroke:var(--microscope-lo);stroke-width:var(--microscope-weight);stroke-linecap:round;stroke-linejoin:round}
+.iso-line[data-tone="hi"]{stroke:var(--microscope-hi)}
+.iso-line[data-tone="mid"]{stroke:var(--microscope-mid)}
+.iso-line[data-tone="lo"]{stroke:var(--microscope-lo)}
+.iso-line[data-tone="faint"]{stroke:var(--microscope-faint)}
+.iso-line[data-tone="lit"]{stroke:var(--microscope-lit)}
+.iso-line[data-tone="red"]{stroke:var(--microscope-red)}
+.iso-line[data-tone="green"]{stroke:var(--microscope-green)}
+.iso-line[data-tone="blue"]{stroke:var(--microscope-blue)}
 .iso-line[data-dotted]{stroke-dasharray:.01 3.5;stroke-width:1}
 .iso-line[data-dashed]{stroke-dasharray:3 3}
 .iso-line[data-flow]{stroke-dasharray:2 6}
-.iso-wire-end{fill:var(--anatomy-paper);stroke:var(--anatomy-lo);stroke-width:var(--anatomy-weight)}
-.iso-wire[data-tone="hi"] .iso-wire-end{stroke:var(--anatomy-hi)}
-.iso-wire[data-tone="mid"] .iso-wire-end{stroke:var(--anatomy-mid)}
-.iso-wire[data-tone="faint"] .iso-wire-end{stroke:var(--anatomy-faint)}
-.iso-wire[data-tone="lit"] .iso-wire-end{stroke:var(--anatomy-lit)}
-.iso-dots circle{fill:var(--anatomy-dot);stroke:none;opacity:.32}
+.iso-wire-end{fill:var(--microscope-paper);stroke:var(--microscope-lo);stroke-width:var(--microscope-weight)}
+.iso-wire[data-tone="hi"] .iso-wire-end{stroke:var(--microscope-hi)}
+.iso-wire[data-tone="mid"] .iso-wire-end{stroke:var(--microscope-mid)}
+.iso-wire[data-tone="faint"] .iso-wire-end{stroke:var(--microscope-faint)}
+.iso-wire[data-tone="lit"] .iso-wire-end{stroke:var(--microscope-lit)}
+.iso-dots circle{fill:var(--microscope-dot);stroke:none;opacity:.32}
 .iso-dots[data-tone="hi"] circle{opacity:.85}
 .iso-dots[data-tone="mid"] circle{opacity:.45}
 .iso-dots[data-tone="lo"] circle{opacity:.22}
 .iso-dots[data-tone="faint"] circle{opacity:.12}
-.iso-face-text{fill:var(--anatomy-mid);font-family:var(--anatomy-mono);letter-spacing:.04em}
-.iso-face-text[data-tone="hi"]{fill:var(--anatomy-hi)}
-.iso-face-text[data-tone="lo"]{fill:var(--anatomy-lo)}
-.iso-face-text[data-tone="faint"]{fill:var(--anatomy-faint)}
-.tb-body{fill:var(--anatomy-shade-2);stroke:none}
-.tb-shine{fill:var(--anatomy-top);stroke:none}
-.tb-shade{fill:var(--anatomy-shade-0);stroke:none}
-.tb-ring{fill:none;stroke:var(--anatomy-lo);stroke-width:.45;stroke-linecap:butt;stroke-linejoin:round}
-.tb-ring[data-tone="mid"]{stroke:var(--anatomy-mid)}
-.tb-ring[data-tone="faint"]{stroke:var(--anatomy-faint)}
-.tb-ring[data-tone="hi"]{stroke:var(--anatomy-hi)}
+.iso-face-text{fill:var(--microscope-mid);font-family:var(--microscope-mono);letter-spacing:.04em}
+.iso-face-text[data-tone="hi"]{fill:var(--microscope-hi)}
+.iso-face-text[data-tone="lo"]{fill:var(--microscope-lo)}
+.iso-face-text[data-tone="faint"]{fill:var(--microscope-faint)}
+.tb-body{fill:var(--microscope-shade-2);stroke:none}
+.tb-shine{fill:var(--microscope-top);stroke:none}
+.tb-shade{fill:var(--microscope-shade-0);stroke:none}
+.tb-ring{fill:none;stroke:var(--microscope-lo);stroke-width:.45;stroke-linecap:butt;stroke-linejoin:round}
+.tb-ring[data-tone="mid"]{stroke:var(--microscope-mid)}
+.tb-ring[data-tone="faint"]{stroke:var(--microscope-faint)}
+.tb-ring[data-tone="hi"]{stroke:var(--microscope-hi)}
 @keyframes iso-flow{to{stroke-dashoffset:-32}}
 @keyframes iso-pulse{0%,100%{opacity:.18}12%{opacity:1}40%{opacity:.18}}
 .iso-line[data-flow]{animation:iso-flow 1600ms linear infinite}
 .iso-dots circle[data-pulse]{animation:iso-pulse 1600ms steps(1,end) infinite;animation-delay:var(--pulse-at,0ms)}
 .iso-figure{margin:32px 0 36px}
-.iso-plate{position:relative;padding:52px 24px;border-radius:0;background:var(--anatomy-card);box-shadow:0 0 0 1px var(--anatomy-mid);--anatomy-paper:var(--anatomy-card)}
+.iso-plate{position:relative;padding:52px 24px;border-radius:0;background:var(--microscope-card);box-shadow:0 0 0 1px var(--microscope-mid);--microscope-paper:var(--microscope-card)}
 .iso-plate-corners{position:absolute;inset:18px 20px;pointer-events:none}
-.iso-plate-corner{position:absolute;color:var(--anatomy-muted);font-family:var(--anatomy-mono);font-size:10.5px;line-height:1;letter-spacing:.04em;white-space:nowrap}
-.iso-plate-corner[data-corner="fig"]{top:0;left:0;color:var(--anatomy-text)}
+.iso-plate-corner{position:absolute;color:var(--microscope-muted);font-family:var(--microscope-mono);font-size:10.5px;line-height:1;letter-spacing:.04em;white-space:nowrap}
+.iso-plate-corner[data-corner="fig"]{top:0;left:0;color:var(--microscope-text)}
 .iso-plate-corner[data-corner="title"]{top:0;right:0;text-transform:uppercase;letter-spacing:.1em}
 .iso-plate-corner[data-corner="hint"]{bottom:0;left:0;text-transform:uppercase;letter-spacing:.1em}
-.iso-plate-corner[data-corner="readout"]{right:0;bottom:0;color:var(--anatomy-text);font-variant-numeric:tabular-nums}
+.iso-plate-corner[data-corner="readout"]{right:0;bottom:0;color:var(--microscope-text);font-variant-numeric:tabular-nums}
 .iso-plate .iso-svg{margin:0 auto}
-.iso-legend{display:grid;gap:8px;margin-top:12px;color:var(--anatomy-muted);font-size:13px;line-height:1.55}
+.iso-legend{display:grid;gap:8px;margin-top:12px;color:var(--microscope-muted);font-size:13px;line-height:1.55}
 .iso-keys{display:flex;flex-wrap:wrap;gap:6px 18px}
 .iso-key{display:inline-flex;align-items:center;gap:7px}
 .iso-swatch{width:16px;height:10px;flex:none;overflow:visible}
-.iso-swatch path{fill:none;stroke:var(--anatomy-hi);stroke-width:1;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
-.iso-swatch[data-mark="raised"] path,.iso-swatch[data-mark="flat"] path{stroke:var(--anatomy-mid)}
-.iso-swatch[data-mark="lit"] path{stroke:var(--anatomy-lit)}
-.iso-swatch[data-mark="dim"] path{stroke:var(--anatomy-lo)}
+.iso-swatch path{fill:none;stroke:var(--microscope-hi);stroke-width:1;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.iso-swatch[data-mark="raised"] path,.iso-swatch[data-mark="flat"] path{stroke:var(--microscope-mid)}
+.iso-swatch[data-mark="lit"] path{stroke:var(--microscope-lit)}
+.iso-swatch[data-mark="dim"] path{stroke:var(--microscope-lo)}
 .iso-swatch[data-mark="dotted"] path{stroke-dasharray:.01 3;stroke-width:1.4}
 .iso-swatch[data-mark="dashed"] path{stroke-dasharray:3 2.5}
-.iso-swatch[data-mark="red"] path{stroke:var(--anatomy-red)}
-.iso-swatch[data-mark="green"] path{stroke:var(--anatomy-green)}
-.iso-swatch[data-mark="blue"] path{stroke:var(--anatomy-blue)}
-.iso-swatch-crease{stroke:var(--anatomy-lo)!important}
+.iso-swatch[data-mark="red"] path{stroke:var(--microscope-red)}
+.iso-swatch[data-mark="green"] path{stroke:var(--microscope-green)}
+.iso-swatch[data-mark="blue"] path{stroke:var(--microscope-blue)}
+.iso-swatch-crease{stroke:var(--microscope-lo)!important}
 @media (max-width:560px){.iso-plate{padding:48px 12px 70px}.iso-plate-corner[data-corner="hint"]{bottom:18px}}
 @media (prefers-reduced-motion:reduce){.iso-line[data-flow],.iso-dots circle[data-pulse]{animation:none}}
 
 *{box-sizing:border-box}
 html{color-scheme:dark}
 body[data-theme="light"]{color-scheme:light}
-body{margin:0;background:var(--anatomy-page);color:var(--anatomy-text);font:14px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--microscope-page);color:var(--microscope-text);font:14px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
 .iso-page{width:min(800px,100% - 32px);margin:64px auto 96px}
-</style></head><body class="iso" data-theme="light"><main class="iso-page"><figure class="iso-figure"><div class="iso-plate"><div class="iso-plate-corners" aria-hidden="true"><span class="iso-plate-corner" data-corner="fig">Fig 3D·S</span><span class="iso-plate-corner" data-corner="title">Stress hand</span><span class="iso-plate-corner" data-corner="hint">Tour only</span><span class="iso-plate-corner" data-corner="readout" data-readout>380 live parts</span></div><style>.iso-live{--tn-0:var(--anatomy-shade-0);--tn-1:var(--anatomy-shade-1);--tn-2:var(--anatomy-shade-2);--tn-3:var(--anatomy-shade-3);--tn-4:var(--anatomy-top)}
-.iso-live [data-mat]{--tn-0:var(--anatomy-shade-0);--tn-1:var(--anatomy-shade-1);--tn-2:var(--anatomy-shade-2);--tn-3:var(--anatomy-shade-3);--tn-4:var(--anatomy-top)}
-.iso-live [data-lit]{--tn-0:var(--anatomy-lit-shade);--tn-1:var(--anatomy-lit-shade);--tn-2:var(--anatomy-lit-shade);--tn-3:var(--anatomy-lit-shade);--tn-4:var(--anatomy-lit-top)}
+</style></head><body class="iso" data-theme="light"><main class="iso-page"><figure class="iso-figure"><div class="iso-plate"><div class="iso-plate-corners" aria-hidden="true"><span class="iso-plate-corner" data-corner="fig">Fig 3D·S</span><span class="iso-plate-corner" data-corner="title">Stress hand</span><span class="iso-plate-corner" data-corner="hint">Tour only</span><span class="iso-plate-corner" data-corner="readout" data-readout>380 live parts</span></div><style>.iso-live{--tn-0:var(--microscope-shade-0);--tn-1:var(--microscope-shade-1);--tn-2:var(--microscope-shade-2);--tn-3:var(--microscope-shade-3);--tn-4:var(--microscope-top)}
+.iso-live [data-mat]{--tn-0:var(--microscope-shade-0);--tn-1:var(--microscope-shade-1);--tn-2:var(--microscope-shade-2);--tn-3:var(--microscope-shade-3);--tn-4:var(--microscope-top)}
+.iso-live [data-lit]{--tn-0:var(--microscope-lit-shade);--tn-1:var(--microscope-lit-shade);--tn-2:var(--microscope-lit-shade);--tn-3:var(--microscope-lit-shade);--tn-4:var(--microscope-lit-top)}
 .iso-tn{stroke-width:.4;stroke-linejoin:round;--ta:var(--tn-0);--tb:var(--tn-1);fill:color-mix(in srgb,var(--ta) calc(100% - var(--f,0) * 100%),var(--tb));stroke:color-mix(in srgb,var(--ta) calc(100% - var(--f,0) * 100%),var(--tb))}
 .iso-tn[data-b="1"]{--ta:var(--tn-1);--tb:var(--tn-2)}
 .iso-tn[data-b="2"]{--ta:var(--tn-2);--tb:var(--tn-3)}
 .iso-tn[data-b="3"]{--ta:var(--tn-3);--tb:var(--tn-4)}
-[data-mat="gold"]{--anatomy-paper:#3f3521;--anatomy-face:#4b3f28;--anatomy-top:#5a4c31;--anatomy-shade-0:#2b2416;--anatomy-shade-1:#352c1b;--anatomy-shade-2:#3f3521;--anatomy-shade-3:#4b3f28;--anatomy-lit-top:#6a5a3b;--anatomy-lit-shade:#4f4329;--anatomy-hi:#e6d2a3;--anatomy-mid:#8a7550;--anatomy-lo:#5e4e33;--anatomy-faint:#463a26;--anatomy-dot:#e6d2a3;--anatomy-lit:#fff3d6;--mat-body:#4a3e27;--mat-shine:#8c7853;--mat-shade:#251f13;--mat-edge:#e6d2a3}
-.iso[data-theme="light"] [data-mat="gold"]{--anatomy-paper:#d3bb88;--anatomy-face:#e4d2a8;--anatomy-top:#f1e5c6;--anatomy-shade-0:#a1844f;--anatomy-shade-1:#bc9f69;--anatomy-shade-2:#d3bb88;--anatomy-shade-3:#e4d2a8;--anatomy-lit-top:#f8efd8;--anatomy-lit-shade:#dfcb9c;--anatomy-hi:#4b3920;--anatomy-mid:#86693f;--anatomy-lo:#a98c5b;--anatomy-faint:#c1a676;--anatomy-dot:#4a381f;--anatomy-lit:#2a1d0c;--mat-body:#cdb07a;--mat-shine:#f3e8cc;--mat-shade:#8e7044;--mat-edge:#4b3920}
-.iso[data-theme="dark"] [data-mat="gold"]{--anatomy-paper:#3f3521;--anatomy-face:#4b3f28;--anatomy-top:#5a4c31;--anatomy-shade-0:#2b2416;--anatomy-shade-1:#352c1b;--anatomy-shade-2:#3f3521;--anatomy-shade-3:#4b3f28;--anatomy-lit-top:#6a5a3b;--anatomy-lit-shade:#4f4329;--anatomy-hi:#e6d2a3;--anatomy-mid:#8a7550;--anatomy-lo:#5e4e33;--anatomy-faint:#463a26;--anatomy-dot:#e6d2a3;--anatomy-lit:#fff3d6;--mat-body:#4a3e27;--mat-shine:#8c7853;--mat-shade:#251f13;--mat-edge:#e6d2a3}
-[data-mat="chrome"]{--anatomy-paper:#2a2e32;--anatomy-face:#4a5056;--anatomy-top:#6e757c;--anatomy-shade-0:#2e3236;--anatomy-shade-1:#24272b;--anatomy-shade-2:#1a1d20;--anatomy-shade-3:#4a5056;--anatomy-lit-top:#848b92;--anatomy-lit-shade:#3a3f44;--anatomy-hi:#dfe3e7;--anatomy-mid:#7c838a;--anatomy-lo:#4d5359;--anatomy-faint:#363b40;--anatomy-dot:#e4e7ea;--anatomy-lit:#ffffff;--mat-body:#34393e;--mat-shine:#9aa1a8;--mat-shade:#16191b;--mat-edge:#dfe3e7}
-.iso[data-theme="light"] [data-mat="chrome"]{--anatomy-paper:#8e959c;--anatomy-face:#c3c8cd;--anatomy-top:#f7f8f9;--anatomy-shade-0:#a2a9b0;--anatomy-shade-1:#6f767d;--anatomy-shade-2:#454b52;--anatomy-shade-3:#cacfd4;--anatomy-lit-top:#ffffff;--anatomy-lit-shade:#bcc2c8;--anatomy-hi:#202428;--anatomy-mid:#585e65;--anatomy-lo:#878d94;--anatomy-faint:#a9afb5;--anatomy-dot:#2a2e33;--anatomy-lit:#000000;--mat-body:#8b9299;--mat-shine:#fbfcfd;--mat-shade:#3c4248;--mat-edge:#202428}
-.iso[data-theme="dark"] [data-mat="chrome"]{--anatomy-paper:#2a2e32;--anatomy-face:#4a5056;--anatomy-top:#6e757c;--anatomy-shade-0:#2e3236;--anatomy-shade-1:#24272b;--anatomy-shade-2:#1a1d20;--anatomy-shade-3:#4a5056;--anatomy-lit-top:#848b92;--anatomy-lit-shade:#3a3f44;--anatomy-hi:#dfe3e7;--anatomy-mid:#7c838a;--anatomy-lo:#4d5359;--anatomy-faint:#363b40;--anatomy-dot:#e4e7ea;--anatomy-lit:#ffffff;--mat-body:#34393e;--mat-shine:#9aa1a8;--mat-shade:#16191b;--mat-edge:#dfe3e7}
-[data-mat="steel"]{--anatomy-paper:#2c3034;--anatomy-face:#34393d;--anatomy-top:#3e4348;--anatomy-shade-0:#1f2225;--anatomy-shade-1:#25292c;--anatomy-shade-2:#2c3034;--anatomy-shade-3:#34393d;--anatomy-lit-top:#4a5056;--anatomy-lit-shade:#33383c;--anatomy-hi:#d0d4d8;--anatomy-mid:#727980;--anatomy-lo:#4a5056;--anatomy-faint:#33383d;--anatomy-dot:#d8dce0;--anatomy-lit:#ffffff;--mat-body:#30353a;--mat-shine:#5c6369;--mat-shade:#1a1d20;--mat-edge:#d0d4d8}
-.iso[data-theme="light"] [data-mat="steel"]{--anatomy-paper:#b8bdc1;--anatomy-face:#cdd1d4;--anatomy-top:#e5e8ea;--anatomy-shade-0:#8f959b;--anatomy-shade-1:#a4aaaf;--anatomy-shade-2:#b8bdc1;--anatomy-shade-3:#cdd1d4;--anatomy-lit-top:#f1f3f4;--anatomy-lit-shade:#c6cacd;--anatomy-hi:#2b2f33;--anatomy-mid:#6b7177;--anatomy-lo:#959ba1;--anatomy-faint:#aeb3b8;--anatomy-dot:#33373b;--anatomy-lit:#000000;--mat-body:#b3b8bd;--mat-shine:#eef0f2;--mat-shade:#7d8389;--mat-edge:#2b2f33}
-.iso[data-theme="dark"] [data-mat="steel"]{--anatomy-paper:#2c3034;--anatomy-face:#34393d;--anatomy-top:#3e4348;--anatomy-shade-0:#1f2225;--anatomy-shade-1:#25292c;--anatomy-shade-2:#2c3034;--anatomy-shade-3:#34393d;--anatomy-lit-top:#4a5056;--anatomy-lit-shade:#33383c;--anatomy-hi:#d0d4d8;--anatomy-mid:#727980;--anatomy-lo:#4a5056;--anatomy-faint:#33383d;--anatomy-dot:#d8dce0;--anatomy-lit:#ffffff;--mat-body:#30353a;--mat-shine:#5c6369;--mat-shade:#1a1d20;--mat-edge:#d0d4d8}
-[data-mat="gunmetal"]{--anatomy-paper:#1d2125;--anatomy-face:#22272b;--anatomy-top:#2a2f34;--anatomy-shade-0:#15181b;--anatomy-shade-1:#191c20;--anatomy-shade-2:#1d2125;--anatomy-shade-3:#22272b;--anatomy-lit-top:#323840;--anatomy-lit-shade:#20252a;--anatomy-hi:#a9b0b7;--anatomy-mid:#5c636a;--anatomy-lo:#3a4046;--anatomy-faint:#2a2f34;--anatomy-dot:#b8bec4;--anatomy-lit:#ffffff;--mat-body:#1f2327;--mat-shine:#3a4046;--mat-shade:#111316;--mat-edge:#a9b0b7}
-.iso[data-theme="light"] [data-mat="gunmetal"]{--anatomy-paper:#444a51;--anatomy-face:#50575e;--anatomy-top:#5f666e;--anatomy-shade-0:#2f3439;--anatomy-shade-1:#393f45;--anatomy-shade-2:#444a51;--anatomy-shade-3:#50575e;--anatomy-lit-top:#6d757d;--anatomy-lit-shade:#4b5258;--anatomy-hi:#0f1113;--anatomy-mid:#1d2125;--anatomy-lo:#272b30;--anatomy-faint:#30353a;--anatomy-dot:#b0b5ba;--anatomy-lit:#000000;--mat-body:#3d4349;--mat-shine:#6e757c;--mat-shade:#24282c;--mat-edge:#0f1113}
-.iso[data-theme="dark"] [data-mat="gunmetal"]{--anatomy-paper:#1d2125;--anatomy-face:#22272b;--anatomy-top:#2a2f34;--anatomy-shade-0:#15181b;--anatomy-shade-1:#191c20;--anatomy-shade-2:#1d2125;--anatomy-shade-3:#22272b;--anatomy-lit-top:#323840;--anatomy-lit-shade:#20252a;--anatomy-hi:#a9b0b7;--anatomy-mid:#5c636a;--anatomy-lo:#3a4046;--anatomy-faint:#2a2f34;--anatomy-dot:#b8bec4;--anatomy-lit:#ffffff;--mat-body:#1f2327;--mat-shine:#3a4046;--mat-shade:#111316;--mat-edge:#a9b0b7}
-[data-mat="rubber"]{--anatomy-paper:#121213;--anatomy-face:#161618;--anatomy-top:#1c1c1f;--anatomy-shade-0:#0c0c0d;--anatomy-shade-1:#0f0f10;--anatomy-shade-2:#121213;--anatomy-shade-3:#161618;--anatomy-lit-top:#232327;--anatomy-lit-shade:#141416;--anatomy-hi:#8c8e92;--anatomy-mid:#4a4c50;--anatomy-lo:#2c2d30;--anatomy-faint:#1f2023;--anatomy-dot:#9a9ca0;--anatomy-lit:#ffffff;--mat-body:#131315;--mat-shine:#2b2c30;--mat-shade:#0a0a0b;--mat-edge:#8c8e92}
-.iso[data-theme="light"] [data-mat="rubber"]{--anatomy-paper:#2a2b2e;--anatomy-face:#34363a;--anatomy-top:#46484d;--anatomy-shade-0:#1b1c1e;--anatomy-shade-1:#222326;--anatomy-shade-2:#2a2b2e;--anatomy-shade-3:#34363a;--anatomy-lit-top:#55575c;--anatomy-lit-shade:#2f3134;--anatomy-hi:#070708;--anatomy-mid:#111214;--anatomy-lo:#18191b;--anatomy-faint:#1f2023;--anatomy-dot:#6a6c70;--anatomy-lit:#000000;--mat-body:#27282b;--mat-shine:#5b5d62;--mat-shade:#121314;--mat-edge:#050506}
-.iso[data-theme="dark"] [data-mat="rubber"]{--anatomy-paper:#121213;--anatomy-face:#161618;--anatomy-top:#1c1c1f;--anatomy-shade-0:#0c0c0d;--anatomy-shade-1:#0f0f10;--anatomy-shade-2:#121213;--anatomy-shade-3:#161618;--anatomy-lit-top:#232327;--anatomy-lit-shade:#141416;--anatomy-hi:#8c8e92;--anatomy-mid:#4a4c50;--anatomy-lo:#2c2d30;--anatomy-faint:#1f2023;--anatomy-dot:#9a9ca0;--anatomy-lit:#ffffff;--mat-body:#131315;--mat-shine:#2b2c30;--mat-shade:#0a0a0b;--mat-edge:#8c8e92}
-[data-mat="brass"]{--anatomy-paper:#3d3017;--anatomy-face:#49391c;--anatomy-top:#574523;--anatomy-shade-0:#2a210f;--anatomy-shade-1:#332813;--anatomy-shade-2:#3d3017;--anatomy-shade-3:#49391c;--anatomy-lit-top:#66522b;--anatomy-lit-shade:#45371b;--anatomy-hi:#e9cf8a;--anatomy-mid:#8e7438;--anatomy-lo:#5e4c25;--anatomy-faint:#44371c;--anatomy-dot:#e9cf8a;--anatomy-lit:#fff0c8;--mat-body:#433419;--mat-shine:#8a6f36;--mat-shade:#21190b;--mat-edge:#e9cf8a}
-.iso[data-theme="light"] [data-mat="brass"]{--anatomy-paper:#bd9646;--anatomy-face:#d2ad5b;--anatomy-top:#e6c87e;--anatomy-shade-0:#8a6a2c;--anatomy-shade-1:#a47f38;--anatomy-shade-2:#bd9646;--anatomy-shade-3:#d2ad5b;--anatomy-lit-top:#f0d796;--anatomy-lit-shade:#c8a252;--anatomy-hi:#3f2e0e;--anatomy-mid:#765a24;--anatomy-lo:#9a7a3c;--anatomy-faint:#b08c46;--anatomy-dot:#3a2a0c;--anatomy-lit:#1f1606;--mat-body:#b8913f;--mat-shine:#efd795;--mat-shade:#7d5f26;--mat-edge:#3f2e0e}
-.iso[data-theme="dark"] [data-mat="brass"]{--anatomy-paper:#3d3017;--anatomy-face:#49391c;--anatomy-top:#574523;--anatomy-shade-0:#2a210f;--anatomy-shade-1:#332813;--anatomy-shade-2:#3d3017;--anatomy-shade-3:#49391c;--anatomy-lit-top:#66522b;--anatomy-lit-shade:#45371b;--anatomy-hi:#e9cf8a;--anatomy-mid:#8e7438;--anatomy-lo:#5e4c25;--anatomy-faint:#44371c;--anatomy-dot:#e9cf8a;--anatomy-lit:#fff0c8;--mat-body:#433419;--mat-shine:#8a6f36;--mat-shade:#21190b;--mat-edge:#e9cf8a}
-[data-mat="copper"]{--anatomy-paper:#3d1f13;--anatomy-face:#492617;--anatomy-top:#582e1c;--anatomy-shade-0:#2a160d;--anatomy-shade-1:#331a10;--anatomy-shade-2:#3d1f13;--anatomy-shade-3:#492617;--anatomy-lit-top:#673722;--anatomy-lit-shade:#432215;--anatomy-hi:#eaa985;--anatomy-mid:#8f5236;--anatomy-lo:#5f3624;--anatomy-faint:#45271a;--anatomy-dot:#eaa985;--anatomy-lit:#ffe0cc;--mat-body:#42221a;--mat-shine:#8a4c31;--mat-shade:#1f0f08;--mat-edge:#eaa985}
-.iso[data-theme="light"] [data-mat="copper"]{--anatomy-paper:#b3633e;--anatomy-face:#c9784f;--anatomy-top:#df9670;--anatomy-shade-0:#7c4128;--anatomy-shade-1:#9a5132;--anatomy-shade-2:#b3633e;--anatomy-shade-3:#c9784f;--anatomy-lit-top:#eaa985;--anatomy-lit-shade:#be6d46;--anatomy-hi:#3a1a0c;--anatomy-mid:#6e3820;--anatomy-lo:#925037;--anatomy-faint:#a65d3f;--anatomy-dot:#3a1a0c;--anatomy-lit:#1c0b04;--mat-body:#ad5f3b;--mat-shine:#f0b896;--mat-shade:#6e3720;--mat-edge:#3a1a0c}
-.iso[data-theme="dark"] [data-mat="copper"]{--anatomy-paper:#3d1f13;--anatomy-face:#492617;--anatomy-top:#582e1c;--anatomy-shade-0:#2a160d;--anatomy-shade-1:#331a10;--anatomy-shade-2:#3d1f13;--anatomy-shade-3:#492617;--anatomy-lit-top:#673722;--anatomy-lit-shade:#432215;--anatomy-hi:#eaa985;--anatomy-mid:#8f5236;--anatomy-lo:#5f3624;--anatomy-faint:#45271a;--anatomy-dot:#eaa985;--anatomy-lit:#ffe0cc;--mat-body:#42221a;--mat-shine:#8a4c31;--mat-shade:#1f0f08;--mat-edge:#eaa985}
+[data-mat="gold"]{--microscope-paper:#3f3521;--microscope-face:#4b3f28;--microscope-top:#5a4c31;--microscope-shade-0:#2b2416;--microscope-shade-1:#352c1b;--microscope-shade-2:#3f3521;--microscope-shade-3:#4b3f28;--microscope-lit-top:#6a5a3b;--microscope-lit-shade:#4f4329;--microscope-hi:#e6d2a3;--microscope-mid:#8a7550;--microscope-lo:#5e4e33;--microscope-faint:#463a26;--microscope-dot:#e6d2a3;--microscope-lit:#fff3d6;--mat-body:#4a3e27;--mat-shine:#8c7853;--mat-shade:#251f13;--mat-edge:#e6d2a3}
+.iso[data-theme="light"] [data-mat="gold"]{--microscope-paper:#d3bb88;--microscope-face:#e4d2a8;--microscope-top:#f1e5c6;--microscope-shade-0:#a1844f;--microscope-shade-1:#bc9f69;--microscope-shade-2:#d3bb88;--microscope-shade-3:#e4d2a8;--microscope-lit-top:#f8efd8;--microscope-lit-shade:#dfcb9c;--microscope-hi:#4b3920;--microscope-mid:#86693f;--microscope-lo:#a98c5b;--microscope-faint:#c1a676;--microscope-dot:#4a381f;--microscope-lit:#2a1d0c;--mat-body:#cdb07a;--mat-shine:#f3e8cc;--mat-shade:#8e7044;--mat-edge:#4b3920}
+.iso[data-theme="dark"] [data-mat="gold"]{--microscope-paper:#3f3521;--microscope-face:#4b3f28;--microscope-top:#5a4c31;--microscope-shade-0:#2b2416;--microscope-shade-1:#352c1b;--microscope-shade-2:#3f3521;--microscope-shade-3:#4b3f28;--microscope-lit-top:#6a5a3b;--microscope-lit-shade:#4f4329;--microscope-hi:#e6d2a3;--microscope-mid:#8a7550;--microscope-lo:#5e4e33;--microscope-faint:#463a26;--microscope-dot:#e6d2a3;--microscope-lit:#fff3d6;--mat-body:#4a3e27;--mat-shine:#8c7853;--mat-shade:#251f13;--mat-edge:#e6d2a3}
+[data-mat="chrome"]{--microscope-paper:#2a2e32;--microscope-face:#4a5056;--microscope-top:#6e757c;--microscope-shade-0:#2e3236;--microscope-shade-1:#24272b;--microscope-shade-2:#1a1d20;--microscope-shade-3:#4a5056;--microscope-lit-top:#848b92;--microscope-lit-shade:#3a3f44;--microscope-hi:#dfe3e7;--microscope-mid:#7c838a;--microscope-lo:#4d5359;--microscope-faint:#363b40;--microscope-dot:#e4e7ea;--microscope-lit:#ffffff;--mat-body:#34393e;--mat-shine:#9aa1a8;--mat-shade:#16191b;--mat-edge:#dfe3e7}
+.iso[data-theme="light"] [data-mat="chrome"]{--microscope-paper:#8e959c;--microscope-face:#c3c8cd;--microscope-top:#f7f8f9;--microscope-shade-0:#a2a9b0;--microscope-shade-1:#6f767d;--microscope-shade-2:#454b52;--microscope-shade-3:#cacfd4;--microscope-lit-top:#ffffff;--microscope-lit-shade:#bcc2c8;--microscope-hi:#202428;--microscope-mid:#585e65;--microscope-lo:#878d94;--microscope-faint:#a9afb5;--microscope-dot:#2a2e33;--microscope-lit:#000000;--mat-body:#8b9299;--mat-shine:#fbfcfd;--mat-shade:#3c4248;--mat-edge:#202428}
+.iso[data-theme="dark"] [data-mat="chrome"]{--microscope-paper:#2a2e32;--microscope-face:#4a5056;--microscope-top:#6e757c;--microscope-shade-0:#2e3236;--microscope-shade-1:#24272b;--microscope-shade-2:#1a1d20;--microscope-shade-3:#4a5056;--microscope-lit-top:#848b92;--microscope-lit-shade:#3a3f44;--microscope-hi:#dfe3e7;--microscope-mid:#7c838a;--microscope-lo:#4d5359;--microscope-faint:#363b40;--microscope-dot:#e4e7ea;--microscope-lit:#ffffff;--mat-body:#34393e;--mat-shine:#9aa1a8;--mat-shade:#16191b;--mat-edge:#dfe3e7}
+[data-mat="steel"]{--microscope-paper:#2c3034;--microscope-face:#34393d;--microscope-top:#3e4348;--microscope-shade-0:#1f2225;--microscope-shade-1:#25292c;--microscope-shade-2:#2c3034;--microscope-shade-3:#34393d;--microscope-lit-top:#4a5056;--microscope-lit-shade:#33383c;--microscope-hi:#d0d4d8;--microscope-mid:#727980;--microscope-lo:#4a5056;--microscope-faint:#33383d;--microscope-dot:#d8dce0;--microscope-lit:#ffffff;--mat-body:#30353a;--mat-shine:#5c6369;--mat-shade:#1a1d20;--mat-edge:#d0d4d8}
+.iso[data-theme="light"] [data-mat="steel"]{--microscope-paper:#b8bdc1;--microscope-face:#cdd1d4;--microscope-top:#e5e8ea;--microscope-shade-0:#8f959b;--microscope-shade-1:#a4aaaf;--microscope-shade-2:#b8bdc1;--microscope-shade-3:#cdd1d4;--microscope-lit-top:#f1f3f4;--microscope-lit-shade:#c6cacd;--microscope-hi:#2b2f33;--microscope-mid:#6b7177;--microscope-lo:#959ba1;--microscope-faint:#aeb3b8;--microscope-dot:#33373b;--microscope-lit:#000000;--mat-body:#b3b8bd;--mat-shine:#eef0f2;--mat-shade:#7d8389;--mat-edge:#2b2f33}
+.iso[data-theme="dark"] [data-mat="steel"]{--microscope-paper:#2c3034;--microscope-face:#34393d;--microscope-top:#3e4348;--microscope-shade-0:#1f2225;--microscope-shade-1:#25292c;--microscope-shade-2:#2c3034;--microscope-shade-3:#34393d;--microscope-lit-top:#4a5056;--microscope-lit-shade:#33383c;--microscope-hi:#d0d4d8;--microscope-mid:#727980;--microscope-lo:#4a5056;--microscope-faint:#33383d;--microscope-dot:#d8dce0;--microscope-lit:#ffffff;--mat-body:#30353a;--mat-shine:#5c6369;--mat-shade:#1a1d20;--mat-edge:#d0d4d8}
+[data-mat="gunmetal"]{--microscope-paper:#1d2125;--microscope-face:#22272b;--microscope-top:#2a2f34;--microscope-shade-0:#15181b;--microscope-shade-1:#191c20;--microscope-shade-2:#1d2125;--microscope-shade-3:#22272b;--microscope-lit-top:#323840;--microscope-lit-shade:#20252a;--microscope-hi:#a9b0b7;--microscope-mid:#5c636a;--microscope-lo:#3a4046;--microscope-faint:#2a2f34;--microscope-dot:#b8bec4;--microscope-lit:#ffffff;--mat-body:#1f2327;--mat-shine:#3a4046;--mat-shade:#111316;--mat-edge:#a9b0b7}
+.iso[data-theme="light"] [data-mat="gunmetal"]{--microscope-paper:#444a51;--microscope-face:#50575e;--microscope-top:#5f666e;--microscope-shade-0:#2f3439;--microscope-shade-1:#393f45;--microscope-shade-2:#444a51;--microscope-shade-3:#50575e;--microscope-lit-top:#6d757d;--microscope-lit-shade:#4b5258;--microscope-hi:#0f1113;--microscope-mid:#1d2125;--microscope-lo:#272b30;--microscope-faint:#30353a;--microscope-dot:#b0b5ba;--microscope-lit:#000000;--mat-body:#3d4349;--mat-shine:#6e757c;--mat-shade:#24282c;--mat-edge:#0f1113}
+.iso[data-theme="dark"] [data-mat="gunmetal"]{--microscope-paper:#1d2125;--microscope-face:#22272b;--microscope-top:#2a2f34;--microscope-shade-0:#15181b;--microscope-shade-1:#191c20;--microscope-shade-2:#1d2125;--microscope-shade-3:#22272b;--microscope-lit-top:#323840;--microscope-lit-shade:#20252a;--microscope-hi:#a9b0b7;--microscope-mid:#5c636a;--microscope-lo:#3a4046;--microscope-faint:#2a2f34;--microscope-dot:#b8bec4;--microscope-lit:#ffffff;--mat-body:#1f2327;--mat-shine:#3a4046;--mat-shade:#111316;--mat-edge:#a9b0b7}
+[data-mat="rubber"]{--microscope-paper:#121213;--microscope-face:#161618;--microscope-top:#1c1c1f;--microscope-shade-0:#0c0c0d;--microscope-shade-1:#0f0f10;--microscope-shade-2:#121213;--microscope-shade-3:#161618;--microscope-lit-top:#232327;--microscope-lit-shade:#141416;--microscope-hi:#8c8e92;--microscope-mid:#4a4c50;--microscope-lo:#2c2d30;--microscope-faint:#1f2023;--microscope-dot:#9a9ca0;--microscope-lit:#ffffff;--mat-body:#131315;--mat-shine:#2b2c30;--mat-shade:#0a0a0b;--mat-edge:#8c8e92}
+.iso[data-theme="light"] [data-mat="rubber"]{--microscope-paper:#2a2b2e;--microscope-face:#34363a;--microscope-top:#46484d;--microscope-shade-0:#1b1c1e;--microscope-shade-1:#222326;--microscope-shade-2:#2a2b2e;--microscope-shade-3:#34363a;--microscope-lit-top:#55575c;--microscope-lit-shade:#2f3134;--microscope-hi:#070708;--microscope-mid:#111214;--microscope-lo:#18191b;--microscope-faint:#1f2023;--microscope-dot:#6a6c70;--microscope-lit:#000000;--mat-body:#27282b;--mat-shine:#5b5d62;--mat-shade:#121314;--mat-edge:#050506}
+.iso[data-theme="dark"] [data-mat="rubber"]{--microscope-paper:#121213;--microscope-face:#161618;--microscope-top:#1c1c1f;--microscope-shade-0:#0c0c0d;--microscope-shade-1:#0f0f10;--microscope-shade-2:#121213;--microscope-shade-3:#161618;--microscope-lit-top:#232327;--microscope-lit-shade:#141416;--microscope-hi:#8c8e92;--microscope-mid:#4a4c50;--microscope-lo:#2c2d30;--microscope-faint:#1f2023;--microscope-dot:#9a9ca0;--microscope-lit:#ffffff;--mat-body:#131315;--mat-shine:#2b2c30;--mat-shade:#0a0a0b;--mat-edge:#8c8e92}
+[data-mat="brass"]{--microscope-paper:#3d3017;--microscope-face:#49391c;--microscope-top:#574523;--microscope-shade-0:#2a210f;--microscope-shade-1:#332813;--microscope-shade-2:#3d3017;--microscope-shade-3:#49391c;--microscope-lit-top:#66522b;--microscope-lit-shade:#45371b;--microscope-hi:#e9cf8a;--microscope-mid:#8e7438;--microscope-lo:#5e4c25;--microscope-faint:#44371c;--microscope-dot:#e9cf8a;--microscope-lit:#fff0c8;--mat-body:#433419;--mat-shine:#8a6f36;--mat-shade:#21190b;--mat-edge:#e9cf8a}
+.iso[data-theme="light"] [data-mat="brass"]{--microscope-paper:#bd9646;--microscope-face:#d2ad5b;--microscope-top:#e6c87e;--microscope-shade-0:#8a6a2c;--microscope-shade-1:#a47f38;--microscope-shade-2:#bd9646;--microscope-shade-3:#d2ad5b;--microscope-lit-top:#f0d796;--microscope-lit-shade:#c8a252;--microscope-hi:#3f2e0e;--microscope-mid:#765a24;--microscope-lo:#9a7a3c;--microscope-faint:#b08c46;--microscope-dot:#3a2a0c;--microscope-lit:#1f1606;--mat-body:#b8913f;--mat-shine:#efd795;--mat-shade:#7d5f26;--mat-edge:#3f2e0e}
+.iso[data-theme="dark"] [data-mat="brass"]{--microscope-paper:#3d3017;--microscope-face:#49391c;--microscope-top:#574523;--microscope-shade-0:#2a210f;--microscope-shade-1:#332813;--microscope-shade-2:#3d3017;--microscope-shade-3:#49391c;--microscope-lit-top:#66522b;--microscope-lit-shade:#45371b;--microscope-hi:#e9cf8a;--microscope-mid:#8e7438;--microscope-lo:#5e4c25;--microscope-faint:#44371c;--microscope-dot:#e9cf8a;--microscope-lit:#fff0c8;--mat-body:#433419;--mat-shine:#8a6f36;--mat-shade:#21190b;--mat-edge:#e9cf8a}
+[data-mat="copper"]{--microscope-paper:#3d1f13;--microscope-face:#492617;--microscope-top:#582e1c;--microscope-shade-0:#2a160d;--microscope-shade-1:#331a10;--microscope-shade-2:#3d1f13;--microscope-shade-3:#492617;--microscope-lit-top:#673722;--microscope-lit-shade:#432215;--microscope-hi:#eaa985;--microscope-mid:#8f5236;--microscope-lo:#5f3624;--microscope-faint:#45271a;--microscope-dot:#eaa985;--microscope-lit:#ffe0cc;--mat-body:#42221a;--mat-shine:#8a4c31;--mat-shade:#1f0f08;--mat-edge:#eaa985}
+.iso[data-theme="light"] [data-mat="copper"]{--microscope-paper:#b3633e;--microscope-face:#c9784f;--microscope-top:#df9670;--microscope-shade-0:#7c4128;--microscope-shade-1:#9a5132;--microscope-shade-2:#b3633e;--microscope-shade-3:#c9784f;--microscope-lit-top:#eaa985;--microscope-lit-shade:#be6d46;--microscope-hi:#3a1a0c;--microscope-mid:#6e3820;--microscope-lo:#925037;--microscope-faint:#a65d3f;--microscope-dot:#3a1a0c;--microscope-lit:#1c0b04;--mat-body:#ad5f3b;--mat-shine:#f0b896;--mat-shade:#6e3720;--mat-edge:#3a1a0c}
+.iso[data-theme="dark"] [data-mat="copper"]{--microscope-paper:#3d1f13;--microscope-face:#492617;--microscope-top:#582e1c;--microscope-shade-0:#2a160d;--microscope-shade-1:#331a10;--microscope-shade-2:#3d1f13;--microscope-shade-3:#492617;--microscope-lit-top:#673722;--microscope-lit-shade:#432215;--microscope-hi:#eaa985;--microscope-mid:#8f5236;--microscope-lo:#5f3624;--microscope-faint:#45271a;--microscope-dot:#eaa985;--microscope-lit:#ffe0cc;--mat-body:#42221a;--mat-shine:#8a4c31;--mat-shade:#1f0f08;--mat-edge:#eaa985}
 [data-mat] .tb-body{fill:var(--mat-body)}
 [data-mat] .tb-shine{fill:var(--mat-shine)}
 [data-mat] .tb-shade{fill:var(--mat-shade)}
 [data-mat] .tb-edge{stroke:var(--mat-edge)}
-.tb[data-hue="red"]{--tb-ink:var(--anatomy-red)}
-.tb[data-hue="green"]{--tb-ink:var(--anatomy-green)}
-.tb[data-hue="blue"]{--tb-ink:var(--anatomy-blue)}
-.tb[data-hue] .tb-body{fill:color-mix(in srgb,var(--tb-ink) 54%,var(--anatomy-shade-2))}
-.tb[data-hue] .tb-shine{fill:color-mix(in srgb,var(--tb-ink) 16%,var(--anatomy-top))}
-.tb[data-hue] .tb-shade{fill:color-mix(in srgb,var(--tb-ink) 30%,var(--anatomy-hi))}
-.tb[data-hue] .tb-edge{stroke:color-mix(in srgb,var(--tb-ink) 38%,var(--anatomy-hi))}
+.tb[data-hue="red"]{--tb-ink:var(--microscope-red)}
+.tb[data-hue="green"]{--tb-ink:var(--microscope-green)}
+.tb[data-hue="blue"]{--tb-ink:var(--microscope-blue)}
+.tb[data-hue] .tb-body{fill:color-mix(in srgb,var(--tb-ink) 54%,var(--microscope-shade-2))}
+.tb[data-hue] .tb-shine{fill:color-mix(in srgb,var(--tb-ink) 16%,var(--microscope-top))}
+.tb[data-hue] .tb-shade{fill:color-mix(in srgb,var(--tb-ink) 30%,var(--microscope-hi))}
+.tb[data-hue] .tb-edge{stroke:color-mix(in srgb,var(--tb-ink) 38%,var(--microscope-hi))}
 .tb[data-hue][data-mat] .tb-body{fill:color-mix(in srgb,var(--tb-ink) 62%,var(--mat-body))}
 .tb[data-hue][data-mat] .tb-shine{fill:color-mix(in srgb,var(--tb-ink) 22%,var(--mat-shine))}
 .tb[data-hue][data-mat] .tb-shade{fill:color-mix(in srgb,var(--tb-ink) 46%,var(--mat-shade))}
@@ -3727,7 +3727,7 @@ const T3_MATERIALS = {
 
 function t3MaterialCss() {
   const rules = [];
-  const block = (values) => T3_MAT_KEYS.map((key, i) => `--anatomy-${key}:${values[i]}`).concat(T3_MAT_TUBE.map((key, i) => `--mat-${key}:${values[T3_MAT_KEYS.length + i]}`)).join(";");
+  const block = (values) => T3_MAT_KEYS.map((key, i) => `--microscope-${key}:${values[i]}`).concat(T3_MAT_TUBE.map((key, i) => `--mat-${key}:${values[T3_MAT_KEYS.length + i]}`)).join(";");
   for (const [name, { light, dark }] of Object.entries(T3_MATERIALS)) {
     rules.push(`[data-mat="${name}"]{${block(dark)}}`);
     rules.push(`.iso[data-theme="light"] [data-mat="${name}"]{${block(light)}}`);
@@ -3742,19 +3742,19 @@ function t3MaterialCss() {
 
 function t3Css() {
   const rules = [];
-  const ramp = "--tn-0:var(--anatomy-shade-0);--tn-1:var(--anatomy-shade-1);--tn-2:var(--anatomy-shade-2);--tn-3:var(--anatomy-shade-3);--tn-4:var(--anatomy-top)";
+  const ramp = "--tn-0:var(--microscope-shade-0);--tn-1:var(--microscope-shade-1);--tn-2:var(--microscope-shade-2);--tn-3:var(--microscope-shade-3);--tn-4:var(--microscope-top)";
   rules.push(`.iso-live{${ramp}}`);
   rules.push(`.iso-live [data-mat]{${ramp}}`);
-  rules.push(".iso-live [data-lit]{--tn-0:var(--anatomy-lit-shade);--tn-1:var(--anatomy-lit-shade);--tn-2:var(--anatomy-lit-shade);--tn-3:var(--anatomy-lit-shade);--tn-4:var(--anatomy-lit-top)}");
+  rules.push(".iso-live [data-lit]{--tn-0:var(--microscope-lit-shade);--tn-1:var(--microscope-lit-shade);--tn-2:var(--microscope-lit-shade);--tn-3:var(--microscope-lit-shade);--tn-4:var(--microscope-lit-top)}");
   const colour = "color-mix(in srgb,var(--ta) calc(100% - var(--f,0) * 100%),var(--tb))";
   rules.push(`.iso-tn{stroke-width:.4;stroke-linejoin:round;--ta:var(--tn-0);--tb:var(--tn-1);fill:${colour};stroke:${colour}}`);
   for (let i = 1; i < 4; i++) rules.push(`.iso-tn[data-b="${i}"]{--ta:var(--tn-${i});--tb:var(--tn-${i + 1})}`);
   rules.push(t3MaterialCss());
-  for (const hue of ["red", "green", "blue"]) rules.push(`.tb[data-hue="${hue}"]{--tb-ink:var(--anatomy-${hue})}`);
-  rules.push(".tb[data-hue] .tb-body{fill:color-mix(in srgb,var(--tb-ink) 54%,var(--anatomy-shade-2))}");
-  rules.push(".tb[data-hue] .tb-shine{fill:color-mix(in srgb,var(--tb-ink) 16%,var(--anatomy-top))}");
-  rules.push(".tb[data-hue] .tb-shade{fill:color-mix(in srgb,var(--tb-ink) 30%,var(--anatomy-hi))}");
-  rules.push(".tb[data-hue] .tb-edge{stroke:color-mix(in srgb,var(--tb-ink) 38%,var(--anatomy-hi))}");
+  for (const hue of ["red", "green", "blue"]) rules.push(`.tb[data-hue="${hue}"]{--tb-ink:var(--microscope-${hue})}`);
+  rules.push(".tb[data-hue] .tb-body{fill:color-mix(in srgb,var(--tb-ink) 54%,var(--microscope-shade-2))}");
+  rules.push(".tb[data-hue] .tb-shine{fill:color-mix(in srgb,var(--tb-ink) 16%,var(--microscope-top))}");
+  rules.push(".tb[data-hue] .tb-shade{fill:color-mix(in srgb,var(--tb-ink) 30%,var(--microscope-hi))}");
+  rules.push(".tb[data-hue] .tb-edge{stroke:color-mix(in srgb,var(--tb-ink) 38%,var(--microscope-hi))}");
   rules.push(".tb[data-hue][data-mat] .tb-body{fill:color-mix(in srgb,var(--tb-ink) 62%,var(--mat-body))}");
   rules.push(".tb[data-hue][data-mat] .tb-shine{fill:color-mix(in srgb,var(--tb-ink) 22%,var(--mat-shine))}");
   rules.push(".tb[data-hue][data-mat] .tb-shade{fill:color-mix(in srgb,var(--tb-ink) 46%,var(--mat-shade))}");

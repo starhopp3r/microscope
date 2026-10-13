@@ -20,7 +20,7 @@ for (const step of ["NaN", "Infinity", "-1", "721"])
     assert.doesNotMatch(result.stdout, /turn check passed/);
   });
 test("rejects an empty explicit pose list instead of auditing zero states", async () => {
-  const directory = await mkdtemp(join(tmpdir(), "anatomy-orbit-states-"));
+  const directory = await mkdtemp(join(tmpdir(), "microscope-orbit-states-"));
   try {
     const file = join(directory, "states.json"); await writeFile(file, "[]");
     const result = await run(["--order", "--states", file]);
@@ -40,7 +40,7 @@ test("preserves a valid native orbit sweep and its planted control", async () =>
 });
 
 test("preserves a nonempty explicit pose list and its planted control", async () => {
-  const directory = await mkdtemp(join(tmpdir(), "anatomy-orbit-states-"));
+  const directory = await mkdtemp(join(tmpdir(), "microscope-orbit-states-"));
   try {
     const file = join(directory, "states.json"); await writeFile(file, "[0,90]");
     const result = await run(["--order", "--states", file]);

@@ -11,7 +11,7 @@ const execute = promisify(execFile);
 const drive = fileURLToPath(new URL("drive.mjs", import.meta.url));
 
 async function run(actions) {
-  const directory = await mkdtemp(join(tmpdir(), "anatomy-drive-actions-"));
+  const directory = await mkdtemp(join(tmpdir(), "microscope-drive-actions-"));
   try {
     const page = join(directory, "figure.html");
     const file = join(directory, "actions.json");

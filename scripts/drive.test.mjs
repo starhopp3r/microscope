@@ -10,7 +10,7 @@ import test from "node:test";
 const execute = promisify(execFile);
 
 async function drive(expression, action = "eval") {
-  const directory = await mkdtemp(join(tmpdir(), "anatomy-drive-test-"));
+  const directory = await mkdtemp(join(tmpdir(), "microscope-drive-test-"));
   try {
     const page = join(directory, "figure.html");
     const actions = join(directory, "actions.json");

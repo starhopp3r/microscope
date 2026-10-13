@@ -1,6 +1,6 @@
-# Contributing to Anatomy
+# Contributing to Microscope
 
-Thank you for helping. Anatomy is judged by how its figures look at 4× zoom, so most of this guide is about checking your work before anyone else does.
+Thank you for helping. Microscope is judged by how its figures look at 4× zoom, so most of this guide is about checking your work before anyone else does.
 
 By taking part you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
@@ -13,28 +13,28 @@ You need:
 - **Claude Code**, Antigravity, OpenCode or Codex, to try the skill itself.
 
 ```sh
-git clone https://github.com/wheresryan22/anatomy.git
-cd anatomy
+git clone https://github.com/starhopp3r/microscope.git
+cd microscope
 ```
 
 To use your working copy as the skill while you change it, link it into your personal skills folder (move any installed copy out of the way first):
 
 ```sh
-ln -s "$PWD" ~/.claude/skills/anatomy
+ln -s "$PWD" ~/.claude/skills/microscope
 ```
 
 For Antigravity, for OpenCode, or for Codex:
 
 ```sh
-ln -s "$PWD" ~/.gemini/antigravity/skills/anatomy
+ln -s "$PWD" ~/.gemini/antigravity/skills/microscope
 ```
 
 ```sh
-ln -s "$PWD" ~/.config/opencode/skills/anatomy
+ln -s "$PWD" ~/.config/opencode/skills/microscope
 ```
 
 ```sh
-ln -s "$PWD" ~/.agents/skills/anatomy
+ln -s "$PWD" ~/.agents/skills/microscope
 ```
 
 ## Building the examples
@@ -42,6 +42,8 @@ ln -s "$PWD" ~/.agents/skills/anatomy
 Each framework-free example is one script that writes standalone pages next to itself. The built pages are committed.
 
 ```sh
+node examples/atp-synthase/build.mjs
+node examples/atp-synthase/build.mjs --light
 node examples/dial-indicator/build.mjs
 node examples/dial-indicator/build.mjs --light
 node examples/desk-computer/build.mjs
@@ -140,6 +142,7 @@ These come from [`SKILL.md`](SKILL.md) and [`references/`](references). A pull r
 - **Lines resolve and textures fade.** Every line ends on something. A rib row, bolt circle, seam or rule line ends on a real edge or fades out; it never stops in the middle of a surface. Curved surfaces shade smoothly, with no tone staircase.
 - **Shaders never pop.** Every uniform rides an envelope with an attack and a decay, a phase change is a crossfade, and every term reaches zero before any bound or canvas edge. The effect lives in world space in the figure's own camera, and the SVG still reads without WebGL.
 - **Every number is true.** The readout, the motion and the caption come from one model with the real numbers. Docs follow the same rule: never write a number or a feature you have not checked.
+- **Every biological claim has a source.** A count, size, rate, direction or structure added to `SKILL.md`, `references/biology.md` or a figure is checked against a primary source (a structure, a review, a textbook or the BioNumbers database), and the pull request names it.
 - **Read every PNG.** Look at 4× close-ups of every joint in both themes before you ask for a review.
 
 ## Changing the skill's text
@@ -160,4 +163,4 @@ CI must pass before a merge.
 
 ## Reporting a bug or asking for a figure
 
-Use the [issue forms](https://github.com/wheresryan22/anatomy/issues/new/choose). For a figure that came out wrong, include the prompt, the theme, where the figure lives (HTML, SVG or React), and a screenshot or close-up of the fault.
+Use the [issue forms](https://github.com/starhopp3r/microscope/issues/new/choose). For a figure that came out wrong, include the prompt, the theme, where the figure lives (HTML, SVG or React), and a screenshot or close-up of the fault.

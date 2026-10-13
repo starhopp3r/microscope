@@ -19,7 +19,7 @@
 }
 
 .ms:focus-visible {
-  outline: 1px solid var(--anatomy-muted);
+  outline: 1px solid var(--microscope-muted);
   outline-offset: 6px;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .ms-glass[data-lit] > .iso-edge {
-  stroke: var(--anatomy-lit);
+  stroke: var(--microscope-lit);
 }
 
 .ms-shine {
@@ -55,11 +55,11 @@
 }
 
 .ms-needle {
-  fill: var(--anatomy-lit-top);
+  fill: var(--microscope-lit-top);
 }
 
 .ms-pull .iso-wire-end {
-  transition: opacity 160ms var(--anatomy-ease);
+  transition: opacity 160ms var(--microscope-ease);
 }
 
 @media (prefers-reduced-motion: reduce) {

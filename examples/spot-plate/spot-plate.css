@@ -15,7 +15,7 @@
 }
 
 .ml:focus-visible {
-  outline: 1px solid var(--anatomy-muted);
+  outline: 1px solid var(--microscope-muted);
   outline-offset: 6px;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .ml-blade[data-out] > .iso-edge {
-  stroke: var(--anatomy-hi);
+  stroke: var(--microscope-hi);
 }
 
 .ml-fan-halo {

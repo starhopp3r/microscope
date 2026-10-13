@@ -11,7 +11,7 @@ const execute = promisify(execFile);
 const capture = fileURLToPath(new URL("capture.mjs", import.meta.url));
 
 test("capture creates nested output directories for initial and timed screenshots", async () => {
-  const directory = await mkdtemp(join(tmpdir(), "anatomy-capture-"));
+  const directory = await mkdtemp(join(tmpdir(), "microscope-capture-"));
   try {
     const page = join(directory, "figure.html");
     const output = join(directory, "shots", "closeups", "figure.png");
@@ -29,7 +29,7 @@ test("capture creates nested output directories for initial and timed screenshot
 });
 
 test("capture retains existing-directory output", async () => {
-  const directory = await mkdtemp(join(tmpdir(), "anatomy-capture-"));
+  const directory = await mkdtemp(join(tmpdir(), "microscope-capture-"));
   try {
     const page = join(directory, "figure.html");
     const output = join(directory, "figure.png");

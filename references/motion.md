@@ -20,7 +20,7 @@ A figure is alive when its mechanism moves the way the real thing would: a carri
 ## Keyboard and accessibility
 - The figure's root is focusable (`tabIndex=0`) with `role="slider"` (or `"group"` plus buttons when there are discrete choices), an `aria-label` that explains the controls, and `aria-valuenow`/`aria-valuetext` in words, such as "Pressed: 129.6 by 34.6 pixels, leaning 10.6 px". Write the value text when the reader's choice changes (a part selected, apart or assembled, firing or cold), not from the loop: screen readers announce every change of a focused slider's value text, so a readout ticking each frame ("Pc 290 bar · 222 tf") became a stream of numbers. Keep the visual readout and the accessible value separate (the Raptor's `say()` writes only the readout, `describe()` the value text); the live region carries the phases.
 - Keys: arrows step by a sensible unit (Shift for bigger steps), Home and End go to the extremes, Space or Enter presses or toggles, and Escape releases.
-- Show a focus ring: `outline: 1px solid var(--anatomy-muted); outline-offset: 6px`.
+- Show a focus ring: `outline: 1px solid var(--microscope-muted); outline-offset: 6px`.
 - The `<svg>` carries `role="img"` and an `aria-label` describing the object and what it shows.
 
 ## Vanilla loop (framework-free)
@@ -160,6 +160,6 @@ For a machine with phases, add a visually hidden `aria-live="polite"` element an
 ## CSS motion
 - `.iso-line[data-flow]` animates dashes, for things travelling along a path.
 - `.iso-dots circle[data-pulse]` blinks a dot grid slowly, for an "active" surface.
-- For hover lifts, wrap a group with `transition: transform 700ms var(--anatomy-ease)` and translate it up on hover.
+- For hover lifts, wrap a group with `transition: transform 700ms var(--microscope-ease)` and translate it up on hover.
 
 All of these switch off under reduced motion in `ISO_CSS`.

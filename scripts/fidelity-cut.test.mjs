@@ -8,7 +8,7 @@ import { pathToFileURL } from "node:url";
 import test from "node:test";
 const execute = promisify(execFile);
 async function run(kind, split = false, open = false, corrupt = null) {
-  const directory = await mkdtemp(join(tmpdir(), "anatomy-fidelity-cut-"));
+  const directory = await mkdtemp(join(tmpdir(), "microscope-fidelity-cut-"));
   try {
     const file = join(directory, "fixture.mjs");
     const module = pathToFileURL(resolve("kit/turn-build.mjs")).href;
