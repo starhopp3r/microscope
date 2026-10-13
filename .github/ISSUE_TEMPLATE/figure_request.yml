@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Microscope shows a biological structure or process as a precise model of the real specimen on a crafted mount: molecules, cells, microbes, plants, animals and the lab instruments that study them. It is not a chart library or a molecular viewer, and it does not draw whole people or exact maps.
+        Microscope draws a biological structure or process as an interactive, textbook-quality figure: molecules, cells, microbes, plants, animals and the lab techniques that study them. It is not a chart library or a molecular viewer, and it does not draw whole people or exact maps.
   - type: dropdown
     id: request
     attributes:

@@ -2,6 +2,9 @@
 
 How a figure comes to read as a crafted object rather than a diagram. Every rule here came from a figure that was rejected or approved by a demanding reviewer.
 
+> [!IMPORTANT]
+> This page is the engineering style inherited from Anatomy: machines on workbenches, monochrome, plates, screws and rulers. A Microscope biology figure never looks like this; its look is the textbook style in `references/biology.md`. From this page, use only the geometry: painter's order (section 5), and turned parts, tubes and clearance (section 8), when a figure needs them.
+
 ## Contents
 1. What "crafted" means
 2. Anti-patterns
@@ -19,7 +22,7 @@ How a figure comes to read as a crafted object rather than a diagram. Every rule
 
 The approved figures share five qualities.
 
-1. **A real object you could build.** The reader names it at a glance: a test rig, a dial indicator, a chest of drawers, a gantry plotter, a lock. It is invented for the subject, never traced from a reference. In this skill the object is usually a biological specimen on a crafted mount: the specimen is true to the organism and the mount is built with everything below (`biology.md`).
+1. **A real object you could build.** The reader names it at a glance: a test rig, a dial indicator, a chest of drawers, a gantry plotter, a lock. It is invented for the subject, never traced from a reference.
 2. **Many small, precise parts.** A good inline figure has 30–60 solids and 300–500 paths. A hero subject that really has more parts can carry far more: the desk computer has about 85 solids, and the Raptor about 270 solids in 478 depth-sorted items. Every part rests on another part, aligns to its neighbours and has a job. Density comes from structure (feet, rails, stops, bushings, knobs), not from texture.
 3. **Volume.** Parts have real thickness, sides shaded in four tones, lighter tops, bevels that catch light, and a soft halo underneath.
 4. **Calm.** Thin 0.6 px lines and a restrained palette. One lit accent tells the eye where to look. Motion is eased and slow enough to follow.
@@ -37,7 +40,6 @@ Reviewers rejected each of these, so don't do them:
 - **Colour everywhere.** Keep it monochrome unless colour is the subject: one lit accent plus true RGB only for colour channels. A fluid is not colour by default: oil in a sight glass, water in a tank and coolant in a pipe are tints of the figure's own inks, and the `--no-webgl` fallback draws the same tint the shader does. A blind-test bench painted its oil saturated orange in an otherwise grey figure, and its fallback oil was grey.
 - **Text in the drawing.** Allow at most one tiny engraved label (`FaceText` on a face). Everything else goes in the card corners, legend or caption.
 - **Copying a reference.** Take mood and finish from a reference, then invent the object. For a specimen, take the facts from papers and structures, never the drawing.
-- **Biology clip-art.** Floating organelles, lollipop membranes, blobby proteins, rainbow colours and wrong counts. `biology.md`, section 10, lists them with their fixes.
 - **Raw pointer jumps.** Parts that snap to the cursor. Ease everything.
 - **Pipes through pipes.** On the first Raptor the owner zoomed in and found cables and lines passing through the main ducts and through each other, "which makes no sense". At 1× it looked fine. Every pipe and cable keeps clear of everything but its own connection, every crossing is drawn in true depth order, and `kit/audit.mjs` proves both (section 8, "Clearance and crossings").
 - **Textures that stop.** On the same close-up, rows of bolt dots on the chamber stopped dead in the middle of the surface, and the bell and throat were shaded as a staircase of flat tone blocks. Both read as broken. The owner's words: if a texture has to end, "we'd rather fade them out at the end than an instant stop". Shade curved surfaces smoothly, and make a texture end on a real edge or fade out (section 8, "Shading and textures on curved surfaces").

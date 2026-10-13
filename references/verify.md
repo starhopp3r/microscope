@@ -246,13 +246,7 @@ window.requestAnimationFrame = (callback) => raf((now) => {
 **Both paths, and nested.** The dark build should match its baseline, because every light change is gated on `uLight`. Render a dark plate on a light page and a light plate on its own, each with and without WebGL: a `:not([data-theme="dark"])` rule can reach through the page into a dark plate.
 
 ## The review checklist
-**It is true** (`biology.md`, section 11)
-- [ ] A biologist names the specimen and the organism at a glance.
-- [ ] Every counted feature (subunits, segments, legs, chambers, filaments, layers) matches its true count, from a named constant.
-- [ ] Handedness, polarity and the direction of every flow and motion match the model and the literature.
-- [ ] Every part sits in its real compartment, and one level of scale holds throughout, shown by a correct scale bar.
-- [ ] Every number in the readout and caption is in `SOURCES`; the readout shows the real rate and the playback scale.
-- [ ] Parts are named by numbered legend keys that light them, not by labels in the drawing.
+For a biology figure, the review is `references/biology.md`, section 11: the biology first, then the textbook look. The checklist below is for the engineering style inherited from Anatomy; for a biology figure, use only its geometry items (painter's order, nothing passing through anything, motion and accessibility), never its look (plates, screws, rulers, monochrome, legend keys).
 
 **It is an object**
 - [ ] At a glance it reads as one real, well-made thing, and you can name it.

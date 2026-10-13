@@ -1,86 +1,85 @@
 # Biology
 
-How to make figures of living things that a biologist would sign off on: molecules, cells, microbes, plants and animals, and the instruments used to study them. Every rule in `craft.md` still applies. This page adds what the subject itself demands: true structure, true numbers, true counts, and a way to show them as a crafted object.
+How to make figures of living things that look like a good textbook's and that a biologist would sign off on: molecules, cells, microbes, plants and animals, and the techniques used to study them. The look is the textbook illustration (Campbell Biology, Alberts' Molecular Biology of the Cell, Raven, OpenStax); the truth is the primary literature.
 
 ## Contents
-1. The specimen is the explanation
-2. Pick the level and the mount
-3. Concepts and their specimens
+1. Draw it like a textbook
+2. Pick the level and the view
+3. Concepts and how textbooks draw them
 4. True numbers
-5. Building living forms with the kit
+5. Drawing living forms with `kit/bio.mjs`
 6. Getting it right: counts, handedness, polarity, compartments
-7. Tone, colour and stains
-8. Naming parts without labels
+7. Colour conventions
+8. Labels, arrows and the figure frame
 9. Time and motion in living systems
 10. Anti-patterns
-11. Biology review
-12. Design sketch: ATP synthase
+11. Biology and textbook review
+12. Design: ATP synthase
 
-## 1. The specimen is the explanation
+## 1. Draw it like a textbook
 
-In engineering, the skill invents a machine whose working is the idea. In biology you don't need to invent one: the real structure already is the mechanism. ATP synthase really is a rotary motor. A bacterial flagellum really is driven by a rotor and stators. Stomata really open because two guard cells swell. Draw the real thing, built with the same care as the Raptor: every subunit, every layer, every segment, in its true count and proportion.
+A good textbook figure does four things at once:
 
-What you still invent is the **presentation**: how the specimen is cut, mounted and lit so the mechanism is in view. Think of the best physical teaching models: the 1953 DNA model was built from metal plates on rods on a stand, Kendrew's myoglobin was a forest of rods, and museum models of a leaf or a heart are cut open on a plinth. Your figure is that kind of model, made precisely.
+- **It shows the real structure.** The parts are the right shape, in the right number, in the right place.
+- **It simplifies.** It leaves out what the idea doesn't need, and nothing it keeps is false.
+- **It names.** Labels with thin leaders name every part the text talks about, and compartment names say where we are.
+- **It explains.** Arrows show what flows and what moves, and the reaction is written where it happens.
 
-Two ways this fails in biology:
+The visual language is consistent across good textbooks:
 
-- **Textbook clip-art.** A "fried egg" cell with organelles floating as coloured beans, a lollipop membrane, a ribosome drawn as a snowman. None of it is wrong enough to argue with, and none of it is true enough to learn from.
-- **Abstract diagram.** Arrows between labelled boxes for a pathway. If a process has no structure you can draw, pick the machine or the compartment that carries it out (the electron transport chain is four complexes in a membrane, not four boxes).
+- **Soft, rounded bodies with gradient shading.** Light comes from the upper left, with a highlight and a shadowed lower edge. Proteins look like smooth clay models of their subunits; cells and organelles like soft balloons cut open.
+- **Colour by structure.** One colour per kind of thing, kept constant: the membrane's orange heads and pale tails, chlorophyll green, DNA bases in four colours, red protons. Outlines are a darker shade of the body's own colour.
+- **Membranes as bilayers.** Two rows of round heads with wavy tails between them, at the molecular scale. At the cell scale, a double line with the bilayer's colours.
+- **Tinted compartments** on a white ground, with the main ones named in spaced capitals.
+- **A gentle 3D view.** Usually a side view with a little of the top showing, or a cutaway block. Never a technical isometric with hard facets.
 
-## 2. Pick the level and the mount
+Microscope adds what a printed textbook can't: the figure moves on a true model, and the numbers in its readout are real.
 
-Choose one level of scale per figure and say it in the scale bar. One world unit stands for one fixed real length, chosen per figure:
+**Never make it look engineered.** The kit inherited from Anatomy draws machines: base plates, posts, screws, rulers, label plates, knurls, four-tone faceted shading, black hairlines, monochrome. None of it belongs in a biology figure. Don't mount a specimen on a stand, don't print a ruler on a plate, and don't render proteins as turned metal.
 
-| Level | Typical subject | 1 world unit ≈ | Scale bar |
+## 2. Pick the level and the view
+
+Choose one level of scale per figure and say it with a scale bar or in the caption. One world unit stands for one fixed real length, chosen per figure:
+
+| Level | Typical subject | 1 world unit ≈ | Textbook view |
 |---|---|---|---|
-| Molecular | DNA, an enzyme active site, a channel | 0.1–0.5 nm | 1 nm, 5 nm |
-| Macromolecular machine | ribosome, ATP synthase, flagellar motor, kinesin on a microtubule | 0.5–2 nm | 10 nm, 50 nm |
-| Organelle and microbe | mitochondrion, chloroplast, bacterium, virus particle | 5–50 nm | 100 nm, 1 µm |
-| Cell and tissue | neuron, guard cells, leaf section, sarcomere, gill lamella | 0.1–1 µm | 10 µm, 50 µm |
-| Organ and organism | heart, flower, insect thorax, fish gill arch, root tip | 10 µm–1 mm | 1 mm, 1 cm |
-| Instrument | microscope, thermocycler, gel tank, centrifuge | 1 mm | none, the instrument's own scales |
+| Molecular | DNA, an enzyme active site, a channel | 0.05–0.1 nm | Ribbon or space-filling cartoon, a helix lying across the page |
+| Macromolecular machine | ribosome, ATP synthase, flagellar motor, kinesin | 0.1 nm | Side view in a membrane strip, compartments above and below |
+| Organelle and microbe | mitochondrion, chloroplast, bacterium, virus | 5–20 nm | Cut open lengthwise to show the inside, with an inset to the molecular level |
+| Cell and tissue | neuron, guard cells, leaf section, sarcomere | 0.1–1 µm | Cross-section or a cutaway block with its layers on the cut faces |
+| Organ and organism | heart, flower, insect, fish gill | 10 µm–1 mm | Cut open to show the inside, or a whole organism with an enlarged inset |
+| Technique | PCR, gel electrophoresis, centrifugation | varies | The process in steps, with the instrument simplified to what matters |
 
-Never mix levels in one drawing. A ribosome drawn to scale inside a whole cell is a dot; a cell drawn around a full-size ribosome is a lie. When the idea spans levels, make a set of figures with one consistent visual language, each with its own scale bar, and say in each caption how they relate.
+Never mix levels in one drawing. When the idea spans levels, use the textbook device: a main view plus an inset joined to it by a thin outlined callout (a box on the main view, lines to the enlarged inset), each at its own scale.
 
-Then choose the **mount**, the crafted part that holds the specimen and carries the card's furniture:
+Put compartments where textbooks put them: the intermembrane space above and the matrix below for the inner mitochondrial membrane, the stroma below the thylakoid, the outside of a cell above its plasma membrane, the lumen inside. Then choose a gentle camera: elevation 10–25°, with the long axis across the screen.
 
-- **A plinth or stand** for a cutaway model (an organ, a flower, a cell). A base plate on feet, a mounting rod or cradle, a label plate, a scale-bar strip in place of the ruler strip.
-- **A slide on a stage** for a thin specimen (a leaf peel, a blood smear, a bacterial culture): a glass slide with a coverslip on stage clips, the stage's vernier scales as the ruler.
-- **A cut block** for tissue: the specimen itself is a block cut from the organism, its section faces showing the layers, like a slice of cake. It may sit on a microtome chuck.
-- **A molecular model on its stand** for machines and molecules: the specimen held on a slender post or clamped between two posts, like the classic brass and wire models.
-- **The membrane patch** for anything that lives in a membrane: a square of bilayer cut from the cell, with its edges as section faces. It often needs no other mount.
+## 3. Concepts and how textbooks draw them
 
-The mount supplies the bench detail the craft rules ask for (feet, screws, seams, a label plate), but the specimen carries the idea and most of the parts. Budget about 70% of the parts list for the specimen and 30% for the mount. The specimen is `hi`; the mount is `lo` and `mid`.
-
-## 3. Concepts and their specimens
-
-| Concept | Specimen and mount | What moves, and what that means |
+| Concept | How to draw it | What moves |
 |---|---|---|
-| Oxidative phosphorylation, chemiosmosis | A patch of inner mitochondrial membrane with ATP synthase, F1 head in the matrix | Protons pass the a-subunit and turn the c-ring; the γ stalk turns in α3β3 and each 120° releases one ATP |
-| Bacterial motility, chemotaxis | An E. coli envelope cut open at a flagellar motor, the filament running out to a bundle | Counter-clockwise rotation, viewed from outside the cell, bundles the filaments (a run); clockwise unbundles them (a tumble) |
-| Translation | A ribosome (large and small subunit) on an mRNA strand, on a model stand | tRNAs enter at A, shift to P and leave from E; the chain grows out of the exit tunnel one residue per codon |
-| DNA replication | A replication fork: helicase ring, primase, two or three polymerases, sliding clamps | The leading strand runs on; the lagging strand loops back and fills in Okazaki fragments |
-| Transcription | RNA polymerase on a DNA duplex with an open bubble | The bubble travels; the transcript leaves from the exit channel |
-| Gene editing | Cas9 with its guide RNA on a DNA duplex | The duplex unwinds next to the PAM, the guide pairs, and both strands are cut at one point |
-| Action potential, saltatory conduction | An axon segment cut lengthwise: myelin wraps, nodes of Ranvier with Na⁺ and K⁺ channels | Channels open node by node; the membrane potential readout swings and recovers |
-| Synaptic transmission | A synapse cut open: vesicles, the cleft, receptors on the far side | A vesicle fuses (a distance-field merge, as in `spot-plate`) and transmitter crosses the cleft |
-| Muscle contraction | A sarcomere model: Z-discs as plates, thin and thick filaments as rods, myosin heads on the thick ones | The thin filaments slide inward; the I band and H zone shorten while the A band keeps its length |
-| Cargo transport | A microtubule section (13 protofilaments) with kinesin and a vesicle | The heads step hand over hand, 8 nm per ATP, toward the plus end |
-| Oxygen transport | Haemoglobin on a stand, or a red cell in a capillary section | Each O₂ bound makes the next one easier; the saturation readout follows the sigmoid |
-| Photosynthesis | A chloroplast cut open: envelope, grana stacks, stroma lamellae | Light on the thylakoids drives the readouts; the Calvin cycle runs in the stroma |
-| Gas exchange in plants | A block cut from a leaf: cuticle, epidermis, palisade, spongy mesophyll, a vein, stomata | Guard cells swell with turgor and the pore opens |
-| Transpiration | A stem and root cutaway with xylem vessels drawn as tubes | Water rises under tension as it evaporates from the leaf |
-| Pollination and fertilisation | A flower cut lengthwise on a stand | A pollen tube grows down the style to an ovule |
-| Mitosis | A spindle on a cell-section mount: centrosomes, microtubules, kinetochores, chromosomes | Chromosomes line up, then sister chromatids are pulled to the poles |
-| Viral entry | A virion docking on a membrane patch | Spikes bind receptors; the envelope fuses with the membrane |
-| Gram staining | Two envelope blocks side by side, Gram-positive and Gram-negative | Crystal violet stays in the thick wall (iodine fixes it) and alcohol washes it out of the thin one; safranin counterstains |
-| Countercurrent exchange | A fish gill arch with filaments and lamellae, cut to show the flows | Water and blood run in opposite directions; the O₂ readout follows the gradient along the lamella |
-| Insect flight | A thorax cut open with its indirect flight muscles | The muscles flex the thorax walls, and the wings flip up and down |
-| Heart cycle | A four-chambered heart cut open on a plinth | Valves open and close with the pressure readout; chambers contract in order |
-| PCR | A thermocycler with its lid up and a tube strip in the block | The block steps through denature, anneal and extend; the copy count doubles each cycle |
-| Gel electrophoresis | A gel tank with its lid, electrodes and a comb | Bands run toward the anode, small fragments faster |
-| Centrifugation | A fixed-angle rotor with tubes | Particles pellet by size and density; the readout gives RCF from rpm and radius |
-| Microscopy itself | A compound light microscope | Turning the nosepiece changes the objective; the readout gives total magnification and resolution |
+| Oxidative phosphorylation, chemiosmosis | ATP synthase in a bilayer strip, intermembrane space above and matrix below; red H⁺ arrows through the stator | The c-ring and central stalk turn; one ATP leaves the head every 120° |
+| Electron transport chain | Complexes I–IV as coloured blobs in the bilayer, ubiquinone and cytochrome c as small carriers, e⁻ path arrows, H⁺ pumped up | Electrons hop along; H⁺ cross at I, III and IV |
+| Bacterial motility, chemotaxis | A rod-shaped cell with peritrichous flagella; an inset of the motor in the envelope | Counter-clockwise rotation, viewed from outside the cell, bundles the flagella into a run; clockwise unbundles them into a tumble |
+| Translation | Ribosome subunits on mRNA, tRNAs with anticodons in the E, P and A sites, a growing chain | tRNAs move A → P → E, one codon per step |
+| DNA structure | A double helix with coloured base pairs, sugar-phosphate backbones, 5′ and 3′ ends marked, major and minor grooves | Optional unwinding |
+| DNA replication | A fork with helicase, topoisomerase, SSBs, primase, sliding clamps, polymerases, and the leading and lagging strands with Okazaki fragments | The fork advances; the lagging strand loops |
+| Transcription | RNA polymerase on DNA with an open bubble and the RNA leaving | The bubble travels |
+| Gene editing | Cas9 with its guide RNA on DNA, PAM highlighted | The guide pairs, then both strands are cut |
+| Action potential | Axon with myelin and nodes; voltage-gated Na⁺ and K⁺ channels in a bilayer inset; a voltage trace | Channels open node by node |
+| Synaptic transmission | Synaptic knob with vesicles, the cleft, receptors on the postsynaptic membrane | Vesicles fuse; neurotransmitter crosses |
+| Muscle contraction | Sarcomere with Z-discs, thin actin and thick myosin filaments with heads | Filaments slide; the I band and H zone shorten |
+| Cargo transport | Microtubule of 13 protofilaments with kinesin carrying a vesicle | Hand-over-hand 8 nm steps to the plus end |
+| Photosynthesis | Chloroplast cut open (envelope, grana, stroma) plus a thylakoid membrane inset with photosystems | Light → e⁻ flow, H⁺ into the lumen, ATP synthase |
+| Gas exchange in a leaf | Leaf cross-section block with stomata | Guard cells swell; the pore opens; CO₂, O₂ and H₂O arrows |
+| Transpiration | Plant outline with roots, stem and leaf, plus xylem insets | Water rises; vapour leaves the stomata |
+| Mitosis | Cells in each phase with chromosomes, spindle and centrosomes | Chromatids separate |
+| Viral entry | Virion with spikes docking to receptors on a bilayer | Fusion, then release of the genome |
+| Gram staining | Two envelope cross-sections side by side, Gram-positive and Gram-negative | Crystal violet stays in the thick wall (iodine fixes it) and alcohol washes it out of the thin one |
+| Countercurrent exchange | Gill filament with lamellae, flows in opposite directions, an O₂ gradient shaded along the lamella | Water and blood move |
+| Heart cycle | A heart cut open in the frontal plane with chambers, valves and vessels; blue and red blood | Valves open and close; chambers contract in order |
+| PCR | Strands in three steps with the temperatures | Denature, anneal, extend; copies double |
+| Gel electrophoresis | Gel tank with wells and bands, − at the wells, + at the far end | Bands migrate by size |
 
 ## 4. True numbers
 
@@ -154,65 +153,98 @@ Collect the numbers before any geometry, for the organism you are drawing. These
 | Agarose gel | DNA is negatively charged and runs toward the anode (red, +); small fragments run faster; gels of about 0.7–2% agarose |
 | Centrifuge | RCF = 1.118 × 10⁻⁵ × r (cm) × rpm² |
 
-## 5. Building living forms with the kit
 
-Living things are mostly bodies of revolution, tubes, repeats and layers. The kit draws all four precisely. Freehand blobs never meet its standard: there is no shading model for them, no audit, and they read as clip-art at 4×.
+## 5. Drawing living forms with `kit/bio.mjs`
 
-**Bodies of revolution** (`kit/lathe.mjs`): give each one an analytic profile with `smooth: { slope }`, so it shades without a staircase.
-- A rod bacterium is a capsule: a cylinder with two hemispherical caps, one smooth profile along its long axis. Cocci are `sphereOf`. Yeast is a prolate ellipsoid, with a bud as a second, smaller one meeting it at a neck (a distance-field merge, as in `spot-plate`, when the neck is the point).
-- A red blood cell has a known analytic shape (Evans and Fung, 1972): for `ρ = r / R0`, the surface is at `z(ρ) = ±0.5 · √(1 − ρ²) · (C0 + C2·ρ² + C4·ρ⁴)` with `R0 = 3.91 µm`, `C0 = 0.81 µm`, `C2 = 7.83 µm`, `C4 = −4.39 µm` (the coefficient names Evans and Fung use), which gives about 0.81 µm through the centre, about 2.6 µm at the thickest point of the rim (r ≈ 2.7 µm) and 7.82 µm across. Because the middle is concave, trace it as a closed meridian (`[s, r]` with `s` along the disc's axis, every knot marked smooth, sampled densely near the rim) for `G.lathe`, and record it with `A.lathe`.
-- Organelles, nuclei, vesicles, seeds, ovaries, eggs and virions are spheres, ellipsoids or turned profiles. Pores on a nucleus and spikes on a virion are `dotsOf` and short `disc`s or tubes on the outward normal, faded toward the limb (`fade`), never stopped.
-- Filament cross-sections are turned too: a microtubule is a `ringBand` (25 nm outside, 15 nm inside) whose 13 protofilaments are `ribsOf(…, { seams: true })` along its axis. A flagellar motor is a stack of rings and discs on one axis.
+Everything is drawn in the figure's 3D camera (`fitProjection`, `iso`, `depthOf` from `kit/iso-kit.mjs`) and rendered with the soft bodies in `kit/bio.mjs`. Give every body a depth (the `depthOf` of its centre) and paint them back to front with `sortedSvg`.
 
-**Repeats and symmetry.** Biological machines are built of identical subunits in exact numbers. Build one subunit, then place it `n` times around the axis at `2π / n` (a c-ring of 8, α3β3 alternating around the γ stalk, the 8 spokes of a nuclear pore, 13 protofilaments). The count is part of the explanation, so the readout and caption state it, and the build derives both from the same constant.
+**Bodies.**
+- `sphere` for ions, small molecules, globular domains, vesicles and cocci.
+- `ellipsoid` (upright) for subunits, organelles, nuclei, yeast cells and lobes. Lie it down by building it in the figure's frame, or approximate with a few overlapping ellipsoids.
+- `capsule` (upright) for rod-shaped parts: c subunits, a central stalk, helices drawn as cylinders, rod-shaped bacteria standing up.
+- A protein is several bodies, one per subunit or domain, in their true number and symmetry: a ring of 8 capsules, an alternating hexamer of α and β ellipsoids. Build one and place it `n` times around the axis, at angles `2π / n`.
 
-**Strands and helices** (`kit/tube.mjs`): DNA, RNA, protein chains, flagellar filaments, hyphae, axons and vessels are tubes.
-- A double helix is two backbone routes, each a helix sampled finely enough for `fillet`, offset in phase so the major and minor grooves come out at their true widths. Base pairs are short rods (thin `disc`s or prisms) between the backbones, one per 0.34 nm of rise, recorded and depth-sorted with the backbone chunks around them. Break the backbones into chunks at every half-turn, so each chunk orders against the rungs it passes.
-- A helical filament (a flagellum, an actin filament) is a helix route with a constant radius. Keep every bend inside the fold rules in `craft.md`, section 8: a helix seen end-on pinches, so lay its axis across the screen.
-- Never draw a strand as a dashed line or a sine wave on a flat plane. It has a cross-section, and it twists in depth.
+**Strands and tubes.** `rope(P, points, r, swatch)` draws a smooth tube with an edge, a body and a highlight. Use it for mRNA, polypeptides, flagella, stalks, filaments, axons, hyphae, vessels and root hairs. Split a long rope into back and front runs where it wraps something.
 
-**Layers and tissue.**
-- A membrane patch is two leaflet slabs with a hairline between them. Its head groups are a `dotGrid` on the top face (`mid`, size about 0.45), and its cut faces show the bilayer in section, drawn in the face plane (`sideMatrix`): two rows of head circles with paired tail lines between them, running edge to edge.
-- Plant tissue is cells as solids: epidermal cells are flat extruded polygons, palisade cells are upright rounded columns (`slabOf` with a large `r`), spongy cells are irregular but convex prisms with real air spaces between them. Cell walls are the gaps between neighbouring cells, the same width throughout, with the middle lamella as a `faint` line in the gap.
-- A block cut from an organ or a leaf shows its layers on the section faces, and its top face shows the outer surface (cuticle, epidermis, scales, skin). Section faces are flat and drawn with the cavity treatment in `craft.md`, section 7: their own token set, darker than the outer surface, so the cut reads as a cut. No hatching.
+**DNA.** `doubleHelix(P, from, to, { radius, rise, perTurn, groove, sequence })` draws B-DNA with coloured base pairs:
+- It defaults to 10.5 bp per turn, and `groove` (the angle between the strands, about 140°) sets the minor and major grooves.
+- It returns depth items: back runs, then base pairs, then front runs.
+- The kit's camera is mirror-handed (seen from above, +x to +y looks clockwise), so `doubleHelix` flips its sense so that `hand: "right"` looks right-handed on screen. Check it: on a helix lying across the page, the strand nearest the viewer slopes down to the right.
 
-**Things that pass through things.** A transmembrane protein crosses the membrane; a capillary threads through tissue; an axon passes through its myelin. Nothing may be sunk in (`craft.md`, section 8, "Contacts and junctions"), so cut the host instead:
-- Split the membrane at the protein into a back piece, drawn before the protein, and a front piece with an opening cut to the protein's outline, drawn after it. Or cut the front of the patch away entirely so the transmembrane part is in full view.
-- Where a protein meets the membrane, the contact is a rim on a surface: the protein's hydrophobic belt stands exactly in the bilayer's thickness, flush with both leaflet faces.
-- Record both pieces and the protein, and run the audit to zero as for any figure with round parts.
+**Membranes.**
+- `bilayer(P, box)` draws a membrane strip: heads in staggered rows on its top surface, and on each visible cut face two rows of heads with wavy tails meeting at the midplane. Use it at the molecular and machine levels, about 4–5 nm thick. `skip([x, y])` leaves out top heads where a protein stands.
+- At the cell and organelle level, `membraneLoop(P, points)` draws a membrane in section as a band in the bilayer's colours. Draw two loops for an envelope (the inner and outer mitochondrial membranes, a Gram-negative envelope, the nuclear envelope).
+- A transmembrane protein is drawn in front of the bilayer strip at the same height, which reads as embedded, or in a gap in the heads made with `skip`.
 
-**Limbs, segments and joints.** Arthropod legs, antennae and mouthparts are struts with ball joints in all but name: each segment is a turned part along its own axis, and each joint is a `sphereOf` the neighbouring segments meet rim-on-sphere (`craft.md`, section 8, "Struts end in ball joints"). Count the segments; they are diagnostic.
+**Cells and tissue.** A cell is a soft outline (`membraneLoop`, plus a `wall` band for plants) filled with the cytosol tint, with organelles drawn as cut-open bodies inside. Tissue is cells side by side with real air spaces where there are any. Cut faces of a block show the layers in their own tint.
 
-**Shapes that merge.** Membrane fusion, vesicle budding, cell division and pollen-tube growth change topology. Draw them from one distance field per pair, as `examples/spot-plate/` does for drops, so the two bodies run together into one without a seam or a pop.
+**Arrows and reactions.**
+- `arrow(points, { flow: true })` draws a flow along its real path: H⁺ through a channel, e⁻ along a chain, water up a vessel.
+- `arrow(points)` draws a dark motion arrow; `arcPoints` gives a rotation arc around an axis.
+- Write a reaction as text with a curved arrow beside the site, never inside a body.
+
+**Shapes that merge.** Fusion, budding and division change topology. Draw them from one distance field per pair, as `examples/spot-plate/` does, rendered with the swatch's gradient, so the two bodies run together without a seam.
 
 ## 6. Getting it right: counts, handedness, polarity, compartments
 
 Most errors a biologist finds are not about how the figure looks. They are about these four things, and each one can be checked.
 
 - **Counts.** Legs, segments, wings, gill arches, chambers, valves, petals, protofilaments, subunits, stator units, cristae and grana are all counted in the build, from named constants, and the same constants feed the readout and caption. An insect with eight legs or a microtubule with 12 protofilaments is a wrong figure, however well shaded.
-- **Handedness.** B-DNA and the α-helix are right-handed. Build helices from an explicit handedness, and check it in a close-up: a right-handed helix turns clockwise as it runs away from the viewer. The kit's camera is mirror-handed: seen from above, a turn from +x toward +y looks clockwise on screen. So a helix that is right-handed in ordinary world maths is drawn left-handed, and a rotation that should look anticlockwise from above must run from +y toward +x (a decreasing angle). Check every helix and rotation on screen, never in the maths alone.
+- **Handedness.** B-DNA and the α-helix are right-handed. Build helices from an explicit handedness (`doubleHelix` does), and check it in a close-up: a right-handed helix turns clockwise as it runs away from the viewer. The kit's camera is mirror-handed: seen from above, a turn from +x toward +y looks clockwise on screen. So a helix that is right-handed in ordinary world maths is drawn left-handed, and a rotation that should look anticlockwise from above must run from +y toward +x (a decreasing angle). Check every helix and rotation on screen, never in the maths alone.
 - **Polarity and direction.** DNA strands are antiparallel; polymerases add only at the 3′ end; mRNA is read 5′→3′ and protein made N→C; microtubules have plus and minus ends, kinesin walks to plus and dynein to minus; DNA runs to the anode in a gel; protons in a mitochondrion flow from the intermembrane space into the matrix through ATP synthase. Put every direction into the model as a signed quantity and drive the motion from it.
-- **Compartments.** Every part sits in the compartment where it really lives: F1 heads in the matrix, the Calvin cycle in the stroma, cytoplasmic ribosomes free in the cytosol or on the rough ER, never translating in the nucleus (though their subunits are built in the nucleolus), and the smaller ribosomes of mitochondria and chloroplasts in the matrix and stroma; a plant cell has a wall and an animal cell does not; a Gram-negative envelope has two membranes. When in doubt, cut the specimen so the compartment boundary is a visible face.
+- **Compartments.** Every part sits in the compartment where it really lives: F1 heads in the matrix, the Calvin cycle in the stroma, cytoplasmic ribosomes free in the cytosol or on the rough ER, never translating in the nucleus (though their subunits are built in the nucleolus), and the smaller ribosomes of mitochondria and chloroplasts in the matrix and stroma; a plant cell has a wall and an animal cell does not; a Gram-negative envelope has two membranes. When in doubt, tint the compartments and name them.
 - **Taxon.** State the organism, and draw that organism: an E. coli motor, a bovine ATP synthase, a eudicot leaf, a honeybee, a zebrafish. Mixing features from different taxa (a monocot flower with a eudicot leaf, a mammal heart with a fish's chambers) is a common error.
 
-## 7. Tone, colour and stains
 
-The figure stays monochrome with one lit accent, as everywhere in the skill. Colour enters only where colour is part of the biology:
+## 7. Colour conventions
 
-- **Pigments the idea depends on.** Chlorophyll in a photosynthesis figure; oxygenated against deoxygenated blood in a gas-exchange figure.
-- **Stains and labels.** Gram crystal violet and safranin, H&E, a GFP tag, a gel's stained bands. Draw the stain as a tint on the stained parts only, the colour the stain really gives.
-- **Identities the reader must tell apart.** The four bases, when base pairing is the subject, or the two strands of a duplex. There is no standard palette, so pick distinct tokens and show each in the legend.
+Every colour is a swatch in `SWATCHES` (base, highlight, shadow and edge), rendered as a gradient and an outline. Never type a colour into a figure. Keep one colour per kind of structure across a set of figures, and follow the conventions readers already know:
 
-Every colour is a token with a light and a dark value (`craft.md`, section 7). Never paint organelles in the rainbow palette of textbooks: a mitochondrion is not orange and a nucleus is not purple unless something stained them. A fluid (cytoplasm, sap, blood plasma, water) is a tint of the figure's own inks, as in `craft.md`.
+| Structure | Colour |
+|---|---|
+| Membrane heads and tails | Orange heads, pale cream tails |
+| Cytosol, matrix, stroma, lumen, extracellular space | Pale tints, each different: blue-grey, lilac, pale green, cream |
+| Chlorophyll, chloroplasts, photosystems | Green |
+| Mitochondria (cell scale) | Warm orange-pink with paler cristae |
+| Nucleus and chromatin | Lilac or purple |
+| DNA backbone and bases | Blue backbone; A, T, G and C in four distinct colours, with the key in the caption or a label |
+| RNA | Orange or red backbone |
+| Protons | Red spheres marked H⁺ |
+| Electrons | Small dark or yellow dots marked e⁻ |
+| ATP and ADP | Green and pale green |
+| Oxygenated and deoxygenated blood | Red and blue |
+| Plant cell wall | Yellow-green |
+| Stains and tags | The colour the stain really gives: Gram purple and pink, H&E pink and purple, GFP green |
+| Subunits of one complex | Distinct hues for distinct roles (rotor, stator, catalytic), and two shades of one hue for related subunits (α pale, β dark) |
 
-## 8. Naming parts without labels
+Text is dark grey, leaders mid grey, compartment names in a lighter grey, and flow arrows in the flow red unless the flowing thing has its own colour. In the dark theme the hues stay; the ground, text and tints change.
 
-Biology is a subject of named parts, and the craft rules keep words out of the drawing. Name the parts through the card instead:
+## 8. Labels, arrows and the figure frame
 
-- **Numbered legend keys** under the card, one per part or assembly the reader should learn (`01 c-ring (8 c subunits)`, `02 γ stalk`…). Hovering or focusing a key lights that part with the lit accent, and hovering a part lights its key, as the Raptor's numbered assemblies do. Keep it to about 6–12 keys; the rest of the parts are detail.
-- **The readout names the state:** `Codon 7 · GCU → Ala · 18 aa/s`, `Stoma open · 6.2 µm · turgor 3.1 MPa`, `−68 mV · node 4 of 9`.
-- **One engraved label** is still allowed, on the mount's label plate: the specimen's name or the organism.
-- **The caption** gives the organism, the scale, the numbers and their sources.
+Labels and arrows are where a figure most often looks broken, and where a textbook's craft shows most. Follow these rules exactly, then prove them with `scripts/labels.mjs`.
+
+**Labels**
+- **Columns.** Set labels in two aligned columns, left and right of the drawing (`label(text, anchor, { side, x })` with one `x` per column). The text is short and in sentence case: a name, and the role if it helps ("Stator: a subunit"). Wrap a long name with `\n`. Keep every label inside the figure.
+- **Leaders are horizontal, or one 45° elbow then horizontal.** Never a diagonal at an arbitrary angle, never a curve, never more than one bend. Put the label at the height of its anchor so the leader is a straight horizontal line. Where that would cross something, use `drop` for a single 45° elbow into clear space (as the stator's leader does, up into the intermembrane space).
+- **Anchor on a visible edge.** The leader ends in a dot on the part's visible silhouette, on the side facing the label column: the leftmost point of the ring for a left label, the right edge of the stalk for a right label. Never anchor on a part hidden behind another, on an arrow, or in empty space.
+- **Nothing crosses.** A leader never crosses another leader, an arrow, an arrowhead or another label's text. It may pass over the drawing on its way to its part (over a bilayer, say), and its halo keeps it clean there. Plan the label heights before drawing: sort each column by anchor height, and space the labels at least two lines apart.
+- **Compartments** are named with `region("MITOCHONDRIAL MATRIX", x, y)` in a corner of their tint, not with leaders.
+
+**Arrows**
+- **Flow arrows** (`arrow(points, { flow: true })`) follow the real path of the thing that flows, start in the compartment it comes from and end where it ends up. They never end on or inside a part the thing doesn't enter, and they stop short of other arrows.
+- **Motion arrows** are dark. A rotation arrow wraps its axis: `rotationArrow` splits it into a back arc, drawn among the depth-sorted parts so the axis hides it, and a front arc with the head, drawn over everything. Run it in the direction the model turns, and check that direction on screen.
+- **Reaction arrows** are one smooth curve between the reactants and the products, written beside the site: `arrow([from, to], { bend })`, a quadratic curve whose head follows the curve's tangent. Never a spline through three points; it kinks.
+- **No crossings.** Arrows never cross each other or a label. Move one, shorten one, or move the rotation arrow along its axis until they are clear.
+- **Moving parts keep clear too.** A proton, an ATP or a vesicle that moves never passes over a label's text or a leader it isn't anchored to. Route it into clear space and fade it before it gets there.
+
+**Prove it.** Run the check on both themes, at rest and in motion. Both must end `labels: 0 problems`:
+```sh
+node scripts/labels.mjs page-light.html --reduced
+node scripts/labels.mjs page-light.html --drive --frames 30 --every 250
+```
+Then look at 3× close-ups of every leader end, every arrowhead and every place an arrow passes a part.
+
+**The frame.** The figure number and a one-line title go above, and the live readout and the interaction hint below, in the page's sans-serif. The caption goes under the card: what it shows, the organism, the scale, the real rate and the playback speed, and the sources.
 
 ## 9. Time and motion in living systems
 
@@ -224,43 +256,71 @@ Biology runs at speeds a reader can't follow: ATP synthase turns about a hundred
 - **The idle tour shows the mechanism once through,** then rests: one ATP cycle, one run and tumble, one codon, one stoma opening and closing.
 - **Reduced motion** shows one telling still pose, such as the motor mid-step or the stoma half open.
 
+
 ## 10. Anti-patterns
 
-- **Clip-art cells.** Organelles floating at random in a flat oval. Cut the cell open and give every organelle its real shape, size and place.
+- **Engineering look.** Base plates, posts, feet, screws, rulers, label plates, knurls, bevels, hard faceted shading, black hairline outlines, monochrome. The figure must read as biology at a glance.
+- **Clip-art.** Organelles floating at random in a flat oval, a ribosome as a snowman, a membrane as one line. Simplify the real structure; don't replace it with a symbol.
+- **Unlabelled or over-labelled.** No names at all, or every atom named. Label what the idea needs.
+- **Broken-looking labels and arrows.** Leaders at random angles, leaders that end on nothing or on a hidden part, leaders or arrows that cross, a rotation arrow drawn over its own axis all the way round, a reaction arrow with a kink, moving parts sliding over labels. Section 8 has the rules; `scripts/labels.mjs` catches every one.
+- **Arbitrary colour.** A new colour scheme in every figure, or colours that fight the conventions in section 7.
 - **Wrong counts.** Six-legged spiders, eight-legged insects, a 12-protofilament microtubule, a three-subunit F1 head, five petals on a lily. Count from constants.
-- **Wrong handedness or polarity.** A left-handed DNA helix, parallel strands, a polymerase moving the wrong way, a microtubule motor walking to the wrong end.
-- **Scale soup.** A ribosome the size of a mitochondrion, or a virus the size of a bacterium. One level per figure, with a scale bar.
-- **Lollipop membranes.** Heads drawn as large balls with two wavy tails, with no thickness and no section. A membrane is a slab about 4–5 nm thick with a section face.
-- **Sunk proteins.** A protein pasted onto a membrane so it is both in front and behind. Cut the membrane (section 5).
-- **Floating labels and leader lines.** Use legend keys (section 8).
-- **Rainbow organelles.** Colour only what stain, pigment or identity colours (section 7).
-- **Blobby proteins.** A single lumpy shape for a multi-subunit complex. Build it from its subunits in their true number and symmetry.
+- **Wrong handedness or polarity.** A left-handed DNA helix, parallel strands, a polymerase moving the wrong way, a motor walking to the wrong end.
+- **Scale soup.** A ribosome the size of a mitochondrion, or a virus the size of a bacterium. One level per figure; insets for the rest.
+- **Blobby complexes.** A single lumpy shape for a multi-subunit complex. Build it from its subunits in their true number and symmetry.
 - **Uniform spinning and jitter.** See section 9.
 
-## 11. Biology review
+## 11. Biology and textbook review
 
-Before the 4× craft review in `verify.md`, check the science, and write the result down:
+Before you call it done, check the science and the look, and write the result down.
 
-1. **Name it.** Would a biologist name the specimen and the organism at a glance?
+**Biology**
+1. **Name it.** Would a biologist name the structure and the organism at a glance?
 2. **Count it.** List every counted feature, the count drawn and the true count. They match.
-3. **Orient it.** Handedness, polarity and direction of every flow and motion match the model and the literature.
-4. **Place it.** Every part is in its real compartment, and the cut shows the boundaries the idea depends on.
-5. **Scale it.** The scale bar is correct for the world units, and every size in the drawing is within the published range.
+3. **Orient it.** Handedness (on screen), polarity, and the direction of every flow and motion match the model and the literature.
+4. **Place it.** Every part sits in its real compartment, and compartments are where textbooks put them.
+5. **Scale it.** Sizes are within the published range, and the scale is stated.
 6. **Source it.** Every number in the readout and caption is in `SOURCES`, and the caption cites them.
-7. **Time it.** The readout shows the real rate and the playback scale.
+7. **Time it.** The readout shows the real rate and the playback speed.
 
-## 12. Design sketch: ATP synthase
+**Textbook look**
+1. Put it beside a textbook figure of the same subject. Does it belong on that page? Is there nothing engineered about it?
+2. Are the bodies soft and shaded, the outlines in the body's own darker colour, the membranes bilayers and the compartments tinted?
+3. Are the colours from the palette, conventional, and consistent with the set?
+4. Is every label legible at 1× and on a phone, in a column outside the drawing, with a horizontal or single-elbow leader that ends on a visible edge of its part and crosses nothing? `scripts/labels.mjs` ends `labels: 0 problems` at rest and over 30 frames of motion.
+5. Do the arrows follow real paths, point the right way, stop where the thing stops, cross nothing, and does every rotation arrow pass behind its axis?
+6. At 3×, are there no ragged edges, gaps between parts that should touch, or overlaps drawn in the wrong order?
 
-A Figure-sized plan, to show how the steps in `SKILL.md` work for a biological subject. It is built in `examples/atp-synthase/`. The built figure differs from the sketch in a few choices: the protons ride the ring as spheres on its binding sites, the a-subunit is split into two halves so the rotor can pass in front of one and behind the other, and the readout is `24 H⁺ · 1080° · 9 ATP · 750× slower`.
+## 12. Design: ATP synthase
 
-**Truth.** Bovine mitochondrial ATP synthase: c-ring of 8 (Watt et al. 2010, PNAS 107:16823), so 8 protons per turn and 3 ATP per turn, about 2.7 protons per ATP. F1 head α3β3 about 11 nm across, facing the matrix (Abrahams et al. 1994, Nature 370:621). γ turns in 120° steps (Yasuda et al. 1998, Cell 93:1117), which isolated F1 splits into about 80° and 40° substeps (Shimabukuro et al. 2003, PNAS 100:14731). One b-subunit with d, F6 and OSCP forms the peripheral stalk (Rees et al. 2009, PNAS 106:21597). Protons enter from the intermembrane space through the a-subunit's half-channel, ride the c-ring almost a full turn, and leave into the matrix. The model is a pure module: `step(state, dt)` advances the rotor by whole substeps with exponential dwell times at a seeded rate, and `readout(state)` returns protons, angle and ATP made.
+The reference, built in `examples/atp-synthase/`.
 
-**Specimen and mount.** A square patch of inner membrane, cut at its edges to show the bilayer, with one ATP synthase standing through it, F1 up. The patch rests on four short posts on a base plate, which carries a 10 nm scale-bar strip and a label plate engraved `F₁F₀ · Bos taurus`. The front of the membrane is cut back to the protein so the c-ring is in view.
+**Truth.**
+- **Stoichiometry:** bovine mitochondrial ATP synthase has a c-ring of 8 (Watt et al. 2010, PNAS 107:16823). That gives 8 protons and 3 ATP per turn, about 2.7 protons per ATP.
+- **Head:** the F1 head, α3β3, is about 11 nm across and faces the matrix (Abrahams et al. 1994, Nature 370:621).
+- **Steps:** γ turns in 120° steps (Yasuda et al. 1998, Cell 93:1117).
+- **Peripheral stalk:** one b subunit with d, F6 and OSCP (Rees et al. 2009, PNAS 106:21597).
+- **Proton path:** protons enter from the intermembrane space through one a-subunit half-channel, ride the ring almost a full turn, and leave into the matrix through the other (Kühlbrandt 2019, Annu Rev Biochem 88:515).
+- **Direction:** synthesis turns the rotor anticlockwise seen from F1, the opposite of hydrolysis (Noji et al. 1997; Diez et al. 2004).
+- **The model:** `model.mjs` holds the counts, the rate (about 100 turns per second) and `SOURCES`.
 
-**What moves.** The c-ring and the central stalk (γ, δ, ε) turn together (lit while turning). The a-subunit, the peripheral stalk and α3β3 stay still. Protons are small spheres that queue in the intermembrane space below, enter the a-subunit and ride the ring. ADP and phosphate bind at a β site, and one ATP leaves per 120°.
+**View.** A strip of inner membrane drawn as a bilayer, seen from the side at 16° elevation, with 1 nm = 10 units:
+- The intermembrane space is tinted blue above, the matrix lilac below.
+- The protein stands in front of the strip at membrane height, with the head hanging into the matrix.
 
-**Parts (about 60).** Base plate, 4 feet, groove, 4 corner screws, scale-bar strip with ticks, label plate; 4 posts with collars; membrane: two leaflets in two pieces each around the protein, head-group dot grids, section faces with head rows and tails; F₀: 8 c-subunits (turned staves), the a-subunit (a prism against the ring), the peripheral stalk: one b-subunit (a long α-helix, braced by d and F6) running up as a slender tube to OSCP; F1: 3 α and 3 β bodies alternating (turned, with a seam at each subunit boundary), the γ stalk (turned, offset coiled coil), with δ and ε at its foot; the OSCP cap; ligands: 3 ADP + Pᵢ and ATP groups; 8–12 protons.
+**Parts.**
+- **Rotor:** 8 teal capsules on a 2 nm circle, plus an orange δ/ε foot and a yellow γ stalk.
+- **Stator:** a blue a-subunit beside the ring.
+- **Head:** 6 ellipsoids alternating pale α and dark β.
+- **Peripheral stalk:** a blue rope from the a-subunit down the side of the head to the OSCP cap.
+- **Ions and products:** red H⁺ spheres, queued in the intermembrane space and riding the ring's binding sites, and green ATP leaving a β subunit.
 
-**Camera.** Azimuth about 40°, elevation about 30°, so the c-ring's front staves and the a-subunit contact face the viewer and the F1 head stays clear of the card title.
+**Labels and arrows.**
+- **Labels:** "Rotor: ring of 8 c subunits", "Stator: a subunit", "H⁺ flows down its gradient", "Inner mitochondrial membrane", "Central stalk (γ, rotates)", "Catalytic head (α₃β₃)", "Peripheral stalk (stator)" and "OSCP", plus the two compartment names.
+- **Arrows:** red flow arrows go into the stator from above and out into the matrix, and a dark rotation arc circles the stalk. "ADP + Pᵢ → ATP" sits beside the head.
 
-**Card.** `Fig 1` · `ATP synthase` · hint `Hover to turn · ← → step` · readout `24 H⁺ · 1,080° · 9 ATP · shown 1/400×`. Legend keys: `01 c-ring (8)`, `02 a-subunit`, `03 γ stalk`, `04 α₃β₃ head`, `05 peripheral stalk`, `06 membrane`. The caption names the species, the stoichiometry and the sources.
+**Motion.** The rotor steps 45° per proton and dwells, eased by a spring:
+- One proton leaves the queue into the stator per step, and one leaves the ring into the matrix.
+- One ATP leaves a β subunit every 120°.
+- The readout reads like `24 H⁺ · 1080° · 9 ATP · 750× slower`.
+- Hover drives it faster, → steps one proton and space pauses; reduced motion holds still.

@@ -24,3 +24,7 @@ export function fixedScript() {
 export function glSharedScript() {
   return strip("gl-shared.mjs");
 }
+
+export function bioScript() {
+  return strip("bio.mjs").replace(/^import .*$/gm, "");
+}
