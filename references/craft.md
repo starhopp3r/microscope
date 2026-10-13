@@ -1,5 +1,8 @@
 # Craft
 
+> [!NOTE]
+> This page comes from Anatomy, the engineering skill Microscope was forked from. The worked examples it cites (`dial-indicator`, `desk-computer`, `arcade-cabinet`, `raptor-engine`, `ripple-tank`, `test-rig`, `spot-plate`, `turning-dial`) are engineering figures that Microscope does not ship; they live in [Anatomy's repository](https://github.com/wheresryan22/anatomy/tree/main/examples). Take only the technique from them, and draw every biology figure in the textbook style of `references/biology.md`.
+
 How a figure comes to read as a crafted object rather than a diagram. Every rule here came from a figure that was rejected or approved by a demanding reviewer.
 
 > [!IMPORTANT]

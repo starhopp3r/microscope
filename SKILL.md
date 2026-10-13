@@ -15,22 +15,31 @@ This skill makes biology figures that look like they came out of a good textbook
 
 Read `references/biology.md` before you design anything. It has the textbook style in full, the colour conventions, the levels of scale and the views textbooks use, a table of concepts and how textbooks draw them, true numbers to start from, recipes for every biological form in `kit/bio.mjs`, the correctness rules, and the review.
 
-## The reference example
+## The examples
 
-`examples/atp-synthase/` is the reference. Open it first, and match its look.
+Five complete biology figures ship with the skill, one per field. Open the closest one before you start and match its look. Each is built with `node examples/<name>/build.mjs`, which writes a standalone page next to the script; add `--light` for the light theme.
 
-- It shows bovine ATP synthase in the inner mitochondrial membrane in the textbook layout: the intermembrane space tinted above, the matrix tinted below, and the catalytic head hanging into the matrix.
-- It uses colour by structure: a teal c-ring of 8, a blue stator and peripheral stalk, a yellow central stalk, pale α and dark β subunits, red H⁺ spheres and green ATP.
-- The membrane is a phospholipid bilayer.
-- Eight labels name the parts and two spaced-capital names mark the compartments. A red arrow shows the proton path, a dark arrow shows the rotation, and "ADP + Pᵢ → ATP" sits beside the head.
-- The rotor turns in 45° proton steps on a sourced model (`model.mjs`). The whole protein is redrawn every frame from `scene.mjs`, the same module the build uses.
-
-The other eight examples (`dial-indicator`, `desk-computer`, `arcade-cabinet`, `raptor-engine`, `ripple-tank`, `test-rig`, `spot-plate`, `turning-dial`) are engineering subjects inherited from Anatomy. Never copy their look. Open one only for a technique it demonstrates, and redraw the result in the textbook style:
-
-- `spot-plate` for shapes that merge, as in membrane fusion, budding and cell division;
-- `turning-dial` for true 3D rotation;
-- `ripple-tank` and `raptor-engine` for WebGL light and fluids;
-- `test-rig` for the React split.
+- **`examples/atp-synthase/`** (cell biology) is the reference. Bovine ATP synthase in the inner mitochondrial membrane, in the textbook layout:
+  - **View:** the intermembrane space tinted above, the matrix below, and the catalytic head hanging into the matrix.
+  - **Colour coding:** a teal c-ring of 8, a blue stator, a yellow central stalk, pale α and dark β subunits, a red H⁺ gradient and green ATP.
+  - **Annotation:** labels with leaders, a red proton path, a rotation arrow that passes behind the stalk, and "ADP + Pᵢ → ATP" beside the head.
+  - **Motion:** the rotor steps 45° per proton on a sourced model.
+- **`examples/dna-double-helix/`** (molecular biology): a right-handed B-DNA helix with base pairs coloured by base and a key.
+  - It marks the 5′ and 3′ ends, the major and minor grooves, and brackets for one turn (3.5 nm, 10.4 bp), the 2 nm width and the 0.34 nm rise.
+  - Hovering a base pair shows its two or three hydrogen bonds.
+  - It is the reference for `doubleHelix`, measurement brackets and a colour key.
+- **`examples/t4-phage/`** (microbiology): bacteriophage T4 infecting E. coli.
+  - Below is the Gram-negative envelope in section (outer membrane, peptidoglycan, inner membrane); above is the phage.
+  - The phage descends, its six kneed tail fibres land, the sheath contracts and drives the tube through the envelope, and the genome passes into the cytoplasm.
+  - It is the reference for a staged process, labels that move with their parts, and several membranes.
+- **`examples/leaf-stoma/`** (botany): a broad bean leaf in cross-section.
+  - It shows the cuticle, the epidermis, palisade cells full of chloroplasts, spongy mesophyll with air spaces, and a vein with xylem above phloem in a bundle sheath.
+  - In the lower epidermis, two guard cells swell to open the stoma, with CO₂, H₂O and O₂ arrows through the pore.
+  - It is the reference for a 2D section of cells (`cell`, `ellipsoid`, `capsule`).
+- **`examples/sarcomere/`** (zoology, animal physiology): one sarcomere of skeletal muscle.
+  - It shows Z discs, bead-string actin, and myosin with heads pointing away from the M line.
+  - Band brackets show the sarcomere, the A band, the I band and the H zone, which update as the filaments slide.
+  - It is the reference for repeated filaments, dimension brackets that move, and edges that fade into neighbouring units.
 
 ## The one idea that matters
 
@@ -67,7 +76,7 @@ Work in this order. Write the truth, the layout and the parts list before any dr
 3. **Choose the view.** Pick one level of scale and the view a textbook would use: a cross-section, a cutaway block, a side view of a membrane, a cell cutaway, or an organ cut open (`references/biology.md`, section 2). Put the compartments where textbooks put them, such as the intermembrane space above the matrix. Say in one sentence what moves and what that motion means. Never copy a published figure: take its facts, not its drawing.
 4. **Parts list and labels.** List the structures to draw, with their true counts and their colour from the palette, then the labels (sentence case, short) and the arrows (flows in colour, motion in dark grey). Plan where every label sits: in the margins or in clear space, never on top of a structure, with leaders that don't cross each other.
 5. **Plan the world.** One world unit stands for one fixed real length for the whole figure (for example 1 nm = 10 units for a molecular machine). Lay out in 3D (x and y on the floor, z up), and choose a gentle camera: elevation 10–25°, with the long axis across the screen. Fit with `fitProjection`, leaving margins for the labels.
-6. **Draw with `kit/bio.mjs`.** Build bodies from `sphere`, `ellipsoid` and `capsule` (soft gradient fills, outlines in a darker shade of the body's own colour), strands and tubes from `rope`, membranes from `bilayer` and `membraneLoop`, DNA from `doubleHelix`, and flows from `arrow`. Name parts with `label` and compartments with `region`. Build one subunit and place it `n` times around its axis. Shapes that merge come from a distance field (`examples/spot-plate/`).
+6. **Draw with `kit/bio.mjs`.** Build bodies from `sphere`, `ellipsoid` and `capsule` (soft gradient fills, outlines in a darker shade of the body's own colour), strands and tubes from `rope`, membranes from `bilayer` and `membraneLoop`, DNA from `doubleHelix`, and flows from `arrow`. Name parts with `label` and compartments with `region`. Build one subunit and place it `n` times around its axis. Shapes that merge (membrane fusion, budding, division) come from one distance field per pair, so the two bodies run together without a seam.
 7. **Paint back to front.** Give every body a depth (`depthOf` of its centre) and draw in order with `sortedSvg`. Split anything that wraps another part into a back and a front piece (back strand runs, then base pairs, then front runs). Draw arrows and labels last, over everything.
 8. **Frame it as a textbook figure.** Add the figure number and a one-line title above, the live readout and the interaction hint below, and the caption under the card: what it shows, the organism, the scale, the real rate and the playback speed, and the sources.
 9. **Make it live.** Use calm time-based motion: exponential follow or real springs. Motors step and dwell rather than spin smoothly, and real rates are shown with the playback speed (`100 turns/s · shown 750× slower`). An idle tour runs the mechanism once through and loops when nobody touches it. The figure responds to pointer and keyboard, stops when offscreen, and goes still under reduced motion. See `references/motion.md` and `references/biology.md`, section 9.
@@ -131,9 +140,9 @@ These keep a figure true. `references/biology.md` gives the reasoning, the numbe
 
 ## WebGL and 3D
 
-Use a shader only for what SVG can't draw: fluorescence and bioluminescence, light falling on or through a leaf or a culture, water and its caustics in a dish, a flame on a lab bench. The shader lives in the figure's own camera, between a back and a front SVG, and never pops: `references/webgl.md` has the rules. The result must still look like the textbook figure, with the same palette and labels.
+Use a shader only for what SVG can't draw (its worked examples are in [Anatomy](https://github.com/wheresryan22/anatomy/tree/main/examples), as engineering subjects; take only the technique): fluorescence and bioluminescence, light falling on or through a leaf or a culture, water and its caustics in a dish, a flame on a lab bench. The shader lives in the figure's own camera, between a back and a front SVG, and never pops: `references/webgl.md` has the rules. The result must still look like the textbook figure, with the same palette and labels.
 
-Use the 3D mode (`references/3d.md`, beta) only when a part turning in depth is the idea and the per-frame redraw in `examples/atp-synthase/live.js` isn't enough. Render its parts with the biology palette.
+Use the 3D mode (`references/3d.md`, beta) only when a part turning in depth is the idea and the per-frame redraw in `examples/atp-synthase/live.js` isn't enough. Render its parts with the biology palette. Its worked examples are engineering subjects that live in [Anatomy](https://github.com/wheresryan22/anatomy/tree/main/examples), not here; take only the technique from them.
 
 ## References
 
@@ -145,4 +154,4 @@ Read these as you need them:
 - `references/verify.md`: the `capture.mjs` and `drive.mjs` commands and the review checklist.
 - `references/publish.md`: sharing a finished figure in the community gallery with `scripts/publish.mjs`, only when the user asks; nothing is pushed for them.
 - `references/webgl.md`, `references/3d.md`: shaders and true 3D turning, when a figure needs them.
-- `references/kit.md`, `references/craft.md`, `references/walkthrough.md`: the inherited engineering kit's API and its geometry rules (painter's order, nothing passing through anything). Their look and parts vocabulary are for machines; never use them for a biology figure's appearance.
+- `references/kit.md`, `references/craft.md`: the inherited engineering kit's API and its geometry rules (painter's order, nothing passing through anything). Their look and parts vocabulary are for machines; never use them for a biology figure's appearance. The examples they cite live in [Anatomy](https://github.com/wheresryan22/anatomy/tree/main/examples).

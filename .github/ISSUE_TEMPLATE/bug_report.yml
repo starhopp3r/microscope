@@ -79,7 +79,7 @@ body:
       description: The prompt you gave the agent, or the exact command you ran.
       placeholder: |
         /microscope show how ATP synthase makes ATP in mitochondria, interactive
-        node examples/raptor-engine/build.mjs --audit
+        node scripts/labels.mjs examples/atp-synthase/atp-synthase-light.html --reduced
     validations:
       required: true
   - type: textarea

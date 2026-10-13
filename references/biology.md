@@ -183,7 +183,7 @@ Everything is drawn in the figure's 3D camera (`fitProjection`, `iso`, `depthOf`
 - `arrow(points)` draws a dark motion arrow; `arcPoints` gives a rotation arc around an axis.
 - Write a reaction as text with a curved arrow beside the site, never inside a body.
 
-**Shapes that merge.** Fusion, budding and division change topology. Draw them from one distance field per pair, as `examples/spot-plate/` does, rendered with the swatch's gradient, so the two bodies run together without a seam.
+**Shapes that merge.** Fusion, budding and division change topology. Draw them from one distance field per pair, rendered with the swatch's gradient, so the two bodies run together without a seam.
 
 ## 6. Getting it right: counts, handedness, polarity, compartments
 

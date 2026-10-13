@@ -1,0 +1,1471 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The sarcomere and the sliding filaments</title><style>
+.iso{
+  --microscope-page:#0b0b0b;--microscope-card:#131313;--microscope-text:#a3a3a3;--microscope-strong:#e6e6e6;--microscope-muted:#6e6e6e;
+  --microscope-paper:#131313;--microscope-face:#1b1b1b;--microscope-top:#1c1c1c;
+  --microscope-shade-0:#0f0f0f;--microscope-shade-1:#121212;--microscope-shade-2:#151515;--microscope-shade-3:#181818;
+  --microscope-lit-top:#262626;--microscope-lit-shade:#1d1d1d;
+  --microscope-hi:#d4d4d4;--microscope-mid:#6a6a6a;--microscope-lo:#3e3e3e;--microscope-faint:#2a2a2a;--microscope-lit:#ffffff;
+  --microscope-halo:#050505;--microscope-halo-opacity:.9;--microscope-dot:#e6e6e6;
+  --microscope-red:#ff6b6b;--microscope-green:#6be0a0;--microscope-blue:#6b9bff;
+  --microscope-weight:.6px;--microscope-ease:cubic-bezier(.32,.72,0,1);
+  --microscope-mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --microscope-lift:inset 0 1px 0 0 #ffffff0a,inset 0 0 0 1px #ffffff06,0 0 0 1px #00000026,0 1px 1px -.5px #00000014,0 3px 3px -1.5px #00000014,0 6px 6px -3px #00000014,0 12px 12px -6px #00000014;
+}
+.iso[data-theme="light"]{
+  --microscope-page:#f2f2ef;--microscope-card:#fbfbfa;--microscope-text:#57575a;--microscope-strong:#18181a;--microscope-muted:#8c8c90;
+  --microscope-paper:#fbfbfa;--microscope-face:#ffffff;--microscope-top:#ffffff;
+  --microscope-shade-0:#dcdcd9;--microscope-shade-1:#e5e5e2;--microscope-shade-2:#ededea;--microscope-shade-3:#f4f4f1;
+  --microscope-lit-top:#ffffff;--microscope-lit-shade:#eeeeeb;
+  --microscope-hi:#26262a;--microscope-mid:#8a8a8f;--microscope-lo:#b4b4b8;--microscope-faint:#d4d4d6;--microscope-lit:#000000;
+  --microscope-halo:#8a8a80;--microscope-halo-opacity:.32;--microscope-dot:#3a3a3e;
+  --microscope-red:#e5484d;--microscope-green:#30a46c;--microscope-blue:#3e63dd;
+  --microscope-lift:inset 0 1px 0 0 #ffffff,0 0 0 1px #0000000f,0 1px 1px -.5px #0000000a,0 3px 3px -1.5px #0000000a,0 6px 6px -3px #0000000a,0 12px 12px -6px #0000000a;
+}
+.iso-svg{display:block;width:100%;height:auto;overflow:visible}
+.iso-svg path,.iso-svg circle{vector-effect:non-scaling-stroke}
+.iso-fill{fill:var(--microscope-paper);stroke:none}
+.iso-solid[data-lit]>.iso-fill{fill:var(--microscope-face)}
+.iso-shade,.iso-top{stroke:none}
+.iso-shade[data-shade="0"]{fill:var(--microscope-shade-0)}
+.iso-shade[data-shade="1"]{fill:var(--microscope-shade-1)}
+.iso-shade[data-shade="2"]{fill:var(--microscope-shade-2)}
+.iso-shade[data-shade="3"]{fill:var(--microscope-shade-3)}
+.iso-top{fill:var(--microscope-top)}
+.iso-solid[data-lit]>.iso-top{fill:var(--microscope-lit-top)}
+.iso-solid[data-lit]>.iso-shade{fill:var(--microscope-lit-shade)}
+.iso-solid[data-seamless]>.iso-shade,.iso-solid[data-seamless]>.iso-top{stroke-width:.4;stroke-linejoin:round}
+.iso-solid[data-seamless]>.iso-shade[data-shade="0"]{stroke:var(--microscope-shade-0)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="1"]{stroke:var(--microscope-shade-1)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="2"]{stroke:var(--microscope-shade-2)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="3"]{stroke:var(--microscope-shade-3)}
+.iso-solid[data-seamless]>.iso-top{stroke:var(--microscope-top)}
+.iso-solid[data-seamless][data-lit]>.iso-top{stroke:var(--microscope-lit-top)}
+.iso-solid[data-seamless][data-lit]>.iso-shade{stroke:var(--microscope-lit-shade)}
+.iso-solid[data-lit]>.iso-edge{stroke:var(--microscope-lit)}
+.iso-halo{fill:var(--microscope-halo);stroke:none;filter:blur(9px);opacity:var(--microscope-halo-opacity);transform:translateY(3px)}
+.iso-line{fill:none;stroke:var(--microscope-lo);stroke-width:var(--microscope-weight);stroke-linecap:round;stroke-linejoin:round}
+.iso-line[data-tone="hi"]{stroke:var(--microscope-hi)}
+.iso-line[data-tone="mid"]{stroke:var(--microscope-mid)}
+.iso-line[data-tone="lo"]{stroke:var(--microscope-lo)}
+.iso-line[data-tone="faint"]{stroke:var(--microscope-faint)}
+.iso-line[data-tone="lit"]{stroke:var(--microscope-lit)}
+.iso-line[data-tone="red"]{stroke:var(--microscope-red)}
+.iso-line[data-tone="green"]{stroke:var(--microscope-green)}
+.iso-line[data-tone="blue"]{stroke:var(--microscope-blue)}
+.iso-line[data-dotted]{stroke-dasharray:.01 3.5;stroke-width:1}
+.iso-line[data-dashed]{stroke-dasharray:3 3}
+.iso-line[data-flow]{stroke-dasharray:2 6}
+.iso-wire-end{fill:var(--microscope-paper);stroke:var(--microscope-lo);stroke-width:var(--microscope-weight)}
+.iso-wire[data-tone="hi"] .iso-wire-end{stroke:var(--microscope-hi)}
+.iso-wire[data-tone="mid"] .iso-wire-end{stroke:var(--microscope-mid)}
+.iso-wire[data-tone="faint"] .iso-wire-end{stroke:var(--microscope-faint)}
+.iso-wire[data-tone="lit"] .iso-wire-end{stroke:var(--microscope-lit)}
+.iso-dots circle{fill:var(--microscope-dot);stroke:none;opacity:.32}
+.iso-dots[data-tone="hi"] circle{opacity:.85}
+.iso-dots[data-tone="mid"] circle{opacity:.45}
+.iso-dots[data-tone="lo"] circle{opacity:.22}
+.iso-dots[data-tone="faint"] circle{opacity:.12}
+.iso-face-text{fill:var(--microscope-mid);font-family:var(--microscope-mono);letter-spacing:.04em}
+.iso-face-text[data-tone="hi"]{fill:var(--microscope-hi)}
+.iso-face-text[data-tone="lo"]{fill:var(--microscope-lo)}
+.iso-face-text[data-tone="faint"]{fill:var(--microscope-faint)}
+.tb-body{fill:var(--microscope-shade-2);stroke:none}
+.tb-shine{fill:var(--microscope-top);stroke:none}
+.tb-shade{fill:var(--microscope-shade-0);stroke:none}
+.tb-ring{fill:none;stroke:var(--microscope-lo);stroke-width:.45;stroke-linecap:butt;stroke-linejoin:round}
+.tb-ring[data-tone="mid"]{stroke:var(--microscope-mid)}
+.tb-ring[data-tone="faint"]{stroke:var(--microscope-faint)}
+.tb-ring[data-tone="hi"]{stroke:var(--microscope-hi)}
+@keyframes iso-flow{to{stroke-dashoffset:-32}}
+@keyframes iso-pulse{0%,100%{opacity:.18}12%{opacity:1}40%{opacity:.18}}
+.iso-line[data-flow]{animation:iso-flow 1600ms linear infinite}
+.iso-dots circle[data-pulse]{animation:iso-pulse 1600ms steps(1,end) infinite;animation-delay:var(--pulse-at,0ms)}
+.iso-figure{margin:32px 0 36px}
+.iso-plate{position:relative;padding:52px 24px;border-radius:0;background:var(--microscope-card);box-shadow:0 0 0 1px var(--microscope-mid);--microscope-paper:var(--microscope-card)}
+.iso-plate-corners{position:absolute;inset:18px 20px;pointer-events:none}
+.iso-plate-corner{position:absolute;color:var(--microscope-muted);font-family:var(--microscope-mono);font-size:10.5px;line-height:1;letter-spacing:.04em;white-space:nowrap}
+.iso-plate-corner[data-corner="fig"]{top:0;left:0;color:var(--microscope-text)}
+.iso-plate-corner[data-corner="title"]{top:0;right:0;text-transform:uppercase;letter-spacing:.1em}
+.iso-plate-corner[data-corner="hint"]{bottom:0;left:0;text-transform:uppercase;letter-spacing:.1em}
+.iso-plate-corner[data-corner="readout"]{right:0;bottom:0;color:var(--microscope-text);font-variant-numeric:tabular-nums}
+.iso-plate .iso-svg{margin:0 auto}
+.iso-legend{display:grid;gap:8px;margin-top:12px;color:var(--microscope-muted);font-size:13px;line-height:1.55}
+.iso-keys{display:flex;flex-wrap:wrap;gap:6px 18px}
+.iso-key{display:inline-flex;align-items:center;gap:7px}
+.iso-swatch{width:16px;height:10px;flex:none;overflow:visible}
+.iso-swatch path{fill:none;stroke:var(--microscope-hi);stroke-width:1;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.iso-swatch[data-mark="raised"] path,.iso-swatch[data-mark="flat"] path{stroke:var(--microscope-mid)}
+.iso-swatch[data-mark="lit"] path{stroke:var(--microscope-lit)}
+.iso-swatch[data-mark="dim"] path{stroke:var(--microscope-lo)}
+.iso-swatch[data-mark="dotted"] path{stroke-dasharray:.01 3;stroke-width:1.4}
+.iso-swatch[data-mark="dashed"] path{stroke-dasharray:3 2.5}
+.iso-swatch[data-mark="red"] path{stroke:var(--microscope-red)}
+.iso-swatch[data-mark="green"] path{stroke:var(--microscope-green)}
+.iso-swatch[data-mark="blue"] path{stroke:var(--microscope-blue)}
+.iso-swatch-crease{stroke:var(--microscope-lo)!important}
+@media (max-width:560px){.iso-plate{padding:48px 12px 70px}.iso-plate-corner[data-corner="hint"]{bottom:18px}}
+@media (prefers-reduced-motion:reduce){.iso-line[data-flow],.iso-dots circle[data-pulse]{animation:none}}
+
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body[data-theme="light"]{color-scheme:light}
+body{margin:0;background:var(--microscope-page);color:var(--microscope-text);font:14px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.iso-page{width:min(800px,100% - 32px);margin:64px auto 96px}
+</style></head><body class="iso" data-theme="dark"><main class="iso-page"><style>
+.bio{--bio-head:#f3a650;--bio-head-hi:#ffd8a4;--bio-head-lo:#c9741f;--bio-head-edge:#a85d17;--bio-tail:#efdfb2;--bio-tail-hi:#fbf2d8;--bio-tail-lo:#d8c28a;--bio-tail-edge:#c2a766;--bio-rotor:#4fb3ae;--bio-rotor-hi:#ace6e1;--bio-rotor-lo:#2b827d;--bio-rotor-edge:#1f6460;--bio-stator:#7192cf;--bio-stator-hi:#c2d3f3;--bio-stator-lo:#47659f;--bio-stator-edge:#36507f;--bio-rod:#f5c94b;--bio-rod-hi:#fff0b3;--bio-rod-lo:#c99a1b;--bio-rod-edge:#9c7710;--bio-hub:#f0a23f;--bio-hub-hi:#ffd59a;--bio-hub-lo:#c2781a;--bio-hub-edge:#965a10;--bio-alpha:#c9aee6;--bio-alpha-hi:#efe4fa;--bio-alpha-lo:#9675bd;--bio-alpha-edge:#775a9e;--bio-beta:#9373c9;--bio-beta-hi:#cdb9ec;--bio-beta-lo:#664899;--bio-beta-edge:#4f357b;--bio-proton:#e5484d;--bio-proton-hi:#ffa3a5;--bio-proton-lo:#b2272c;--bio-proton-edge:#8a1c20;--bio-atp:#76c46a;--bio-atp-hi:#c8edbf;--bio-atp-lo:#4a9640;--bio-atp-edge:#3a7932;--bio-dna:#4a8fd8;--bio-dna-hi:#b5d3f4;--bio-dna-lo:#2c66aa;--bio-dna-edge:#204f86;--bio-baseA:#e5534b;--bio-baseA-hi:#ffb3ae;--bio-baseA-lo:#b33a33;--bio-baseA-edge:#8f2b26;--bio-baseT:#f2c14e;--bio-baseT-hi:#fff0b8;--bio-baseT-lo:#c4952a;--bio-baseT-edge:#9a721a;--bio-baseG:#58a65c;--bio-baseG-hi:#c3e8c4;--bio-baseG-lo:#3b7d3f;--bio-baseG-edge:#2e6331;--bio-baseC:#4e79c7;--bio-baseC-hi:#bcd0f3;--bio-baseC-lo:#345aa0;--bio-baseC-edge:#26457e;--bio-rna:#e8763c;--bio-rna-hi:#ffc8a6;--bio-rna-lo:#b5521f;--bio-rna-edge:#8c3e16;--bio-chlorophyll:#5cb85c;--bio-chlorophyll-hi:#bfe6b6;--bio-chlorophyll-lo:#3b8a3b;--bio-chlorophyll-edge:#2d6b2d;--bio-cytosol:#fbf6ec;--bio-cytosol-hi:#ffffff;--bio-cytosol-lo:#efe4cc;--bio-cytosol-edge:#d9c9a6;--bio-capsid:#8ea6cf;--bio-capsid-hi:#d6e2f5;--bio-capsid-lo:#5e78a8;--bio-capsid-edge:#47608c;--bio-sheath:#5fb58c;--bio-sheath-hi:#bfe7d2;--bio-sheath-lo:#3a8762;--bio-sheath-edge:#2c6a4c;--bio-fibre:#a98bd1;--bio-fibre-hi:#e2d6f2;--bio-fibre-lo:#7d60a8;--bio-fibre-edge:#634a8a;--bio-peptidoglycan:#c9d77a;--bio-peptidoglycan-hi:#ecf3c4;--bio-peptidoglycan-lo:#9aab48;--bio-peptidoglycan-edge:#7c8b35;--bio-cuticle:#e9c46a;--bio-cuticle-hi:#f8e6b8;--bio-cuticle-lo:#c99a2e;--bio-cuticle-edge:#a07a1f;--bio-epidermis:#eef3e2;--bio-epidermis-hi:#fbfdf6;--bio-epidermis-lo:#d3dfbd;--bio-epidermis-edge:#9fb27e;--bio-palisade:#cfe6b0;--bio-palisade-hi:#eef7e2;--bio-palisade-lo:#a8cc80;--bio-palisade-edge:#78a356;--bio-spongy:#dcedc6;--bio-spongy-hi:#f3f9ea;--bio-spongy-lo:#b9d699;--bio-spongy-edge:#88aa66;--bio-guard:#b8dc93;--bio-guard-hi:#e4f3d3;--bio-guard-lo:#8dbb62;--bio-guard-edge:#638f3d;--bio-xylem:#e6b8a8;--bio-xylem-hi:#f7e2da;--bio-xylem-lo:#c98b76;--bio-xylem-edge:#a1614d;--bio-phloem:#b7c4ea;--bio-phloem-hi:#e1e7f8;--bio-phloem-lo:#8a9dd3;--bio-phloem-edge:#6577ad;--bio-sheathcell:#e5e9c8;--bio-sheathcell-hi:#f7f9ea;--bio-sheathcell-lo:#c8cf9a;--bio-sheathcell-edge:#9aa36a;--bio-actin:#e7854f;--bio-actin-hi:#ffc9a8;--bio-actin-lo:#bf5d2b;--bio-actin-edge:#97461d;--bio-myosin:#6d8fd6;--bio-myosin-hi:#c3d3f5;--bio-myosin-lo:#4566ac;--bio-myosin-edge:#334f8a;--bio-zdisc:#6b6f7a;--bio-zdisc-hi:#b5b9c2;--bio-zdisc-lo:#474b55;--bio-zdisc-edge:#33363e;--bio-wall:#a7c76b;--bio-wall-hi:#dcedbd;--bio-wall-lo:#7c9c43;--bio-wall-edge:#617c31;--bio-air:#f7fbf2;--bio-outside:#eef5fc;--bio-cytoplasm:#fbf5e8;--bio-periplasm:#f2f6e4;--bio-halo:rgba(255,255,255,.82);--bio-page:#ffffff;--bio-ink:#26262b;--bio-soft:#5d5d66;--bio-leader:#6b6b74;--bio-region:#8a8a94;--bio-ims:#eef5fc;--bio-matrix:#f7f1fb;--bio-arrow:#3a3a42;--bio-flow:#d9363c}
+.bio[data-theme="dark"],.iso[data-theme="dark"] .bio{--bio-air:#182016;--bio-outside:#16202b;--bio-cytoplasm:#221d16;--bio-periplasm:#1b2116;--bio-halo:rgba(18,19,23,.82);--bio-page:#121317;--bio-ink:#ececf1;--bio-soft:#b4b4bd;--bio-leader:#9c9ca6;--bio-region:#8b8b96;--bio-ims:#16202b;--bio-matrix:#1f1a27;--bio-arrow:#d8d8de;--bio-flow:#ff6b6f}
+.bio-body{stroke-width:.9;stroke-linejoin:round}
+.bio-label{fill:var(--bio-ink);font:500 11.5px/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;letter-spacing:.005em}
+.bio-label[data-small]{font-size:10px;fill:var(--bio-soft)}
+.bio-region{fill:var(--bio-region);font:600 10px/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;letter-spacing:.12em}
+.bio-leader{fill:none;stroke:var(--bio-leader);stroke-width:.8;stroke-linecap:round;stroke-linejoin:round}
+.bio-casing{fill:none;stroke:var(--bio-halo);stroke-linecap:round;stroke-linejoin:round}
+.bio-anchor{fill:var(--bio-leader);stroke:var(--bio-halo);stroke-width:1}
+.bio-arrow{fill:none;stroke:var(--bio-arrow);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.bio-arrow-head{fill:var(--bio-arrow)}
+.bio-arrow[data-flow]{stroke:var(--bio-flow);stroke-width:2.2;opacity:.85}
+.bio-arrow-head[data-flow]{fill:var(--bio-flow);opacity:.85}
+.bio-tail{fill:none;stroke-width:.8;stroke-linecap:round}
+.bio-glyph{font:700 6.2px/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:central}
+.bio .iso-plate.bio-plate{padding:22px 22px 16px;background:var(--bio-page);box-shadow:0 0 0 1px color-mix(in srgb,var(--bio-region) 35%,transparent);border-radius:4px}
+.bio .bio-svg{border-radius:3px}
+.bio-title{margin:0 0 14px;color:var(--bio-ink);font:600 15px/1.35 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+.bio-fig{margin-right:10px;color:#c2410c;font-weight:700}
+.bio[data-theme="dark"] .bio-fig{color:#fb923c}
+.bio-foot{display:flex;justify-content:space-between;gap:16px;margin-top:10px;color:var(--bio-soft);font:12px/1.4 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums}
+.bio .iso-legend{color:var(--bio-soft);font:13px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+.bio .iso-stage{outline:none}
+.bio .iso-stage:focus-visible{box-shadow:0 0 0 2px color-mix(in srgb,var(--bio-flow) 45%,transparent);border-radius:3px}
+.bio-dimension{fill:none;stroke:var(--bio-soft);stroke-width:.9;stroke-linecap:round}
+.bio-hbond{fill:var(--bio-page);stroke:var(--bio-ink);stroke-width:.6}
+.bio-key{stroke-width:.8}
+@media (max-width:560px){.bio-foot{flex-direction:column}}
+.bio-body[data-swatch="head"]{stroke:var(--bio-head-edge)}.bio-tail[data-swatch="head"]{stroke:var(--bio-head-lo)}
+.bio-body[data-swatch="tail"]{stroke:var(--bio-tail-edge)}.bio-tail[data-swatch="tail"]{stroke:var(--bio-tail-lo)}
+.bio-body[data-swatch="rotor"]{stroke:var(--bio-rotor-edge)}.bio-tail[data-swatch="rotor"]{stroke:var(--bio-rotor-lo)}
+.bio-body[data-swatch="stator"]{stroke:var(--bio-stator-edge)}.bio-tail[data-swatch="stator"]{stroke:var(--bio-stator-lo)}
+.bio-body[data-swatch="rod"]{stroke:var(--bio-rod-edge)}.bio-tail[data-swatch="rod"]{stroke:var(--bio-rod-lo)}
+.bio-body[data-swatch="hub"]{stroke:var(--bio-hub-edge)}.bio-tail[data-swatch="hub"]{stroke:var(--bio-hub-lo)}
+.bio-body[data-swatch="alpha"]{stroke:var(--bio-alpha-edge)}.bio-tail[data-swatch="alpha"]{stroke:var(--bio-alpha-lo)}
+.bio-body[data-swatch="beta"]{stroke:var(--bio-beta-edge)}.bio-tail[data-swatch="beta"]{stroke:var(--bio-beta-lo)}
+.bio-body[data-swatch="proton"]{stroke:var(--bio-proton-edge)}.bio-tail[data-swatch="proton"]{stroke:var(--bio-proton-lo)}
+.bio-body[data-swatch="atp"]{stroke:var(--bio-atp-edge)}.bio-tail[data-swatch="atp"]{stroke:var(--bio-atp-lo)}
+.bio-body[data-swatch="dna"]{stroke:var(--bio-dna-edge)}.bio-tail[data-swatch="dna"]{stroke:var(--bio-dna-lo)}
+.bio-body[data-swatch="baseA"]{stroke:var(--bio-baseA-edge)}.bio-tail[data-swatch="baseA"]{stroke:var(--bio-baseA-lo)}
+.bio-body[data-swatch="baseT"]{stroke:var(--bio-baseT-edge)}.bio-tail[data-swatch="baseT"]{stroke:var(--bio-baseT-lo)}
+.bio-body[data-swatch="baseG"]{stroke:var(--bio-baseG-edge)}.bio-tail[data-swatch="baseG"]{stroke:var(--bio-baseG-lo)}
+.bio-body[data-swatch="baseC"]{stroke:var(--bio-baseC-edge)}.bio-tail[data-swatch="baseC"]{stroke:var(--bio-baseC-lo)}
+.bio-body[data-swatch="rna"]{stroke:var(--bio-rna-edge)}.bio-tail[data-swatch="rna"]{stroke:var(--bio-rna-lo)}
+.bio-body[data-swatch="chlorophyll"]{stroke:var(--bio-chlorophyll-edge)}.bio-tail[data-swatch="chlorophyll"]{stroke:var(--bio-chlorophyll-lo)}
+.bio-body[data-swatch="cytosol"]{stroke:var(--bio-cytosol-edge)}.bio-tail[data-swatch="cytosol"]{stroke:var(--bio-cytosol-lo)}
+.bio-body[data-swatch="capsid"]{stroke:var(--bio-capsid-edge)}.bio-tail[data-swatch="capsid"]{stroke:var(--bio-capsid-lo)}
+.bio-body[data-swatch="sheath"]{stroke:var(--bio-sheath-edge)}.bio-tail[data-swatch="sheath"]{stroke:var(--bio-sheath-lo)}
+.bio-body[data-swatch="fibre"]{stroke:var(--bio-fibre-edge)}.bio-tail[data-swatch="fibre"]{stroke:var(--bio-fibre-lo)}
+.bio-body[data-swatch="peptidoglycan"]{stroke:var(--bio-peptidoglycan-edge)}.bio-tail[data-swatch="peptidoglycan"]{stroke:var(--bio-peptidoglycan-lo)}
+.bio-body[data-swatch="cuticle"]{stroke:var(--bio-cuticle-edge)}.bio-tail[data-swatch="cuticle"]{stroke:var(--bio-cuticle-lo)}
+.bio-body[data-swatch="epidermis"]{stroke:var(--bio-epidermis-edge)}.bio-tail[data-swatch="epidermis"]{stroke:var(--bio-epidermis-lo)}
+.bio-body[data-swatch="palisade"]{stroke:var(--bio-palisade-edge)}.bio-tail[data-swatch="palisade"]{stroke:var(--bio-palisade-lo)}
+.bio-body[data-swatch="spongy"]{stroke:var(--bio-spongy-edge)}.bio-tail[data-swatch="spongy"]{stroke:var(--bio-spongy-lo)}
+.bio-body[data-swatch="guard"]{stroke:var(--bio-guard-edge)}.bio-tail[data-swatch="guard"]{stroke:var(--bio-guard-lo)}
+.bio-body[data-swatch="xylem"]{stroke:var(--bio-xylem-edge)}.bio-tail[data-swatch="xylem"]{stroke:var(--bio-xylem-lo)}
+.bio-body[data-swatch="phloem"]{stroke:var(--bio-phloem-edge)}.bio-tail[data-swatch="phloem"]{stroke:var(--bio-phloem-lo)}
+.bio-body[data-swatch="sheathcell"]{stroke:var(--bio-sheathcell-edge)}.bio-tail[data-swatch="sheathcell"]{stroke:var(--bio-sheathcell-lo)}
+.bio-body[data-swatch="actin"]{stroke:var(--bio-actin-edge)}.bio-tail[data-swatch="actin"]{stroke:var(--bio-actin-lo)}
+.bio-body[data-swatch="myosin"]{stroke:var(--bio-myosin-edge)}.bio-tail[data-swatch="myosin"]{stroke:var(--bio-myosin-lo)}
+.bio-body[data-swatch="zdisc"]{stroke:var(--bio-zdisc-edge)}.bio-tail[data-swatch="zdisc"]{stroke:var(--bio-zdisc-lo)}
+.bio-body[data-swatch="wall"]{stroke:var(--bio-wall-edge)}.bio-tail[data-swatch="wall"]{stroke:var(--bio-wall-lo)}
+</style><div class="bio" data-theme="dark"><figure class="iso-figure bio-figure"><div class="iso-plate bio-plate"><p class="bio-title"><span class="bio-fig">Figure 5</span>The sarcomere and the sliding filaments</p><div class="iso-stage bio-stage" tabindex="0" role="slider" aria-label="Sarcomere: the filaments slide as the muscle contracts and relaxes; right arrow to contract or relax, space to pause" aria-valuemin="0" aria-valuemax="1000000" aria-valuenow="0" aria-valuetext="Relaxed · sarcomere 2.50 µm · A band 1.60 µm · I band 0.90 µm · H zone 0.45 µm"><svg xmlns="http://www.w3.org/2000/svg" class="iso-svg bio-svg" viewBox="0 0 760 400" role="img" aria-label="A textbook-style drawing of a sarcomere, the contractile unit of frog skeletal muscle, between two zig-zag Z discs. Orange thin filaments of actin, drawn as twisted strings of beads, run from each Z disc toward the middle; blue thick filaments of myosin with heads pointing away from the central M line sit between them. Brackets above mark the sarcomere, the A band and the H zone, and one below marks the I band across a Z disc. As the muscle contracts the thin filaments slide toward the M line: the sarcomere, I band and H zone shorten while the A band stays the same length."><defs><radialGradient id="bio-r-head" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-head-hi)"/><stop offset="0.5" style="stop-color:var(--bio-head)"/><stop offset="1" style="stop-color:var(--bio-head-lo)"/></radialGradient><linearGradient id="bio-l-head" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-head-lo)"/><stop offset="0.28" style="stop-color:var(--bio-head)"/><stop offset="0.48" style="stop-color:var(--bio-head-hi)"/><stop offset="0.72" style="stop-color:var(--bio-head)"/><stop offset="1" style="stop-color:var(--bio-head-lo)"/></linearGradient><linearGradient id="bio-v-head" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-head-hi)"/><stop offset="0.55" style="stop-color:var(--bio-head)"/><stop offset="1" style="stop-color:var(--bio-head-lo)"/></linearGradient><radialGradient id="bio-r-tail" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-tail-hi)"/><stop offset="0.5" style="stop-color:var(--bio-tail)"/><stop offset="1" style="stop-color:var(--bio-tail-lo)"/></radialGradient><linearGradient id="bio-l-tail" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-tail-lo)"/><stop offset="0.28" style="stop-color:var(--bio-tail)"/><stop offset="0.48" style="stop-color:var(--bio-tail-hi)"/><stop offset="0.72" style="stop-color:var(--bio-tail)"/><stop offset="1" style="stop-color:var(--bio-tail-lo)"/></linearGradient><linearGradient id="bio-v-tail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-tail-hi)"/><stop offset="0.55" style="stop-color:var(--bio-tail)"/><stop offset="1" style="stop-color:var(--bio-tail-lo)"/></linearGradient><radialGradient id="bio-r-rotor" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-rotor-hi)"/><stop offset="0.5" style="stop-color:var(--bio-rotor)"/><stop offset="1" style="stop-color:var(--bio-rotor-lo)"/></radialGradient><linearGradient id="bio-l-rotor" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-rotor-lo)"/><stop offset="0.28" style="stop-color:var(--bio-rotor)"/><stop offset="0.48" style="stop-color:var(--bio-rotor-hi)"/><stop offset="0.72" style="stop-color:var(--bio-rotor)"/><stop offset="1" style="stop-color:var(--bio-rotor-lo)"/></linearGradient><linearGradient id="bio-v-rotor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-rotor-hi)"/><stop offset="0.55" style="stop-color:var(--bio-rotor)"/><stop offset="1" style="stop-color:var(--bio-rotor-lo)"/></linearGradient><radialGradient id="bio-r-stator" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-stator-hi)"/><stop offset="0.5" style="stop-color:var(--bio-stator)"/><stop offset="1" style="stop-color:var(--bio-stator-lo)"/></radialGradient><linearGradient id="bio-l-stator" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-stator-lo)"/><stop offset="0.28" style="stop-color:var(--bio-stator)"/><stop offset="0.48" style="stop-color:var(--bio-stator-hi)"/><stop offset="0.72" style="stop-color:var(--bio-stator)"/><stop offset="1" style="stop-color:var(--bio-stator-lo)"/></linearGradient><linearGradient id="bio-v-stator" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-stator-hi)"/><stop offset="0.55" style="stop-color:var(--bio-stator)"/><stop offset="1" style="stop-color:var(--bio-stator-lo)"/></linearGradient><radialGradient id="bio-r-rod" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-rod-hi)"/><stop offset="0.5" style="stop-color:var(--bio-rod)"/><stop offset="1" style="stop-color:var(--bio-rod-lo)"/></radialGradient><linearGradient id="bio-l-rod" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-rod-lo)"/><stop offset="0.28" style="stop-color:var(--bio-rod)"/><stop offset="0.48" style="stop-color:var(--bio-rod-hi)"/><stop offset="0.72" style="stop-color:var(--bio-rod)"/><stop offset="1" style="stop-color:var(--bio-rod-lo)"/></linearGradient><linearGradient id="bio-v-rod" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-rod-hi)"/><stop offset="0.55" style="stop-color:var(--bio-rod)"/><stop offset="1" style="stop-color:var(--bio-rod-lo)"/></linearGradient><radialGradient id="bio-r-hub" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-hub-hi)"/><stop offset="0.5" style="stop-color:var(--bio-hub)"/><stop offset="1" style="stop-color:var(--bio-hub-lo)"/></radialGradient><linearGradient id="bio-l-hub" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-hub-lo)"/><stop offset="0.28" style="stop-color:var(--bio-hub)"/><stop offset="0.48" style="stop-color:var(--bio-hub-hi)"/><stop offset="0.72" style="stop-color:var(--bio-hub)"/><stop offset="1" style="stop-color:var(--bio-hub-lo)"/></linearGradient><linearGradient id="bio-v-hub" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-hub-hi)"/><stop offset="0.55" style="stop-color:var(--bio-hub)"/><stop offset="1" style="stop-color:var(--bio-hub-lo)"/></linearGradient><radialGradient id="bio-r-alpha" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-alpha-hi)"/><stop offset="0.5" style="stop-color:var(--bio-alpha)"/><stop offset="1" style="stop-color:var(--bio-alpha-lo)"/></radialGradient><linearGradient id="bio-l-alpha" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-alpha-lo)"/><stop offset="0.28" style="stop-color:var(--bio-alpha)"/><stop offset="0.48" style="stop-color:var(--bio-alpha-hi)"/><stop offset="0.72" style="stop-color:var(--bio-alpha)"/><stop offset="1" style="stop-color:var(--bio-alpha-lo)"/></linearGradient><linearGradient id="bio-v-alpha" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-alpha-hi)"/><stop offset="0.55" style="stop-color:var(--bio-alpha)"/><stop offset="1" style="stop-color:var(--bio-alpha-lo)"/></linearGradient><radialGradient id="bio-r-beta" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-beta-hi)"/><stop offset="0.5" style="stop-color:var(--bio-beta)"/><stop offset="1" style="stop-color:var(--bio-beta-lo)"/></radialGradient><linearGradient id="bio-l-beta" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-beta-lo)"/><stop offset="0.28" style="stop-color:var(--bio-beta)"/><stop offset="0.48" style="stop-color:var(--bio-beta-hi)"/><stop offset="0.72" style="stop-color:var(--bio-beta)"/><stop offset="1" style="stop-color:var(--bio-beta-lo)"/></linearGradient><linearGradient id="bio-v-beta" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-beta-hi)"/><stop offset="0.55" style="stop-color:var(--bio-beta)"/><stop offset="1" style="stop-color:var(--bio-beta-lo)"/></linearGradient><radialGradient id="bio-r-proton" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-proton-hi)"/><stop offset="0.5" style="stop-color:var(--bio-proton)"/><stop offset="1" style="stop-color:var(--bio-proton-lo)"/></radialGradient><linearGradient id="bio-l-proton" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-proton-lo)"/><stop offset="0.28" style="stop-color:var(--bio-proton)"/><stop offset="0.48" style="stop-color:var(--bio-proton-hi)"/><stop offset="0.72" style="stop-color:var(--bio-proton)"/><stop offset="1" style="stop-color:var(--bio-proton-lo)"/></linearGradient><linearGradient id="bio-v-proton" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-proton-hi)"/><stop offset="0.55" style="stop-color:var(--bio-proton)"/><stop offset="1" style="stop-color:var(--bio-proton-lo)"/></linearGradient><radialGradient id="bio-r-atp" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-atp-hi)"/><stop offset="0.5" style="stop-color:var(--bio-atp)"/><stop offset="1" style="stop-color:var(--bio-atp-lo)"/></radialGradient><linearGradient id="bio-l-atp" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-atp-lo)"/><stop offset="0.28" style="stop-color:var(--bio-atp)"/><stop offset="0.48" style="stop-color:var(--bio-atp-hi)"/><stop offset="0.72" style="stop-color:var(--bio-atp)"/><stop offset="1" style="stop-color:var(--bio-atp-lo)"/></linearGradient><linearGradient id="bio-v-atp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-atp-hi)"/><stop offset="0.55" style="stop-color:var(--bio-atp)"/><stop offset="1" style="stop-color:var(--bio-atp-lo)"/></linearGradient><radialGradient id="bio-r-dna" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-dna-hi)"/><stop offset="0.5" style="stop-color:var(--bio-dna)"/><stop offset="1" style="stop-color:var(--bio-dna-lo)"/></radialGradient><linearGradient id="bio-l-dna" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-dna-lo)"/><stop offset="0.28" style="stop-color:var(--bio-dna)"/><stop offset="0.48" style="stop-color:var(--bio-dna-hi)"/><stop offset="0.72" style="stop-color:var(--bio-dna)"/><stop offset="1" style="stop-color:var(--bio-dna-lo)"/></linearGradient><linearGradient id="bio-v-dna" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-dna-hi)"/><stop offset="0.55" style="stop-color:var(--bio-dna)"/><stop offset="1" style="stop-color:var(--bio-dna-lo)"/></linearGradient><radialGradient id="bio-r-baseA" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-baseA-hi)"/><stop offset="0.5" style="stop-color:var(--bio-baseA)"/><stop offset="1" style="stop-color:var(--bio-baseA-lo)"/></radialGradient><linearGradient id="bio-l-baseA" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-baseA-lo)"/><stop offset="0.28" style="stop-color:var(--bio-baseA)"/><stop offset="0.48" style="stop-color:var(--bio-baseA-hi)"/><stop offset="0.72" style="stop-color:var(--bio-baseA)"/><stop offset="1" style="stop-color:var(--bio-baseA-lo)"/></linearGradient><linearGradient id="bio-v-baseA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-baseA-hi)"/><stop offset="0.55" style="stop-color:var(--bio-baseA)"/><stop offset="1" style="stop-color:var(--bio-baseA-lo)"/></linearGradient><radialGradient id="bio-r-baseT" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-baseT-hi)"/><stop offset="0.5" style="stop-color:var(--bio-baseT)"/><stop offset="1" style="stop-color:var(--bio-baseT-lo)"/></radialGradient><linearGradient id="bio-l-baseT" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-baseT-lo)"/><stop offset="0.28" style="stop-color:var(--bio-baseT)"/><stop offset="0.48" style="stop-color:var(--bio-baseT-hi)"/><stop offset="0.72" style="stop-color:var(--bio-baseT)"/><stop offset="1" style="stop-color:var(--bio-baseT-lo)"/></linearGradient><linearGradient id="bio-v-baseT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-baseT-hi)"/><stop offset="0.55" style="stop-color:var(--bio-baseT)"/><stop offset="1" style="stop-color:var(--bio-baseT-lo)"/></linearGradient><radialGradient id="bio-r-baseG" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-baseG-hi)"/><stop offset="0.5" style="stop-color:var(--bio-baseG)"/><stop offset="1" style="stop-color:var(--bio-baseG-lo)"/></radialGradient><linearGradient id="bio-l-baseG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-baseG-lo)"/><stop offset="0.28" style="stop-color:var(--bio-baseG)"/><stop offset="0.48" style="stop-color:var(--bio-baseG-hi)"/><stop offset="0.72" style="stop-color:var(--bio-baseG)"/><stop offset="1" style="stop-color:var(--bio-baseG-lo)"/></linearGradient><linearGradient id="bio-v-baseG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-baseG-hi)"/><stop offset="0.55" style="stop-color:var(--bio-baseG)"/><stop offset="1" style="stop-color:var(--bio-baseG-lo)"/></linearGradient><radialGradient id="bio-r-baseC" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-baseC-hi)"/><stop offset="0.5" style="stop-color:var(--bio-baseC)"/><stop offset="1" style="stop-color:var(--bio-baseC-lo)"/></radialGradient><linearGradient id="bio-l-baseC" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-baseC-lo)"/><stop offset="0.28" style="stop-color:var(--bio-baseC)"/><stop offset="0.48" style="stop-color:var(--bio-baseC-hi)"/><stop offset="0.72" style="stop-color:var(--bio-baseC)"/><stop offset="1" style="stop-color:var(--bio-baseC-lo)"/></linearGradient><linearGradient id="bio-v-baseC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-baseC-hi)"/><stop offset="0.55" style="stop-color:var(--bio-baseC)"/><stop offset="1" style="stop-color:var(--bio-baseC-lo)"/></linearGradient><radialGradient id="bio-r-rna" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-rna-hi)"/><stop offset="0.5" style="stop-color:var(--bio-rna)"/><stop offset="1" style="stop-color:var(--bio-rna-lo)"/></radialGradient><linearGradient id="bio-l-rna" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-rna-lo)"/><stop offset="0.28" style="stop-color:var(--bio-rna)"/><stop offset="0.48" style="stop-color:var(--bio-rna-hi)"/><stop offset="0.72" style="stop-color:var(--bio-rna)"/><stop offset="1" style="stop-color:var(--bio-rna-lo)"/></linearGradient><linearGradient id="bio-v-rna" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-rna-hi)"/><stop offset="0.55" style="stop-color:var(--bio-rna)"/><stop offset="1" style="stop-color:var(--bio-rna-lo)"/></linearGradient><radialGradient id="bio-r-chlorophyll" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-chlorophyll-hi)"/><stop offset="0.5" style="stop-color:var(--bio-chlorophyll)"/><stop offset="1" style="stop-color:var(--bio-chlorophyll-lo)"/></radialGradient><linearGradient id="bio-l-chlorophyll" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-chlorophyll-lo)"/><stop offset="0.28" style="stop-color:var(--bio-chlorophyll)"/><stop offset="0.48" style="stop-color:var(--bio-chlorophyll-hi)"/><stop offset="0.72" style="stop-color:var(--bio-chlorophyll)"/><stop offset="1" style="stop-color:var(--bio-chlorophyll-lo)"/></linearGradient><linearGradient id="bio-v-chlorophyll" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-chlorophyll-hi)"/><stop offset="0.55" style="stop-color:var(--bio-chlorophyll)"/><stop offset="1" style="stop-color:var(--bio-chlorophyll-lo)"/></linearGradient><radialGradient id="bio-r-cytosol" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-cytosol-hi)"/><stop offset="0.5" style="stop-color:var(--bio-cytosol)"/><stop offset="1" style="stop-color:var(--bio-cytosol-lo)"/></radialGradient><linearGradient id="bio-l-cytosol" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-cytosol-lo)"/><stop offset="0.28" style="stop-color:var(--bio-cytosol)"/><stop offset="0.48" style="stop-color:var(--bio-cytosol-hi)"/><stop offset="0.72" style="stop-color:var(--bio-cytosol)"/><stop offset="1" style="stop-color:var(--bio-cytosol-lo)"/></linearGradient><linearGradient id="bio-v-cytosol" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-cytosol-hi)"/><stop offset="0.55" style="stop-color:var(--bio-cytosol)"/><stop offset="1" style="stop-color:var(--bio-cytosol-lo)"/></linearGradient><radialGradient id="bio-r-capsid" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-capsid-hi)"/><stop offset="0.5" style="stop-color:var(--bio-capsid)"/><stop offset="1" style="stop-color:var(--bio-capsid-lo)"/></radialGradient><linearGradient id="bio-l-capsid" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-capsid-lo)"/><stop offset="0.28" style="stop-color:var(--bio-capsid)"/><stop offset="0.48" style="stop-color:var(--bio-capsid-hi)"/><stop offset="0.72" style="stop-color:var(--bio-capsid)"/><stop offset="1" style="stop-color:var(--bio-capsid-lo)"/></linearGradient><linearGradient id="bio-v-capsid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-capsid-hi)"/><stop offset="0.55" style="stop-color:var(--bio-capsid)"/><stop offset="1" style="stop-color:var(--bio-capsid-lo)"/></linearGradient><radialGradient id="bio-r-sheath" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-sheath-hi)"/><stop offset="0.5" style="stop-color:var(--bio-sheath)"/><stop offset="1" style="stop-color:var(--bio-sheath-lo)"/></radialGradient><linearGradient id="bio-l-sheath" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-sheath-lo)"/><stop offset="0.28" style="stop-color:var(--bio-sheath)"/><stop offset="0.48" style="stop-color:var(--bio-sheath-hi)"/><stop offset="0.72" style="stop-color:var(--bio-sheath)"/><stop offset="1" style="stop-color:var(--bio-sheath-lo)"/></linearGradient><linearGradient id="bio-v-sheath" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-sheath-hi)"/><stop offset="0.55" style="stop-color:var(--bio-sheath)"/><stop offset="1" style="stop-color:var(--bio-sheath-lo)"/></linearGradient><radialGradient id="bio-r-fibre" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-fibre-hi)"/><stop offset="0.5" style="stop-color:var(--bio-fibre)"/><stop offset="1" style="stop-color:var(--bio-fibre-lo)"/></radialGradient><linearGradient id="bio-l-fibre" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-fibre-lo)"/><stop offset="0.28" style="stop-color:var(--bio-fibre)"/><stop offset="0.48" style="stop-color:var(--bio-fibre-hi)"/><stop offset="0.72" style="stop-color:var(--bio-fibre)"/><stop offset="1" style="stop-color:var(--bio-fibre-lo)"/></linearGradient><linearGradient id="bio-v-fibre" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-fibre-hi)"/><stop offset="0.55" style="stop-color:var(--bio-fibre)"/><stop offset="1" style="stop-color:var(--bio-fibre-lo)"/></linearGradient><radialGradient id="bio-r-peptidoglycan" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-peptidoglycan-hi)"/><stop offset="0.5" style="stop-color:var(--bio-peptidoglycan)"/><stop offset="1" style="stop-color:var(--bio-peptidoglycan-lo)"/></radialGradient><linearGradient id="bio-l-peptidoglycan" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-peptidoglycan-lo)"/><stop offset="0.28" style="stop-color:var(--bio-peptidoglycan)"/><stop offset="0.48" style="stop-color:var(--bio-peptidoglycan-hi)"/><stop offset="0.72" style="stop-color:var(--bio-peptidoglycan)"/><stop offset="1" style="stop-color:var(--bio-peptidoglycan-lo)"/></linearGradient><linearGradient id="bio-v-peptidoglycan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-peptidoglycan-hi)"/><stop offset="0.55" style="stop-color:var(--bio-peptidoglycan)"/><stop offset="1" style="stop-color:var(--bio-peptidoglycan-lo)"/></linearGradient><radialGradient id="bio-r-cuticle" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-cuticle-hi)"/><stop offset="0.5" style="stop-color:var(--bio-cuticle)"/><stop offset="1" style="stop-color:var(--bio-cuticle-lo)"/></radialGradient><linearGradient id="bio-l-cuticle" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-cuticle-lo)"/><stop offset="0.28" style="stop-color:var(--bio-cuticle)"/><stop offset="0.48" style="stop-color:var(--bio-cuticle-hi)"/><stop offset="0.72" style="stop-color:var(--bio-cuticle)"/><stop offset="1" style="stop-color:var(--bio-cuticle-lo)"/></linearGradient><linearGradient id="bio-v-cuticle" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-cuticle-hi)"/><stop offset="0.55" style="stop-color:var(--bio-cuticle)"/><stop offset="1" style="stop-color:var(--bio-cuticle-lo)"/></linearGradient><radialGradient id="bio-r-epidermis" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-epidermis-hi)"/><stop offset="0.5" style="stop-color:var(--bio-epidermis)"/><stop offset="1" style="stop-color:var(--bio-epidermis-lo)"/></radialGradient><linearGradient id="bio-l-epidermis" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-epidermis-lo)"/><stop offset="0.28" style="stop-color:var(--bio-epidermis)"/><stop offset="0.48" style="stop-color:var(--bio-epidermis-hi)"/><stop offset="0.72" style="stop-color:var(--bio-epidermis)"/><stop offset="1" style="stop-color:var(--bio-epidermis-lo)"/></linearGradient><linearGradient id="bio-v-epidermis" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-epidermis-hi)"/><stop offset="0.55" style="stop-color:var(--bio-epidermis)"/><stop offset="1" style="stop-color:var(--bio-epidermis-lo)"/></linearGradient><radialGradient id="bio-r-palisade" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-palisade-hi)"/><stop offset="0.5" style="stop-color:var(--bio-palisade)"/><stop offset="1" style="stop-color:var(--bio-palisade-lo)"/></radialGradient><linearGradient id="bio-l-palisade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-palisade-lo)"/><stop offset="0.28" style="stop-color:var(--bio-palisade)"/><stop offset="0.48" style="stop-color:var(--bio-palisade-hi)"/><stop offset="0.72" style="stop-color:var(--bio-palisade)"/><stop offset="1" style="stop-color:var(--bio-palisade-lo)"/></linearGradient><linearGradient id="bio-v-palisade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-palisade-hi)"/><stop offset="0.55" style="stop-color:var(--bio-palisade)"/><stop offset="1" style="stop-color:var(--bio-palisade-lo)"/></linearGradient><radialGradient id="bio-r-spongy" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-spongy-hi)"/><stop offset="0.5" style="stop-color:var(--bio-spongy)"/><stop offset="1" style="stop-color:var(--bio-spongy-lo)"/></radialGradient><linearGradient id="bio-l-spongy" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-spongy-lo)"/><stop offset="0.28" style="stop-color:var(--bio-spongy)"/><stop offset="0.48" style="stop-color:var(--bio-spongy-hi)"/><stop offset="0.72" style="stop-color:var(--bio-spongy)"/><stop offset="1" style="stop-color:var(--bio-spongy-lo)"/></linearGradient><linearGradient id="bio-v-spongy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-spongy-hi)"/><stop offset="0.55" style="stop-color:var(--bio-spongy)"/><stop offset="1" style="stop-color:var(--bio-spongy-lo)"/></linearGradient><radialGradient id="bio-r-guard" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-guard-hi)"/><stop offset="0.5" style="stop-color:var(--bio-guard)"/><stop offset="1" style="stop-color:var(--bio-guard-lo)"/></radialGradient><linearGradient id="bio-l-guard" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-guard-lo)"/><stop offset="0.28" style="stop-color:var(--bio-guard)"/><stop offset="0.48" style="stop-color:var(--bio-guard-hi)"/><stop offset="0.72" style="stop-color:var(--bio-guard)"/><stop offset="1" style="stop-color:var(--bio-guard-lo)"/></linearGradient><linearGradient id="bio-v-guard" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-guard-hi)"/><stop offset="0.55" style="stop-color:var(--bio-guard)"/><stop offset="1" style="stop-color:var(--bio-guard-lo)"/></linearGradient><radialGradient id="bio-r-xylem" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-xylem-hi)"/><stop offset="0.5" style="stop-color:var(--bio-xylem)"/><stop offset="1" style="stop-color:var(--bio-xylem-lo)"/></radialGradient><linearGradient id="bio-l-xylem" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-xylem-lo)"/><stop offset="0.28" style="stop-color:var(--bio-xylem)"/><stop offset="0.48" style="stop-color:var(--bio-xylem-hi)"/><stop offset="0.72" style="stop-color:var(--bio-xylem)"/><stop offset="1" style="stop-color:var(--bio-xylem-lo)"/></linearGradient><linearGradient id="bio-v-xylem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-xylem-hi)"/><stop offset="0.55" style="stop-color:var(--bio-xylem)"/><stop offset="1" style="stop-color:var(--bio-xylem-lo)"/></linearGradient><radialGradient id="bio-r-phloem" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-phloem-hi)"/><stop offset="0.5" style="stop-color:var(--bio-phloem)"/><stop offset="1" style="stop-color:var(--bio-phloem-lo)"/></radialGradient><linearGradient id="bio-l-phloem" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-phloem-lo)"/><stop offset="0.28" style="stop-color:var(--bio-phloem)"/><stop offset="0.48" style="stop-color:var(--bio-phloem-hi)"/><stop offset="0.72" style="stop-color:var(--bio-phloem)"/><stop offset="1" style="stop-color:var(--bio-phloem-lo)"/></linearGradient><linearGradient id="bio-v-phloem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-phloem-hi)"/><stop offset="0.55" style="stop-color:var(--bio-phloem)"/><stop offset="1" style="stop-color:var(--bio-phloem-lo)"/></linearGradient><radialGradient id="bio-r-sheathcell" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-sheathcell-hi)"/><stop offset="0.5" style="stop-color:var(--bio-sheathcell)"/><stop offset="1" style="stop-color:var(--bio-sheathcell-lo)"/></radialGradient><linearGradient id="bio-l-sheathcell" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-sheathcell-lo)"/><stop offset="0.28" style="stop-color:var(--bio-sheathcell)"/><stop offset="0.48" style="stop-color:var(--bio-sheathcell-hi)"/><stop offset="0.72" style="stop-color:var(--bio-sheathcell)"/><stop offset="1" style="stop-color:var(--bio-sheathcell-lo)"/></linearGradient><linearGradient id="bio-v-sheathcell" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-sheathcell-hi)"/><stop offset="0.55" style="stop-color:var(--bio-sheathcell)"/><stop offset="1" style="stop-color:var(--bio-sheathcell-lo)"/></linearGradient><radialGradient id="bio-r-actin" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-actin-hi)"/><stop offset="0.5" style="stop-color:var(--bio-actin)"/><stop offset="1" style="stop-color:var(--bio-actin-lo)"/></radialGradient><linearGradient id="bio-l-actin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-actin-lo)"/><stop offset="0.28" style="stop-color:var(--bio-actin)"/><stop offset="0.48" style="stop-color:var(--bio-actin-hi)"/><stop offset="0.72" style="stop-color:var(--bio-actin)"/><stop offset="1" style="stop-color:var(--bio-actin-lo)"/></linearGradient><linearGradient id="bio-v-actin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-actin-hi)"/><stop offset="0.55" style="stop-color:var(--bio-actin)"/><stop offset="1" style="stop-color:var(--bio-actin-lo)"/></linearGradient><radialGradient id="bio-r-myosin" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-myosin-hi)"/><stop offset="0.5" style="stop-color:var(--bio-myosin)"/><stop offset="1" style="stop-color:var(--bio-myosin-lo)"/></radialGradient><linearGradient id="bio-l-myosin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-myosin-lo)"/><stop offset="0.28" style="stop-color:var(--bio-myosin)"/><stop offset="0.48" style="stop-color:var(--bio-myosin-hi)"/><stop offset="0.72" style="stop-color:var(--bio-myosin)"/><stop offset="1" style="stop-color:var(--bio-myosin-lo)"/></linearGradient><linearGradient id="bio-v-myosin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-myosin-hi)"/><stop offset="0.55" style="stop-color:var(--bio-myosin)"/><stop offset="1" style="stop-color:var(--bio-myosin-lo)"/></linearGradient><radialGradient id="bio-r-zdisc" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-zdisc-hi)"/><stop offset="0.5" style="stop-color:var(--bio-zdisc)"/><stop offset="1" style="stop-color:var(--bio-zdisc-lo)"/></radialGradient><linearGradient id="bio-l-zdisc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-zdisc-lo)"/><stop offset="0.28" style="stop-color:var(--bio-zdisc)"/><stop offset="0.48" style="stop-color:var(--bio-zdisc-hi)"/><stop offset="0.72" style="stop-color:var(--bio-zdisc)"/><stop offset="1" style="stop-color:var(--bio-zdisc-lo)"/></linearGradient><linearGradient id="bio-v-zdisc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-zdisc-hi)"/><stop offset="0.55" style="stop-color:var(--bio-zdisc)"/><stop offset="1" style="stop-color:var(--bio-zdisc-lo)"/></linearGradient><radialGradient id="bio-r-wall" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-wall-hi)"/><stop offset="0.5" style="stop-color:var(--bio-wall)"/><stop offset="1" style="stop-color:var(--bio-wall-lo)"/></radialGradient><linearGradient id="bio-l-wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-wall-lo)"/><stop offset="0.28" style="stop-color:var(--bio-wall)"/><stop offset="0.48" style="stop-color:var(--bio-wall-hi)"/><stop offset="0.72" style="stop-color:var(--bio-wall)"/><stop offset="1" style="stop-color:var(--bio-wall-lo)"/></linearGradient><linearGradient id="bio-v-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-wall-hi)"/><stop offset="0.55" style="stop-color:var(--bio-wall)"/><stop offset="1" style="stop-color:var(--bio-wall-lo)"/></linearGradient></defs><defs><linearGradient id="sarc-fade" x1="170.0" x2="590.0" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.081" stop-color="#fff"/><stop offset="0.919" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="sarc-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="760" height="400"><rect x="170.0" y="0" width="420.0" height="400" fill="url(#sarc-fade)"/></mask></defs><rect x="0" y="0" width="760" height="400" fill="var(--bio-cytoplasm)"/><g data-live="art" mask="url(#sarc-mask)"><path class="bio-thin" d="M147.9 128.2L352.4 128.2" fill="none" stroke="var(--bio-actin-lo)" stroke-width="1.3"/><path d="M147.9 126.4L352.4 126.4" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M147.9 126.4L352.4 126.4" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M147.9 129.9L352.4 129.9" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path d="M147.9 129.9L352.4 129.9" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path class="bio-thin" d="M407.6 128.2L612.1 128.2" fill="none" stroke="var(--bio-actin-lo)" stroke-width="1.3"/><path d="M407.6 126.4L612.1 126.4" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M407.6 126.4L612.1 126.4" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M407.6 129.9L612.1 129.9" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path d="M407.6 129.9L612.1 129.9" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path class="bio-thin" d="M147.9 183.4L352.4 183.4" fill="none" stroke="var(--bio-actin-lo)" stroke-width="1.3"/><path d="M147.9 181.7L352.4 181.7" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M147.9 181.7L352.4 181.7" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M147.9 185.2L352.4 185.2" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path d="M147.9 185.2L352.4 185.2" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path class="bio-thin" d="M407.6 183.4L612.1 183.4" fill="none" stroke="var(--bio-actin-lo)" stroke-width="1.3"/><path d="M407.6 181.7L612.1 181.7" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M407.6 181.7L612.1 181.7" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M407.6 185.2L612.1 185.2" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path d="M407.6 185.2L612.1 185.2" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path class="bio-thin" d="M147.9 238.7L352.4 238.7" fill="none" stroke="var(--bio-actin-lo)" stroke-width="1.3"/><path d="M147.9 236.9L352.4 236.9" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M147.9 236.9L352.4 236.9" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M147.9 240.5L352.4 240.5" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path d="M147.9 240.5L352.4 240.5" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path class="bio-thin" d="M407.6 238.7L612.1 238.7" fill="none" stroke="var(--bio-actin-lo)" stroke-width="1.3"/><path d="M407.6 236.9L612.1 236.9" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M407.6 236.9L612.1 236.9" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M407.6 240.5L612.1 240.5" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path d="M407.6 240.5L612.1 240.5" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path class="bio-thin" d="M147.9 293.9L352.4 293.9" fill="none" stroke="var(--bio-actin-lo)" stroke-width="1.3"/><path d="M147.9 292.2L352.4 292.2" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M147.9 292.2L352.4 292.2" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M147.9 295.7L352.4 295.7" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path d="M147.9 295.7L352.4 295.7" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path class="bio-thin" d="M407.6 293.9L612.1 293.9" fill="none" stroke="var(--bio-actin-lo)" stroke-width="1.3"/><path d="M407.6 292.2L612.1 292.2" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M407.6 292.2L612.1 292.2" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="0.0"/><path d="M407.6 295.7L612.1 295.7" fill="none" stroke="var(--bio-actin-edge)" stroke-width="5.0" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path d="M407.6 295.7L612.1 295.7" fill="none" stroke="var(--bio-actin)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="0 7.1" stroke-dashoffset="3.5"/><path d="M15.3 155.8C44.7 155.8 162.6 155.8 192.1 155.8" fill="none" stroke="var(--bio-myosin-edge)" stroke-width="15.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.3 155.8C44.7 155.8 162.6 155.8 192.1 155.8" fill="none" stroke="var(--bio-myosin)" stroke-width="13.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.3 155.8C44.7 155.8 162.6 155.8 192.1 155.8" fill="none" stroke="var(--bio-myosin-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><ellipse class="bio-body" data-swatch="myosin" cx="87.1" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 87.1 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="87.1" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 87.1 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="75.5" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 75.5 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="75.5" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 75.5 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="63.9" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 63.9 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="63.9" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 63.9 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="52.3" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 52.3 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="52.3" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 52.3 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="40.7" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 40.7 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="40.7" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 40.7 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="29.1" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 29.1 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="29.1" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 29.1 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="17.5" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 17.5 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="17.5" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 17.5 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="120.3" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 120.3 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="120.3" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 120.3 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="131.9" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 131.9 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="131.9" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 131.9 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="143.5" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 143.5 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="143.5" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 143.5 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="155.1" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 155.1 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="155.1" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 155.1 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="166.7" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 166.7 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="166.7" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 166.7 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="178.3" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 178.3 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="178.3" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 178.3 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="189.9" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 189.9 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="189.9" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 189.9 165.7)" fill="url(#bio-r-myosin)"/><path d="M15.3 211.1C44.7 211.1 162.6 211.1 192.1 211.1" fill="none" stroke="var(--bio-myosin-edge)" stroke-width="15.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.3 211.1C44.7 211.1 162.6 211.1 192.1 211.1" fill="none" stroke="var(--bio-myosin)" stroke-width="13.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.3 211.1C44.7 211.1 162.6 211.1 192.1 211.1" fill="none" stroke="var(--bio-myosin-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><ellipse class="bio-body" data-swatch="myosin" cx="87.1" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 87.1 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="87.1" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 87.1 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="75.5" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 75.5 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="75.5" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 75.5 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="63.9" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 63.9 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="63.9" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 63.9 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="52.3" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 52.3 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="52.3" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 52.3 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="40.7" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 40.7 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="40.7" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 40.7 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="29.1" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 29.1 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="29.1" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 29.1 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="17.5" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 17.5 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="17.5" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 17.5 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="120.3" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 120.3 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="120.3" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 120.3 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="131.9" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 131.9 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="131.9" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 131.9 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="143.5" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 143.5 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="143.5" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 143.5 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="155.1" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 155.1 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="155.1" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 155.1 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="166.7" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 166.7 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="166.7" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 166.7 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="178.3" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 178.3 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="178.3" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 178.3 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="189.9" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 189.9 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="189.9" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 189.9 221.0)" fill="url(#bio-r-myosin)"/><path d="M15.3 266.3C44.7 266.3 162.6 266.3 192.1 266.3" fill="none" stroke="var(--bio-myosin-edge)" stroke-width="15.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.3 266.3C44.7 266.3 162.6 266.3 192.1 266.3" fill="none" stroke="var(--bio-myosin)" stroke-width="13.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.3 266.3C44.7 266.3 162.6 266.3 192.1 266.3" fill="none" stroke="var(--bio-myosin-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><ellipse class="bio-body" data-swatch="myosin" cx="87.1" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 87.1 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="87.1" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 87.1 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="75.5" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 75.5 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="75.5" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 75.5 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="63.9" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 63.9 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="63.9" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 63.9 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="52.3" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 52.3 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="52.3" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 52.3 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="40.7" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 40.7 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="40.7" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 40.7 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="29.1" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 29.1 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="29.1" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 29.1 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="17.5" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 17.5 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="17.5" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 17.5 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="120.3" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 120.3 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="120.3" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 120.3 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="131.9" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 131.9 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="131.9" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 131.9 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="143.5" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 143.5 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="143.5" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 143.5 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="155.1" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 155.1 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="155.1" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 155.1 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="166.7" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 166.7 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="166.7" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 166.7 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="178.3" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 178.3 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="178.3" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 178.3 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="189.9" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 189.9 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="189.9" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 189.9 276.3)" fill="url(#bio-r-myosin)"/><path d="M291.6 155.8C321.1 155.8 438.9 155.8 468.4 155.8" fill="none" stroke="var(--bio-myosin-edge)" stroke-width="15.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M291.6 155.8C321.1 155.8 438.9 155.8 468.4 155.8" fill="none" stroke="var(--bio-myosin)" stroke-width="13.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M291.6 155.8C321.1 155.8 438.9 155.8 468.4 155.8" fill="none" stroke="var(--bio-myosin-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><ellipse class="bio-body" data-swatch="myosin" cx="363.4" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 363.4 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="363.4" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 363.4 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="351.8" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 351.8 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="351.8" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 351.8 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="340.2" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 340.2 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="340.2" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 340.2 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="328.6" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 328.6 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="328.6" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 328.6 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="317.0" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 317.0 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="317.0" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 317.0 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="305.4" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 305.4 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="305.4" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 305.4 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="293.8" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 293.8 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="293.8" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 293.8 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="396.6" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 396.6 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="396.6" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 396.6 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="408.2" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 408.2 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="408.2" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 408.2 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="419.8" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 419.8 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="419.8" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 419.8 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="431.4" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 431.4 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="431.4" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 431.4 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="443.0" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 443.0 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="443.0" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 443.0 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="454.6" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 454.6 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="454.6" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 454.6 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="466.2" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 466.2 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="466.2" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 466.2 165.7)" fill="url(#bio-r-myosin)"/><path d="M291.6 211.1C321.1 211.1 438.9 211.1 468.4 211.1" fill="none" stroke="var(--bio-myosin-edge)" stroke-width="15.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M291.6 211.1C321.1 211.1 438.9 211.1 468.4 211.1" fill="none" stroke="var(--bio-myosin)" stroke-width="13.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M291.6 211.1C321.1 211.1 438.9 211.1 468.4 211.1" fill="none" stroke="var(--bio-myosin-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><ellipse class="bio-body" data-swatch="myosin" cx="363.4" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 363.4 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="363.4" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 363.4 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="351.8" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 351.8 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="351.8" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 351.8 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="340.2" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 340.2 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="340.2" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 340.2 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="328.6" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 328.6 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="328.6" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 328.6 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="317.0" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 317.0 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="317.0" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 317.0 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="305.4" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 305.4 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="305.4" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 305.4 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="293.8" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 293.8 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="293.8" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 293.8 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="396.6" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 396.6 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="396.6" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 396.6 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="408.2" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 408.2 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="408.2" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 408.2 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="419.8" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 419.8 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="419.8" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 419.8 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="431.4" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 431.4 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="431.4" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 431.4 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="443.0" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 443.0 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="443.0" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 443.0 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="454.6" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 454.6 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="454.6" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 454.6 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="466.2" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 466.2 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="466.2" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 466.2 221.0)" fill="url(#bio-r-myosin)"/><path d="M291.6 266.3C321.1 266.3 438.9 266.3 468.4 266.3" fill="none" stroke="var(--bio-myosin-edge)" stroke-width="15.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M291.6 266.3C321.1 266.3 438.9 266.3 468.4 266.3" fill="none" stroke="var(--bio-myosin)" stroke-width="13.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M291.6 266.3C321.1 266.3 438.9 266.3 468.4 266.3" fill="none" stroke="var(--bio-myosin-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><ellipse class="bio-body" data-swatch="myosin" cx="363.4" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 363.4 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="363.4" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 363.4 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="351.8" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 351.8 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="351.8" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 351.8 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="340.2" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 340.2 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="340.2" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 340.2 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="328.6" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 328.6 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="328.6" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 328.6 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="317.0" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 317.0 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="317.0" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 317.0 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="305.4" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 305.4 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="305.4" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 305.4 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="293.8" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 293.8 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="293.8" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 293.8 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="396.6" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 396.6 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="396.6" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 396.6 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="408.2" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 408.2 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="408.2" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 408.2 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="419.8" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 419.8 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="419.8" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 419.8 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="431.4" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 431.4 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="431.4" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 431.4 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="443.0" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 443.0 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="443.0" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 443.0 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="454.6" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 454.6 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="454.6" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 454.6 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="466.2" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 466.2 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="466.2" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 466.2 276.3)" fill="url(#bio-r-myosin)"/><path d="M567.9 155.8C597.4 155.8 715.3 155.8 744.7 155.8" fill="none" stroke="var(--bio-myosin-edge)" stroke-width="15.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M567.9 155.8C597.4 155.8 715.3 155.8 744.7 155.8" fill="none" stroke="var(--bio-myosin)" stroke-width="13.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M567.9 155.8C597.4 155.8 715.3 155.8 744.7 155.8" fill="none" stroke="var(--bio-myosin-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><ellipse class="bio-body" data-swatch="myosin" cx="639.7" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 639.7 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="639.7" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 639.7 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="628.1" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 628.1 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="628.1" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 628.1 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="616.5" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 616.5 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="616.5" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 616.5 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="604.9" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 604.9 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="604.9" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 604.9 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="593.3" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 593.3 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="593.3" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 593.3 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="581.7" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 581.7 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="581.7" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 581.7 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="570.1" cy="145.8" rx="5.7" ry="2.9" transform="rotate(55.0 570.1 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="570.1" cy="165.7" rx="5.7" ry="2.9" transform="rotate(-55.0 570.1 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="672.9" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 672.9 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="672.9" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 672.9 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="684.5" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 684.5 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="684.5" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 684.5 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="696.1" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 696.1 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="696.1" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 696.1 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="707.7" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 707.7 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="707.7" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 707.7 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="719.3" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 719.3 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="719.3" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 719.3 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="730.9" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 730.9 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="730.9" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 730.9 165.7)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="742.5" cy="145.8" rx="5.7" ry="2.9" transform="rotate(-55.0 742.5 145.8)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="742.5" cy="165.7" rx="5.7" ry="2.9" transform="rotate(55.0 742.5 165.7)" fill="url(#bio-r-myosin)"/><path d="M567.9 211.1C597.4 211.1 715.3 211.1 744.7 211.1" fill="none" stroke="var(--bio-myosin-edge)" stroke-width="15.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M567.9 211.1C597.4 211.1 715.3 211.1 744.7 211.1" fill="none" stroke="var(--bio-myosin)" stroke-width="13.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M567.9 211.1C597.4 211.1 715.3 211.1 744.7 211.1" fill="none" stroke="var(--bio-myosin-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><ellipse class="bio-body" data-swatch="myosin" cx="639.7" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 639.7 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="639.7" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 639.7 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="628.1" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 628.1 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="628.1" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 628.1 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="616.5" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 616.5 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="616.5" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 616.5 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="604.9" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 604.9 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="604.9" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 604.9 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="593.3" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 593.3 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="593.3" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 593.3 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="581.7" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 581.7 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="581.7" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 581.7 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="570.1" cy="201.1" rx="5.7" ry="2.9" transform="rotate(55.0 570.1 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="570.1" cy="221.0" rx="5.7" ry="2.9" transform="rotate(-55.0 570.1 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="672.9" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 672.9 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="672.9" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 672.9 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="684.5" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 684.5 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="684.5" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 684.5 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="696.1" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 696.1 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="696.1" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 696.1 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="707.7" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 707.7 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="707.7" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 707.7 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="719.3" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 719.3 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="719.3" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 719.3 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="730.9" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 730.9 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="730.9" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 730.9 221.0)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="742.5" cy="201.1" rx="5.7" ry="2.9" transform="rotate(-55.0 742.5 201.1)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="742.5" cy="221.0" rx="5.7" ry="2.9" transform="rotate(55.0 742.5 221.0)" fill="url(#bio-r-myosin)"/><path d="M567.9 266.3C597.4 266.3 715.3 266.3 744.7 266.3" fill="none" stroke="var(--bio-myosin-edge)" stroke-width="15.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M567.9 266.3C597.4 266.3 715.3 266.3 744.7 266.3" fill="none" stroke="var(--bio-myosin)" stroke-width="13.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M567.9 266.3C597.4 266.3 715.3 266.3 744.7 266.3" fill="none" stroke="var(--bio-myosin-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><ellipse class="bio-body" data-swatch="myosin" cx="639.7" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 639.7 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="639.7" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 639.7 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="628.1" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 628.1 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="628.1" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 628.1 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="616.5" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 616.5 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="616.5" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 616.5 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="604.9" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 604.9 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="604.9" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 604.9 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="593.3" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 593.3 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="593.3" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 593.3 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="581.7" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 581.7 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="581.7" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 581.7 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="570.1" cy="256.4" rx="5.7" ry="2.9" transform="rotate(55.0 570.1 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="570.1" cy="276.3" rx="5.7" ry="2.9" transform="rotate(-55.0 570.1 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="672.9" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 672.9 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="672.9" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 672.9 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="684.5" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 684.5 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="684.5" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 684.5 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="696.1" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 696.1 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="696.1" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 696.1 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="707.7" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 707.7 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="707.7" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 707.7 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="719.3" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 719.3 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="719.3" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 719.3 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="730.9" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 730.9 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="730.9" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 730.9 276.3)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="742.5" cy="256.4" rx="5.7" ry="2.9" transform="rotate(-55.0 742.5 256.4)" fill="url(#bio-r-myosin)"/><ellipse class="bio-body" data-swatch="myosin" cx="742.5" cy="276.3" rx="5.7" ry="2.9" transform="rotate(55.0 742.5 276.3)" fill="url(#bio-r-myosin)"/><path d="M238 104.9C239.3 107.2 245.7 113.8 245.7 118.2C245.7 122.6 238 127.1 238 131.5C238 135.9 245.7 140.3 245.7 144.7C245.7 149.2 238 153.6 238 158C238 162.4 245.7 166.8 245.7 171.3C245.7 175.7 238 180.1 238 184.5C238 188.9 245.7 193.4 245.7 197.8C245.7 202.2 238 206.6 238 211.1C238 215.5 245.7 219.9 245.7 224.3C245.7 228.7 238 233.2 238 237.6C238 242 245.7 246.4 245.7 250.8C245.7 255.3 238 259.7 238 264.1C238 268.5 245.7 272.9 245.7 277.4C245.7 281.8 238 286.2 238 290.6C238 295.1 245.7 299.5 245.7 303.9C245.7 308.3 239.3 314.9 238 317.2" fill="none" stroke="var(--bio-zdisc-edge)" stroke-width="6.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M238 104.9C239.3 107.2 245.7 113.8 245.7 118.2C245.7 122.6 238 127.1 238 131.5C238 135.9 245.7 140.3 245.7 144.7C245.7 149.2 238 153.6 238 158C238 162.4 245.7 166.8 245.7 171.3C245.7 175.7 238 180.1 238 184.5C238 188.9 245.7 193.4 245.7 197.8C245.7 202.2 238 206.6 238 211.1C238 215.5 245.7 219.9 245.7 224.3C245.7 228.7 238 233.2 238 237.6C238 242 245.7 246.4 245.7 250.8C245.7 255.3 238 259.7 238 264.1C238 268.5 245.7 272.9 245.7 277.4C245.7 281.8 238 286.2 238 290.6C238 295.1 245.7 299.5 245.7 303.9C245.7 308.3 239.3 314.9 238 317.2" fill="none" stroke="var(--bio-zdisc)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M238 104.9C239.3 107.2 245.7 113.8 245.7 118.2C245.7 122.6 238 127.1 238 131.5C238 135.9 245.7 140.3 245.7 144.7C245.7 149.2 238 153.6 238 158C238 162.4 245.7 166.8 245.7 171.3C245.7 175.7 238 180.1 238 184.5C238 188.9 245.7 193.4 245.7 197.8C245.7 202.2 238 206.6 238 211.1C238 215.5 245.7 219.9 245.7 224.3C245.7 228.7 238 233.2 238 237.6C238 242 245.7 246.4 245.7 250.8C245.7 255.3 238 259.7 238 264.1C238 268.5 245.7 272.9 245.7 277.4C245.7 281.8 238 286.2 238 290.6C238 295.1 245.7 299.5 245.7 303.9C245.7 308.3 239.3 314.9 238 317.2" fill="none" stroke="var(--bio-zdisc-hi)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-0.8 -0.6)"/><path d="M514.3 104.9C515.6 107.2 522 113.8 522 118.2C522 122.6 514.3 127.1 514.3 131.5C514.3 135.9 522 140.3 522 144.7C522 149.2 514.3 153.6 514.3 158C514.3 162.4 522 166.8 522 171.3C522 175.7 514.3 180.1 514.3 184.5C514.3 188.9 522 193.4 522 197.8C522 202.2 514.3 206.6 514.3 211.1C514.3 215.5 522 219.9 522 224.3C522 228.7 514.3 233.2 514.3 237.6C514.3 242 522 246.4 522 250.8C522 255.3 514.3 259.7 514.3 264.1C514.3 268.5 522 272.9 522 277.4C522 281.8 514.3 286.2 514.3 290.6C514.3 295.1 522 299.5 522 303.9C522 308.3 515.6 314.9 514.3 317.2" fill="none" stroke="var(--bio-zdisc-edge)" stroke-width="6.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M514.3 104.9C515.6 107.2 522 113.8 522 118.2C522 122.6 514.3 127.1 514.3 131.5C514.3 135.9 522 140.3 522 144.7C522 149.2 514.3 153.6 514.3 158C514.3 162.4 522 166.8 522 171.3C522 175.7 514.3 180.1 514.3 184.5C514.3 188.9 522 193.4 522 197.8C522 202.2 514.3 206.6 514.3 211.1C514.3 215.5 522 219.9 522 224.3C522 228.7 514.3 233.2 514.3 237.6C514.3 242 522 246.4 522 250.8C522 255.3 514.3 259.7 514.3 264.1C514.3 268.5 522 272.9 522 277.4C522 281.8 514.3 286.2 514.3 290.6C514.3 295.1 522 299.5 522 303.9C522 308.3 515.6 314.9 514.3 317.2" fill="none" stroke="var(--bio-zdisc)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M514.3 104.9C515.6 107.2 522 113.8 522 118.2C522 122.6 514.3 127.1 514.3 131.5C514.3 135.9 522 140.3 522 144.7C522 149.2 514.3 153.6 514.3 158C514.3 162.4 522 166.8 522 171.3C522 175.7 514.3 180.1 514.3 184.5C514.3 188.9 522 193.4 522 197.8C522 202.2 514.3 206.6 514.3 211.1C514.3 215.5 522 219.9 522 224.3C522 228.7 514.3 233.2 514.3 237.6C514.3 242 522 246.4 522 250.8C522 255.3 514.3 259.7 514.3 264.1C514.3 268.5 522 272.9 522 277.4C522 281.8 514.3 286.2 514.3 290.6C514.3 295.1 522 299.5 522 303.9C522 308.3 515.6 314.9 514.3 317.2" fill="none" stroke="var(--bio-zdisc-hi)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-0.8 -0.6)"/><path d="M380 142.5C380 165.4 380 256.7 380 279.6" fill="none" stroke="var(--bio-zdisc-edge)" stroke-width="4.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M380 142.5C380 165.4 380 256.7 380 279.6" fill="none" stroke="var(--bio-zdisc)" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M380 142.5C380 165.4 380 256.7 380 279.6" fill="none" stroke="var(--bio-zdisc-hi)" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-0.5 -0.3)"/></g><g data-live="notes"><path class="bio-casing" d="M241.8 56.3L518.2 56.3M241.8 60.3L241.8 52.3M518.2 60.3L518.2 52.3" stroke-width="3"/><path class="bio-dimension" d="M241.8 56.3L518.2 56.3M241.8 60.3L241.8 52.3M518.2 60.3L518.2 52.3"/><text class="bio-label" data-small x="380" y="51.3" text-anchor="middle">Sarcomere 2.50 µm</text><path class="bio-casing" d="M291.6 80.6L468.4 80.6M291.6 84.6L291.6 76.6M468.4 84.6L468.4 76.6" stroke-width="3"/><path class="bio-dimension" d="M291.6 80.6L468.4 80.6M291.6 84.6L291.6 76.6M468.4 84.6L468.4 76.6"/><text class="bio-label" data-small x="380" y="75.6" text-anchor="middle">A band 1.60 µm</text><path class="bio-casing" d="M355.1 102.7L404.9 102.7M355.1 106.7L355.1 98.7M404.9 106.7L404.9 98.7" stroke-width="3"/><path class="bio-dimension" d="M355.1 102.7L404.9 102.7M355.1 106.7L355.1 98.7M404.9 106.7L404.9 98.7"/><text class="bio-label" data-small x="380" y="97.7" text-anchor="middle">H zone</text><path class="bio-casing" d="M291.6 334.8L192.1 334.8M291.6 330.8L291.6 338.8M192.1 330.8L192.1 338.8" stroke-width="3"/><path class="bio-dimension" d="M291.6 334.8L192.1 334.8M291.6 330.8L291.6 338.8M192.1 330.8L192.1 338.8"/><text class="bio-label" data-small x="241.8" y="348.8" text-anchor="middle">I band 0.90 µm</text><path class="bio-casing" d="M245.7 303.9L168 303.9" stroke-width="3.2"/><path class="bio-leader" d="M245.7 303.9L168 303.9"/><circle class="bio-anchor" cx="245.7" cy="303.9" r="1.9"/><text class="bio-label" x="162" y="308" text-anchor="end">Z disc</text><path class="bio-casing" d="M286.1 183.4L168 183.4" stroke-width="3.2"/><path class="bio-leader" d="M286.1 183.4L168 183.4"/><circle class="bio-anchor" cx="286.1" cy="183.4" r="1.9"/><text class="bio-label" x="162" y="187.6" text-anchor="end">Thin filament (actin)</text><path class="bio-casing" d="M302.6 260.2L168 260.2" stroke-width="3.2"/><path class="bio-leader" d="M302.6 260.2L168 260.2"/><circle class="bio-anchor" cx="302.6" cy="260.2" r="1.9"/><text class="bio-label" x="162" y="264.4" text-anchor="end">Thick filament (myosin)</text><path class="bio-casing" d="M443 145.8L592 145.8" stroke-width="3.2"/><path class="bio-leader" d="M443 145.8L592 145.8"/><circle class="bio-anchor" cx="443" cy="145.8" r="1.9"/><text class="bio-label" x="598" y="150" text-anchor="start">Myosin heads</text><path class="bio-casing" d="M380 277.4L415.4 312.7L592 312.7" stroke-width="3.2"/><path class="bio-leader" d="M380 277.4L415.4 312.7L592 312.7"/><circle class="bio-anchor" cx="380" cy="277.4" r="1.9"/><text class="bio-label" x="598" y="316.9" text-anchor="start">M line</text></g><text class="bio-region" x="22" y="24" text-anchor="start">SKELETAL MUSCLE FIBRE, ONE SARCOMERE</text></svg></div><div class="bio-foot"><span>→ contract or relax · space to pause</span><span data-readout>Relaxed · sarcomere 2.50 µm · A band 1.60 µm · I band 0.90 µm · H zone 0.45 µm</span></div></div><figcaption class="iso-legend"><span class="iso-caption">One sarcomere of frog skeletal muscle, the classic vertebrate model. Thin actin filaments, about 1 µm long, are anchored at the Z discs; thick myosin filaments, about 1.6 µm long with a bare zone of about 0.16 µm at the M line, sit between them with their heads pointing away from the middle. When the muscle contracts, myosin heads bind actin and pull the thin filaments toward the M line, so the filaments slide past each other: here the sarcomere shortens from 2.5 to 2.05 µm, the I band and H zone shorten, and the A band, the length of the thick filaments, stays the same. Lengths are to scale; filament widths, spacing and the number of heads are simplified for clarity. Sources: Huxley & Niedergerke 1954, Nature 173:971; Huxley & Hanson 1954, Nature 173:973; Gordon, Huxley & Julian 1966, J Physiol 184:170.</span></figcaption></figure></div></main><script type="module">const AZIMUTH = 45;
+const ELEVATION = 30;
+const SHADES = 4;
+const RADIANS = Math.PI / 180;
+const UNIT = Math.sqrt(1.6);
+function cameraOf({ scale, azimuth = AZIMUTH, elevation = ELEVATION }) {
+    const a = azimuth * RADIANS;
+    const e = elevation * RADIANS;
+    return { sinA: Math.sin(a), cosA: Math.cos(a), sinE: Math.sin(e), cosE: Math.cos(e), k: scale * UNIT };
+}
+function iso([x, y, z], projection) {
+    const { origin } = projection;
+    const { sinA, cosA, sinE, cosE, k } = cameraOf(projection);
+    return [origin[0] + (x * sinA - y * cosA) * k, origin[1] + ((x * cosA + y * sinA) * sinE - z * cosE) * k];
+}
+function towardViewer(projection) {
+    const { sinA, cosA } = cameraOf(projection);
+    return [cosA, sinA];
+}
+function depthOf([x, y, z], projection) {
+    const { sinA, cosA, sinE, cosE } = cameraOf(projection);
+    return (x * cosA + y * sinA) * cosE + z * sinE;
+}
+const tenth = (value) => {
+    const text = (Math.round(value * 10) / 10).toFixed(1).replace(/\.0$/, "");
+    return text === "-0" ? "0" : text;
+};
+function pathOf(points, closed = false) {
+    if (!points.length)
+        return "";
+    return points.map(([x, y], at) => `${at ? "L" : "M"}${tenth(x)} ${tenth(y)}`).join("") + (closed ? "Z" : "");
+}
+const joinPaths = (paths) => paths.filter(Boolean).join("");
+function roundedPlan({ x, y, w, d, r }, steps = 8) {
+    const radius = Math.max(0, Math.min(r, w / 2, d / 2));
+    const corners = [
+        [x + w - radius, y + radius, -90],
+        [x + w - radius, y + d - radius, 0],
+        [x + radius, y + d - radius, 90],
+        [x + radius, y + radius, 180],
+    ];
+    const out = [];
+    for (const [cx, cy, start] of corners) {
+        const count = radius > 0 ? steps : 0;
+        for (let step = 0; step <= count; step++) {
+            const angle = (start + (count ? (90 * step) / count : 45)) * RADIANS;
+            out.push([cx + radius * Math.cos(angle), cy + radius * Math.sin(angle)]);
+        }
+    }
+    return out;
+}
+function signedArea(points) {
+    let area = 0;
+    for (let index = 0; index < points.length; index++) {
+        const [ax, ay] = points[index];
+        const [bx, by] = points[(index + 1) % points.length];
+        area += ax * by - bx * ay;
+    }
+    return area / 2;
+}
+const oriented = (points) => (signedArea(points) < 0 ? [...points].reverse() : points);
+function convexHull(points) {
+    const sorted = [...points].sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+    if (sorted.length < 3)
+        return sorted;
+    const cross = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+    const lower = [];
+    for (const point of sorted) {
+        while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], point) <= 0)
+            lower.pop();
+        lower.push(point);
+    }
+    const upper = [];
+    for (let index = sorted.length - 1; index >= 0; index--) {
+        const point = sorted[index];
+        while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], point) <= 0)
+            upper.pop();
+        upper.push(point);
+    }
+    return [...lower.slice(0, -1), ...upper.slice(0, -1)];
+}
+function runsOf(flags, want) {
+    const count = flags.length;
+    const runs = [];
+    const start = flags.findIndex((flag, index) => flag !== flags[(index + count - 1) % count]);
+    if (start < 0)
+        return flags[0] === want ? [Array.from({ length: count + 1 }, (_, index) => index % count)] : [];
+    let run = null;
+    for (let step = 0; step < count; step++) {
+        const index = (start + step) % count;
+        if (flags[index] === want) {
+            if (!run)
+                run = [index];
+            run.push((index + 1) % count);
+        }
+        else if (run) {
+            runs.push(run);
+            run = null;
+        }
+    }
+    if (run)
+        runs.push(run);
+    return runs;
+}
+function extrude(ring, z, height, projection, options = {}) {
+    const convex = options.convex ?? true;
+    const count = ring.length;
+    const counter = signedArea(ring) > 0;
+    const [vx, vy] = towardViewer(projection);
+    const { sinA, cosA } = cameraOf(projection);
+    const normals = ring.map(([ax, ay], index) => {
+        const [bx, by] = ring[(index + 1) % count];
+        const dx = bx - ax;
+        const dy = by - ay;
+        const length = Math.hypot(dx, dy) || 1;
+        return (counter ? [dy / length, -dx / length] : [-dy / length, dx / length]);
+    });
+    const facing = normals.map(([nx, ny]) => nx * vx + ny * vy > 1e-9);
+    const top = ring.map(([x, y]) => iso([x, y, z + height], projection));
+    const bottom = ring.map(([x, y]) => iso([x, y, z], projection));
+    const outline = [];
+    const crease = [];
+    for (const run of runsOf(facing, false))
+        outline.push(pathOf(run.map((index) => top[index])));
+    for (const run of runsOf(facing, true)) {
+        crease.push(pathOf(run.map((index) => top[index])));
+        if (height > 0)
+            outline.push(pathOf(run.map((index) => bottom[index])));
+    }
+    if (height > 0) {
+        for (let index = 0; index < count; index++) {
+            if (facing[(index + count - 1) % count] !== facing[index])
+                outline.push(pathOf([top[index], bottom[index]]));
+        }
+    }
+    let fill;
+    if (convex) {
+        fill = pathOf(convexHull([...top, ...bottom]), true);
+    }
+    else {
+        const parts = [pathOf(oriented(top), true), pathOf(oriented(bottom), true)];
+        for (let index = 0; index < count; index++) {
+            if (!facing[index])
+                continue;
+            const next = (index + 1) % count;
+            parts.push(pathOf(oriented([top[index], top[next], bottom[next], bottom[index]]), true));
+        }
+        fill = parts.join("");
+    }
+    const buckets = Array.from({ length: SHADES }, () => []);
+    if (height > 0) {
+        const [lx, ly] = [-sinA, cosA];
+        for (let index = 0; index < count; index++) {
+            if (!facing[index])
+                continue;
+            const [nx, ny] = normals[index];
+            const lit = (nx * lx + ny * ly + 1) / 2;
+            const shade = Math.min(SHADES - 1, Math.max(0, Math.floor(lit * SHADES)));
+            const next = (index + 1) % count;
+            buckets[shade].push(pathOf(oriented([top[index], top[next], bottom[next], bottom[index]]), true));
+        }
+    }
+    let bevel;
+    if (options.bevel && options.bevel > 0) {
+        const by = options.bevel;
+        const inset = ring.map(([x, y], index) => {
+            const [ax, ay] = normals[(index + count - 1) % count];
+            const [bx, by2] = normals[index];
+            const mx = ax + bx;
+            const my = ay + by2;
+            const length = Math.hypot(mx, my) || 1;
+            return [x - (mx / length) * by, y - (my / length) * by];
+        });
+        const insetTop = inset.map(([x, y]) => iso([x, y, z + height], projection));
+        bevel = runsOf(facing, true)
+            .map((run) => pathOf([top[run[0]], ...run.slice(1, -1).map((index) => insetTop[index]), top[run[run.length - 1]]]))
+            .join("");
+    }
+    return {
+        fill,
+        outline: outline.join(""),
+        crease: crease.join(""),
+        top: pathOf(oriented(top), true),
+        shades: buckets.map((paths) => paths.join("")),
+        bevel,
+    };
+}
+const ringOf = (plan, steps = 8) => roundedPlan(plan, steps);
+function slabOf(plan, z, height, projection, steps = 8, bevel = 0) {
+    return extrude(ringOf(plan, steps), z, height, projection, { convex: true, bevel });
+}
+function circleRing(cx, cy, radius, steps = 40) {
+    return Array.from({ length: steps }, (_, step) => {
+        const angle = (step / steps) * Math.PI * 2;
+        return [cx + radius * Math.cos(angle), cy + radius * Math.sin(angle)];
+    });
+}
+function cylinder(cx, cy, radius, z, height, projection, steps = 32, bevel = 0) {
+    return extrude(circleRing(cx, cy, radius, steps), z, height, projection, { convex: true, bevel });
+}
+const insetPlan = ({ x, y, w, d, r }, by) => ({ x: x + by, y: y + by, w: w - by * 2, d: d - by * 2, r: Math.max(0, r - by) });
+function onTop(points, z, projection, closed = false) {
+    return pathOf(points.map(([x, y]) => iso([x, y, z], projection)), closed);
+}
+const planOutline = (plan, z, projection, steps = 8) => onTop(ringOf(plan, steps), z, projection, true);
+const lineOnTop = (from, to, z, projection) => onTop([from, to], z, projection);
+const segment = (from, to, projection) => pathOf([iso(from, projection), iso(to, projection)]);
+const rise = (at, from, to, projection) => segment([at[0], at[1], from], [at[0], at[1], to], projection);
+const ring = (cx, cy, radius, z, projection, steps = 40) => onTop(circleRing(cx, cy, radius, steps), z, projection, true);
+const pointsAt = (points, projection) => points.map((point) => iso(point, projection));
+function dotGrid(x, y, columns, rows, gap, z, projection) {
+    const dots = [];
+    for (let row = 0; row < rows; row++) {
+        for (let column = 0; column < columns; column++)
+            dots.push(iso([x + column * gap, y + row * gap, z], projection));
+    }
+    return dots;
+}
+function corners({ x, y, w, d }, inset = 0) {
+    return [
+        [x + inset, y + inset],
+        [x + w - inset, y + inset],
+        [x + inset, y + d - inset],
+        [x + w - inset, y + d - inset],
+    ];
+}
+function boxCorners({ x, y, w, d }, z0, z1) {
+    const out = [];
+    for (const px of [x, x + w])
+        for (const py of [y, y + d])
+            for (const z of [z0, z1])
+                out.push([px, py, z]);
+    return out;
+}
+function knurl(cx, cy, radius, z0, z1, count, projection, inset = 0.4) {
+    const [vx, vy] = towardViewer(projection);
+    const lines = [];
+    for (let index = 0; index < count; index++) {
+        const angle = (index / count) * Math.PI * 2;
+        const nx = Math.cos(angle);
+        const ny = Math.sin(angle);
+        if (nx * vx + ny * vy < 0.15)
+            continue;
+        lines.push(segment([cx + radius * nx, cy + radius * ny, z0 + inset], [cx + radius * nx, cy + radius * ny, z1 - inset], projection));
+    }
+    return lines.join("");
+}
+function sideArc(cx, cy, radius, z, projection, steps = 24) {
+    const [vx, vy] = towardViewer(projection);
+    const facing = Math.atan2(vy, vx);
+    const points = [];
+    for (let step = 0; step <= steps; step++) {
+        const angle = facing - Math.PI / 2 + (step / steps) * Math.PI;
+        points.push(iso([cx + radius * Math.cos(angle), cy + radius * Math.sin(angle), z], projection));
+    }
+    return pathOf(points);
+}
+function ringSeam(ring, z, projection) {
+    const count = ring.length;
+    const counter = signedArea(ring) > 0;
+    const [vx, vy] = towardViewer(projection);
+    const facing = ring.map(([ax, ay], index) => {
+        const [bx, by] = ring[(index + 1) % count];
+        const dx = bx - ax;
+        const dy = by - ay;
+        const [nx, ny] = counter ? [dy, -dx] : [-dy, dx];
+        return nx * vx + ny * vy > 1e-9;
+    });
+    return runsOf(facing, true).map((run) => pathOf(run.map((index) => iso([ring[index][0], ring[index][1], z], projection)))).join("");
+}
+const sideSeam = (plan, z, projection, steps = 8) => ringSeam(ringOf(plan, steps), z, projection);
+function sideRing(center, radius, axis, projection, steps = 20) {
+    const [px, py, pz] = center;
+    const points = [];
+    for (let step = 0; step < steps; step++) {
+        const angle = (step / steps) * Math.PI * 2;
+        const u = radius * Math.cos(angle);
+        const v = radius * Math.sin(angle);
+        points.push(iso(axis === "x" ? [px, py + u, pz + v] : [px + u, py, pz + v], projection));
+    }
+    return pathOf(points, true);
+}
+function coil(from, to, center, radius, turns, axis, projection, perTurn = 16) {
+    const count = Math.max(1, Math.round(turns * perTurn));
+    const back = [];
+    const front = [];
+    let run = [];
+    let near = null;
+    for (let index = 0; index <= count; index++) {
+        const share = index / count;
+        const angle = share * turns * Math.PI * 2;
+        const u = radius * Math.cos(angle);
+        const v = radius * Math.sin(angle);
+        const along = from + (to - from) * share;
+        const point = axis === "x" ? [along, center[0] + u, center[1] + v] : [center[0] + u, along, center[1] + v];
+        const normal = axis === "x" ? [0, Math.cos(angle), Math.sin(angle)] : [Math.cos(angle), 0, Math.sin(angle)];
+        const facing = depthOf(normal, projection) > 0;
+        const flat = iso(point, projection);
+        if (near === null)
+            near = facing;
+        if (facing !== near) {
+            run.push(flat);
+            (near ? front : back).push(pathOf(run));
+            run = [flat];
+            near = facing;
+            continue;
+        }
+        run.push(flat);
+    }
+    if (run.length > 1)
+        (near ? front : back).push(pathOf(run));
+    return { back: back.join(""), front: front.join("") };
+}
+function topTicks(from, to, step, every, edge, z, lengths, projection, axis = "x") {
+    const minor = [];
+    const major = [];
+    const first = Math.ceil(from / step) * step;
+    for (let at = first, index = Math.round(first / step); at <= to + 1e-9; at += step, index++) {
+        const big = index % every === 0;
+        const length = big ? lengths[1] : lengths[0];
+        const a = axis === "x" ? [at, edge] : [edge, at];
+        const b = axis === "x" ? [at, edge + length] : [edge + length, at];
+        (big ? major : minor).push(lineOnTop(a, b, z, projection));
+    }
+    return { minor: minor.join(""), major: major.join("") };
+}
+function sideTicks(from, to, step, every, face, top, lengths, projection, axis = "x") {
+    const minor = [];
+    const major = [];
+    const first = Math.ceil(from / step) * step;
+    for (let at = first, index = Math.round(first / step); at <= to + 1e-9; at += step, index++) {
+        const big = index % every === 0;
+        const length = big ? lengths[1] : lengths[0];
+        const a = axis === "x" ? [at, face, top] : [face, at, top];
+        const b = axis === "x" ? [at, face, top - length] : [face, at, top - length];
+        (big ? major : minor).push(segment(a, b, projection));
+    }
+    return { minor: minor.join(""), major: major.join("") };
+}
+function radialTicks(cx, cy, radius, count, every, z, lengths, projection, from = 0, span = Math.PI * 2) {
+    const minor = [];
+    const major = [];
+    const closed = Math.abs(span - Math.PI * 2) < 1e-9;
+    const steps = closed ? count : count + 1;
+    for (let index = 0; index < steps; index++) {
+        const angle = from + (index / count) * span;
+        const big = index % every === 0;
+        const inner = radius - (big ? lengths[1] : lengths[0]);
+        const sx = Math.sin(angle);
+        const sy = -Math.cos(angle);
+        (big ? major : minor).push(lineOnTop([cx + sx * inner, cy + sy * inner], [cx + sx * radius, cy + sy * radius], z, projection));
+    }
+    return { minor: minor.join(""), major: major.join("") };
+}
+const haloOf = (plan, z, height, projection) => slabOf(plan, z, height, projection).fill;
+function axisVector(projection, [dx, dy, dz]) {
+    const origin = iso([0, 0, 0], projection);
+    const moved = iso([dx, dy, dz], projection);
+    return [moved[0] - origin[0], moved[1] - origin[1]];
+}
+const fine = (value) => Math.round(value * 100) / 100;
+function translateAlong(projection, by) {
+    const [x, y] = axisVector(projection, by);
+    return `translate(${fine(x)} ${fine(y)})`;
+}
+const thousandth = (value) => Math.round(value * 1000) / 1000;
+function axesAt(at, z, projection) {
+    const origin = iso([at[0], at[1], z], projection);
+    const along = (point) => {
+        const [px, py] = iso(point, projection);
+        return [px - origin[0], py - origin[1]];
+    };
+    return { origin, x: along([at[0] + 1, at[1], z]), y: along([at[0], at[1] + 1, z]), z: along([at[0], at[1], z + 1]) };
+}
+const matrixOf = (u, v, origin) => `matrix(${thousandth(u[0])} ${thousandth(u[1])} ${thousandth(v[0])} ${thousandth(v[1])} ${thousandth(origin[0])} ${thousandth(origin[1])})`;
+function holdStill(element, [dx, dy]) {
+    const text = dx || dy ? `translate(${-dx} ${-dy})` : "";
+    element.querySelectorAll("[data-hold]").forEach((node) => (text ? node.setAttribute("transform", text) : node.removeAttribute("transform")));
+}
+function topMatrix(at, z, projection, along = "x") {
+    const { origin, x, y } = axesAt(at, z, projection);
+    return along === "x" ? matrixOf(x, y, origin) : matrixOf([-y[0], -y[1]], x, origin);
+}
+function sideMatrix(at, z, projection, face) {
+    const { origin, x, y, z: up } = axesAt(at, z, projection);
+    const down = [-up[0], -up[1]];
+    return face === "left" ? matrixOf(x, down, origin) : matrixOf([-y[0], -y[1]], down, origin);
+}
+function screenRise(height, projection) {
+    const { cosE, k } = cameraOf(projection);
+    return height * cosE * k;
+}
+function fitProjection(points, width, height, { pad = 24, headroom = 0, azimuth = AZIMUTH, elevation = ELEVATION } = {}) {
+    const unit = { origin: [0, 0], scale: 1, azimuth, elevation };
+    const flat = points.map((point) => iso(point, unit));
+    const xs = flat.map(([x]) => x);
+    const ys = flat.map(([, y]) => y);
+    const left = Math.min(...xs);
+    const right = Math.max(...xs);
+    const up = Math.min(...ys);
+    const down = Math.max(...ys);
+    const scale = Math.min((width - pad * 2) / (right - left), (height - pad * 2 - headroom) / (down - up));
+    return {
+        origin: [width / 2 - ((left + right) / 2) * scale, headroom + (height - headroom) / 2 - ((up + down) / 2) * scale],
+        scale,
+        azimuth,
+        elevation,
+    };
+}
+const escape = (text) => text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const attrs = (pairs) => Object.entries(pairs)
+    .filter(([, value]) => value !== undefined && value !== false)
+    .map(([key, value]) => ` ${key}="${escape(String(value))}"`)
+    .join("");
+function solidSvg(paths, { tone = "hi", crease = "faint", halo = false, lit = false, flat = false, className, inner = "" } = {}) {
+    const parts = [];
+    if (halo)
+        parts.push(`<path class="iso-halo" d="${paths.fill}"/>`);
+    parts.push(`<path class="iso-fill" d="${paths.fill}"/>`);
+    if (!flat) {
+        paths.shades.forEach((d, shade) => {
+            if (d)
+                parts.push(`<path class="iso-shade" data-shade="${shade}" d="${d}"/>`);
+        });
+        parts.push(`<path class="iso-top" d="${paths.top}"/>`);
+    }
+    if (crease !== "none" && paths.crease)
+        parts.push(`<path class="iso-line iso-crease" data-tone="${crease}" d="${paths.crease}"/>`);
+    if (crease !== "none" && paths.bevel)
+        parts.push(`<path class="iso-line iso-bevel" data-tone="${crease}" d="${paths.bevel}"/>`);
+    if (inner)
+        parts.push(inner);
+    parts.push(`<path class="iso-line iso-edge" data-tone="${tone}" d="${paths.outline}"/>`);
+    return `<g${attrs({ class: className ? `iso-solid ${className}` : "iso-solid", "data-lit": lit ? "" : undefined, "data-seamless": paths.seamless ? "" : undefined })}>${parts.join("")}</g>`;
+}
+function lineSvg(d, { tone = "lo", dotted = false, dashed = false, flow = false, className, free } = {}) {
+    if (!d)
+        return "";
+    return `<path${attrs({
+        class: className ? `iso-line ${className}` : "iso-line",
+        "data-tone": tone,
+        "data-free": free === true ? "" : free || undefined,
+        "data-dotted": dotted ? "" : undefined,
+        "data-dashed": dashed ? "" : undefined,
+        "data-flow": flow ? "" : undefined,
+        d,
+    })}/>`;
+}
+function dotsSvg(points, { size = 0.5, tone = "mid", pulse = false } = {}) {
+    const dots = points
+        .map(([x, y, alpha], index) => `<circle cx="${tenth(x)}" cy="${tenth(y)}" r="${size}"${alpha !== undefined && alpha < 1 ? ` fill-opacity="${Math.max(0, alpha).toFixed(2)}"` : ""}${pulse ? ` data-pulse="" style="--pulse-at:${(index * 137) % 1600}ms"` : ""}/>`)
+        .join("");
+    return `<g class="iso-dots" data-tone="${tone}">${dots}</g>`;
+}
+function fadedSvg(list, style = {}) {
+    const groups = new Map();
+    for (const entry of list) {
+        const [d, alpha] = Array.isArray(entry) ? entry : [entry.d, entry.alpha];
+        if (!d || !(alpha > 0.02))
+            continue;
+        const level = Math.min(1, Math.round(alpha * 20) / 20);
+        groups.set(level, (groups.get(level) ?? "") + d);
+    }
+    return [...groups].map(([alpha, d]) => (alpha >= 1 ? lineSvg(d, style) : `<g opacity="${alpha.toFixed(2)}">${lineSvg(d, style)}</g>`)).join("");
+}
+function fadeLineSvg(points, { fade = [0, 0], tone = "lo", className, stops = 6 } = {}) {
+    if (points.length < 2)
+        return "";
+    const ease = (t) => t * t * (3 - 2 * t);
+    const hashOf = (text) => {
+        let hash = 2166136261;
+        for (let index = 0; index < text.length; index++)
+            hash = Math.imul(hash ^ text.charCodeAt(index), 16777619);
+        return (hash >>> 0).toString(36);
+    };
+    const lengths = [0];
+    for (let index = 1; index < points.length; index++)
+        lengths.push(lengths[index - 1] + Math.hypot(points[index][0] - points[index - 1][0], points[index][1] - points[index - 1][1]));
+    const at = (length) => {
+        let index = 1;
+        while (index < points.length - 1 && lengths[index] < length)
+            index++;
+        const span = lengths[index] - lengths[index - 1] || 1;
+        const t = Math.max(0, Math.min(1, (length - lengths[index - 1]) / span));
+        return [points[index - 1][0] + (points[index][0] - points[index - 1][0]) * t, points[index - 1][1] + (points[index][1] - points[index - 1][1]) * t];
+    };
+    const pieceOf = (from, to) => [at(from), ...points.filter((_, index) => lengths[index] > from + 1e-6 && lengths[index] < to - 1e-6), at(to)];
+    const total = lengths[lengths.length - 1];
+    if (total < 1e-6)
+        return "";
+    let [start, end] = Array.isArray(fade) ? fade : [fade, fade];
+    if (start + end > total) {
+        const share = total / (start + end);
+        start *= share;
+        end *= share;
+    }
+    const paint = `var(--microscope-${tone})`;
+    const ramp = (piece, rising) => {
+        const d = pathOf(piece);
+        const [x1, y1] = piece[0];
+        const [x2, y2] = piece[piece.length - 1];
+        const id = `iso-fade-${hashOf(`${d}|${tone}|${rising}`)}`;
+        const marks = Array.from({ length: stops + 1 }, (_, index) => {
+            const t = index / stops;
+            const alpha = ease(rising ? t : 1 - t);
+            return `<stop offset="${t.toFixed(3)}" stop-opacity="${alpha.toFixed(3)}" style="stop-color:${paint}"/>`;
+        }).join("");
+        const gradient = `<linearGradient id="${id}" gradientUnits="userSpaceOnUse" x1="${tenth(x1)}" y1="${tenth(y1)}" x2="${tenth(x2)}" y2="${tenth(y2)}">${marks}</linearGradient>`;
+        return `<defs>${gradient}</defs><path${attrs({ class: className ? `iso-line ${className}` : "iso-line", "data-tone": tone, "data-free": rising ? "start" : "end", d, style: `stroke:url(#${id})` })}/>`;
+    };
+    const parts = [];
+    if (start > 0.05)
+        parts.push(ramp(pieceOf(0, start), true));
+    if (total - end - start > 0.05)
+        parts.push(lineSvg(pathOf(pieceOf(start, total - end)), { tone, className }));
+    if (end > 0.05)
+        parts.push(ramp(pieceOf(total - end, total), false));
+    return `<g class="iso-fade">${parts.join("")}</g>`;
+}
+function wireSvg(from, to, { via = [], tone = "lo", dotted = false, dashed = false, flow = false, ends = "both", size = 1.2 } = {}) {
+    const d = pathOf([from, ...via, to]);
+    const end = ([x, y]) => `<circle class="iso-wire-end" cx="${tenth(x)}" cy="${tenth(y)}" r="${size}"/>`;
+    return `<g class="iso-wire" data-tone="${tone}">${lineSvg(d, { tone, dotted, dashed, flow })}${ends === "both" || ends === "from" ? end(from) : ""}${ends === "both" || ends === "to" ? end(to) : ""}</g>`;
+}
+function faceTextSvg(transform, text, { size = 3, tone = "mid", anchor = "start" } = {}) {
+    return `<text class="iso-face-text" data-tone="${tone}" transform="${transform}" font-size="${size}" text-anchor="${anchor}">${escape(text)}</text>`;
+}
+function groupSvg(children, extra = {}) {
+    return `<g${attrs(extra)}>${Array.isArray(children) ? children.join("") : children}</g>`;
+}
+function figureSvg({ width, height, label, body, standalone = false, className }) {
+    const style = standalone ? `<style>${ISO_CSS}</style>` : "";
+    return `<svg${attrs({
+        xmlns: "http://www.w3.org/2000/svg",
+        class: `iso-svg${standalone ? " iso" : ""}${className ? ` ${className}` : ""}`,
+        "data-theme": standalone || undefined,
+        viewBox: `0 0 ${width} ${height}`,
+        role: "img",
+        "aria-label": label,
+    })}>${style}${Array.isArray(body) ? body.join("") : body}</svg>`;
+}
+function swatchSvg(mark) {
+    if (mark === "raised" || mark === "flat" || mark === "lit") {
+        const body = mark === "flat" ? "M2 6.5 8 3.5 14 6.5 8 9.5Z" : "M2 4.5 8 1.5 14 4.5 14 6 8 9 2 6Z";
+        const crease = mark === "flat" ? "" : `<path class="iso-swatch-crease" d="M2 4.5 8 7.5 14 4.5"/>`;
+        return `<svg class="iso-swatch" data-mark="${mark}" viewBox="0 0 16 10" aria-hidden="true"><path d="${body}"/>${crease}</svg>`;
+    }
+    return `<svg class="iso-swatch" data-mark="${mark}" viewBox="0 0 16 10" aria-hidden="true"><path d="M1.5 5h13"/></svg>`;
+}
+function plateHtml({ fig, title, hint, readout = "", keys = [], caption, body }) {
+    const corner = (name, text, extra = "") => `<span class="iso-plate-corner" data-corner="${name}"${extra}>${escape(text)}</span>`;
+    const legend = keys.length || caption
+        ? `<figcaption class="iso-legend">${keys.length ? `<span class="iso-keys">${keys.map((key) => `<span class="iso-key">${swatchSvg(key.mark)}${escape(key.label)}</span>`).join("")}</span>` : ""}${caption ? `<span class="iso-caption">${escape(caption)}</span>` : ""}</figcaption>`
+        : "";
+    return `<figure class="iso-figure"><div class="iso-plate"><div class="iso-plate-corners" aria-hidden="true">${corner("fig", fig)}${title ? corner("title", title) : ""}${hint ? corner("hint", hint) : ""}${corner("readout", readout, " data-readout")}</div>${body}</div>${legend}</figure>`;
+}
+function pageHtml({ title, theme = "dark", body, script = "", width = 650 }) {
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(title)}</title><style>${ISO_CSS}${PAGE_CSS.replace("__WIDTH__", String(width))}</style></head><body class="iso" data-theme="${theme}"><main class="iso-page">${body}</main>${script ? `<script type="module">${script.replace(/<\/(script)/gi, "<\\/$1")}<\/script>` : ""}</body></html>`;
+}
+const PAGE_CSS = `
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body[data-theme="light"]{color-scheme:light}
+body{margin:0;background:var(--microscope-page);color:var(--microscope-text);font:14px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.iso-page{width:min(__WIDTH__px,100% - 32px);margin:64px auto 96px}
+`;
+const ISO_CSS = `
+.iso{
+  --microscope-page:#0b0b0b;--microscope-card:#131313;--microscope-text:#a3a3a3;--microscope-strong:#e6e6e6;--microscope-muted:#6e6e6e;
+  --microscope-paper:#131313;--microscope-face:#1b1b1b;--microscope-top:#1c1c1c;
+  --microscope-shade-0:#0f0f0f;--microscope-shade-1:#121212;--microscope-shade-2:#151515;--microscope-shade-3:#181818;
+  --microscope-lit-top:#262626;--microscope-lit-shade:#1d1d1d;
+  --microscope-hi:#d4d4d4;--microscope-mid:#6a6a6a;--microscope-lo:#3e3e3e;--microscope-faint:#2a2a2a;--microscope-lit:#ffffff;
+  --microscope-halo:#050505;--microscope-halo-opacity:.9;--microscope-dot:#e6e6e6;
+  --microscope-red:#ff6b6b;--microscope-green:#6be0a0;--microscope-blue:#6b9bff;
+  --microscope-weight:.6px;--microscope-ease:cubic-bezier(.32,.72,0,1);
+  --microscope-mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --microscope-lift:inset 0 1px 0 0 #ffffff0a,inset 0 0 0 1px #ffffff06,0 0 0 1px #00000026,0 1px 1px -.5px #00000014,0 3px 3px -1.5px #00000014,0 6px 6px -3px #00000014,0 12px 12px -6px #00000014;
+}
+.iso[data-theme="light"]{
+  --microscope-page:#f2f2ef;--microscope-card:#fbfbfa;--microscope-text:#57575a;--microscope-strong:#18181a;--microscope-muted:#8c8c90;
+  --microscope-paper:#fbfbfa;--microscope-face:#ffffff;--microscope-top:#ffffff;
+  --microscope-shade-0:#dcdcd9;--microscope-shade-1:#e5e5e2;--microscope-shade-2:#ededea;--microscope-shade-3:#f4f4f1;
+  --microscope-lit-top:#ffffff;--microscope-lit-shade:#eeeeeb;
+  --microscope-hi:#26262a;--microscope-mid:#8a8a8f;--microscope-lo:#b4b4b8;--microscope-faint:#d4d4d6;--microscope-lit:#000000;
+  --microscope-halo:#8a8a80;--microscope-halo-opacity:.32;--microscope-dot:#3a3a3e;
+  --microscope-red:#e5484d;--microscope-green:#30a46c;--microscope-blue:#3e63dd;
+  --microscope-lift:inset 0 1px 0 0 #ffffff,0 0 0 1px #0000000f,0 1px 1px -.5px #0000000a,0 3px 3px -1.5px #0000000a,0 6px 6px -3px #0000000a,0 12px 12px -6px #0000000a;
+}
+.iso-svg{display:block;width:100%;height:auto;overflow:visible}
+.iso-svg path,.iso-svg circle{vector-effect:non-scaling-stroke}
+.iso-fill{fill:var(--microscope-paper);stroke:none}
+.iso-solid[data-lit]>.iso-fill{fill:var(--microscope-face)}
+.iso-shade,.iso-top{stroke:none}
+.iso-shade[data-shade="0"]{fill:var(--microscope-shade-0)}
+.iso-shade[data-shade="1"]{fill:var(--microscope-shade-1)}
+.iso-shade[data-shade="2"]{fill:var(--microscope-shade-2)}
+.iso-shade[data-shade="3"]{fill:var(--microscope-shade-3)}
+.iso-top{fill:var(--microscope-top)}
+.iso-solid[data-lit]>.iso-top{fill:var(--microscope-lit-top)}
+.iso-solid[data-lit]>.iso-shade{fill:var(--microscope-lit-shade)}
+.iso-solid[data-seamless]>.iso-shade,.iso-solid[data-seamless]>.iso-top{stroke-width:.4;stroke-linejoin:round}
+.iso-solid[data-seamless]>.iso-shade[data-shade="0"]{stroke:var(--microscope-shade-0)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="1"]{stroke:var(--microscope-shade-1)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="2"]{stroke:var(--microscope-shade-2)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="3"]{stroke:var(--microscope-shade-3)}
+.iso-solid[data-seamless]>.iso-top{stroke:var(--microscope-top)}
+.iso-solid[data-seamless][data-lit]>.iso-top{stroke:var(--microscope-lit-top)}
+.iso-solid[data-seamless][data-lit]>.iso-shade{stroke:var(--microscope-lit-shade)}
+.iso-solid[data-lit]>.iso-edge{stroke:var(--microscope-lit)}
+.iso-halo{fill:var(--microscope-halo);stroke:none;filter:blur(9px);opacity:var(--microscope-halo-opacity);transform:translateY(3px)}
+.iso-line{fill:none;stroke:var(--microscope-lo);stroke-width:var(--microscope-weight);stroke-linecap:round;stroke-linejoin:round}
+.iso-line[data-tone="hi"]{stroke:var(--microscope-hi)}
+.iso-line[data-tone="mid"]{stroke:var(--microscope-mid)}
+.iso-line[data-tone="lo"]{stroke:var(--microscope-lo)}
+.iso-line[data-tone="faint"]{stroke:var(--microscope-faint)}
+.iso-line[data-tone="lit"]{stroke:var(--microscope-lit)}
+.iso-line[data-tone="red"]{stroke:var(--microscope-red)}
+.iso-line[data-tone="green"]{stroke:var(--microscope-green)}
+.iso-line[data-tone="blue"]{stroke:var(--microscope-blue)}
+.iso-line[data-dotted]{stroke-dasharray:.01 3.5;stroke-width:1}
+.iso-line[data-dashed]{stroke-dasharray:3 3}
+.iso-line[data-flow]{stroke-dasharray:2 6}
+.iso-wire-end{fill:var(--microscope-paper);stroke:var(--microscope-lo);stroke-width:var(--microscope-weight)}
+.iso-wire[data-tone="hi"] .iso-wire-end{stroke:var(--microscope-hi)}
+.iso-wire[data-tone="mid"] .iso-wire-end{stroke:var(--microscope-mid)}
+.iso-wire[data-tone="faint"] .iso-wire-end{stroke:var(--microscope-faint)}
+.iso-wire[data-tone="lit"] .iso-wire-end{stroke:var(--microscope-lit)}
+.iso-dots circle{fill:var(--microscope-dot);stroke:none;opacity:.32}
+.iso-dots[data-tone="hi"] circle{opacity:.85}
+.iso-dots[data-tone="mid"] circle{opacity:.45}
+.iso-dots[data-tone="lo"] circle{opacity:.22}
+.iso-dots[data-tone="faint"] circle{opacity:.12}
+.iso-face-text{fill:var(--microscope-mid);font-family:var(--microscope-mono);letter-spacing:.04em}
+.iso-face-text[data-tone="hi"]{fill:var(--microscope-hi)}
+.iso-face-text[data-tone="lo"]{fill:var(--microscope-lo)}
+.iso-face-text[data-tone="faint"]{fill:var(--microscope-faint)}
+.tb-body{fill:var(--microscope-shade-2);stroke:none}
+.tb-shine{fill:var(--microscope-top);stroke:none}
+.tb-shade{fill:var(--microscope-shade-0);stroke:none}
+.tb-ring{fill:none;stroke:var(--microscope-lo);stroke-width:.45;stroke-linecap:butt;stroke-linejoin:round}
+.tb-ring[data-tone="mid"]{stroke:var(--microscope-mid)}
+.tb-ring[data-tone="faint"]{stroke:var(--microscope-faint)}
+.tb-ring[data-tone="hi"]{stroke:var(--microscope-hi)}
+@keyframes iso-flow{to{stroke-dashoffset:-32}}
+@keyframes iso-pulse{0%,100%{opacity:.18}12%{opacity:1}40%{opacity:.18}}
+.iso-line[data-flow]{animation:iso-flow 1600ms linear infinite}
+.iso-dots circle[data-pulse]{animation:iso-pulse 1600ms steps(1,end) infinite;animation-delay:var(--pulse-at,0ms)}
+.iso-figure{margin:32px 0 36px}
+.iso-plate{position:relative;padding:52px 24px;border-radius:0;background:var(--microscope-card);box-shadow:0 0 0 1px var(--microscope-mid);--microscope-paper:var(--microscope-card)}
+.iso-plate-corners{position:absolute;inset:18px 20px;pointer-events:none}
+.iso-plate-corner{position:absolute;color:var(--microscope-muted);font-family:var(--microscope-mono);font-size:10.5px;line-height:1;letter-spacing:.04em;white-space:nowrap}
+.iso-plate-corner[data-corner="fig"]{top:0;left:0;color:var(--microscope-text)}
+.iso-plate-corner[data-corner="title"]{top:0;right:0;text-transform:uppercase;letter-spacing:.1em}
+.iso-plate-corner[data-corner="hint"]{bottom:0;left:0;text-transform:uppercase;letter-spacing:.1em}
+.iso-plate-corner[data-corner="readout"]{right:0;bottom:0;color:var(--microscope-text);font-variant-numeric:tabular-nums}
+.iso-plate .iso-svg{margin:0 auto}
+.iso-legend{display:grid;gap:8px;margin-top:12px;color:var(--microscope-muted);font-size:13px;line-height:1.55}
+.iso-keys{display:flex;flex-wrap:wrap;gap:6px 18px}
+.iso-key{display:inline-flex;align-items:center;gap:7px}
+.iso-swatch{width:16px;height:10px;flex:none;overflow:visible}
+.iso-swatch path{fill:none;stroke:var(--microscope-hi);stroke-width:1;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.iso-swatch[data-mark="raised"] path,.iso-swatch[data-mark="flat"] path{stroke:var(--microscope-mid)}
+.iso-swatch[data-mark="lit"] path{stroke:var(--microscope-lit)}
+.iso-swatch[data-mark="dim"] path{stroke:var(--microscope-lo)}
+.iso-swatch[data-mark="dotted"] path{stroke-dasharray:.01 3;stroke-width:1.4}
+.iso-swatch[data-mark="dashed"] path{stroke-dasharray:3 2.5}
+.iso-swatch[data-mark="red"] path{stroke:var(--microscope-red)}
+.iso-swatch[data-mark="green"] path{stroke:var(--microscope-green)}
+.iso-swatch[data-mark="blue"] path{stroke:var(--microscope-blue)}
+.iso-swatch-crease{stroke:var(--microscope-lo)!important}
+@media (max-width:560px){.iso-plate{padding:48px 12px 70px}.iso-plate-corner[data-corner="hint"]{bottom:18px}}
+@media (prefers-reduced-motion:reduce){.iso-line[data-flow],.iso-dots circle[data-pulse]{animation:none}}
+`;
+
+
+const SWATCHES = {
+  head: ["#f3a650", "#ffd8a4", "#c9741f", "#a85d17"],
+  tail: ["#efdfb2", "#fbf2d8", "#d8c28a", "#c2a766"],
+  rotor: ["#4fb3ae", "#ace6e1", "#2b827d", "#1f6460"],
+  stator: ["#7192cf", "#c2d3f3", "#47659f", "#36507f"],
+  rod: ["#f5c94b", "#fff0b3", "#c99a1b", "#9c7710"],
+  hub: ["#f0a23f", "#ffd59a", "#c2781a", "#965a10"],
+  alpha: ["#c9aee6", "#efe4fa", "#9675bd", "#775a9e"],
+  beta: ["#9373c9", "#cdb9ec", "#664899", "#4f357b"],
+  proton: ["#e5484d", "#ffa3a5", "#b2272c", "#8a1c20"],
+  atp: ["#76c46a", "#c8edbf", "#4a9640", "#3a7932"],
+  dna: ["#4a8fd8", "#b5d3f4", "#2c66aa", "#204f86"],
+  baseA: ["#e5534b", "#ffb3ae", "#b33a33", "#8f2b26"],
+  baseT: ["#f2c14e", "#fff0b8", "#c4952a", "#9a721a"],
+  baseG: ["#58a65c", "#c3e8c4", "#3b7d3f", "#2e6331"],
+  baseC: ["#4e79c7", "#bcd0f3", "#345aa0", "#26457e"],
+  rna: ["#e8763c", "#ffc8a6", "#b5521f", "#8c3e16"],
+  chlorophyll: ["#5cb85c", "#bfe6b6", "#3b8a3b", "#2d6b2d"],
+  cytosol: ["#fbf6ec", "#ffffff", "#efe4cc", "#d9c9a6"],
+  capsid: ["#8ea6cf", "#d6e2f5", "#5e78a8", "#47608c"],
+  sheath: ["#5fb58c", "#bfe7d2", "#3a8762", "#2c6a4c"],
+  fibre: ["#a98bd1", "#e2d6f2", "#7d60a8", "#634a8a"],
+  peptidoglycan: ["#c9d77a", "#ecf3c4", "#9aab48", "#7c8b35"],
+  cuticle: ["#e9c46a", "#f8e6b8", "#c99a2e", "#a07a1f"],
+  epidermis: ["#eef3e2", "#fbfdf6", "#d3dfbd", "#9fb27e"],
+  palisade: ["#cfe6b0", "#eef7e2", "#a8cc80", "#78a356"],
+  spongy: ["#dcedc6", "#f3f9ea", "#b9d699", "#88aa66"],
+  guard: ["#b8dc93", "#e4f3d3", "#8dbb62", "#638f3d"],
+  xylem: ["#e6b8a8", "#f7e2da", "#c98b76", "#a1614d"],
+  phloem: ["#b7c4ea", "#e1e7f8", "#8a9dd3", "#6577ad"],
+  sheathcell: ["#e5e9c8", "#f7f9ea", "#c8cf9a", "#9aa36a"],
+  actin: ["#e7854f", "#ffc9a8", "#bf5d2b", "#97461d"],
+  myosin: ["#6d8fd6", "#c3d3f5", "#4566ac", "#334f8a"],
+  zdisc: ["#6b6f7a", "#b5b9c2", "#474b55", "#33363e"],
+  wall: ["#a7c76b", "#dcedbd", "#7c9c43", "#617c31"],
+};
+
+const RAD = Math.PI / 180;
+const r1 = (value) => (Math.round(value * 10) / 10).toString();
+
+function screenScale(P) {
+  return cameraOf(P).k;
+}
+
+function bioCss(swatches = SWATCHES) {
+  const vars = Object.entries(swatches)
+    .map(([name, [base, hi, lo, edge]]) => `--bio-${name}:${base};--bio-${name}-hi:${hi};--bio-${name}-lo:${lo};--bio-${name}-edge:${edge};`)
+    .join("");
+  return `
+.bio{${vars}--bio-air:#f7fbf2;--bio-outside:#eef5fc;--bio-cytoplasm:#fbf5e8;--bio-periplasm:#f2f6e4;--bio-halo:rgba(255,255,255,.82);--bio-page:#ffffff;--bio-ink:#26262b;--bio-soft:#5d5d66;--bio-leader:#6b6b74;--bio-region:#8a8a94;--bio-ims:#eef5fc;--bio-matrix:#f7f1fb;--bio-arrow:#3a3a42;--bio-flow:#d9363c}
+.bio[data-theme="dark"],.iso[data-theme="dark"] .bio{--bio-air:#182016;--bio-outside:#16202b;--bio-cytoplasm:#221d16;--bio-periplasm:#1b2116;--bio-halo:rgba(18,19,23,.82);--bio-page:#121317;--bio-ink:#ececf1;--bio-soft:#b4b4bd;--bio-leader:#9c9ca6;--bio-region:#8b8b96;--bio-ims:#16202b;--bio-matrix:#1f1a27;--bio-arrow:#d8d8de;--bio-flow:#ff6b6f}
+.bio-body{stroke-width:.9;stroke-linejoin:round}
+.bio-label{fill:var(--bio-ink);font:500 11.5px/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;letter-spacing:.005em}
+.bio-label[data-small]{font-size:10px;fill:var(--bio-soft)}
+.bio-region{fill:var(--bio-region);font:600 10px/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;letter-spacing:.12em}
+.bio-leader{fill:none;stroke:var(--bio-leader);stroke-width:.8;stroke-linecap:round;stroke-linejoin:round}
+.bio-casing{fill:none;stroke:var(--bio-halo);stroke-linecap:round;stroke-linejoin:round}
+.bio-anchor{fill:var(--bio-leader);stroke:var(--bio-halo);stroke-width:1}
+.bio-arrow{fill:none;stroke:var(--bio-arrow);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.bio-arrow-head{fill:var(--bio-arrow)}
+.bio-arrow[data-flow]{stroke:var(--bio-flow);stroke-width:2.2;opacity:.85}
+.bio-arrow-head[data-flow]{fill:var(--bio-flow);opacity:.85}
+.bio-tail{fill:none;stroke-width:.8;stroke-linecap:round}
+.bio-glyph{font:700 6.2px/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:central}
+.bio .iso-plate.bio-plate{padding:22px 22px 16px;background:var(--bio-page);box-shadow:0 0 0 1px color-mix(in srgb,var(--bio-region) 35%,transparent);border-radius:4px}
+.bio .bio-svg{border-radius:3px}
+.bio-title{margin:0 0 14px;color:var(--bio-ink);font:600 15px/1.35 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+.bio-fig{margin-right:10px;color:#c2410c;font-weight:700}
+.bio[data-theme="dark"] .bio-fig{color:#fb923c}
+.bio-foot{display:flex;justify-content:space-between;gap:16px;margin-top:10px;color:var(--bio-soft);font:12px/1.4 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums}
+.bio .iso-legend{color:var(--bio-soft);font:13px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+.bio .iso-stage{outline:none}
+.bio .iso-stage:focus-visible{box-shadow:0 0 0 2px color-mix(in srgb,var(--bio-flow) 45%,transparent);border-radius:3px}
+.bio-dimension{fill:none;stroke:var(--bio-soft);stroke-width:.9;stroke-linecap:round}
+.bio-hbond{fill:var(--bio-page);stroke:var(--bio-ink);stroke-width:.6}
+.bio-key{stroke-width:.8}
+@media (max-width:560px){.bio-foot{flex-direction:column}}
+${Object.keys(swatches)
+  .map((name) => `.bio-body[data-swatch="${name}"]{stroke:var(--bio-${name}-edge)}.bio-tail[data-swatch="${name}"]{stroke:var(--bio-${name}-lo)}`)
+  .join("\n")}
+`;
+}
+
+function bioDefs(names = Object.keys(SWATCHES)) {
+  const stops = (list) => list.map(([offset, name]) => `<stop offset="${offset}" style="stop-color:var(${name})"/>`).join("");
+  return `<defs>${names
+    .map(
+      (name) =>
+        `<radialGradient id="bio-r-${name}" cx=".38" cy=".3" r=".78" fx=".34" fy=".26">${stops([[0, `--bio-${name}-hi`], [0.5, `--bio-${name}`], [1, `--bio-${name}-lo`]])}</radialGradient>` +
+        `<linearGradient id="bio-l-${name}" x1="0" y1="0" x2="1" y2="0">${stops([[0, `--bio-${name}-lo`], [0.28, `--bio-${name}`], [0.48, `--bio-${name}-hi`], [0.72, `--bio-${name}`], [1, `--bio-${name}-lo`]])}</linearGradient>` +
+        `<linearGradient id="bio-v-${name}" x1="0" y1="0" x2="0" y2="1">${stops([[0, `--bio-${name}-hi`], [0.55, `--bio-${name}`], [1, `--bio-${name}-lo`]])}</linearGradient>`,
+    )
+    .join("")}</defs>`;
+}
+
+const fill = (kind, name) => `url(#bio-${kind}-${name})`;
+
+function sphere(P, centre, r, swatch, { extra = "" } = {}) {
+  const [x, y] = iso(centre, P);
+  return `<circle class="bio-body" data-swatch="${swatch}" cx="${r1(x)}" cy="${r1(y)}" r="${r1(r * screenScale(P))}" fill="${fill("r", swatch)}"${extra}/>`;
+}
+
+function ellipsoid(P, centre, across, tall, swatch, { extra = "" } = {}) {
+  const { sinE, cosE } = cameraOf(P);
+  const k = screenScale(P);
+  const [x, y] = iso(centre, P);
+  return `<ellipse class="bio-body" data-swatch="${swatch}" cx="${r1(x)}" cy="${r1(y)}" rx="${r1(across * k)}" ry="${r1(Math.hypot(across * sinE, tall * cosE) * k)}" fill="${fill("r", swatch)}"${extra}/>`;
+}
+
+function capsule(P, base, r, length, swatch, { extra = "" } = {}) {
+  const k = screenScale(P);
+  const [bx, by] = iso(base, P);
+  const [, ty] = iso([base[0], base[1], base[2] + length], P);
+  const w = r * k;
+  const d = `M${r1(bx - w)} ${r1(ty)}L${r1(bx - w)} ${r1(by)}A${r1(w)} ${r1(w)} 0 0 0 ${r1(bx + w)} ${r1(by)}L${r1(bx + w)} ${r1(ty)}A${r1(w)} ${r1(w)} 0 0 0 ${r1(bx - w)} ${r1(ty)}Z`;
+  return `<path class="bio-body" data-swatch="${swatch}" d="${d}" fill="${fill("l", swatch)}"${extra}/>`;
+}
+
+function smoothPath(points, closed = false) {
+  if (points.length < 2) return "";
+  const at = (index) => points[closed ? (index + points.length) % points.length : Math.max(0, Math.min(points.length - 1, index))];
+  let d = `M${r1(points[0][0])} ${r1(points[0][1])}`;
+  const count = closed ? points.length : points.length - 1;
+  for (let i = 0; i < count; i++) {
+    const p0 = at(i - 1);
+    const p1 = at(i);
+    const p2 = at(i + 1);
+    const p3 = at(i + 2);
+    const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+    const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+    d += `C${r1(c1[0])} ${r1(c1[1])} ${r1(c2[0])} ${r1(c2[1])} ${r1(p2[0])} ${r1(p2[1])}`;
+  }
+  return closed ? d + "Z" : d;
+}
+
+function cell(P, centre, across, tall, swatch, { radius = Math.min(across, tall) * 0.35, extra = "" } = {}) {
+  const k = screenScale(P);
+  const { cosE } = cameraOf(P);
+  const [x, y] = iso(centre, P);
+  const w = (across * k) / 2;
+  const h = (tall * k * cosE) / 2;
+  const r = Math.min(radius * k, w, h);
+  const d = `M${r1(x - w + r)} ${r1(y - h)}L${r1(x + w - r)} ${r1(y - h)}Q${r1(x + w)} ${r1(y - h)} ${r1(x + w)} ${r1(y - h + r)}L${r1(x + w)} ${r1(y + h - r)}Q${r1(x + w)} ${r1(y + h)} ${r1(x + w - r)} ${r1(y + h)}L${r1(x - w + r)} ${r1(y + h)}Q${r1(x - w)} ${r1(y + h)} ${r1(x - w)} ${r1(y + h - r)}L${r1(x - w)} ${r1(y - h + r)}Q${r1(x - w)} ${r1(y - h)} ${r1(x - w + r)} ${r1(y - h)}Z`;
+  return `<path class="bio-body" data-swatch="${swatch}" d="${d}" fill="url(#bio-r-${swatch})"${extra}/>`;
+}
+
+function rope(P, points3, r, swatch) {
+  const k = screenScale(P);
+  const d = smoothPath(points3.map((p) => iso(p, P)));
+  const w = 2 * r * k;
+  return (
+    `<path d="${d}" fill="none" stroke="var(--bio-${swatch}-edge)" stroke-width="${r1(w + 1.8)}" stroke-linecap="round" stroke-linejoin="round"/>` +
+    `<path d="${d}" fill="none" stroke="var(--bio-${swatch})" stroke-width="${r1(w)}" stroke-linecap="round" stroke-linejoin="round"/>` +
+    `<path d="${d}" fill="none" stroke="var(--bio-${swatch}-hi)" stroke-width="${r1(w * 0.32)}" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(${r1(-w * 0.16)} ${r1(-w * 0.12)})"/>`
+  );
+}
+
+function head(direction, tip, size) {
+  const angle = Math.atan2(direction[1], direction[0]);
+  const back = [tip[0] - Math.cos(angle) * size, tip[1] - Math.sin(angle) * size];
+  const side = [Math.cos(angle + Math.PI / 2) * size * 0.42, Math.sin(angle + Math.PI / 2) * size * 0.42];
+  return `M${r1(tip[0])} ${r1(tip[1])}L${r1(back[0] + side[0])} ${r1(back[1] + side[1])}L${r1(back[0] - side[0])} ${r1(back[1] - side[1])}Z`;
+}
+
+const unit2 = (v) => {
+  const length = Math.hypot(v[0], v[1]) || 1;
+  return [v[0] / length, v[1] / length];
+};
+
+function arrowParts(d, tip, direction, { flow, size, tail }) {
+  const attr = flow ? ' data-flow=""' : "";
+  const width = flow ? 2.2 : 1.6;
+  const heads = [head(direction, tip, size), ...(tail ? [head(tail.direction, tail.tip, size)] : [])].join("");
+  return `<path class="bio-casing" d="${d}" stroke-width="${r1(width + 2.6)}"/><path class="bio-casing" d="${heads}" stroke-width="2.4"/><path class="bio-arrow"${attr} d="${d}"/><path class="bio-arrow-head"${attr} d="${heads}"/>`;
+}
+
+function arrow(points, { flow = false, size = 7.5, both = false, bend = null, tone = null } = {}) {
+  if (tone) return arrow(points, { flow, size, both, bend }).replace(/class="bio-arrow"( data-flow="")?/g, `class="bio-arrow"$1 style="stroke:var(--bio-${tone}-lo)"`).replace(/class="bio-arrow-head"( data-flow="")?/g, `class="bio-arrow-head"$1 style="fill:var(--bio-${tone}-lo)"`);
+  const n = points.length;
+  if (bend !== null && n === 2) {
+    const [from, to] = points;
+    const mid = [(from[0] + to[0]) / 2, (from[1] + to[1]) / 2];
+    const normal = unit2([-(to[1] - from[1]), to[0] - from[0]]);
+    const control = [mid[0] + normal[0] * bend, mid[1] + normal[1] * bend];
+    const endDir = unit2([to[0] - control[0], to[1] - control[1]]);
+    const end = [to[0] - endDir[0] * size * 0.7, to[1] - endDir[1] * size * 0.7];
+    const startDir = unit2([from[0] - control[0], from[1] - control[1]]);
+    const start = both ? [from[0] - startDir[0] * size * 0.7, from[1] - startDir[1] * size * 0.7] : from;
+    const d = `M${r1(start[0])} ${r1(start[1])}Q${r1(control[0])} ${r1(control[1])} ${r1(end[0])} ${r1(end[1])}`;
+    return arrowParts(d, to, endDir, { flow, size, tail: both ? { tip: from, direction: startDir } : null });
+  }
+  const endDir = unit2([points[n - 1][0] - points[n - 2][0], points[n - 1][1] - points[n - 2][1]]);
+  const trimmed = points.map((p) => [...p]);
+  trimmed[n - 1] = [points[n - 1][0] - endDir[0] * size * 0.7, points[n - 1][1] - endDir[1] * size * 0.7];
+  let tail = null;
+  if (both) {
+    const startDir = unit2([points[0][0] - points[1][0], points[0][1] - points[1][1]]);
+    trimmed[0] = [points[0][0] - startDir[0] * size * 0.7, points[0][1] - startDir[1] * size * 0.7];
+    tail = { tip: points[0], direction: startDir };
+  }
+  return arrowParts(smoothPath(trimmed), points[n - 1], endDir, { flow, size, tail });
+}
+
+function rotationArrow(P, centre, radius, from, to, { size = 7, steps = 64 } = {}) {
+  const { cosA, sinA } = cameraOf(P);
+  const view = Math.atan2(sinA, cosA) / RAD;
+  const back = [];
+  const front = [];
+  for (let i = 0; i <= steps; i++) {
+    const angle = from + ((to - from) * i) / steps;
+    const point = iso([centre[0] + radius * Math.cos(angle * RAD), centre[1] + radius * Math.sin(angle * RAD), centre[2]], P);
+    (Math.cos((angle - view) * RAD) < 0 ? back : front).push(point);
+  }
+  const id = `spin-${Math.round(centre[0])}-${Math.round(centre[1])}-${Math.round(centre[2])}`;
+  const tag = (svg) => svg.replace(/class="bio-arrow"/g, `class="bio-arrow" data-arrow="${id}"`).replace(/class="bio-arrow-head"/g, `class="bio-arrow-head" data-arrow="${id}"`);
+  const line = (points) => (points.length > 1 ? `<path class="bio-casing" d="${smoothPath(points)}" stroke-width="4.2"/><path class="bio-arrow" d="${smoothPath(points)}"/>` : "");
+  const ahead = Math.cos((to - view) * RAD) >= 0;
+  const headed = ahead ? front : back;
+  const plain = ahead ? back : front;
+  return { back: tag(ahead ? line(plain) : arrow(headed, { size })), front: tag(ahead ? arrow(headed, { size }) : line(plain)) };
+}
+
+function arcPoints(P, centre, radius, from, to, steps = 32) {
+  return Array.from({ length: steps + 1 }, (_, index) => {
+    const a = (from + ((to - from) * index) / steps) * RAD;
+    return iso([centre[0] + radius * Math.cos(a), centre[1] + radius * Math.sin(a), centre[2]], P);
+  });
+}
+
+function label(text, anchor, { side = "left", x, drop = 0, small = false } = {}) {
+  const sign = side === "left" ? -1 : 1;
+  const elbow = [anchor[0] + sign * Math.abs(drop), anchor[1] + drop];
+  const end = [x - sign * 6, elbow[1]];
+  const points = drop ? [anchor, elbow, end] : [anchor, end];
+  const d = `M${points.map((p) => `${r1(p[0])} ${r1(p[1])}`).join("L")}`;
+  const lines = String(text).split("\n");
+  const size = small ? 10 : 11.5;
+  const top = elbow[1] + size * 0.36 - ((lines.length - 1) * size * 1.25) / 2;
+  const body = lines.length === 1 ? text : lines.map((line, index) => `<tspan x="${r1(x)}" dy="${index ? "1.25em" : 0}">${line}</tspan>`).join("");
+  return `<path class="bio-casing" d="${d}" stroke-width="3.2"/><path class="bio-leader" d="${d}"/><circle class="bio-anchor" cx="${r1(anchor[0])}" cy="${r1(anchor[1])}" r="1.9"/><text class="bio-label"${small ? " data-small" : ""} x="${r1(x)}" y="${r1(top)}" text-anchor="${side === "left" ? "end" : "start"}">${body}</text>`;
+}
+
+function region(text, x, y, anchor = "start") {
+  return `<text class="bio-region" x="${r1(x)}" y="${r1(y)}" text-anchor="${anchor}">${text}</text>`;
+}
+
+const wave = (P, from, to, amplitude, waves, along) => {
+  const steps = 10;
+  return Array.from({ length: steps + 1 }, (_, index) => {
+    const t = index / steps;
+    const side = Math.sin(t * Math.PI * 2 * waves) * amplitude;
+    return iso([from[0] + (to[0] - from[0]) * t + along[0] * side, from[1] + (to[1] - from[1]) * t + along[1] * side, from[2] + (to[2] - from[2]) * t], P);
+  });
+};
+
+function bilayer(P, { x0, x1, y0, y1, z0, z1 }, { spacing = 9, head: hr = 3.6, skip = () => false } = {}) {
+  const mid = (z0 + z1) / 2;
+  const { cosA, sinA } = cameraOf(P);
+  const out = [];
+  const top = [[x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]].map((p) => iso(p, P));
+  out.push(`<path d="M${top.map((p) => `${r1(p[0])} ${r1(p[1])}`).join("L")}Z" fill="var(--bio-head-lo)" opacity=".55"/>`);
+  const heads = [];
+  let row = 0;
+  for (let y = y0 + spacing / 2; y <= y1 - spacing / 2 + 0.01; y += spacing * 0.87, row++) {
+    for (let x = x0 + spacing / 2 + (row % 2 ? spacing / 2 : 0); x <= x1 - spacing / 2 + 0.01; x += spacing) {
+      if (!skip([x, y])) heads.push([x, y, z1]);
+    }
+  }
+  heads.sort((a, b) => depthOf(a, P) - depthOf(b, P));
+  for (const p of heads) out.push(ellipsoid(P, p, hr, hr * 0.7, "head"));
+  const faces = [];
+  if (sinA > 0.05) faces.push({ a: [x0, y1], b: [x1, y1], along: [1, 0] });
+  if (cosA > 0.05) faces.push({ a: [x1, y1], b: [x1, y0], along: [0, -1] });
+  for (const face of faces) {
+    const corners = [[...face.a, z1], [...face.b, z1], [...face.b, z0], [...face.a, z0]].map((p) => iso(p, P));
+    out.push(`<path d="M${corners.map((p) => `${r1(p[0])} ${r1(p[1])}`).join("L")}Z" fill="var(--bio-tail-hi)"/>`);
+    const length = Math.hypot(face.b[0] - face.a[0], face.b[1] - face.a[1]);
+    const count = Math.max(1, Math.round(length / spacing));
+    const tails = [];
+    const faceHeads = [];
+    for (let i = 0; i < count; i++) {
+      const s = (i + 0.5) / count;
+      const p = [face.a[0] + (face.b[0] - face.a[0]) * s, face.a[1] + (face.b[1] - face.a[1]) * s];
+      for (const [zh, zm] of [[z1 - hr, mid + 0.8], [z0 + hr, mid - 0.8]]) {
+        for (const side of [-0.32, 0.32]) {
+          const from = [p[0] + face.along[0] * side * spacing, p[1] + face.along[1] * side * spacing, zh];
+          const to = [from[0], from[1], zm];
+          tails.push(smoothPath(wave(P, from, to, spacing * 0.08, 1.5, face.along)));
+        }
+        faceHeads.push([p[0], p[1], zh]);
+      }
+    }
+    out.push(`<path class="bio-tail" data-swatch="tail" d="${tails.join("")}"/>`);
+    for (const p of faceHeads) out.push(sphere(P, p, hr, "head"));
+  }
+  return out.join("");
+}
+
+function doubleHelix(P, start, end, { radius = 10, rise = 3.4, perTurn = 10.5, groove = 140, hand = "right", sequence = "ATGCGTACCA", strand = "dna", r = 2.2, baseR = r * 0.75, phase = 0, highlight = -1 } = {}) {
+  const axis = [end[0] - start[0], end[1] - start[1], end[2] - start[2]];
+  const length = Math.hypot(...axis);
+  const a = axis.map((v) => v / length);
+  const helper = Math.abs(a[2]) < 0.9 ? [0, 0, 1] : [1, 0, 0];
+  const u0 = [a[1] * helper[2] - a[2] * helper[1], a[2] * helper[0] - a[0] * helper[2], a[0] * helper[1] - a[1] * helper[0]];
+  const un = Math.hypot(...u0);
+  const u = u0.map((v) => v / un);
+  const v = [a[1] * u[2] - a[2] * u[1], a[2] * u[0] - a[0] * u[2], a[0] * u[1] - a[1] * u[0]];
+  const sense = (hand === "right" ? -1 : 1) * (360 / perTurn);
+  const at = (s, deg) => {
+    const t = (deg + phase) * RAD;
+    return [0, 1, 2].map((i) => start[i] + a[i] * s + radius * (Math.cos(t) * u[i] + Math.sin(t) * v[i]));
+  };
+  const pairs = Math.floor(length / rise);
+  const items = [];
+  const meta = [];
+  const PAIR = { A: "T", T: "A", G: "C", C: "G" };
+  const samples = pairs * 6;
+  const centreDepth = (along) => depthOf(start.map((value, index) => value + a[index] * along), P);
+  for (const offset of [0, groove]) {
+    const points = Array.from({ length: samples + 1 }, (_, i) => {
+      const along = (i / samples) * pairs * rise;
+      const point = at(along, (along / rise) * sense + offset);
+      return { point, front: depthOf(point, P) >= centreDepth(along) };
+    });
+    let run = [points[0]];
+    const flush = () => {
+      if (run.length < 2) return;
+      const depths = run.map((entry) => depthOf(entry.point, P));
+      items.push({ d: run[1].front ? Math.max(...depths) : Math.min(...depths), svg: rope(P, run.map((entry) => entry.point), r, strand) });
+    };
+    for (let i = 1; i < points.length; i++) {
+      if (points[i].front !== points[i - 1].front && run.length > 1) {
+        run.push(points[i]);
+        flush();
+        run = [points[i - 1], points[i]];
+        continue;
+      }
+      run.push(points[i]);
+    }
+    flush();
+  }
+  for (let i = 0; i < pairs; i++) {
+    const s = (i + 0.5) * rise;
+    const p0 = at(s, (s / rise) * sense);
+    const p1 = at(s, (s / rise) * sense + groove);
+    const mid = p0.map((value, index) => (value + p1[index]) / 2);
+    const base = sequence[i % sequence.length];
+    const half0 = [p0, mid];
+    const half1 = [mid, p1];
+    const lit = i === highlight;
+    const width = lit ? baseR * 1.4 : baseR;
+    items.push({ d: depthOf(p0, P) * 0.5 + depthOf(mid, P) * 0.5 - 0.01, svg: rope(P, half0, width, `base${base}`) });
+    items.push({ d: depthOf(p1, P) * 0.5 + depthOf(mid, P) * 0.5 - 0.01, svg: rope(P, half1, width, `base${PAIR[base]}`) });
+    if (lit) {
+      const bonds = base === "G" || base === "C" ? 3 : 2;
+      const k = screenScale(P);
+      const [mx, my] = iso(mid, P);
+      const [ax, ay] = iso(p0, P);
+      const dir = unit2([ax - mx, ay - my]);
+      const across = [-dir[1], dir[0]];
+      const dots = Array.from({ length: bonds }, (_, b) => {
+        const t = (b - (bonds - 1) / 2) * width * k * 0.62;
+        return `<circle class="bio-hbond" cx="${r1(mx + across[0] * t)}" cy="${r1(my + across[1] * t)}" r="${r1(Math.max(0.9, width * k * 0.2))}"/>`;
+      }).join("");
+      items.push({ d: Math.max(depthOf(p0, P), depthOf(p1, P)) * 0.5 + depthOf(mid, P) * 0.5, svg: dots });
+    }
+    meta.push({ index: i, base, partner: PAIR[base], mid, ends: [p0, p1] });
+  }
+  items.pairs = meta;
+  items.point = (along, which) => at(along, (along / rise) * sense + (which ? groove : 0));
+  items.length3 = pairs * rise;
+  return items;
+}
+
+function dimension(from, to, text, { offset = 10, tick = 4, gap = 5 } = {}) {
+  const dir = unit2([to[0] - from[0], to[1] - from[1]]);
+  const normal = [dir[1], -dir[0]];
+  const a = [from[0] + normal[0] * offset, from[1] + normal[1] * offset];
+  const b = [to[0] + normal[0] * offset, to[1] + normal[1] * offset];
+  const t = (p) => `M${r1(p[0] - normal[0] * tick)} ${r1(p[1] - normal[1] * tick)}L${r1(p[0] + normal[0] * tick)} ${r1(p[1] + normal[1] * tick)}`;
+  const mid = [(a[0] + b[0]) / 2 + normal[0] * gap, (a[1] + b[1]) / 2 + normal[1] * gap];
+  const vertical = Math.abs(dir[1]) > Math.abs(dir[0]);
+  const anchor = vertical ? (normal[0] > 0 ? "start" : "end") : "middle";
+  const baseline = vertical ? mid[1] + 4 : normal[1] < 0 ? mid[1] : mid[1] + 9;
+  return `<path class="bio-casing" d="M${r1(a[0])} ${r1(a[1])}L${r1(b[0])} ${r1(b[1])}${t(a)}${t(b)}" stroke-width="3"/><path class="bio-dimension" d="M${r1(a[0])} ${r1(a[1])}L${r1(b[0])} ${r1(b[1])}${t(a)}${t(b)}"/><text class="bio-label" data-small x="${r1(mid[0])}" y="${r1(baseline)}" text-anchor="${anchor}">${text}</text>`;
+}
+
+function key(entries, x, y, { gap = 18, columns = entries.length } = {}) {
+  return entries
+    .map(([swatch, text], index) => {
+      const col = index % columns;
+      const row = Math.floor(index / columns);
+      const cx = x + col * 118;
+      const cy = y + row * gap;
+      return `<rect class="bio-key" x="${r1(cx)}" y="${r1(cy - 8)}" width="14" height="10" rx="2.5" fill="url(#bio-v-${swatch})" stroke="var(--bio-${swatch}-edge)"/><text class="bio-label" data-small x="${r1(cx + 20)}" y="${r1(cy)}">${text}</text>`;
+    })
+    .join("");
+}
+
+function figurePage({ fig, title, svg, aria, readout, hint, caption, theme, css = "", script = "", width = 800 }) {
+  const stage = `<div class="iso-stage bio-stage" tabindex="0" role="slider" aria-label="${aria}" aria-valuemin="0" aria-valuemax="1000000" aria-valuenow="0" aria-valuetext="${readout}">${svg}</div>`;
+  const body = `<figure class="iso-figure bio-figure"><div class="iso-plate bio-plate"><p class="bio-title"><span class="bio-fig">${fig}</span>${title}</p>${stage}<div class="bio-foot"><span>${hint}</span><span data-readout>${readout}</span></div></div><figcaption class="iso-legend"><span class="iso-caption">${caption}</span></figcaption></figure>`;
+  return pageHtml({ title: title.split(",")[0], theme, body: `<style>${bioCss()}${css}</style><div class="bio" data-theme="${theme}">${body}</div>`, script, width });
+}
+
+function bioSvg({ width, height, label, body }) {
+  return figureSvg({ width, height, label, body: [bioDefs(), ...body], className: "bio-svg" });
+}
+
+function membraneLoop(P, points3, { thickness = 4.5, swatch = "head" } = {}) {
+  const flat = points3.map((p) => iso(p, P));
+  const d = smoothPath(flat, true);
+  const k = screenScale(P);
+  return `<path d="${d}" fill="none" stroke="var(--bio-${swatch}-edge)" stroke-width="${r1(thickness * k + 2)}" stroke-linejoin="round"/><path d="${d}" fill="none" stroke="var(--bio-${swatch})" stroke-width="${r1(thickness * k)}" stroke-linejoin="round"/><path d="${d}" fill="none" stroke="var(--bio-tail-hi)" stroke-width="${r1(thickness * k * 0.36)}" stroke-linejoin="round"/>`;
+}
+
+function sortedSvg(items) {
+  return [...items].sort((a, b) => a.d - b.d).map((item) => item.svg).join("");
+}
+
+function figureDepth(P) {
+  return (point) => depthOf(point, P);
+}
+const DATA = {"P":{"origin":[380,211.05263157894737],"scale":0.8737872482044207,"azimuth":90,"elevation":0},"L":162,"R":598};
+const THICK_UM = 1.6;
+const THIN_UM = 1.0;
+const BARE_UM = 0.16;
+const THIN_SPAN_UM = 2.05;
+const SL_RELAXED = 2.5;
+const SL_CONTRACTED = 2.05;
+const CYCLE_S = 8;
+const PHASES = [
+  { name: "Relaxed", from: 0, to: 1.2 },
+  { name: "Contracting", from: 1.2, to: 3.8 },
+  { name: "Contracted", from: 3.8, to: 5.2 },
+  { name: "Relaxing", from: 5.2, to: 8 },
+];
+
+const SOURCES = [
+  { value: "the filaments slide past each other: the A band keeps its length while the I band and H zone shorten", source: "Huxley & Niedergerke 1954, Nature 173:971; Huxley & Hanson 1954, Nature 173:973" },
+  { value: "frog skeletal muscle: thick filaments about 1.6 µm, thin filaments 2.05 µm across the Z disc (about 1.0 µm each side), bare zone about 0.16 µm; tension plateaus at 2.05–2.2 µm", source: "Gordon, Huxley & Julian 1966, J Physiol 184:170" },
+];
+
+const ease = (t) => t * t * (3 - 2 * t);
+
+function contractionAt(time) {
+  const t = ((time % CYCLE_S) + CYCLE_S) % CYCLE_S;
+  if (t < 1.2) return 0;
+  if (t < 3.8) return ease((t - 1.2) / 2.6);
+  if (t < 5.2) return 1;
+  return 1 - ease((t - 5.2) / 2.8);
+}
+
+function bandsAt(time) {
+  const sl = SL_RELAXED + (SL_CONTRACTED - SL_RELAXED) * contractionAt(time);
+  return { sl, a: THICK_UM, i: sl - THICK_UM, h: Math.max(0, sl - THIN_SPAN_UM) };
+}
+
+function readoutOf(time) {
+  const t = ((time % CYCLE_S) + CYCLE_S) % CYCLE_S;
+  const phase = PHASES.find((p) => t >= p.from && t < p.to) ?? PHASES[0];
+  const b = bandsAt(time);
+  return `${phase.name} · sarcomere ${b.sl.toFixed(2)} µm · A band ${b.a.toFixed(2)} µm · I band ${b.i.toFixed(2)} µm · H zone ${b.h.toFixed(2)} µm`;
+}
+
+
+const UM = 100;
+const WINDOW = 190;
+const THIN_ROWS = [75, 25, -25, -75];
+const THICK_ROWS = [50, 0, -50];
+
+const f1 = (v) => v.toFixed(1);
+
+function thinSvg(P, B, x0, x1, z) {
+  const a = B.iso([x0, 0, z], P);
+  const b = B.iso([x1, 0, z], P);
+  const k = B.screenScale(P);
+  const line = (dz) => `M${f1(a[0])} ${f1(a[1] - dz * k)}L${f1(b[0])} ${f1(b[1] - dz * k)}`;
+  const bead = 3.4 * k;
+  const pitch = 6.4 * k;
+  const strand = (dz, phase) =>
+    `<path d="${line(dz)}" fill="none" stroke="var(--bio-actin-edge)" stroke-width="${f1(bead + 1.2)}" stroke-linecap="round" stroke-dasharray="0 ${f1(pitch)}" stroke-dashoffset="${f1(phase)}"/>` +
+    `<path d="${line(dz)}" fill="none" stroke="var(--bio-actin)" stroke-width="${f1(bead)}" stroke-linecap="round" stroke-dasharray="0 ${f1(pitch)}" stroke-dashoffset="${f1(phase)}"/>`;
+  return `<path class="bio-thin" d="${line(0)}" fill="none" stroke="var(--bio-actin-lo)" stroke-width="${f1(1.2 * k)}"/>` + strand(1.6, 0) + strand(-1.6, pitch / 2);
+}
+
+function headSvg(P, B, x, z, side, toward, tilt) {
+  const k = B.screenScale(P);
+  const [cx, cy] = B.iso([x + toward * 3, 0, z + side * 9], P);
+  const angle = -side * toward * (55 - tilt);
+  return `<ellipse class="bio-body" data-swatch="myosin" cx="${f1(cx)}" cy="${f1(cy)}" rx="${f1(5.2 * k)}" ry="${f1(2.6 * k)}" transform="rotate(${f1(angle)} ${f1(cx)} ${f1(cy)})" fill="url(#bio-r-myosin)"/>`;
+}
+
+function thickSvg(P, B, centre, z, cycling, time, anchor) {
+  const half = (1.6 * UM) / 2;
+  const bare = (0.16 * UM) / 2;
+  const out = [B.rope(P, [[centre - half, 0, z], [centre + half, 0, z]], 6, "myosin")];
+  let index = 0;
+  for (const toward of [-1, 1]) {
+    for (let d = bare + 4; d <= half - 3; d += 10.5) {
+      for (const side of [1, -1]) {
+        const x = centre + toward * d;
+        const tilt = cycling * 22 * (0.5 + 0.5 * Math.sin(time * 7 + index * 1.7));
+        out.push(headSvg(P, B, x, z, side, toward, tilt));
+        if (anchor && toward === 1 && side === 1 && Math.abs(d - 52) < 5.5) anchor.head = B.iso([x + toward * 3, 0, z + side * 9], P);
+        index++;
+      }
+    }
+  }
+  return out.join("");
+}
+
+function zdiscSvg(P, B, x) {
+  const points = [];
+  for (let z = 96, i = 0; z >= -96; z -= 12, i++) points.push([x + (i % 2 ? 3.5 : -3.5), 0, z]);
+  return B.rope(P, points, 2.3, "zdisc");
+}
+
+function sarcomereSvg(time, P, B, { L, R }) {
+  const bands = bandsAt(time);
+  const c = contractionAt(time);
+  const tt = ((time % CYCLE_S) + CYCLE_S) % CYCLE_S;
+  const cycling = tt >= 1.2 && tt < 5.2 ? Math.min(1, c * 4 + (tt < 3.8 ? 0.4 : 0)) : 0;
+  const sl = bands.sl * UM;
+  const thin = THIN_UM * UM;
+  const half = (THICK_UM * UM) / 2;
+  const zds = [-1.5, -0.5, 0.5, 1.5].map((n) => n * sl).filter((x) => Math.abs(x) < WINDOW + thin);
+  const art = [];
+  for (const z of THIN_ROWS) {
+    for (const xz of zds) {
+      const from = Math.max(-WINDOW - 20, xz - thin);
+      const to = Math.min(WINDOW + 20, xz + thin);
+      if (to > from) art.push(thinSvg(P, B, from, to, z));
+    }
+  }
+  const anchor = {};
+  for (const centre of [-sl, 0, sl]) {
+    for (const z of THICK_ROWS) {
+      if (centre - half > WINDOW + 20 || centre + half < -WINDOW - 20) continue;
+      art.push(thickSvg(P, B, centre, z, cycling, time, centre === 0 && z === THICK_ROWS[0] ? anchor : null));
+    }
+  }
+  for (const xz of zds) if (Math.abs(xz) < WINDOW + 10) art.push(zdiscSvg(P, B, xz));
+  art.push(B.rope(P, [[0, 0, 62], [0, 0, -62]], 1.3, "zdisc"));
+  const at = (p) => B.iso(p, P);
+  const left = -sl / 2;
+  const right = sl / 2;
+  const y = (z) => at([0, 0, z])[1];
+  const x = (v) => at([v, 0, 0])[0];
+  const dims = [
+    B.dimension([x(left), y(140)], [x(right), y(140)], `Sarcomere ${bands.sl.toFixed(2)} µm`, { offset: 0 }),
+    B.dimension([x(-half), y(118)], [x(half), y(118)], `A band ${bands.a.toFixed(2)} µm`, { offset: 0 }),
+    bands.h > 0.04 ? B.dimension([x(-bands.h * UM / 2), y(98)], [x(bands.h * UM / 2), y(98)], `H zone`, { offset: 0 }) : "",
+    B.dimension([x(left + bands.i * UM / 2), y(-112)], [x(left - bands.i * UM / 2), y(-112)], `I band ${bands.i.toFixed(2)} µm`, { offset: 0 }),
+  ];
+  const labels = [
+    B.label("Z disc", at([left + 3.5, 0, -84]), { side: "left", x: L }),
+    B.label("Thin filament (actin)", at([left + 40, 0, 25]), { side: "left", x: L }),
+    B.label("Thick filament (myosin)", at([-half + 10, 0, -50 + 5.5]), { side: "left", x: L }),
+    B.label("Myosin heads", anchor.head, { side: "right", x: R }),
+    B.label("M line", at([0, 0, -60]), { side: "right", x: R, drop: y(-92) - at([0, 0, -60])[1] }),
+  ];
+  return { art: art.join(""), annotations: dims.join("") + labels.join("") };
+}
+
+const P = DATA.P;
+const B = { rope, label, dimension, smoothPath, screenScale, iso, depthOf, cameraOf };
+const stage = document.querySelector(".iso-stage");
+const svg = stage.querySelector("svg");
+const artLayer = svg.querySelector('[data-live="art"]');
+const notesLayer = svg.querySelector('[data-live="notes"]');
+const readout = document.querySelector("[data-readout]");
+const still = matchMedia("(prefers-reduced-motion: reduce)");
+let clock = still.matches ? 4.4 : 0.6;
+let paused = still.matches;
+let visible = false;
+let frame = 0;
+let last = 0;
+
+function draw() {
+  const view = sarcomereSvg(still.matches ? Math.floor(clock * 4) / 4 + 0.001 : clock, P, B, DATA);
+  artLayer.innerHTML = view.art;
+  notesLayer.innerHTML = view.annotations;
+  const text = readoutOf(clock);
+  if (readout.textContent !== text) readout.textContent = text;
+  stage.setAttribute("aria-valuenow", String(Math.round(bandsAt(clock).sl * 100)));
+  stage.setAttribute("aria-valuetext", text);
+}
+function tick(now) {
+  const dt = last ? Math.min((now - last) / 1000, 1 / 30) : 1 / 60;
+  last = now;
+  if (!paused) clock = (clock + dt) % CYCLE_S;
+  draw();
+  frame = visible && !paused ? requestAnimationFrame(tick) : 0;
+}
+const run = () => {
+  if (!frame && visible && !paused) {
+    last = 0;
+    frame = requestAnimationFrame(tick);
+  }
+};
+new IntersectionObserver((entries) => {
+  visible = entries[entries.length - 1].isIntersecting;
+  run();
+}, { rootMargin: "120px 0px" }).observe(stage);
+stage.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") {
+    event.preventDefault();
+    const t = ((clock % CYCLE_S) + CYCLE_S) % CYCLE_S;
+    clock = t < 1.2 || t >= 5.2 ? 1.2 : 5.2;
+    draw();
+  } else if (event.key === " ") {
+    event.preventDefault();
+    paused = !paused;
+    run();
+  }
+});
+draw();
+</script></body></html>

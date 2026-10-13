@@ -1,5 +1,8 @@
 # Motion and interaction
 
+> [!NOTE]
+> This page comes from Anatomy, the engineering skill Microscope was forked from. The worked examples it cites (`dial-indicator`, `desk-computer`, `arcade-cabinet`, `raptor-engine`, `ripple-tank`, `test-rig`, `spot-plate`, `turning-dial`) are engineering figures that Microscope does not ship; they live in [Anatomy's repository](https://github.com/wheresryan22/anatomy/tree/main/examples). Take only the technique from them, and draw every biology figure in the textbook style of `references/biology.md`.
+
 A figure is alive when its mechanism moves the way the real thing would: a carriage glides and settles, a spring overshoots once, a needle swings to the new reading. Motion should be calm enough to follow and true to the model.
 
 ## Principles

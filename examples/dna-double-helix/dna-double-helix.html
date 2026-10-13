@@ -1,0 +1,1369 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The DNA double helix</title><style>
+.iso{
+  --microscope-page:#0b0b0b;--microscope-card:#131313;--microscope-text:#a3a3a3;--microscope-strong:#e6e6e6;--microscope-muted:#6e6e6e;
+  --microscope-paper:#131313;--microscope-face:#1b1b1b;--microscope-top:#1c1c1c;
+  --microscope-shade-0:#0f0f0f;--microscope-shade-1:#121212;--microscope-shade-2:#151515;--microscope-shade-3:#181818;
+  --microscope-lit-top:#262626;--microscope-lit-shade:#1d1d1d;
+  --microscope-hi:#d4d4d4;--microscope-mid:#6a6a6a;--microscope-lo:#3e3e3e;--microscope-faint:#2a2a2a;--microscope-lit:#ffffff;
+  --microscope-halo:#050505;--microscope-halo-opacity:.9;--microscope-dot:#e6e6e6;
+  --microscope-red:#ff6b6b;--microscope-green:#6be0a0;--microscope-blue:#6b9bff;
+  --microscope-weight:.6px;--microscope-ease:cubic-bezier(.32,.72,0,1);
+  --microscope-mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --microscope-lift:inset 0 1px 0 0 #ffffff0a,inset 0 0 0 1px #ffffff06,0 0 0 1px #00000026,0 1px 1px -.5px #00000014,0 3px 3px -1.5px #00000014,0 6px 6px -3px #00000014,0 12px 12px -6px #00000014;
+}
+.iso[data-theme="light"]{
+  --microscope-page:#f2f2ef;--microscope-card:#fbfbfa;--microscope-text:#57575a;--microscope-strong:#18181a;--microscope-muted:#8c8c90;
+  --microscope-paper:#fbfbfa;--microscope-face:#ffffff;--microscope-top:#ffffff;
+  --microscope-shade-0:#dcdcd9;--microscope-shade-1:#e5e5e2;--microscope-shade-2:#ededea;--microscope-shade-3:#f4f4f1;
+  --microscope-lit-top:#ffffff;--microscope-lit-shade:#eeeeeb;
+  --microscope-hi:#26262a;--microscope-mid:#8a8a8f;--microscope-lo:#b4b4b8;--microscope-faint:#d4d4d6;--microscope-lit:#000000;
+  --microscope-halo:#8a8a80;--microscope-halo-opacity:.32;--microscope-dot:#3a3a3e;
+  --microscope-red:#e5484d;--microscope-green:#30a46c;--microscope-blue:#3e63dd;
+  --microscope-lift:inset 0 1px 0 0 #ffffff,0 0 0 1px #0000000f,0 1px 1px -.5px #0000000a,0 3px 3px -1.5px #0000000a,0 6px 6px -3px #0000000a,0 12px 12px -6px #0000000a;
+}
+.iso-svg{display:block;width:100%;height:auto;overflow:visible}
+.iso-svg path,.iso-svg circle{vector-effect:non-scaling-stroke}
+.iso-fill{fill:var(--microscope-paper);stroke:none}
+.iso-solid[data-lit]>.iso-fill{fill:var(--microscope-face)}
+.iso-shade,.iso-top{stroke:none}
+.iso-shade[data-shade="0"]{fill:var(--microscope-shade-0)}
+.iso-shade[data-shade="1"]{fill:var(--microscope-shade-1)}
+.iso-shade[data-shade="2"]{fill:var(--microscope-shade-2)}
+.iso-shade[data-shade="3"]{fill:var(--microscope-shade-3)}
+.iso-top{fill:var(--microscope-top)}
+.iso-solid[data-lit]>.iso-top{fill:var(--microscope-lit-top)}
+.iso-solid[data-lit]>.iso-shade{fill:var(--microscope-lit-shade)}
+.iso-solid[data-seamless]>.iso-shade,.iso-solid[data-seamless]>.iso-top{stroke-width:.4;stroke-linejoin:round}
+.iso-solid[data-seamless]>.iso-shade[data-shade="0"]{stroke:var(--microscope-shade-0)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="1"]{stroke:var(--microscope-shade-1)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="2"]{stroke:var(--microscope-shade-2)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="3"]{stroke:var(--microscope-shade-3)}
+.iso-solid[data-seamless]>.iso-top{stroke:var(--microscope-top)}
+.iso-solid[data-seamless][data-lit]>.iso-top{stroke:var(--microscope-lit-top)}
+.iso-solid[data-seamless][data-lit]>.iso-shade{stroke:var(--microscope-lit-shade)}
+.iso-solid[data-lit]>.iso-edge{stroke:var(--microscope-lit)}
+.iso-halo{fill:var(--microscope-halo);stroke:none;filter:blur(9px);opacity:var(--microscope-halo-opacity);transform:translateY(3px)}
+.iso-line{fill:none;stroke:var(--microscope-lo);stroke-width:var(--microscope-weight);stroke-linecap:round;stroke-linejoin:round}
+.iso-line[data-tone="hi"]{stroke:var(--microscope-hi)}
+.iso-line[data-tone="mid"]{stroke:var(--microscope-mid)}
+.iso-line[data-tone="lo"]{stroke:var(--microscope-lo)}
+.iso-line[data-tone="faint"]{stroke:var(--microscope-faint)}
+.iso-line[data-tone="lit"]{stroke:var(--microscope-lit)}
+.iso-line[data-tone="red"]{stroke:var(--microscope-red)}
+.iso-line[data-tone="green"]{stroke:var(--microscope-green)}
+.iso-line[data-tone="blue"]{stroke:var(--microscope-blue)}
+.iso-line[data-dotted]{stroke-dasharray:.01 3.5;stroke-width:1}
+.iso-line[data-dashed]{stroke-dasharray:3 3}
+.iso-line[data-flow]{stroke-dasharray:2 6}
+.iso-wire-end{fill:var(--microscope-paper);stroke:var(--microscope-lo);stroke-width:var(--microscope-weight)}
+.iso-wire[data-tone="hi"] .iso-wire-end{stroke:var(--microscope-hi)}
+.iso-wire[data-tone="mid"] .iso-wire-end{stroke:var(--microscope-mid)}
+.iso-wire[data-tone="faint"] .iso-wire-end{stroke:var(--microscope-faint)}
+.iso-wire[data-tone="lit"] .iso-wire-end{stroke:var(--microscope-lit)}
+.iso-dots circle{fill:var(--microscope-dot);stroke:none;opacity:.32}
+.iso-dots[data-tone="hi"] circle{opacity:.85}
+.iso-dots[data-tone="mid"] circle{opacity:.45}
+.iso-dots[data-tone="lo"] circle{opacity:.22}
+.iso-dots[data-tone="faint"] circle{opacity:.12}
+.iso-face-text{fill:var(--microscope-mid);font-family:var(--microscope-mono);letter-spacing:.04em}
+.iso-face-text[data-tone="hi"]{fill:var(--microscope-hi)}
+.iso-face-text[data-tone="lo"]{fill:var(--microscope-lo)}
+.iso-face-text[data-tone="faint"]{fill:var(--microscope-faint)}
+.tb-body{fill:var(--microscope-shade-2);stroke:none}
+.tb-shine{fill:var(--microscope-top);stroke:none}
+.tb-shade{fill:var(--microscope-shade-0);stroke:none}
+.tb-ring{fill:none;stroke:var(--microscope-lo);stroke-width:.45;stroke-linecap:butt;stroke-linejoin:round}
+.tb-ring[data-tone="mid"]{stroke:var(--microscope-mid)}
+.tb-ring[data-tone="faint"]{stroke:var(--microscope-faint)}
+.tb-ring[data-tone="hi"]{stroke:var(--microscope-hi)}
+@keyframes iso-flow{to{stroke-dashoffset:-32}}
+@keyframes iso-pulse{0%,100%{opacity:.18}12%{opacity:1}40%{opacity:.18}}
+.iso-line[data-flow]{animation:iso-flow 1600ms linear infinite}
+.iso-dots circle[data-pulse]{animation:iso-pulse 1600ms steps(1,end) infinite;animation-delay:var(--pulse-at,0ms)}
+.iso-figure{margin:32px 0 36px}
+.iso-plate{position:relative;padding:52px 24px;border-radius:0;background:var(--microscope-card);box-shadow:0 0 0 1px var(--microscope-mid);--microscope-paper:var(--microscope-card)}
+.iso-plate-corners{position:absolute;inset:18px 20px;pointer-events:none}
+.iso-plate-corner{position:absolute;color:var(--microscope-muted);font-family:var(--microscope-mono);font-size:10.5px;line-height:1;letter-spacing:.04em;white-space:nowrap}
+.iso-plate-corner[data-corner="fig"]{top:0;left:0;color:var(--microscope-text)}
+.iso-plate-corner[data-corner="title"]{top:0;right:0;text-transform:uppercase;letter-spacing:.1em}
+.iso-plate-corner[data-corner="hint"]{bottom:0;left:0;text-transform:uppercase;letter-spacing:.1em}
+.iso-plate-corner[data-corner="readout"]{right:0;bottom:0;color:var(--microscope-text);font-variant-numeric:tabular-nums}
+.iso-plate .iso-svg{margin:0 auto}
+.iso-legend{display:grid;gap:8px;margin-top:12px;color:var(--microscope-muted);font-size:13px;line-height:1.55}
+.iso-keys{display:flex;flex-wrap:wrap;gap:6px 18px}
+.iso-key{display:inline-flex;align-items:center;gap:7px}
+.iso-swatch{width:16px;height:10px;flex:none;overflow:visible}
+.iso-swatch path{fill:none;stroke:var(--microscope-hi);stroke-width:1;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.iso-swatch[data-mark="raised"] path,.iso-swatch[data-mark="flat"] path{stroke:var(--microscope-mid)}
+.iso-swatch[data-mark="lit"] path{stroke:var(--microscope-lit)}
+.iso-swatch[data-mark="dim"] path{stroke:var(--microscope-lo)}
+.iso-swatch[data-mark="dotted"] path{stroke-dasharray:.01 3;stroke-width:1.4}
+.iso-swatch[data-mark="dashed"] path{stroke-dasharray:3 2.5}
+.iso-swatch[data-mark="red"] path{stroke:var(--microscope-red)}
+.iso-swatch[data-mark="green"] path{stroke:var(--microscope-green)}
+.iso-swatch[data-mark="blue"] path{stroke:var(--microscope-blue)}
+.iso-swatch-crease{stroke:var(--microscope-lo)!important}
+@media (max-width:560px){.iso-plate{padding:48px 12px 70px}.iso-plate-corner[data-corner="hint"]{bottom:18px}}
+@media (prefers-reduced-motion:reduce){.iso-line[data-flow],.iso-dots circle[data-pulse]{animation:none}}
+
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body[data-theme="light"]{color-scheme:light}
+body{margin:0;background:var(--microscope-page);color:var(--microscope-text);font:14px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.iso-page{width:min(800px,100% - 32px);margin:64px auto 96px}
+</style></head><body class="iso" data-theme="dark"><main class="iso-page"><style>
+.bio{--bio-head:#f3a650;--bio-head-hi:#ffd8a4;--bio-head-lo:#c9741f;--bio-head-edge:#a85d17;--bio-tail:#efdfb2;--bio-tail-hi:#fbf2d8;--bio-tail-lo:#d8c28a;--bio-tail-edge:#c2a766;--bio-rotor:#4fb3ae;--bio-rotor-hi:#ace6e1;--bio-rotor-lo:#2b827d;--bio-rotor-edge:#1f6460;--bio-stator:#7192cf;--bio-stator-hi:#c2d3f3;--bio-stator-lo:#47659f;--bio-stator-edge:#36507f;--bio-rod:#f5c94b;--bio-rod-hi:#fff0b3;--bio-rod-lo:#c99a1b;--bio-rod-edge:#9c7710;--bio-hub:#f0a23f;--bio-hub-hi:#ffd59a;--bio-hub-lo:#c2781a;--bio-hub-edge:#965a10;--bio-alpha:#c9aee6;--bio-alpha-hi:#efe4fa;--bio-alpha-lo:#9675bd;--bio-alpha-edge:#775a9e;--bio-beta:#9373c9;--bio-beta-hi:#cdb9ec;--bio-beta-lo:#664899;--bio-beta-edge:#4f357b;--bio-proton:#e5484d;--bio-proton-hi:#ffa3a5;--bio-proton-lo:#b2272c;--bio-proton-edge:#8a1c20;--bio-atp:#76c46a;--bio-atp-hi:#c8edbf;--bio-atp-lo:#4a9640;--bio-atp-edge:#3a7932;--bio-dna:#4a8fd8;--bio-dna-hi:#b5d3f4;--bio-dna-lo:#2c66aa;--bio-dna-edge:#204f86;--bio-baseA:#e5534b;--bio-baseA-hi:#ffb3ae;--bio-baseA-lo:#b33a33;--bio-baseA-edge:#8f2b26;--bio-baseT:#f2c14e;--bio-baseT-hi:#fff0b8;--bio-baseT-lo:#c4952a;--bio-baseT-edge:#9a721a;--bio-baseG:#58a65c;--bio-baseG-hi:#c3e8c4;--bio-baseG-lo:#3b7d3f;--bio-baseG-edge:#2e6331;--bio-baseC:#4e79c7;--bio-baseC-hi:#bcd0f3;--bio-baseC-lo:#345aa0;--bio-baseC-edge:#26457e;--bio-rna:#e8763c;--bio-rna-hi:#ffc8a6;--bio-rna-lo:#b5521f;--bio-rna-edge:#8c3e16;--bio-chlorophyll:#5cb85c;--bio-chlorophyll-hi:#bfe6b6;--bio-chlorophyll-lo:#3b8a3b;--bio-chlorophyll-edge:#2d6b2d;--bio-cytosol:#fbf6ec;--bio-cytosol-hi:#ffffff;--bio-cytosol-lo:#efe4cc;--bio-cytosol-edge:#d9c9a6;--bio-capsid:#8ea6cf;--bio-capsid-hi:#d6e2f5;--bio-capsid-lo:#5e78a8;--bio-capsid-edge:#47608c;--bio-sheath:#5fb58c;--bio-sheath-hi:#bfe7d2;--bio-sheath-lo:#3a8762;--bio-sheath-edge:#2c6a4c;--bio-fibre:#a98bd1;--bio-fibre-hi:#e2d6f2;--bio-fibre-lo:#7d60a8;--bio-fibre-edge:#634a8a;--bio-peptidoglycan:#c9d77a;--bio-peptidoglycan-hi:#ecf3c4;--bio-peptidoglycan-lo:#9aab48;--bio-peptidoglycan-edge:#7c8b35;--bio-cuticle:#e9c46a;--bio-cuticle-hi:#f8e6b8;--bio-cuticle-lo:#c99a2e;--bio-cuticle-edge:#a07a1f;--bio-epidermis:#eef3e2;--bio-epidermis-hi:#fbfdf6;--bio-epidermis-lo:#d3dfbd;--bio-epidermis-edge:#9fb27e;--bio-palisade:#cfe6b0;--bio-palisade-hi:#eef7e2;--bio-palisade-lo:#a8cc80;--bio-palisade-edge:#78a356;--bio-spongy:#dcedc6;--bio-spongy-hi:#f3f9ea;--bio-spongy-lo:#b9d699;--bio-spongy-edge:#88aa66;--bio-guard:#b8dc93;--bio-guard-hi:#e4f3d3;--bio-guard-lo:#8dbb62;--bio-guard-edge:#638f3d;--bio-xylem:#e6b8a8;--bio-xylem-hi:#f7e2da;--bio-xylem-lo:#c98b76;--bio-xylem-edge:#a1614d;--bio-phloem:#b7c4ea;--bio-phloem-hi:#e1e7f8;--bio-phloem-lo:#8a9dd3;--bio-phloem-edge:#6577ad;--bio-sheathcell:#e5e9c8;--bio-sheathcell-hi:#f7f9ea;--bio-sheathcell-lo:#c8cf9a;--bio-sheathcell-edge:#9aa36a;--bio-actin:#e7854f;--bio-actin-hi:#ffc9a8;--bio-actin-lo:#bf5d2b;--bio-actin-edge:#97461d;--bio-myosin:#6d8fd6;--bio-myosin-hi:#c3d3f5;--bio-myosin-lo:#4566ac;--bio-myosin-edge:#334f8a;--bio-zdisc:#6b6f7a;--bio-zdisc-hi:#b5b9c2;--bio-zdisc-lo:#474b55;--bio-zdisc-edge:#33363e;--bio-wall:#a7c76b;--bio-wall-hi:#dcedbd;--bio-wall-lo:#7c9c43;--bio-wall-edge:#617c31;--bio-air:#f7fbf2;--bio-outside:#eef5fc;--bio-cytoplasm:#fbf5e8;--bio-periplasm:#f2f6e4;--bio-halo:rgba(255,255,255,.82);--bio-page:#ffffff;--bio-ink:#26262b;--bio-soft:#5d5d66;--bio-leader:#6b6b74;--bio-region:#8a8a94;--bio-ims:#eef5fc;--bio-matrix:#f7f1fb;--bio-arrow:#3a3a42;--bio-flow:#d9363c}
+.bio[data-theme="dark"],.iso[data-theme="dark"] .bio{--bio-air:#182016;--bio-outside:#16202b;--bio-cytoplasm:#221d16;--bio-periplasm:#1b2116;--bio-halo:rgba(18,19,23,.82);--bio-page:#121317;--bio-ink:#ececf1;--bio-soft:#b4b4bd;--bio-leader:#9c9ca6;--bio-region:#8b8b96;--bio-ims:#16202b;--bio-matrix:#1f1a27;--bio-arrow:#d8d8de;--bio-flow:#ff6b6f}
+.bio-body{stroke-width:.9;stroke-linejoin:round}
+.bio-label{fill:var(--bio-ink);font:500 11.5px/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;letter-spacing:.005em}
+.bio-label[data-small]{font-size:10px;fill:var(--bio-soft)}
+.bio-region{fill:var(--bio-region);font:600 10px/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;letter-spacing:.12em}
+.bio-leader{fill:none;stroke:var(--bio-leader);stroke-width:.8;stroke-linecap:round;stroke-linejoin:round}
+.bio-casing{fill:none;stroke:var(--bio-halo);stroke-linecap:round;stroke-linejoin:round}
+.bio-anchor{fill:var(--bio-leader);stroke:var(--bio-halo);stroke-width:1}
+.bio-arrow{fill:none;stroke:var(--bio-arrow);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.bio-arrow-head{fill:var(--bio-arrow)}
+.bio-arrow[data-flow]{stroke:var(--bio-flow);stroke-width:2.2;opacity:.85}
+.bio-arrow-head[data-flow]{fill:var(--bio-flow);opacity:.85}
+.bio-tail{fill:none;stroke-width:.8;stroke-linecap:round}
+.bio-glyph{font:700 6.2px/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:central}
+.bio .iso-plate.bio-plate{padding:22px 22px 16px;background:var(--bio-page);box-shadow:0 0 0 1px color-mix(in srgb,var(--bio-region) 35%,transparent);border-radius:4px}
+.bio .bio-svg{border-radius:3px}
+.bio-title{margin:0 0 14px;color:var(--bio-ink);font:600 15px/1.35 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+.bio-fig{margin-right:10px;color:#c2410c;font-weight:700}
+.bio[data-theme="dark"] .bio-fig{color:#fb923c}
+.bio-foot{display:flex;justify-content:space-between;gap:16px;margin-top:10px;color:var(--bio-soft);font:12px/1.4 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums}
+.bio .iso-legend{color:var(--bio-soft);font:13px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+.bio .iso-stage{outline:none}
+.bio .iso-stage:focus-visible{box-shadow:0 0 0 2px color-mix(in srgb,var(--bio-flow) 45%,transparent);border-radius:3px}
+.bio-dimension{fill:none;stroke:var(--bio-soft);stroke-width:.9;stroke-linecap:round}
+.bio-hbond{fill:var(--bio-page);stroke:var(--bio-ink);stroke-width:.6}
+.bio-key{stroke-width:.8}
+@media (max-width:560px){.bio-foot{flex-direction:column}}
+.bio-body[data-swatch="head"]{stroke:var(--bio-head-edge)}.bio-tail[data-swatch="head"]{stroke:var(--bio-head-lo)}
+.bio-body[data-swatch="tail"]{stroke:var(--bio-tail-edge)}.bio-tail[data-swatch="tail"]{stroke:var(--bio-tail-lo)}
+.bio-body[data-swatch="rotor"]{stroke:var(--bio-rotor-edge)}.bio-tail[data-swatch="rotor"]{stroke:var(--bio-rotor-lo)}
+.bio-body[data-swatch="stator"]{stroke:var(--bio-stator-edge)}.bio-tail[data-swatch="stator"]{stroke:var(--bio-stator-lo)}
+.bio-body[data-swatch="rod"]{stroke:var(--bio-rod-edge)}.bio-tail[data-swatch="rod"]{stroke:var(--bio-rod-lo)}
+.bio-body[data-swatch="hub"]{stroke:var(--bio-hub-edge)}.bio-tail[data-swatch="hub"]{stroke:var(--bio-hub-lo)}
+.bio-body[data-swatch="alpha"]{stroke:var(--bio-alpha-edge)}.bio-tail[data-swatch="alpha"]{stroke:var(--bio-alpha-lo)}
+.bio-body[data-swatch="beta"]{stroke:var(--bio-beta-edge)}.bio-tail[data-swatch="beta"]{stroke:var(--bio-beta-lo)}
+.bio-body[data-swatch="proton"]{stroke:var(--bio-proton-edge)}.bio-tail[data-swatch="proton"]{stroke:var(--bio-proton-lo)}
+.bio-body[data-swatch="atp"]{stroke:var(--bio-atp-edge)}.bio-tail[data-swatch="atp"]{stroke:var(--bio-atp-lo)}
+.bio-body[data-swatch="dna"]{stroke:var(--bio-dna-edge)}.bio-tail[data-swatch="dna"]{stroke:var(--bio-dna-lo)}
+.bio-body[data-swatch="baseA"]{stroke:var(--bio-baseA-edge)}.bio-tail[data-swatch="baseA"]{stroke:var(--bio-baseA-lo)}
+.bio-body[data-swatch="baseT"]{stroke:var(--bio-baseT-edge)}.bio-tail[data-swatch="baseT"]{stroke:var(--bio-baseT-lo)}
+.bio-body[data-swatch="baseG"]{stroke:var(--bio-baseG-edge)}.bio-tail[data-swatch="baseG"]{stroke:var(--bio-baseG-lo)}
+.bio-body[data-swatch="baseC"]{stroke:var(--bio-baseC-edge)}.bio-tail[data-swatch="baseC"]{stroke:var(--bio-baseC-lo)}
+.bio-body[data-swatch="rna"]{stroke:var(--bio-rna-edge)}.bio-tail[data-swatch="rna"]{stroke:var(--bio-rna-lo)}
+.bio-body[data-swatch="chlorophyll"]{stroke:var(--bio-chlorophyll-edge)}.bio-tail[data-swatch="chlorophyll"]{stroke:var(--bio-chlorophyll-lo)}
+.bio-body[data-swatch="cytosol"]{stroke:var(--bio-cytosol-edge)}.bio-tail[data-swatch="cytosol"]{stroke:var(--bio-cytosol-lo)}
+.bio-body[data-swatch="capsid"]{stroke:var(--bio-capsid-edge)}.bio-tail[data-swatch="capsid"]{stroke:var(--bio-capsid-lo)}
+.bio-body[data-swatch="sheath"]{stroke:var(--bio-sheath-edge)}.bio-tail[data-swatch="sheath"]{stroke:var(--bio-sheath-lo)}
+.bio-body[data-swatch="fibre"]{stroke:var(--bio-fibre-edge)}.bio-tail[data-swatch="fibre"]{stroke:var(--bio-fibre-lo)}
+.bio-body[data-swatch="peptidoglycan"]{stroke:var(--bio-peptidoglycan-edge)}.bio-tail[data-swatch="peptidoglycan"]{stroke:var(--bio-peptidoglycan-lo)}
+.bio-body[data-swatch="cuticle"]{stroke:var(--bio-cuticle-edge)}.bio-tail[data-swatch="cuticle"]{stroke:var(--bio-cuticle-lo)}
+.bio-body[data-swatch="epidermis"]{stroke:var(--bio-epidermis-edge)}.bio-tail[data-swatch="epidermis"]{stroke:var(--bio-epidermis-lo)}
+.bio-body[data-swatch="palisade"]{stroke:var(--bio-palisade-edge)}.bio-tail[data-swatch="palisade"]{stroke:var(--bio-palisade-lo)}
+.bio-body[data-swatch="spongy"]{stroke:var(--bio-spongy-edge)}.bio-tail[data-swatch="spongy"]{stroke:var(--bio-spongy-lo)}
+.bio-body[data-swatch="guard"]{stroke:var(--bio-guard-edge)}.bio-tail[data-swatch="guard"]{stroke:var(--bio-guard-lo)}
+.bio-body[data-swatch="xylem"]{stroke:var(--bio-xylem-edge)}.bio-tail[data-swatch="xylem"]{stroke:var(--bio-xylem-lo)}
+.bio-body[data-swatch="phloem"]{stroke:var(--bio-phloem-edge)}.bio-tail[data-swatch="phloem"]{stroke:var(--bio-phloem-lo)}
+.bio-body[data-swatch="sheathcell"]{stroke:var(--bio-sheathcell-edge)}.bio-tail[data-swatch="sheathcell"]{stroke:var(--bio-sheathcell-lo)}
+.bio-body[data-swatch="actin"]{stroke:var(--bio-actin-edge)}.bio-tail[data-swatch="actin"]{stroke:var(--bio-actin-lo)}
+.bio-body[data-swatch="myosin"]{stroke:var(--bio-myosin-edge)}.bio-tail[data-swatch="myosin"]{stroke:var(--bio-myosin-lo)}
+.bio-body[data-swatch="zdisc"]{stroke:var(--bio-zdisc-edge)}.bio-tail[data-swatch="zdisc"]{stroke:var(--bio-zdisc-lo)}
+.bio-body[data-swatch="wall"]{stroke:var(--bio-wall-edge)}.bio-tail[data-swatch="wall"]{stroke:var(--bio-wall-lo)}
+</style><div class="bio" data-theme="dark"><figure class="iso-figure bio-figure"><div class="iso-plate bio-plate"><p class="bio-title"><span class="bio-fig">Figure 2</span>The DNA double helix</p><div class="iso-stage bio-stage" tabindex="0" role="slider" aria-label="DNA double helix: hover along the helix or use the arrow keys to inspect each base pair" aria-valuemin="0" aria-valuemax="1000000" aria-valuenow="0" aria-valuetext="Pair 1 of 31 · A–T · 2 hydrogen bonds · 0.17 nm from the 5′ end"><svg xmlns="http://www.w3.org/2000/svg" class="iso-svg bio-svg" viewBox="0 0 800 270" role="img" aria-label="A textbook-style drawing of a B-DNA double helix lying across the page: two blue sugar-phosphate backbones wind round each other in a right-handed helix, joined by base pairs coloured by base, adenine with thymine and guanine with cytosine. The strands run antiparallel, 5 prime to 3 prime in opposite directions. Labels mark the major and minor grooves, a backbone and a base pair; brackets give one turn of 3.5 nanometres and 10.4 base pairs, the 2 nanometre width and the 0.34 nanometre rise per base pair; a key names the four bases."><defs><radialGradient id="bio-r-head" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-head-hi)"/><stop offset="0.5" style="stop-color:var(--bio-head)"/><stop offset="1" style="stop-color:var(--bio-head-lo)"/></radialGradient><linearGradient id="bio-l-head" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-head-lo)"/><stop offset="0.28" style="stop-color:var(--bio-head)"/><stop offset="0.48" style="stop-color:var(--bio-head-hi)"/><stop offset="0.72" style="stop-color:var(--bio-head)"/><stop offset="1" style="stop-color:var(--bio-head-lo)"/></linearGradient><linearGradient id="bio-v-head" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-head-hi)"/><stop offset="0.55" style="stop-color:var(--bio-head)"/><stop offset="1" style="stop-color:var(--bio-head-lo)"/></linearGradient><radialGradient id="bio-r-tail" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-tail-hi)"/><stop offset="0.5" style="stop-color:var(--bio-tail)"/><stop offset="1" style="stop-color:var(--bio-tail-lo)"/></radialGradient><linearGradient id="bio-l-tail" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-tail-lo)"/><stop offset="0.28" style="stop-color:var(--bio-tail)"/><stop offset="0.48" style="stop-color:var(--bio-tail-hi)"/><stop offset="0.72" style="stop-color:var(--bio-tail)"/><stop offset="1" style="stop-color:var(--bio-tail-lo)"/></linearGradient><linearGradient id="bio-v-tail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-tail-hi)"/><stop offset="0.55" style="stop-color:var(--bio-tail)"/><stop offset="1" style="stop-color:var(--bio-tail-lo)"/></linearGradient><radialGradient id="bio-r-rotor" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-rotor-hi)"/><stop offset="0.5" style="stop-color:var(--bio-rotor)"/><stop offset="1" style="stop-color:var(--bio-rotor-lo)"/></radialGradient><linearGradient id="bio-l-rotor" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-rotor-lo)"/><stop offset="0.28" style="stop-color:var(--bio-rotor)"/><stop offset="0.48" style="stop-color:var(--bio-rotor-hi)"/><stop offset="0.72" style="stop-color:var(--bio-rotor)"/><stop offset="1" style="stop-color:var(--bio-rotor-lo)"/></linearGradient><linearGradient id="bio-v-rotor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-rotor-hi)"/><stop offset="0.55" style="stop-color:var(--bio-rotor)"/><stop offset="1" style="stop-color:var(--bio-rotor-lo)"/></linearGradient><radialGradient id="bio-r-stator" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-stator-hi)"/><stop offset="0.5" style="stop-color:var(--bio-stator)"/><stop offset="1" style="stop-color:var(--bio-stator-lo)"/></radialGradient><linearGradient id="bio-l-stator" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-stator-lo)"/><stop offset="0.28" style="stop-color:var(--bio-stator)"/><stop offset="0.48" style="stop-color:var(--bio-stator-hi)"/><stop offset="0.72" style="stop-color:var(--bio-stator)"/><stop offset="1" style="stop-color:var(--bio-stator-lo)"/></linearGradient><linearGradient id="bio-v-stator" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-stator-hi)"/><stop offset="0.55" style="stop-color:var(--bio-stator)"/><stop offset="1" style="stop-color:var(--bio-stator-lo)"/></linearGradient><radialGradient id="bio-r-rod" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-rod-hi)"/><stop offset="0.5" style="stop-color:var(--bio-rod)"/><stop offset="1" style="stop-color:var(--bio-rod-lo)"/></radialGradient><linearGradient id="bio-l-rod" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-rod-lo)"/><stop offset="0.28" style="stop-color:var(--bio-rod)"/><stop offset="0.48" style="stop-color:var(--bio-rod-hi)"/><stop offset="0.72" style="stop-color:var(--bio-rod)"/><stop offset="1" style="stop-color:var(--bio-rod-lo)"/></linearGradient><linearGradient id="bio-v-rod" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-rod-hi)"/><stop offset="0.55" style="stop-color:var(--bio-rod)"/><stop offset="1" style="stop-color:var(--bio-rod-lo)"/></linearGradient><radialGradient id="bio-r-hub" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-hub-hi)"/><stop offset="0.5" style="stop-color:var(--bio-hub)"/><stop offset="1" style="stop-color:var(--bio-hub-lo)"/></radialGradient><linearGradient id="bio-l-hub" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-hub-lo)"/><stop offset="0.28" style="stop-color:var(--bio-hub)"/><stop offset="0.48" style="stop-color:var(--bio-hub-hi)"/><stop offset="0.72" style="stop-color:var(--bio-hub)"/><stop offset="1" style="stop-color:var(--bio-hub-lo)"/></linearGradient><linearGradient id="bio-v-hub" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-hub-hi)"/><stop offset="0.55" style="stop-color:var(--bio-hub)"/><stop offset="1" style="stop-color:var(--bio-hub-lo)"/></linearGradient><radialGradient id="bio-r-alpha" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-alpha-hi)"/><stop offset="0.5" style="stop-color:var(--bio-alpha)"/><stop offset="1" style="stop-color:var(--bio-alpha-lo)"/></radialGradient><linearGradient id="bio-l-alpha" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-alpha-lo)"/><stop offset="0.28" style="stop-color:var(--bio-alpha)"/><stop offset="0.48" style="stop-color:var(--bio-alpha-hi)"/><stop offset="0.72" style="stop-color:var(--bio-alpha)"/><stop offset="1" style="stop-color:var(--bio-alpha-lo)"/></linearGradient><linearGradient id="bio-v-alpha" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-alpha-hi)"/><stop offset="0.55" style="stop-color:var(--bio-alpha)"/><stop offset="1" style="stop-color:var(--bio-alpha-lo)"/></linearGradient><radialGradient id="bio-r-beta" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-beta-hi)"/><stop offset="0.5" style="stop-color:var(--bio-beta)"/><stop offset="1" style="stop-color:var(--bio-beta-lo)"/></radialGradient><linearGradient id="bio-l-beta" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-beta-lo)"/><stop offset="0.28" style="stop-color:var(--bio-beta)"/><stop offset="0.48" style="stop-color:var(--bio-beta-hi)"/><stop offset="0.72" style="stop-color:var(--bio-beta)"/><stop offset="1" style="stop-color:var(--bio-beta-lo)"/></linearGradient><linearGradient id="bio-v-beta" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-beta-hi)"/><stop offset="0.55" style="stop-color:var(--bio-beta)"/><stop offset="1" style="stop-color:var(--bio-beta-lo)"/></linearGradient><radialGradient id="bio-r-proton" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-proton-hi)"/><stop offset="0.5" style="stop-color:var(--bio-proton)"/><stop offset="1" style="stop-color:var(--bio-proton-lo)"/></radialGradient><linearGradient id="bio-l-proton" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-proton-lo)"/><stop offset="0.28" style="stop-color:var(--bio-proton)"/><stop offset="0.48" style="stop-color:var(--bio-proton-hi)"/><stop offset="0.72" style="stop-color:var(--bio-proton)"/><stop offset="1" style="stop-color:var(--bio-proton-lo)"/></linearGradient><linearGradient id="bio-v-proton" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-proton-hi)"/><stop offset="0.55" style="stop-color:var(--bio-proton)"/><stop offset="1" style="stop-color:var(--bio-proton-lo)"/></linearGradient><radialGradient id="bio-r-atp" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-atp-hi)"/><stop offset="0.5" style="stop-color:var(--bio-atp)"/><stop offset="1" style="stop-color:var(--bio-atp-lo)"/></radialGradient><linearGradient id="bio-l-atp" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-atp-lo)"/><stop offset="0.28" style="stop-color:var(--bio-atp)"/><stop offset="0.48" style="stop-color:var(--bio-atp-hi)"/><stop offset="0.72" style="stop-color:var(--bio-atp)"/><stop offset="1" style="stop-color:var(--bio-atp-lo)"/></linearGradient><linearGradient id="bio-v-atp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-atp-hi)"/><stop offset="0.55" style="stop-color:var(--bio-atp)"/><stop offset="1" style="stop-color:var(--bio-atp-lo)"/></linearGradient><radialGradient id="bio-r-dna" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-dna-hi)"/><stop offset="0.5" style="stop-color:var(--bio-dna)"/><stop offset="1" style="stop-color:var(--bio-dna-lo)"/></radialGradient><linearGradient id="bio-l-dna" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-dna-lo)"/><stop offset="0.28" style="stop-color:var(--bio-dna)"/><stop offset="0.48" style="stop-color:var(--bio-dna-hi)"/><stop offset="0.72" style="stop-color:var(--bio-dna)"/><stop offset="1" style="stop-color:var(--bio-dna-lo)"/></linearGradient><linearGradient id="bio-v-dna" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-dna-hi)"/><stop offset="0.55" style="stop-color:var(--bio-dna)"/><stop offset="1" style="stop-color:var(--bio-dna-lo)"/></linearGradient><radialGradient id="bio-r-baseA" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-baseA-hi)"/><stop offset="0.5" style="stop-color:var(--bio-baseA)"/><stop offset="1" style="stop-color:var(--bio-baseA-lo)"/></radialGradient><linearGradient id="bio-l-baseA" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-baseA-lo)"/><stop offset="0.28" style="stop-color:var(--bio-baseA)"/><stop offset="0.48" style="stop-color:var(--bio-baseA-hi)"/><stop offset="0.72" style="stop-color:var(--bio-baseA)"/><stop offset="1" style="stop-color:var(--bio-baseA-lo)"/></linearGradient><linearGradient id="bio-v-baseA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-baseA-hi)"/><stop offset="0.55" style="stop-color:var(--bio-baseA)"/><stop offset="1" style="stop-color:var(--bio-baseA-lo)"/></linearGradient><radialGradient id="bio-r-baseT" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-baseT-hi)"/><stop offset="0.5" style="stop-color:var(--bio-baseT)"/><stop offset="1" style="stop-color:var(--bio-baseT-lo)"/></radialGradient><linearGradient id="bio-l-baseT" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-baseT-lo)"/><stop offset="0.28" style="stop-color:var(--bio-baseT)"/><stop offset="0.48" style="stop-color:var(--bio-baseT-hi)"/><stop offset="0.72" style="stop-color:var(--bio-baseT)"/><stop offset="1" style="stop-color:var(--bio-baseT-lo)"/></linearGradient><linearGradient id="bio-v-baseT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-baseT-hi)"/><stop offset="0.55" style="stop-color:var(--bio-baseT)"/><stop offset="1" style="stop-color:var(--bio-baseT-lo)"/></linearGradient><radialGradient id="bio-r-baseG" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-baseG-hi)"/><stop offset="0.5" style="stop-color:var(--bio-baseG)"/><stop offset="1" style="stop-color:var(--bio-baseG-lo)"/></radialGradient><linearGradient id="bio-l-baseG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-baseG-lo)"/><stop offset="0.28" style="stop-color:var(--bio-baseG)"/><stop offset="0.48" style="stop-color:var(--bio-baseG-hi)"/><stop offset="0.72" style="stop-color:var(--bio-baseG)"/><stop offset="1" style="stop-color:var(--bio-baseG-lo)"/></linearGradient><linearGradient id="bio-v-baseG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-baseG-hi)"/><stop offset="0.55" style="stop-color:var(--bio-baseG)"/><stop offset="1" style="stop-color:var(--bio-baseG-lo)"/></linearGradient><radialGradient id="bio-r-baseC" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-baseC-hi)"/><stop offset="0.5" style="stop-color:var(--bio-baseC)"/><stop offset="1" style="stop-color:var(--bio-baseC-lo)"/></radialGradient><linearGradient id="bio-l-baseC" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-baseC-lo)"/><stop offset="0.28" style="stop-color:var(--bio-baseC)"/><stop offset="0.48" style="stop-color:var(--bio-baseC-hi)"/><stop offset="0.72" style="stop-color:var(--bio-baseC)"/><stop offset="1" style="stop-color:var(--bio-baseC-lo)"/></linearGradient><linearGradient id="bio-v-baseC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-baseC-hi)"/><stop offset="0.55" style="stop-color:var(--bio-baseC)"/><stop offset="1" style="stop-color:var(--bio-baseC-lo)"/></linearGradient><radialGradient id="bio-r-rna" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-rna-hi)"/><stop offset="0.5" style="stop-color:var(--bio-rna)"/><stop offset="1" style="stop-color:var(--bio-rna-lo)"/></radialGradient><linearGradient id="bio-l-rna" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-rna-lo)"/><stop offset="0.28" style="stop-color:var(--bio-rna)"/><stop offset="0.48" style="stop-color:var(--bio-rna-hi)"/><stop offset="0.72" style="stop-color:var(--bio-rna)"/><stop offset="1" style="stop-color:var(--bio-rna-lo)"/></linearGradient><linearGradient id="bio-v-rna" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-rna-hi)"/><stop offset="0.55" style="stop-color:var(--bio-rna)"/><stop offset="1" style="stop-color:var(--bio-rna-lo)"/></linearGradient><radialGradient id="bio-r-chlorophyll" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-chlorophyll-hi)"/><stop offset="0.5" style="stop-color:var(--bio-chlorophyll)"/><stop offset="1" style="stop-color:var(--bio-chlorophyll-lo)"/></radialGradient><linearGradient id="bio-l-chlorophyll" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-chlorophyll-lo)"/><stop offset="0.28" style="stop-color:var(--bio-chlorophyll)"/><stop offset="0.48" style="stop-color:var(--bio-chlorophyll-hi)"/><stop offset="0.72" style="stop-color:var(--bio-chlorophyll)"/><stop offset="1" style="stop-color:var(--bio-chlorophyll-lo)"/></linearGradient><linearGradient id="bio-v-chlorophyll" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-chlorophyll-hi)"/><stop offset="0.55" style="stop-color:var(--bio-chlorophyll)"/><stop offset="1" style="stop-color:var(--bio-chlorophyll-lo)"/></linearGradient><radialGradient id="bio-r-cytosol" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-cytosol-hi)"/><stop offset="0.5" style="stop-color:var(--bio-cytosol)"/><stop offset="1" style="stop-color:var(--bio-cytosol-lo)"/></radialGradient><linearGradient id="bio-l-cytosol" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-cytosol-lo)"/><stop offset="0.28" style="stop-color:var(--bio-cytosol)"/><stop offset="0.48" style="stop-color:var(--bio-cytosol-hi)"/><stop offset="0.72" style="stop-color:var(--bio-cytosol)"/><stop offset="1" style="stop-color:var(--bio-cytosol-lo)"/></linearGradient><linearGradient id="bio-v-cytosol" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-cytosol-hi)"/><stop offset="0.55" style="stop-color:var(--bio-cytosol)"/><stop offset="1" style="stop-color:var(--bio-cytosol-lo)"/></linearGradient><radialGradient id="bio-r-capsid" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-capsid-hi)"/><stop offset="0.5" style="stop-color:var(--bio-capsid)"/><stop offset="1" style="stop-color:var(--bio-capsid-lo)"/></radialGradient><linearGradient id="bio-l-capsid" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-capsid-lo)"/><stop offset="0.28" style="stop-color:var(--bio-capsid)"/><stop offset="0.48" style="stop-color:var(--bio-capsid-hi)"/><stop offset="0.72" style="stop-color:var(--bio-capsid)"/><stop offset="1" style="stop-color:var(--bio-capsid-lo)"/></linearGradient><linearGradient id="bio-v-capsid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-capsid-hi)"/><stop offset="0.55" style="stop-color:var(--bio-capsid)"/><stop offset="1" style="stop-color:var(--bio-capsid-lo)"/></linearGradient><radialGradient id="bio-r-sheath" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-sheath-hi)"/><stop offset="0.5" style="stop-color:var(--bio-sheath)"/><stop offset="1" style="stop-color:var(--bio-sheath-lo)"/></radialGradient><linearGradient id="bio-l-sheath" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-sheath-lo)"/><stop offset="0.28" style="stop-color:var(--bio-sheath)"/><stop offset="0.48" style="stop-color:var(--bio-sheath-hi)"/><stop offset="0.72" style="stop-color:var(--bio-sheath)"/><stop offset="1" style="stop-color:var(--bio-sheath-lo)"/></linearGradient><linearGradient id="bio-v-sheath" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-sheath-hi)"/><stop offset="0.55" style="stop-color:var(--bio-sheath)"/><stop offset="1" style="stop-color:var(--bio-sheath-lo)"/></linearGradient><radialGradient id="bio-r-fibre" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-fibre-hi)"/><stop offset="0.5" style="stop-color:var(--bio-fibre)"/><stop offset="1" style="stop-color:var(--bio-fibre-lo)"/></radialGradient><linearGradient id="bio-l-fibre" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-fibre-lo)"/><stop offset="0.28" style="stop-color:var(--bio-fibre)"/><stop offset="0.48" style="stop-color:var(--bio-fibre-hi)"/><stop offset="0.72" style="stop-color:var(--bio-fibre)"/><stop offset="1" style="stop-color:var(--bio-fibre-lo)"/></linearGradient><linearGradient id="bio-v-fibre" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-fibre-hi)"/><stop offset="0.55" style="stop-color:var(--bio-fibre)"/><stop offset="1" style="stop-color:var(--bio-fibre-lo)"/></linearGradient><radialGradient id="bio-r-peptidoglycan" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-peptidoglycan-hi)"/><stop offset="0.5" style="stop-color:var(--bio-peptidoglycan)"/><stop offset="1" style="stop-color:var(--bio-peptidoglycan-lo)"/></radialGradient><linearGradient id="bio-l-peptidoglycan" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-peptidoglycan-lo)"/><stop offset="0.28" style="stop-color:var(--bio-peptidoglycan)"/><stop offset="0.48" style="stop-color:var(--bio-peptidoglycan-hi)"/><stop offset="0.72" style="stop-color:var(--bio-peptidoglycan)"/><stop offset="1" style="stop-color:var(--bio-peptidoglycan-lo)"/></linearGradient><linearGradient id="bio-v-peptidoglycan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-peptidoglycan-hi)"/><stop offset="0.55" style="stop-color:var(--bio-peptidoglycan)"/><stop offset="1" style="stop-color:var(--bio-peptidoglycan-lo)"/></linearGradient><radialGradient id="bio-r-cuticle" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-cuticle-hi)"/><stop offset="0.5" style="stop-color:var(--bio-cuticle)"/><stop offset="1" style="stop-color:var(--bio-cuticle-lo)"/></radialGradient><linearGradient id="bio-l-cuticle" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-cuticle-lo)"/><stop offset="0.28" style="stop-color:var(--bio-cuticle)"/><stop offset="0.48" style="stop-color:var(--bio-cuticle-hi)"/><stop offset="0.72" style="stop-color:var(--bio-cuticle)"/><stop offset="1" style="stop-color:var(--bio-cuticle-lo)"/></linearGradient><linearGradient id="bio-v-cuticle" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-cuticle-hi)"/><stop offset="0.55" style="stop-color:var(--bio-cuticle)"/><stop offset="1" style="stop-color:var(--bio-cuticle-lo)"/></linearGradient><radialGradient id="bio-r-epidermis" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-epidermis-hi)"/><stop offset="0.5" style="stop-color:var(--bio-epidermis)"/><stop offset="1" style="stop-color:var(--bio-epidermis-lo)"/></radialGradient><linearGradient id="bio-l-epidermis" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-epidermis-lo)"/><stop offset="0.28" style="stop-color:var(--bio-epidermis)"/><stop offset="0.48" style="stop-color:var(--bio-epidermis-hi)"/><stop offset="0.72" style="stop-color:var(--bio-epidermis)"/><stop offset="1" style="stop-color:var(--bio-epidermis-lo)"/></linearGradient><linearGradient id="bio-v-epidermis" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-epidermis-hi)"/><stop offset="0.55" style="stop-color:var(--bio-epidermis)"/><stop offset="1" style="stop-color:var(--bio-epidermis-lo)"/></linearGradient><radialGradient id="bio-r-palisade" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-palisade-hi)"/><stop offset="0.5" style="stop-color:var(--bio-palisade)"/><stop offset="1" style="stop-color:var(--bio-palisade-lo)"/></radialGradient><linearGradient id="bio-l-palisade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-palisade-lo)"/><stop offset="0.28" style="stop-color:var(--bio-palisade)"/><stop offset="0.48" style="stop-color:var(--bio-palisade-hi)"/><stop offset="0.72" style="stop-color:var(--bio-palisade)"/><stop offset="1" style="stop-color:var(--bio-palisade-lo)"/></linearGradient><linearGradient id="bio-v-palisade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-palisade-hi)"/><stop offset="0.55" style="stop-color:var(--bio-palisade)"/><stop offset="1" style="stop-color:var(--bio-palisade-lo)"/></linearGradient><radialGradient id="bio-r-spongy" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-spongy-hi)"/><stop offset="0.5" style="stop-color:var(--bio-spongy)"/><stop offset="1" style="stop-color:var(--bio-spongy-lo)"/></radialGradient><linearGradient id="bio-l-spongy" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-spongy-lo)"/><stop offset="0.28" style="stop-color:var(--bio-spongy)"/><stop offset="0.48" style="stop-color:var(--bio-spongy-hi)"/><stop offset="0.72" style="stop-color:var(--bio-spongy)"/><stop offset="1" style="stop-color:var(--bio-spongy-lo)"/></linearGradient><linearGradient id="bio-v-spongy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-spongy-hi)"/><stop offset="0.55" style="stop-color:var(--bio-spongy)"/><stop offset="1" style="stop-color:var(--bio-spongy-lo)"/></linearGradient><radialGradient id="bio-r-guard" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-guard-hi)"/><stop offset="0.5" style="stop-color:var(--bio-guard)"/><stop offset="1" style="stop-color:var(--bio-guard-lo)"/></radialGradient><linearGradient id="bio-l-guard" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-guard-lo)"/><stop offset="0.28" style="stop-color:var(--bio-guard)"/><stop offset="0.48" style="stop-color:var(--bio-guard-hi)"/><stop offset="0.72" style="stop-color:var(--bio-guard)"/><stop offset="1" style="stop-color:var(--bio-guard-lo)"/></linearGradient><linearGradient id="bio-v-guard" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-guard-hi)"/><stop offset="0.55" style="stop-color:var(--bio-guard)"/><stop offset="1" style="stop-color:var(--bio-guard-lo)"/></linearGradient><radialGradient id="bio-r-xylem" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-xylem-hi)"/><stop offset="0.5" style="stop-color:var(--bio-xylem)"/><stop offset="1" style="stop-color:var(--bio-xylem-lo)"/></radialGradient><linearGradient id="bio-l-xylem" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-xylem-lo)"/><stop offset="0.28" style="stop-color:var(--bio-xylem)"/><stop offset="0.48" style="stop-color:var(--bio-xylem-hi)"/><stop offset="0.72" style="stop-color:var(--bio-xylem)"/><stop offset="1" style="stop-color:var(--bio-xylem-lo)"/></linearGradient><linearGradient id="bio-v-xylem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-xylem-hi)"/><stop offset="0.55" style="stop-color:var(--bio-xylem)"/><stop offset="1" style="stop-color:var(--bio-xylem-lo)"/></linearGradient><radialGradient id="bio-r-phloem" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-phloem-hi)"/><stop offset="0.5" style="stop-color:var(--bio-phloem)"/><stop offset="1" style="stop-color:var(--bio-phloem-lo)"/></radialGradient><linearGradient id="bio-l-phloem" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-phloem-lo)"/><stop offset="0.28" style="stop-color:var(--bio-phloem)"/><stop offset="0.48" style="stop-color:var(--bio-phloem-hi)"/><stop offset="0.72" style="stop-color:var(--bio-phloem)"/><stop offset="1" style="stop-color:var(--bio-phloem-lo)"/></linearGradient><linearGradient id="bio-v-phloem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-phloem-hi)"/><stop offset="0.55" style="stop-color:var(--bio-phloem)"/><stop offset="1" style="stop-color:var(--bio-phloem-lo)"/></linearGradient><radialGradient id="bio-r-sheathcell" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-sheathcell-hi)"/><stop offset="0.5" style="stop-color:var(--bio-sheathcell)"/><stop offset="1" style="stop-color:var(--bio-sheathcell-lo)"/></radialGradient><linearGradient id="bio-l-sheathcell" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-sheathcell-lo)"/><stop offset="0.28" style="stop-color:var(--bio-sheathcell)"/><stop offset="0.48" style="stop-color:var(--bio-sheathcell-hi)"/><stop offset="0.72" style="stop-color:var(--bio-sheathcell)"/><stop offset="1" style="stop-color:var(--bio-sheathcell-lo)"/></linearGradient><linearGradient id="bio-v-sheathcell" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-sheathcell-hi)"/><stop offset="0.55" style="stop-color:var(--bio-sheathcell)"/><stop offset="1" style="stop-color:var(--bio-sheathcell-lo)"/></linearGradient><radialGradient id="bio-r-actin" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-actin-hi)"/><stop offset="0.5" style="stop-color:var(--bio-actin)"/><stop offset="1" style="stop-color:var(--bio-actin-lo)"/></radialGradient><linearGradient id="bio-l-actin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-actin-lo)"/><stop offset="0.28" style="stop-color:var(--bio-actin)"/><stop offset="0.48" style="stop-color:var(--bio-actin-hi)"/><stop offset="0.72" style="stop-color:var(--bio-actin)"/><stop offset="1" style="stop-color:var(--bio-actin-lo)"/></linearGradient><linearGradient id="bio-v-actin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-actin-hi)"/><stop offset="0.55" style="stop-color:var(--bio-actin)"/><stop offset="1" style="stop-color:var(--bio-actin-lo)"/></linearGradient><radialGradient id="bio-r-myosin" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-myosin-hi)"/><stop offset="0.5" style="stop-color:var(--bio-myosin)"/><stop offset="1" style="stop-color:var(--bio-myosin-lo)"/></radialGradient><linearGradient id="bio-l-myosin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-myosin-lo)"/><stop offset="0.28" style="stop-color:var(--bio-myosin)"/><stop offset="0.48" style="stop-color:var(--bio-myosin-hi)"/><stop offset="0.72" style="stop-color:var(--bio-myosin)"/><stop offset="1" style="stop-color:var(--bio-myosin-lo)"/></linearGradient><linearGradient id="bio-v-myosin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-myosin-hi)"/><stop offset="0.55" style="stop-color:var(--bio-myosin)"/><stop offset="1" style="stop-color:var(--bio-myosin-lo)"/></linearGradient><radialGradient id="bio-r-zdisc" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-zdisc-hi)"/><stop offset="0.5" style="stop-color:var(--bio-zdisc)"/><stop offset="1" style="stop-color:var(--bio-zdisc-lo)"/></radialGradient><linearGradient id="bio-l-zdisc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-zdisc-lo)"/><stop offset="0.28" style="stop-color:var(--bio-zdisc)"/><stop offset="0.48" style="stop-color:var(--bio-zdisc-hi)"/><stop offset="0.72" style="stop-color:var(--bio-zdisc)"/><stop offset="1" style="stop-color:var(--bio-zdisc-lo)"/></linearGradient><linearGradient id="bio-v-zdisc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-zdisc-hi)"/><stop offset="0.55" style="stop-color:var(--bio-zdisc)"/><stop offset="1" style="stop-color:var(--bio-zdisc-lo)"/></linearGradient><radialGradient id="bio-r-wall" cx=".38" cy=".3" r=".78" fx=".34" fy=".26"><stop offset="0" style="stop-color:var(--bio-wall-hi)"/><stop offset="0.5" style="stop-color:var(--bio-wall)"/><stop offset="1" style="stop-color:var(--bio-wall-lo)"/></radialGradient><linearGradient id="bio-l-wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--bio-wall-lo)"/><stop offset="0.28" style="stop-color:var(--bio-wall)"/><stop offset="0.48" style="stop-color:var(--bio-wall-hi)"/><stop offset="0.72" style="stop-color:var(--bio-wall)"/><stop offset="1" style="stop-color:var(--bio-wall-lo)"/></linearGradient><linearGradient id="bio-v-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bio-wall-hi)"/><stop offset="0.55" style="stop-color:var(--bio-wall)"/><stop offset="1" style="stop-color:var(--bio-wall-lo)"/></linearGradient></defs><g data-live="helix"><path d="M296.8 166.5C297.2 166.5 298.5 166.5 299.4 166.5C300.2 166.4 301.1 166.2 301.9 165.9C302.8 165.7 303.7 165.4 304.5 165C305.4 164.6 306.2 164.1 307.1 163.6C308 163 308.8 162.4 309.7 161.7C310.5 161 311.4 160.3 312.3 159.5C313.1 158.6 314 157.8 314.8 156.8C315.7 155.9 316.6 154.9 317.4 153.8C318.3 152.7 319.1 151.6 320 150.5C320.9 149.3 321.7 148.1 322.6 146.8C323.4 145.6 324.3 144.3 325.2 142.9C326 141.6 326.9 140.2 327.7 138.8C328.6 137.4 329.5 135.9 330.3 134.5C331.2 133 332 131.5 332.9 130C333.8 128.6 334.6 127 335.5 125.5C336.3 124 337.2 122.5 338.1 120.9C338.9 119.4 339.8 117.9 340.6 116.4C341.5 114.8 342.4 113.3 343.2 111.8C344.1 110.3 344.9 108.8 345.8 107.4C346.7 105.9 347.5 104.5 348.4 103.1C349.2 101.7 350.1 100.3 351 99C351.8 97.6 352.7 96.3 353.5 95.1C354.4 93.8 355.3 92.6 356.1 91.4C357 90.3 357.8 89.2 358.7 88.1C359.6 87.1 360.4 86.1 361.3 85.1C362.2 84.2 363 83.3 363.9 82.5C364.7 81.7 365.6 80.9 366.5 80.2C367.3 79.6 368.2 78.9 369 78.4C369.9 77.9 370.8 77.4 371.6 77C372.5 76.6 373.3 76.3 374.2 76C375.1 75.8 375.9 75.6 376.8 75.5C377.6 75.4 378.9 75.5 379.4 75.5" fill="none" stroke="var(--bio-dna-edge)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M296.8 166.5C297.2 166.5 298.5 166.5 299.4 166.5C300.2 166.4 301.1 166.2 301.9 165.9C302.8 165.7 303.7 165.4 304.5 165C305.4 164.6 306.2 164.1 307.1 163.6C308 163 308.8 162.4 309.7 161.7C310.5 161 311.4 160.3 312.3 159.5C313.1 158.6 314 157.8 314.8 156.8C315.7 155.9 316.6 154.9 317.4 153.8C318.3 152.7 319.1 151.6 320 150.5C320.9 149.3 321.7 148.1 322.6 146.8C323.4 145.6 324.3 144.3 325.2 142.9C326 141.6 326.9 140.2 327.7 138.8C328.6 137.4 329.5 135.9 330.3 134.5C331.2 133 332 131.5 332.9 130C333.8 128.6 334.6 127 335.5 125.5C336.3 124 337.2 122.5 338.1 120.9C338.9 119.4 339.8 117.9 340.6 116.4C341.5 114.8 342.4 113.3 343.2 111.8C344.1 110.3 344.9 108.8 345.8 107.4C346.7 105.9 347.5 104.5 348.4 103.1C349.2 101.7 350.1 100.3 351 99C351.8 97.6 352.7 96.3 353.5 95.1C354.4 93.8 355.3 92.6 356.1 91.4C357 90.3 357.8 89.2 358.7 88.1C359.6 87.1 360.4 86.1 361.3 85.1C362.2 84.2 363 83.3 363.9 82.5C364.7 81.7 365.6 80.9 366.5 80.2C367.3 79.6 368.2 78.9 369 78.4C369.9 77.9 370.8 77.4 371.6 77C372.5 76.6 373.3 76.3 374.2 76C375.1 75.8 375.9 75.6 376.8 75.5C377.6 75.4 378.9 75.5 379.4 75.5" fill="none" stroke="var(--bio-dna)" stroke-width="13.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M296.8 166.5C297.2 166.5 298.5 166.5 299.4 166.5C300.2 166.4 301.1 166.2 301.9 165.9C302.8 165.7 303.7 165.4 304.5 165C305.4 164.6 306.2 164.1 307.1 163.6C308 163 308.8 162.4 309.7 161.7C310.5 161 311.4 160.3 312.3 159.5C313.1 158.6 314 157.8 314.8 156.8C315.7 155.9 316.6 154.9 317.4 153.8C318.3 152.7 319.1 151.6 320 150.5C320.9 149.3 321.7 148.1 322.6 146.8C323.4 145.6 324.3 144.3 325.2 142.9C326 141.6 326.9 140.2 327.7 138.8C328.6 137.4 329.5 135.9 330.3 134.5C331.2 133 332 131.5 332.9 130C333.8 128.6 334.6 127 335.5 125.5C336.3 124 337.2 122.5 338.1 120.9C338.9 119.4 339.8 117.9 340.6 116.4C341.5 114.8 342.4 113.3 343.2 111.8C344.1 110.3 344.9 108.8 345.8 107.4C346.7 105.9 347.5 104.5 348.4 103.1C349.2 101.7 350.1 100.3 351 99C351.8 97.6 352.7 96.3 353.5 95.1C354.4 93.8 355.3 92.6 356.1 91.4C357 90.3 357.8 89.2 358.7 88.1C359.6 87.1 360.4 86.1 361.3 85.1C362.2 84.2 363 83.3 363.9 82.5C364.7 81.7 365.6 80.9 366.5 80.2C367.3 79.6 368.2 78.9 369 78.4C369.9 77.9 370.8 77.4 371.6 77C372.5 76.6 373.3 76.3 374.2 76C375.1 75.8 375.9 75.6 376.8 75.5C377.6 75.4 378.9 75.5 379.4 75.5" fill="none" stroke="var(--bio-dna-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><path d="M394.8 166.5C395.3 166.5 396.6 166.6 397.4 166.5C398.3 166.4 399.1 166.3 400 166C400.9 165.8 401.7 165.5 402.6 165.1C403.4 164.8 404.3 164.3 405.2 163.8C406 163.2 406.9 162.7 407.7 162C408.6 161.3 409.5 160.6 410.3 159.8C411.2 159 412 158.1 412.9 157.2C413.8 156.3 414.6 155.3 415.5 154.2C416.3 153.2 417.2 152.1 418.1 150.9C418.9 149.8 419.8 148.6 420.6 147.3C421.5 146.1 422.4 144.8 423.2 143.5C424.1 142.1 424.9 140.8 425.8 139.4C426.7 138 427.5 136.5 428.4 135.1C429.2 133.6 430.1 132.1 431 130.6C431.8 129.2 432.7 127.6 433.5 126.1C434.4 124.6 435.3 123.1 436.1 121.6C437 120 437.8 118.5 438.7 117C439.6 115.4 440.4 113.9 441.3 112.4C442.2 110.9 443 109.4 443.9 108C444.7 106.5 445.6 105.1 446.5 103.7C447.3 102.2 448.2 100.9 449 99.5C449.9 98.2 450.8 96.9 451.6 95.6C452.5 94.3 453.3 93.1 454.2 91.9C455.1 90.7 455.9 89.6 456.8 88.5C457.6 87.5 458.5 86.4 459.4 85.5C460.2 84.5 461.1 83.6 461.9 82.8C462.8 82 463.7 81.2 464.5 80.5C465.4 79.8 466.2 79.2 467.1 78.6C468 78.1 468.8 77.6 469.7 77.2C470.5 76.7 471.4 76.4 472.3 76.1C473.1 75.9 474 75.7 474.8 75.6C475.7 75.5 477 75.5 477.4 75.5" fill="none" stroke="var(--bio-dna-edge)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M394.8 166.5C395.3 166.5 396.6 166.6 397.4 166.5C398.3 166.4 399.1 166.3 400 166C400.9 165.8 401.7 165.5 402.6 165.1C403.4 164.8 404.3 164.3 405.2 163.8C406 163.2 406.9 162.7 407.7 162C408.6 161.3 409.5 160.6 410.3 159.8C411.2 159 412 158.1 412.9 157.2C413.8 156.3 414.6 155.3 415.5 154.2C416.3 153.2 417.2 152.1 418.1 150.9C418.9 149.8 419.8 148.6 420.6 147.3C421.5 146.1 422.4 144.8 423.2 143.5C424.1 142.1 424.9 140.8 425.8 139.4C426.7 138 427.5 136.5 428.4 135.1C429.2 133.6 430.1 132.1 431 130.6C431.8 129.2 432.7 127.6 433.5 126.1C434.4 124.6 435.3 123.1 436.1 121.6C437 120 437.8 118.5 438.7 117C439.6 115.4 440.4 113.9 441.3 112.4C442.2 110.9 443 109.4 443.9 108C444.7 106.5 445.6 105.1 446.5 103.7C447.3 102.2 448.2 100.9 449 99.5C449.9 98.2 450.8 96.9 451.6 95.6C452.5 94.3 453.3 93.1 454.2 91.9C455.1 90.7 455.9 89.6 456.8 88.5C457.6 87.5 458.5 86.4 459.4 85.5C460.2 84.5 461.1 83.6 461.9 82.8C462.8 82 463.7 81.2 464.5 80.5C465.4 79.8 466.2 79.2 467.1 78.6C468 78.1 468.8 77.6 469.7 77.2C470.5 76.7 471.4 76.4 472.3 76.1C473.1 75.9 474 75.7 474.8 75.6C475.7 75.5 477 75.5 477.4 75.5" fill="none" stroke="var(--bio-dna)" stroke-width="13.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M394.8 166.5C395.3 166.5 396.6 166.6 397.4 166.5C398.3 166.4 399.1 166.3 400 166C400.9 165.8 401.7 165.5 402.6 165.1C403.4 164.8 404.3 164.3 405.2 163.8C406 163.2 406.9 162.7 407.7 162C408.6 161.3 409.5 160.6 410.3 159.8C411.2 159 412 158.1 412.9 157.2C413.8 156.3 414.6 155.3 415.5 154.2C416.3 153.2 417.2 152.1 418.1 150.9C418.9 149.8 419.8 148.6 420.6 147.3C421.5 146.1 422.4 144.8 423.2 143.5C424.1 142.1 424.9 140.8 425.8 139.4C426.7 138 427.5 136.5 428.4 135.1C429.2 133.6 430.1 132.1 431 130.6C431.8 129.2 432.7 127.6 433.5 126.1C434.4 124.6 435.3 123.1 436.1 121.6C437 120 437.8 118.5 438.7 117C439.6 115.4 440.4 113.9 441.3 112.4C442.2 110.9 443 109.4 443.9 108C444.7 106.5 445.6 105.1 446.5 103.7C447.3 102.2 448.2 100.9 449 99.5C449.9 98.2 450.8 96.9 451.6 95.6C452.5 94.3 453.3 93.1 454.2 91.9C455.1 90.7 455.9 89.6 456.8 88.5C457.6 87.5 458.5 86.4 459.4 85.5C460.2 84.5 461.1 83.6 461.9 82.8C462.8 82 463.7 81.2 464.5 80.5C465.4 79.8 466.2 79.2 467.1 78.6C468 78.1 468.8 77.6 469.7 77.2C470.5 76.7 471.4 76.4 472.3 76.1C473.1 75.9 474 75.7 474.8 75.6C475.7 75.5 477 75.5 477.4 75.5" fill="none" stroke="var(--bio-dna-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><path d="M234.8 166.5C235.3 166.5 236.6 166.5 237.4 166.4C238.3 166.2 239.1 166 240 165.7C240.9 165.4 241.7 165.1 242.6 164.6C243.4 164.2 244.3 163.7 245.2 163.1C246 162.5 246.9 161.9 247.7 161.2C248.6 160.4 249.5 159.6 250.3 158.8C251.2 157.9 252 157 252.9 156C253.8 155.1 254.6 154 255.5 152.9C256.3 151.9 257.2 150.7 258.1 149.5C258.9 148.3 259.8 147.1 260.6 145.8C261.5 144.5 262.4 143.2 263.2 141.8C264.1 140.5 264.9 139.1 265.8 137.7C266.7 136.2 267.5 134.8 268.4 133.3C269.2 131.8 270.1 130.4 271 128.8C271.8 127.3 272.7 125.8 273.5 124.3C274.4 122.8 275.3 121.2 276.1 119.7C277 118.2 277.8 116.7 278.7 115.1C279.6 113.6 280.4 112.1 281.3 110.6C282.2 109.2 283 107.7 283.9 106.2C284.7 104.8 285.6 103.4 286.5 102C287.3 100.6 288.2 99.2 289 97.9C289.9 96.6 290.8 95.3 291.6 94.1C292.5 92.9 293.3 91.7 294.2 90.5C295.1 89.4 295.9 88.3 296.8 87.3C297.6 86.3 298.5 85.3 299.4 84.4C300.2 83.5 301.1 82.6 301.9 81.8C302.8 81.1 303.7 80.3 304.5 79.7C305.4 79.1 306.2 78.5 307.1 78C308 77.5 308.8 77 309.7 76.7C310.5 76.3 311.4 76.1 312.3 75.9C313.1 75.7 314 75.5 314.8 75.5C315.7 75.4 317 75.6 317.4 75.6" fill="none" stroke="var(--bio-dna-edge)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M234.8 166.5C235.3 166.5 236.6 166.5 237.4 166.4C238.3 166.2 239.1 166 240 165.7C240.9 165.4 241.7 165.1 242.6 164.6C243.4 164.2 244.3 163.7 245.2 163.1C246 162.5 246.9 161.9 247.7 161.2C248.6 160.4 249.5 159.6 250.3 158.8C251.2 157.9 252 157 252.9 156C253.8 155.1 254.6 154 255.5 152.9C256.3 151.9 257.2 150.7 258.1 149.5C258.9 148.3 259.8 147.1 260.6 145.8C261.5 144.5 262.4 143.2 263.2 141.8C264.1 140.5 264.9 139.1 265.8 137.7C266.7 136.2 267.5 134.8 268.4 133.3C269.2 131.8 270.1 130.4 271 128.8C271.8 127.3 272.7 125.8 273.5 124.3C274.4 122.8 275.3 121.2 276.1 119.7C277 118.2 277.8 116.7 278.7 115.1C279.6 113.6 280.4 112.1 281.3 110.6C282.2 109.2 283 107.7 283.9 106.2C284.7 104.8 285.6 103.4 286.5 102C287.3 100.6 288.2 99.2 289 97.9C289.9 96.6 290.8 95.3 291.6 94.1C292.5 92.9 293.3 91.7 294.2 90.5C295.1 89.4 295.9 88.3 296.8 87.3C297.6 86.3 298.5 85.3 299.4 84.4C300.2 83.5 301.1 82.6 301.9 81.8C302.8 81.1 303.7 80.3 304.5 79.7C305.4 79.1 306.2 78.5 307.1 78C308 77.5 308.8 77 309.7 76.7C310.5 76.3 311.4 76.1 312.3 75.9C313.1 75.7 314 75.5 314.8 75.5C315.7 75.4 317 75.6 317.4 75.6" fill="none" stroke="var(--bio-dna)" stroke-width="13.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M234.8 166.5C235.3 166.5 236.6 166.5 237.4 166.4C238.3 166.2 239.1 166 240 165.7C240.9 165.4 241.7 165.1 242.6 164.6C243.4 164.2 244.3 163.7 245.2 163.1C246 162.5 246.9 161.9 247.7 161.2C248.6 160.4 249.5 159.6 250.3 158.8C251.2 157.9 252 157 252.9 156C253.8 155.1 254.6 154 255.5 152.9C256.3 151.9 257.2 150.7 258.1 149.5C258.9 148.3 259.8 147.1 260.6 145.8C261.5 144.5 262.4 143.2 263.2 141.8C264.1 140.5 264.9 139.1 265.8 137.7C266.7 136.2 267.5 134.8 268.4 133.3C269.2 131.8 270.1 130.4 271 128.8C271.8 127.3 272.7 125.8 273.5 124.3C274.4 122.8 275.3 121.2 276.1 119.7C277 118.2 277.8 116.7 278.7 115.1C279.6 113.6 280.4 112.1 281.3 110.6C282.2 109.2 283 107.7 283.9 106.2C284.7 104.8 285.6 103.4 286.5 102C287.3 100.6 288.2 99.2 289 97.9C289.9 96.6 290.8 95.3 291.6 94.1C292.5 92.9 293.3 91.7 294.2 90.5C295.1 89.4 295.9 88.3 296.8 87.3C297.6 86.3 298.5 85.3 299.4 84.4C300.2 83.5 301.1 82.6 301.9 81.8C302.8 81.1 303.7 80.3 304.5 79.7C305.4 79.1 306.2 78.5 307.1 78C308 77.5 308.8 77 309.7 76.7C310.5 76.3 311.4 76.1 312.3 75.9C313.1 75.7 314 75.5 314.8 75.5C315.7 75.4 317 75.6 317.4 75.6" fill="none" stroke="var(--bio-dna-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><path d="M456.8 166.4C457.2 166.4 458.5 166.6 459.4 166.5C460.2 166.5 461.1 166.4 461.9 166.2C462.8 166 463.7 165.8 464.5 165.4C465.4 165.1 466.2 164.7 467.1 164.2C468 163.7 468.8 163.1 469.7 162.5C470.5 161.9 471.4 161.2 472.3 160.4C473.1 159.6 474 158.8 474.8 157.9C475.7 157 476.6 156.1 477.4 155C478.3 154 479.1 153 480 151.8C480.9 150.7 481.7 149.5 482.6 148.3C483.4 147.1 484.3 145.8 485.2 144.5C486 143.2 486.9 141.8 487.7 140.5C488.6 139.1 489.5 137.7 490.3 136.2C491.2 134.8 492 133.3 492.9 131.8C493.8 130.4 494.6 128.8 495.5 127.3C496.3 125.8 497.2 124.3 498.1 122.8C498.9 121.2 499.8 119.7 500.6 118.2C501.5 116.7 502.4 115.1 503.2 113.6C504.1 112.1 504.9 110.6 505.8 109.2C506.7 107.7 507.5 106.2 508.4 104.8C509.2 103.4 510.1 102 511 100.6C511.8 99.2 512.7 97.9 513.5 96.6C514.4 95.3 515.3 94.1 516.1 92.9C517 91.7 517.8 90.5 518.7 89.4C519.6 88.3 520.4 87.3 521.3 86.3C522.2 85.3 523 84.4 523.9 83.5C524.7 82.6 525.6 81.8 526.5 81.1C527.3 80.3 528.2 79.7 529 79.1C529.9 78.5 530.8 78 531.6 77.5C532.5 77.1 533.3 76.7 534.2 76.4C535.1 76.1 535.9 75.8 536.8 75.7C537.6 75.5 538.9 75.5 539.4 75.5" fill="none" stroke="var(--bio-dna-edge)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M456.8 166.4C457.2 166.4 458.5 166.6 459.4 166.5C460.2 166.5 461.1 166.4 461.9 166.2C462.8 166 463.7 165.8 464.5 165.4C465.4 165.1 466.2 164.7 467.1 164.2C468 163.7 468.8 163.1 469.7 162.5C470.5 161.9 471.4 161.2 472.3 160.4C473.1 159.6 474 158.8 474.8 157.9C475.7 157 476.6 156.1 477.4 155C478.3 154 479.1 153 480 151.8C480.9 150.7 481.7 149.5 482.6 148.3C483.4 147.1 484.3 145.8 485.2 144.5C486 143.2 486.9 141.8 487.7 140.5C488.6 139.1 489.5 137.7 490.3 136.2C491.2 134.8 492 133.3 492.9 131.8C493.8 130.4 494.6 128.8 495.5 127.3C496.3 125.8 497.2 124.3 498.1 122.8C498.9 121.2 499.8 119.7 500.6 118.2C501.5 116.7 502.4 115.1 503.2 113.6C504.1 112.1 504.9 110.6 505.8 109.2C506.7 107.7 507.5 106.2 508.4 104.8C509.2 103.4 510.1 102 511 100.6C511.8 99.2 512.7 97.9 513.5 96.6C514.4 95.3 515.3 94.1 516.1 92.9C517 91.7 517.8 90.5 518.7 89.4C519.6 88.3 520.4 87.3 521.3 86.3C522.2 85.3 523 84.4 523.9 83.5C524.7 82.6 525.6 81.8 526.5 81.1C527.3 80.3 528.2 79.7 529 79.1C529.9 78.5 530.8 78 531.6 77.5C532.5 77.1 533.3 76.7 534.2 76.4C535.1 76.1 535.9 75.8 536.8 75.7C537.6 75.5 538.9 75.5 539.4 75.5" fill="none" stroke="var(--bio-dna)" stroke-width="13.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M456.8 166.4C457.2 166.4 458.5 166.6 459.4 166.5C460.2 166.5 461.1 166.4 461.9 166.2C462.8 166 463.7 165.8 464.5 165.4C465.4 165.1 466.2 164.7 467.1 164.2C468 163.7 468.8 163.1 469.7 162.5C470.5 161.9 471.4 161.2 472.3 160.4C473.1 159.6 474 158.8 474.8 157.9C475.7 157 476.6 156.1 477.4 155C478.3 154 479.1 153 480 151.8C480.9 150.7 481.7 149.5 482.6 148.3C483.4 147.1 484.3 145.8 485.2 144.5C486 143.2 486.9 141.8 487.7 140.5C488.6 139.1 489.5 137.7 490.3 136.2C491.2 134.8 492 133.3 492.9 131.8C493.8 130.4 494.6 128.8 495.5 127.3C496.3 125.8 497.2 124.3 498.1 122.8C498.9 121.2 499.8 119.7 500.6 118.2C501.5 116.7 502.4 115.1 503.2 113.6C504.1 112.1 504.9 110.6 505.8 109.2C506.7 107.7 507.5 106.2 508.4 104.8C509.2 103.4 510.1 102 511 100.6C511.8 99.2 512.7 97.9 513.5 96.6C514.4 95.3 515.3 94.1 516.1 92.9C517 91.7 517.8 90.5 518.7 89.4C519.6 88.3 520.4 87.3 521.3 86.3C522.2 85.3 523 84.4 523.9 83.5C524.7 82.6 525.6 81.8 526.5 81.1C527.3 80.3 528.2 79.7 529 79.1C529.9 78.5 530.8 78 531.6 77.5C532.5 77.1 533.3 76.7 534.2 76.4C535.1 76.1 535.9 75.8 536.8 75.7C537.6 75.5 538.9 75.5 539.4 75.5" fill="none" stroke="var(--bio-dna-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><path d="M160 149C160.4 148.4 161.7 146.6 162.6 145.3C163.4 144 164.3 142.7 165.2 141.3C166 139.9 166.9 138.5 167.7 137.1C168.6 135.7 169.5 134.2 170.3 132.7C171.2 131.3 172 129.8 172.9 128.2C173.8 126.7 174.6 125.2 175.5 123.7C176.3 122.2 177.2 120.6 178.1 119.1C178.9 117.6 179.8 116.1 180.6 114.5C181.5 113 182.4 111.5 183.2 110C184.1 108.6 184.9 107.1 185.8 105.7C186.7 104.2 187.5 102.8 188.4 101.4C189.2 100 190.1 98.7 191 97.4C191.8 96.1 192.7 94.8 193.5 93.6C194.4 92.4 195.3 91.2 196.1 90.1C197 89 197.8 87.9 198.7 86.9C199.6 85.9 200.4 84.9 201.3 84C202.2 83.1 203 82.3 203.9 81.5C204.7 80.8 205.6 80.1 206.5 79.4C207.3 78.8 208.2 78.3 209 77.8C209.9 77.3 210.8 76.9 211.6 76.6C212.5 76.2 213.3 76 214.2 75.8C215.1 75.6 215.9 75.5 216.8 75.5C217.6 75.4 218.9 75.6 219.4 75.6" fill="none" stroke="var(--bio-dna-edge)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M160 149C160.4 148.4 161.7 146.6 162.6 145.3C163.4 144 164.3 142.7 165.2 141.3C166 139.9 166.9 138.5 167.7 137.1C168.6 135.7 169.5 134.2 170.3 132.7C171.2 131.3 172 129.8 172.9 128.2C173.8 126.7 174.6 125.2 175.5 123.7C176.3 122.2 177.2 120.6 178.1 119.1C178.9 117.6 179.8 116.1 180.6 114.5C181.5 113 182.4 111.5 183.2 110C184.1 108.6 184.9 107.1 185.8 105.7C186.7 104.2 187.5 102.8 188.4 101.4C189.2 100 190.1 98.7 191 97.4C191.8 96.1 192.7 94.8 193.5 93.6C194.4 92.4 195.3 91.2 196.1 90.1C197 89 197.8 87.9 198.7 86.9C199.6 85.9 200.4 84.9 201.3 84C202.2 83.1 203 82.3 203.9 81.5C204.7 80.8 205.6 80.1 206.5 79.4C207.3 78.8 208.2 78.3 209 77.8C209.9 77.3 210.8 76.9 211.6 76.6C212.5 76.2 213.3 76 214.2 75.8C215.1 75.6 215.9 75.5 216.8 75.5C217.6 75.4 218.9 75.6 219.4 75.6" fill="none" stroke="var(--bio-dna)" stroke-width="13.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M160 149C160.4 148.4 161.7 146.6 162.6 145.3C163.4 144 164.3 142.7 165.2 141.3C166 139.9 166.9 138.5 167.7 137.1C168.6 135.7 169.5 134.2 170.3 132.7C171.2 131.3 172 129.8 172.9 128.2C173.8 126.7 174.6 125.2 175.5 123.7C176.3 122.2 177.2 120.6 178.1 119.1C178.9 117.6 179.8 116.1 180.6 114.5C181.5 113 182.4 111.5 183.2 110C184.1 108.6 184.9 107.1 185.8 105.7C186.7 104.2 187.5 102.8 188.4 101.4C189.2 100 190.1 98.7 191 97.4C191.8 96.1 192.7 94.8 193.5 93.6C194.4 92.4 195.3 91.2 196.1 90.1C197 89 197.8 87.9 198.7 86.9C199.6 85.9 200.4 84.9 201.3 84C202.2 83.1 203 82.3 203.9 81.5C204.7 80.8 205.6 80.1 206.5 79.4C207.3 78.8 208.2 78.3 209 77.8C209.9 77.3 210.8 76.9 211.6 76.6C212.5 76.2 213.3 76 214.2 75.8C215.1 75.6 215.9 75.5 216.8 75.5C217.6 75.4 218.9 75.6 219.4 75.6" fill="none" stroke="var(--bio-dna-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><path d="M554.8 166.3C555.3 166.4 556.6 166.6 557.4 166.5C558.3 166.5 559.1 166.4 560 166.3C560.9 166.1 561.7 165.9 562.6 165.5C563.4 165.2 564.3 164.8 565.2 164.4C566 163.9 566.9 163.4 567.7 162.8C568.6 162.1 569.5 161.5 570.3 160.7C571.2 160 572 159.1 572.9 158.3C573.8 157.4 574.6 156.4 575.5 155.5C576.3 154.5 577.2 153.4 578.1 152.3C578.9 151.2 579.8 150 580.6 148.8C581.5 147.6 582.4 146.3 583.2 145C584.1 143.7 584.9 142.4 585.8 141C586.7 139.6 587.5 138.2 588.4 136.8C589.2 135.4 590.1 133.9 591 132.4C591.8 131 592.7 129.5 593.5 127.9C594.4 126.4 595.3 124.9 596.1 123.4C597 121.9 597.8 120.3 598.7 118.8C599.6 117.3 600.4 115.7 601.3 114.2C602.2 112.7 603 111.2 603.9 109.7C604.7 108.3 605.6 106.8 606.5 105.4C607.3 103.9 608.2 102.5 609 101.1C609.9 99.8 610.8 98.4 611.6 97.1C612.5 95.8 613.3 94.6 614.2 93.3C615.1 92.1 615.9 91 616.8 89.9C617.6 88.7 618.5 87.7 619.4 86.7C620.2 85.7 621.1 84.7 621.9 83.8C622.8 83 623.7 82.1 624.5 81.4C625.4 80.6 626.2 79.9 627.1 79.3C628 78.7 628.8 78.2 629.7 77.7C630.5 77.2 631.4 76.8 632.3 76.5C633.1 76.2 634 75.9 634.8 75.7C635.7 75.6 636.6 75.5 637.4 75.5C638.3 75.4 639.6 75.6 640 75.6" fill="none" stroke="var(--bio-dna-edge)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M554.8 166.3C555.3 166.4 556.6 166.6 557.4 166.5C558.3 166.5 559.1 166.4 560 166.3C560.9 166.1 561.7 165.9 562.6 165.5C563.4 165.2 564.3 164.8 565.2 164.4C566 163.9 566.9 163.4 567.7 162.8C568.6 162.1 569.5 161.5 570.3 160.7C571.2 160 572 159.1 572.9 158.3C573.8 157.4 574.6 156.4 575.5 155.5C576.3 154.5 577.2 153.4 578.1 152.3C578.9 151.2 579.8 150 580.6 148.8C581.5 147.6 582.4 146.3 583.2 145C584.1 143.7 584.9 142.4 585.8 141C586.7 139.6 587.5 138.2 588.4 136.8C589.2 135.4 590.1 133.9 591 132.4C591.8 131 592.7 129.5 593.5 127.9C594.4 126.4 595.3 124.9 596.1 123.4C597 121.9 597.8 120.3 598.7 118.8C599.6 117.3 600.4 115.7 601.3 114.2C602.2 112.7 603 111.2 603.9 109.7C604.7 108.3 605.6 106.8 606.5 105.4C607.3 103.9 608.2 102.5 609 101.1C609.9 99.8 610.8 98.4 611.6 97.1C612.5 95.8 613.3 94.6 614.2 93.3C615.1 92.1 615.9 91 616.8 89.9C617.6 88.7 618.5 87.7 619.4 86.7C620.2 85.7 621.1 84.7 621.9 83.8C622.8 83 623.7 82.1 624.5 81.4C625.4 80.6 626.2 79.9 627.1 79.3C628 78.7 628.8 78.2 629.7 77.7C630.5 77.2 631.4 76.8 632.3 76.5C633.1 76.2 634 75.9 634.8 75.7C635.7 75.6 636.6 75.5 637.4 75.5C638.3 75.4 639.6 75.6 640 75.6" fill="none" stroke="var(--bio-dna)" stroke-width="13.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M554.8 166.3C555.3 166.4 556.6 166.6 557.4 166.5C558.3 166.5 559.1 166.4 560 166.3C560.9 166.1 561.7 165.9 562.6 165.5C563.4 165.2 564.3 164.8 565.2 164.4C566 163.9 566.9 163.4 567.7 162.8C568.6 162.1 569.5 161.5 570.3 160.7C571.2 160 572 159.1 572.9 158.3C573.8 157.4 574.6 156.4 575.5 155.5C576.3 154.5 577.2 153.4 578.1 152.3C578.9 151.2 579.8 150 580.6 148.8C581.5 147.6 582.4 146.3 583.2 145C584.1 143.7 584.9 142.4 585.8 141C586.7 139.6 587.5 138.2 588.4 136.8C589.2 135.4 590.1 133.9 591 132.4C591.8 131 592.7 129.5 593.5 127.9C594.4 126.4 595.3 124.9 596.1 123.4C597 121.9 597.8 120.3 598.7 118.8C599.6 117.3 600.4 115.7 601.3 114.2C602.2 112.7 603 111.2 603.9 109.7C604.7 108.3 605.6 106.8 606.5 105.4C607.3 103.9 608.2 102.5 609 101.1C609.9 99.8 610.8 98.4 611.6 97.1C612.5 95.8 613.3 94.6 614.2 93.3C615.1 92.1 615.9 91 616.8 89.9C617.6 88.7 618.5 87.7 619.4 86.7C620.2 85.7 621.1 84.7 621.9 83.8C622.8 83 623.7 82.1 624.5 81.4C625.4 80.6 626.2 79.9 627.1 79.3C628 78.7 628.8 78.2 629.7 77.7C630.5 77.2 631.4 76.8 632.3 76.5C633.1 76.2 634 75.9 634.8 75.7C635.7 75.6 636.6 75.5 637.4 75.5C638.3 75.4 639.6 75.6 640 75.6" fill="none" stroke="var(--bio-dna-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><path d="M619.4 166.5C619.8 166.5 621.1 166.5 621.9 166.4C622.8 166.3 623.7 166.1 624.5 165.8C625.4 165.5 626.2 165.2 627.1 164.7C628 164.3 628.8 163.8 629.7 163.2C630.5 162.7 631.4 162 632.3 161.3C633.1 160.6 634 159.8 634.8 159C635.7 158.1 636.6 157.2 637.4 156.2C638.3 155.3 639.6 153.7 640 153.2" fill="none" stroke="var(--bio-dna-edge)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M619.4 166.5C619.8 166.5 621.1 166.5 621.9 166.4C622.8 166.3 623.7 166.1 624.5 165.8C625.4 165.5 626.2 165.2 627.1 164.7C628 164.3 628.8 163.8 629.7 163.2C630.5 162.7 631.4 162 632.3 161.3C633.1 160.6 634 159.8 634.8 159C635.7 158.1 636.6 157.2 637.4 156.2C638.3 155.3 639.6 153.7 640 153.2" fill="none" stroke="var(--bio-dna)" stroke-width="13.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M619.4 166.5C619.8 166.5 621.1 166.5 621.9 166.4C622.8 166.3 623.7 166.1 624.5 165.8C625.4 165.5 626.2 165.2 627.1 164.7C628 164.3 628.8 163.8 629.7 163.2C630.5 162.7 631.4 162 632.3 161.3C633.1 160.6 634 159.8 634.8 159C635.7 158.1 636.6 157.2 637.4 156.2C638.3 155.3 639.6 153.7 640 153.2" fill="none" stroke="var(--bio-dna-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><path d="M492.9 108.1C492.9 112 492.9 127.9 492.9 131.8" fill="none" stroke="var(--bio-baseC-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M492.9 108.1C492.9 112 492.9 127.9 492.9 131.8" fill="none" stroke="var(--bio-baseC)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M492.9 108.1C492.9 112 492.9 127.9 492.9 131.8" fill="none" stroke="var(--bio-baseC-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M167.7 109.2C167.7 113.8 167.7 132.4 167.7 137.1" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M167.7 109.2C167.7 113.8 167.7 132.4 167.7 137.1" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M167.7 109.2C167.7 113.8 167.7 132.4 167.7 137.1" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M446.5 103.7C446.5 108.5 446.5 127.7 446.5 132.5" fill="none" stroke="var(--bio-baseC-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M446.5 103.7C446.5 108.5 446.5 127.7 446.5 132.5" fill="none" stroke="var(--bio-baseC)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M446.5 103.7C446.5 108.5 446.5 127.7 446.5 132.5" fill="none" stroke="var(--bio-baseC-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M601.3 114.2C601.3 117.6 601.3 131.3 601.3 134.7" fill="none" stroke="var(--bio-baseC-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M601.3 114.2C601.3 117.6 601.3 131.3 601.3 134.7" fill="none" stroke="var(--bio-baseC)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M601.3 114.2C601.3 117.6 601.3 131.3 601.3 134.7" fill="none" stroke="var(--bio-baseC-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M276.1 119.7C276.1 122.3 276.1 132.9 276.1 135.5" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M276.1 119.7C276.1 122.3 276.1 132.9 276.1 135.5" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M276.1 119.7C276.1 122.3 276.1 132.9 276.1 135.5" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M338.1 106.4C338.1 108.8 338.1 118.5 338.1 120.9" fill="none" stroke="var(--bio-baseC-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M338.1 106.4C338.1 108.8 338.1 118.5 338.1 120.9" fill="none" stroke="var(--bio-baseC)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M338.1 106.4C338.1 108.8 338.1 118.5 338.1 120.9" fill="none" stroke="var(--bio-baseC-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M322.6 112C322.6 117.8 322.6 141 322.6 146.8" fill="none" stroke="var(--bio-baseG-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M322.6 112C322.6 117.8 322.6 141 322.6 146.8" fill="none" stroke="var(--bio-baseG)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M322.6 112C322.6 117.8 322.6 141 322.6 146.8" fill="none" stroke="var(--bio-baseG-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M291.6 94.1C291.6 100 291.6 123.7 291.6 129.7" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M291.6 94.1C291.6 100 291.6 123.7 291.6 129.7" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M291.6 94.1C291.6 100 291.6 123.7 291.6 129.7" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M616.8 89.9C616.8 96.2 616.8 121.7 616.8 128" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M616.8 89.9C616.8 96.2 616.8 121.7 616.8 128" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M616.8 89.9C616.8 96.2 616.8 121.7 616.8 128" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M431 130.6C431 131.6 431 135.5 431 136.4" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M431 130.6C431 131.6 431 135.5 431 136.4" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M431 130.6C431 131.6 431 135.5 431 136.4" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M183.2 105.5C183.2 106.3 183.2 109.3 183.2 110" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M183.2 105.5C183.2 106.3 183.2 109.3 183.2 110" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M183.2 105.5C183.2 106.3 183.2 109.3 183.2 110" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M477.4 115.3C477.4 121.9 477.4 148.4 477.4 155" fill="none" stroke="var(--bio-baseC-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M477.4 115.3C477.4 121.9 477.4 148.4 477.4 155" fill="none" stroke="var(--bio-baseC)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M477.4 115.3C477.4 121.9 477.4 148.4 477.4 155" fill="none" stroke="var(--bio-baseC-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M508.4 105.4C508.4 105.3 508.4 104.9 508.4 104.8" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M508.4 105.4C508.4 105.3 508.4 104.9 508.4 104.8" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M508.4 105.4C508.4 105.3 508.4 104.9 508.4 104.8" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M461.9 82.8C461.9 89.8 461.9 117.6 461.9 124.5" fill="none" stroke="var(--bio-baseC-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M461.9 82.8C461.9 89.8 461.9 117.6 461.9 124.5" fill="none" stroke="var(--bio-baseC)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M461.9 82.8C461.9 89.8 461.9 117.6 461.9 124.5" fill="none" stroke="var(--bio-baseC-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M585.8 141C585.8 140.3 585.8 137.2 585.8 136.5" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M585.8 141C585.8 140.3 585.8 137.2 585.8 136.5" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M585.8 141C585.8 140.3 585.8 137.2 585.8 136.5" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M632.3 118.9C632.3 126 632.3 154.2 632.3 161.3" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M632.3 118.9C632.3 126 632.3 154.2 632.3 161.3" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M632.3 118.9C632.3 126 632.3 154.2 632.3 161.3" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M260.6 145.8C260.6 144.2 260.6 137.8 260.6 136.2" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M260.6 145.8C260.6 144.2 260.6 137.8 260.6 136.2" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M260.6 145.8C260.6 144.2 260.6 137.8 260.6 136.2" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M353.5 105.9C353.5 104.1 353.5 96.9 353.5 95.1" fill="none" stroke="var(--bio-baseG-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M353.5 105.9C353.5 104.1 353.5 96.9 353.5 95.1" fill="none" stroke="var(--bio-baseG)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M353.5 105.9C353.5 104.1 353.5 96.9 353.5 95.1" fill="none" stroke="var(--bio-baseG-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M307.1 120.8C307.1 127.9 307.1 156.4 307.1 163.6" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M307.1 120.8C307.1 127.9 307.1 156.4 307.1 163.6" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M307.1 120.8C307.1 127.9 307.1 156.4 307.1 163.6" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M307.1 78C307.1 85.1 307.1 113.6 307.1 120.8" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M307.1 78C307.1 85.1 307.1 113.6 307.1 120.8" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M307.1 78C307.1 85.1 307.1 113.6 307.1 120.8" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M632.3 76.5C632.3 83.6 632.3 111.8 632.3 118.9" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M632.3 76.5C632.3 83.6 632.3 111.8 632.3 118.9" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M632.3 76.5C632.3 83.6 632.3 111.8 632.3 118.9" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M415.5 154.2C415.5 151 415.5 138.1 415.5 134.9" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M415.5 154.2C415.5 151 415.5 138.1 415.5 134.9" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M415.5 154.2C415.5 151 415.5 138.1 415.5 134.9" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M198.7 107.3C198.7 103.9 198.7 90.3 198.7 86.9" fill="none" stroke="var(--bio-baseC-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M198.7 107.3C198.7 103.9 198.7 90.3 198.7 86.9" fill="none" stroke="var(--bio-baseC)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M198.7 107.3C198.7 103.9 198.7 90.3 198.7 86.9" fill="none" stroke="var(--bio-baseC-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M461.9 124.5C461.9 131.5 461.9 159.3 461.9 166.2" fill="none" stroke="var(--bio-baseG-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M461.9 124.5C461.9 131.5 461.9 159.3 461.9 166.2" fill="none" stroke="var(--bio-baseG)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M461.9 124.5C461.9 131.5 461.9 159.3 461.9 166.2" fill="none" stroke="var(--bio-baseG-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M523.9 108.3C523.9 104.2 523.9 87.6 523.9 83.5" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M523.9 108.3C523.9 104.2 523.9 87.6 523.9 83.5" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M523.9 108.3C523.9 104.2 523.9 87.6 523.9 83.5" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M477.4 75.5C477.4 82.1 477.4 108.6 477.4 115.3" fill="none" stroke="var(--bio-baseG-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M477.4 75.5C477.4 82.1 477.4 108.6 477.4 115.3" fill="none" stroke="var(--bio-baseG)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M477.4 75.5C477.4 82.1 477.4 108.6 477.4 115.3" fill="none" stroke="var(--bio-baseG-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M570.3 160.7C570.3 156.1 570.3 137.5 570.3 132.8" fill="none" stroke="var(--bio-baseG-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M570.3 160.7C570.3 156.1 570.3 137.5 570.3 132.8" fill="none" stroke="var(--bio-baseG)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M570.3 160.7C570.3 156.1 570.3 137.5 570.3 132.8" fill="none" stroke="var(--bio-baseG-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M616.8 128C616.8 134.4 616.8 159.9 616.8 166.2" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M616.8 128C616.8 134.4 616.8 159.9 616.8 166.2" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M616.8 128C616.8 134.4 616.8 159.9 616.8 166.2" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M245.2 163.1C245.2 157.8 245.2 136.8 245.2 131.5" fill="none" stroke="var(--bio-baseC-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M245.2 163.1C245.2 157.8 245.2 136.8 245.2 131.5" fill="none" stroke="var(--bio-baseC)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M245.2 163.1C245.2 157.8 245.2 136.8 245.2 131.5" fill="none" stroke="var(--bio-baseC-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M369 110.8C369 105.4 369 83.8 369 78.4" fill="none" stroke="var(--bio-baseC-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M369 110.8C369 105.4 369 83.8 369 78.4" fill="none" stroke="var(--bio-baseC)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M369 110.8C369 105.4 369 83.8 369 78.4" fill="none" stroke="var(--bio-baseC-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M291.6 129.7C291.6 135.6 291.6 159.3 291.6 165.2" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M291.6 129.7C291.6 135.6 291.6 159.3 291.6 165.2" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M291.6 129.7C291.6 135.6 291.6 159.3 291.6 165.2" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M322.6 77.1C322.6 82.9 322.6 106.2 322.6 112" fill="none" stroke="var(--bio-baseC-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M322.6 77.1C322.6 82.9 322.6 106.2 322.6 112" fill="none" stroke="var(--bio-baseC)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M322.6 77.1C322.6 82.9 322.6 106.2 322.6 112" fill="none" stroke="var(--bio-baseC-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M400 166C400 159.8 400 134.7 400 128.4" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M400 166C400 159.8 400 134.7 400 128.4" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M400 166C400 159.8 400 134.7 400 128.4" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M637.4 75.5C637.8 75.5 639.6 75.6 640 75.6" fill="none" stroke="var(--bio-dna-edge)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M637.4 75.5C637.8 75.5 639.6 75.6 640 75.6" fill="none" stroke="var(--bio-dna)" stroke-width="13.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M637.4 75.5C637.8 75.5 639.6 75.6 640 75.6" fill="none" stroke="var(--bio-dna-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><path d="M214.2 114C214.2 107.6 214.2 82.1 214.2 75.8" fill="none" stroke="var(--bio-baseC-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M214.2 114C214.2 107.6 214.2 82.1 214.2 75.8" fill="none" stroke="var(--bio-baseC)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M214.2 114C214.2 107.6 214.2 82.1 214.2 75.8" fill="none" stroke="var(--bio-baseC-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M446.5 132.5C446.5 137.3 446.5 156.5 446.5 161.4" fill="none" stroke="var(--bio-baseG-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M446.5 132.5C446.5 137.3 446.5 156.5 446.5 161.4" fill="none" stroke="var(--bio-baseG)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M446.5 132.5C446.5 137.3 446.5 156.5 446.5 161.4" fill="none" stroke="var(--bio-baseG-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M167.7 81.3C167.7 85.9 167.7 104.5 167.7 109.2" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M167.7 81.3C167.7 85.9 167.7 104.5 167.7 109.2" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M167.7 81.3C167.7 85.9 167.7 104.5 167.7 109.2" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M539.4 115.7C539.4 109 539.4 82.2 539.4 75.5" fill="none" stroke="var(--bio-baseG-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M539.4 115.7C539.4 109 539.4 82.2 539.4 75.5" fill="none" stroke="var(--bio-baseG)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M539.4 115.7C539.4 109 539.4 82.2 539.4 75.5" fill="none" stroke="var(--bio-baseG-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M492.9 84.3C492.9 88.2 492.9 104.1 492.9 108.1" fill="none" stroke="var(--bio-baseG-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M492.9 84.3C492.9 88.2 492.9 104.1 492.9 108.1" fill="none" stroke="var(--bio-baseG)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M492.9 84.3C492.9 88.2 492.9 104.1 492.9 108.1" fill="none" stroke="var(--bio-baseG-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M554.8 166.3C554.8 159.4 554.8 131.8 554.8 125" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M554.8 166.3C554.8 159.4 554.8 131.8 554.8 125" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M554.8 166.3C554.8 159.4 554.8 131.8 554.8 125" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M601.3 134.7C601.3 138.1 601.3 151.7 601.3 155.1" fill="none" stroke="var(--bio-baseG-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M601.3 134.7C601.3 138.1 601.3 151.7 601.3 155.1" fill="none" stroke="var(--bio-baseG)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M601.3 134.7C601.3 138.1 601.3 151.7 601.3 155.1" fill="none" stroke="var(--bio-baseG-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M229.7 165.5C229.7 158.4 229.7 130.2 229.7 123.1" fill="none" stroke="var(--bio-baseC-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M229.7 165.5C229.7 158.4 229.7 130.2 229.7 123.1" fill="none" stroke="var(--bio-baseC)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M229.7 165.5C229.7 158.4 229.7 130.2 229.7 123.1" fill="none" stroke="var(--bio-baseC-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M384.5 119.4C384.5 112.3 384.5 83.9 384.5 76.8" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M384.5 119.4C384.5 112.3 384.5 83.9 384.5 76.8" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M384.5 119.4C384.5 112.3 384.5 83.9 384.5 76.8" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M276.1 135.5C276.1 138.1 276.1 148.6 276.1 151.2" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M276.1 135.5C276.1 138.1 276.1 148.6 276.1 151.2" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M276.1 135.5C276.1 138.1 276.1 148.6 276.1 151.2" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M338.1 91.8C338.1 94.2 338.1 103.9 338.1 106.4" fill="none" stroke="var(--bio-baseG-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M338.1 91.8C338.1 94.2 338.1 103.9 338.1 106.4" fill="none" stroke="var(--bio-baseG)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M338.1 91.8C338.1 94.2 338.1 103.9 338.1 106.4" fill="none" stroke="var(--bio-baseG-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M384.5 161.9C384.5 154.8 384.5 126.4 384.5 119.4" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M384.5 161.9C384.5 154.8 384.5 126.4 384.5 119.4" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M384.5 161.9C384.5 154.8 384.5 126.4 384.5 119.4" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M229.7 123.1C229.7 116 229.7 87.8 229.7 80.7" fill="none" stroke="var(--bio-baseG-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M229.7 123.1C229.7 116 229.7 87.8 229.7 80.7" fill="none" stroke="var(--bio-baseG)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M229.7 123.1C229.7 116 229.7 87.8 229.7 80.7" fill="none" stroke="var(--bio-baseG-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M431 136.4C431 137.4 431 141.3 431 142.2" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M431 136.4C431 137.4 431 141.3 431 142.2" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M431 136.4C431 137.4 431 141.3 431 142.2" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M183.2 101C183.2 101.7 183.2 104.8 183.2 105.5" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M183.2 101C183.2 101.7 183.2 104.8 183.2 105.5" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M183.2 101C183.2 101.7 183.2 104.8 183.2 105.5" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M554.8 125C554.8 118.1 554.8 90.5 554.8 83.6" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M554.8 125C554.8 118.1 554.8 90.5 554.8 83.6" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M554.8 125C554.8 118.1 554.8 90.5 554.8 83.6" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M508.4 106.1C508.4 106 508.4 105.5 508.4 105.4" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M508.4 106.1C508.4 106 508.4 105.5 508.4 105.4" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M508.4 106.1C508.4 106 508.4 105.5 508.4 105.4" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M539.4 155.9C539.4 149.2 539.4 122.4 539.4 115.7" fill="none" stroke="var(--bio-baseC-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M539.4 155.9C539.4 149.2 539.4 122.4 539.4 115.7" fill="none" stroke="var(--bio-baseC)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M539.4 155.9C539.4 149.2 539.4 122.4 539.4 115.7" fill="none" stroke="var(--bio-baseC-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M585.8 136.5C585.8 135.7 585.8 132.7 585.8 132" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M585.8 136.5C585.8 135.7 585.8 132.7 585.8 132" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M585.8 136.5C585.8 135.7 585.8 132.7 585.8 132" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M214.2 152.1C214.2 145.8 214.2 120.3 214.2 114" fill="none" stroke="var(--bio-baseG-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M214.2 152.1C214.2 145.8 214.2 120.3 214.2 114" fill="none" stroke="var(--bio-baseG)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M214.2 152.1C214.2 145.8 214.2 120.3 214.2 114" fill="none" stroke="var(--bio-baseG-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M400 128.4C400 122.2 400 97.1 400 90.8" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M400 128.4C400 122.2 400 97.1 400 90.8" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M400 128.4C400 122.2 400 97.1 400 90.8" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M260.6 136.2C260.6 134.6 260.6 128.2 260.6 126.6" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M260.6 136.2C260.6 134.6 260.6 128.2 260.6 126.6" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M260.6 136.2C260.6 134.6 260.6 128.2 260.6 126.6" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M353.5 116.8C353.5 115 353.5 107.7 353.5 105.9" fill="none" stroke="var(--bio-baseC-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M353.5 116.8C353.5 115 353.5 107.7 353.5 105.9" fill="none" stroke="var(--bio-baseC)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M353.5 116.8C353.5 115 353.5 107.7 353.5 105.9" fill="none" stroke="var(--bio-baseC-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M369 143.3C369 137.9 369 116.3 369 110.8" fill="none" stroke="var(--bio-baseG-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M369 143.3C369 137.9 369 116.3 369 110.8" fill="none" stroke="var(--bio-baseG)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M369 143.3C369 137.9 369 116.3 369 110.8" fill="none" stroke="var(--bio-baseG-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M245.2 131.5C245.2 126.2 245.2 105.2 245.2 99.9" fill="none" stroke="var(--bio-baseG-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M245.2 131.5C245.2 126.2 245.2 105.2 245.2 99.9" fill="none" stroke="var(--bio-baseG)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M245.2 131.5C245.2 126.2 245.2 105.2 245.2 99.9" fill="none" stroke="var(--bio-baseG-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M415.5 134.9C415.5 131.7 415.5 118.8 415.5 115.6" fill="none" stroke="var(--bio-baseT-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M415.5 134.9C415.5 131.7 415.5 118.8 415.5 115.6" fill="none" stroke="var(--bio-baseT)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M415.5 134.9C415.5 131.7 415.5 118.8 415.5 115.6" fill="none" stroke="var(--bio-baseT-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M198.7 127.8C198.7 124.4 198.7 110.7 198.7 107.3" fill="none" stroke="var(--bio-baseG-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M198.7 127.8C198.7 124.4 198.7 110.7 198.7 107.3" fill="none" stroke="var(--bio-baseG)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M198.7 127.8C198.7 124.4 198.7 110.7 198.7 107.3" fill="none" stroke="var(--bio-baseG-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M570.3 132.8C570.3 128.2 570.3 109.6 570.3 104.9" fill="none" stroke="var(--bio-baseC-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M570.3 132.8C570.3 128.2 570.3 109.6 570.3 104.9" fill="none" stroke="var(--bio-baseC)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M570.3 132.8C570.3 128.2 570.3 109.6 570.3 104.9" fill="none" stroke="var(--bio-baseC-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M523.9 133.1C523.9 129 523.9 112.5 523.9 108.3" fill="none" stroke="var(--bio-baseA-edge)" stroke-width="12.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M523.9 133.1C523.9 129 523.9 112.5 523.9 108.3" fill="none" stroke="var(--bio-baseA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M523.9 133.1C523.9 129 523.9 112.5 523.9 108.3" fill="none" stroke="var(--bio-baseA-hi)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-1.7 -1.3)"/><path d="M160 76.5C160.4 76.7 161.7 77.2 162.6 77.6C163.4 78.1 164.3 78.6 165.2 79.2C166 79.9 166.9 80.5 167.7 81.3C168.6 82 169.5 82.9 170.3 83.7C171.2 84.6 172 85.6 172.9 86.5C173.8 87.5 174.6 88.6 175.5 89.7C176.3 90.8 177.2 92 178.1 93.2C178.9 94.4 179.8 95.7 180.6 97C181.5 98.3 182.4 99.6 183.2 101C184.1 102.4 184.9 103.8 185.8 105.2C186.7 106.6 187.5 108.1 188.4 109.6C189.2 111 190.1 112.5 191 114.1C191.8 115.6 192.7 117.1 193.5 118.6C194.4 120.1 195.3 121.7 196.1 123.2C197 124.7 197.8 126.3 198.7 127.8C199.6 129.3 200.4 130.8 201.3 132.3C202.2 133.7 203 135.2 203.9 136.6C204.7 138.1 205.6 139.5 206.5 140.9C207.3 142.2 208.2 143.6 209 144.9C209.9 146.2 210.8 147.4 211.6 148.7C212.5 149.9 213.3 151 214.2 152.1C215.1 153.3 215.9 154.3 216.8 155.3C217.6 156.3 218.5 157.3 219.4 158.2C220.2 159 221.1 159.9 221.9 160.6C222.8 161.4 223.7 162.1 224.5 162.7C225.4 163.3 226.2 163.8 227.1 164.3C228 164.8 228.8 165.2 229.7 165.5C230.5 165.8 231.4 166.1 232.3 166.3C233.1 166.4 234 166.5 234.8 166.5C235.7 166.6 237 166.4 237.4 166.4" fill="none" stroke="var(--bio-dna-edge)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M160 76.5C160.4 76.7 161.7 77.2 162.6 77.6C163.4 78.1 164.3 78.6 165.2 79.2C166 79.9 166.9 80.5 167.7 81.3C168.6 82 169.5 82.9 170.3 83.7C171.2 84.6 172 85.6 172.9 86.5C173.8 87.5 174.6 88.6 175.5 89.7C176.3 90.8 177.2 92 178.1 93.2C178.9 94.4 179.8 95.7 180.6 97C181.5 98.3 182.4 99.6 183.2 101C184.1 102.4 184.9 103.8 185.8 105.2C186.7 106.6 187.5 108.1 188.4 109.6C189.2 111 190.1 112.5 191 114.1C191.8 115.6 192.7 117.1 193.5 118.6C194.4 120.1 195.3 121.7 196.1 123.2C197 124.7 197.8 126.3 198.7 127.8C199.6 129.3 200.4 130.8 201.3 132.3C202.2 133.7 203 135.2 203.9 136.6C204.7 138.1 205.6 139.5 206.5 140.9C207.3 142.2 208.2 143.6 209 144.9C209.9 146.2 210.8 147.4 211.6 148.7C212.5 149.9 213.3 151 214.2 152.1C215.1 153.3 215.9 154.3 216.8 155.3C217.6 156.3 218.5 157.3 219.4 158.2C220.2 159 221.1 159.9 221.9 160.6C222.8 161.4 223.7 162.1 224.5 162.7C225.4 163.3 226.2 163.8 227.1 164.3C228 164.8 228.8 165.2 229.7 165.5C230.5 165.8 231.4 166.1 232.3 166.3C233.1 166.4 234 166.5 234.8 166.5C235.7 166.6 237 166.4 237.4 166.4" fill="none" stroke="var(--bio-dna)" stroke-width="13.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M160 76.5C160.4 76.7 161.7 77.2 162.6 77.6C163.4 78.1 164.3 78.6 165.2 79.2C166 79.9 166.9 80.5 167.7 81.3C168.6 82 169.5 82.9 170.3 83.7C171.2 84.6 172 85.6 172.9 86.5C173.8 87.5 174.6 88.6 175.5 89.7C176.3 90.8 177.2 92 178.1 93.2C178.9 94.4 179.8 95.7 180.6 97C181.5 98.3 182.4 99.6 183.2 101C184.1 102.4 184.9 103.8 185.8 105.2C186.7 106.6 187.5 108.1 188.4 109.6C189.2 111 190.1 112.5 191 114.1C191.8 115.6 192.7 117.1 193.5 118.6C194.4 120.1 195.3 121.7 196.1 123.2C197 124.7 197.8 126.3 198.7 127.8C199.6 129.3 200.4 130.8 201.3 132.3C202.2 133.7 203 135.2 203.9 136.6C204.7 138.1 205.6 139.5 206.5 140.9C207.3 142.2 208.2 143.6 209 144.9C209.9 146.2 210.8 147.4 211.6 148.7C212.5 149.9 213.3 151 214.2 152.1C215.1 153.3 215.9 154.3 216.8 155.3C217.6 156.3 218.5 157.3 219.4 158.2C220.2 159 221.1 159.9 221.9 160.6C222.8 161.4 223.7 162.1 224.5 162.7C225.4 163.3 226.2 163.8 227.1 164.3C228 164.8 228.8 165.2 229.7 165.5C230.5 165.8 231.4 166.1 232.3 166.3C233.1 166.4 234 166.5 234.8 166.5C235.7 166.6 237 166.4 237.4 166.4" fill="none" stroke="var(--bio-dna-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><path d="M536.8 75.7C537.2 75.6 538.5 75.5 539.4 75.5C540.2 75.5 541.1 75.5 541.9 75.7C542.8 75.9 543.7 76.1 544.5 76.4C545.4 76.7 546.2 77.1 547.1 77.5C548 78 548.8 78.5 549.7 79.1C550.5 79.7 551.4 80.4 552.3 81.1C553.1 81.9 554 82.7 554.8 83.6C555.7 84.4 556.6 85.4 557.4 86.4C558.3 87.3 559.1 88.4 560 89.5C560.9 90.6 561.7 91.8 562.6 93C563.4 94.2 564.3 95.4 565.2 96.7C566 98 566.9 99.3 567.7 100.7C568.6 102.1 569.5 103.5 570.3 104.9C571.2 106.3 572 107.8 572.9 109.3C573.8 110.7 574.6 112.2 575.5 113.8C576.3 115.3 577.2 116.8 578.1 118.3C578.9 119.8 579.8 121.4 580.6 122.9C581.5 124.4 582.4 125.9 583.2 127.5C584.1 129 584.9 130.5 585.8 132C586.7 133.4 587.5 134.9 588.4 136.3C589.2 137.8 590.1 139.2 591 140.6C591.8 142 592.7 143.3 593.5 144.6C594.4 145.9 595.3 147.2 596.1 148.4C597 149.6 597.8 150.8 598.7 151.9C599.6 153 600.4 154.1 601.3 155.1C602.2 156.1 603 157.1 603.9 158C604.7 158.9 605.6 159.7 606.5 160.5C607.3 161.2 608.2 161.9 609 162.6C609.9 163.2 610.8 163.7 611.6 164.2C612.5 164.7 613.3 165.1 614.2 165.4C615.1 165.8 615.9 166 616.8 166.2C617.6 166.4 618.5 166.5 619.4 166.5C620.2 166.6 621.5 166.4 621.9 166.4" fill="none" stroke="var(--bio-dna-edge)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M536.8 75.7C537.2 75.6 538.5 75.5 539.4 75.5C540.2 75.5 541.1 75.5 541.9 75.7C542.8 75.9 543.7 76.1 544.5 76.4C545.4 76.7 546.2 77.1 547.1 77.5C548 78 548.8 78.5 549.7 79.1C550.5 79.7 551.4 80.4 552.3 81.1C553.1 81.9 554 82.7 554.8 83.6C555.7 84.4 556.6 85.4 557.4 86.4C558.3 87.3 559.1 88.4 560 89.5C560.9 90.6 561.7 91.8 562.6 93C563.4 94.2 564.3 95.4 565.2 96.7C566 98 566.9 99.3 567.7 100.7C568.6 102.1 569.5 103.5 570.3 104.9C571.2 106.3 572 107.8 572.9 109.3C573.8 110.7 574.6 112.2 575.5 113.8C576.3 115.3 577.2 116.8 578.1 118.3C578.9 119.8 579.8 121.4 580.6 122.9C581.5 124.4 582.4 125.9 583.2 127.5C584.1 129 584.9 130.5 585.8 132C586.7 133.4 587.5 134.9 588.4 136.3C589.2 137.8 590.1 139.2 591 140.6C591.8 142 592.7 143.3 593.5 144.6C594.4 145.9 595.3 147.2 596.1 148.4C597 149.6 597.8 150.8 598.7 151.9C599.6 153 600.4 154.1 601.3 155.1C602.2 156.1 603 157.1 603.9 158C604.7 158.9 605.6 159.7 606.5 160.5C607.3 161.2 608.2 161.9 609 162.6C609.9 163.2 610.8 163.7 611.6 164.2C612.5 164.7 613.3 165.1 614.2 165.4C615.1 165.8 615.9 166 616.8 166.2C617.6 166.4 618.5 166.5 619.4 166.5C620.2 166.6 621.5 166.4 621.9 166.4" fill="none" stroke="var(--bio-dna)" stroke-width="13.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M536.8 75.7C537.2 75.6 538.5 75.5 539.4 75.5C540.2 75.5 541.1 75.5 541.9 75.7C542.8 75.9 543.7 76.1 544.5 76.4C545.4 76.7 546.2 77.1 547.1 77.5C548 78 548.8 78.5 549.7 79.1C550.5 79.7 551.4 80.4 552.3 81.1C553.1 81.9 554 82.7 554.8 83.6C555.7 84.4 556.6 85.4 557.4 86.4C558.3 87.3 559.1 88.4 560 89.5C560.9 90.6 561.7 91.8 562.6 93C563.4 94.2 564.3 95.4 565.2 96.7C566 98 566.9 99.3 567.7 100.7C568.6 102.1 569.5 103.5 570.3 104.9C571.2 106.3 572 107.8 572.9 109.3C573.8 110.7 574.6 112.2 575.5 113.8C576.3 115.3 577.2 116.8 578.1 118.3C578.9 119.8 579.8 121.4 580.6 122.9C581.5 124.4 582.4 125.9 583.2 127.5C584.1 129 584.9 130.5 585.8 132C586.7 133.4 587.5 134.9 588.4 136.3C589.2 137.8 590.1 139.2 591 140.6C591.8 142 592.7 143.3 593.5 144.6C594.4 145.9 595.3 147.2 596.1 148.4C597 149.6 597.8 150.8 598.7 151.9C599.6 153 600.4 154.1 601.3 155.1C602.2 156.1 603 157.1 603.9 158C604.7 158.9 605.6 159.7 606.5 160.5C607.3 161.2 608.2 161.9 609 162.6C609.9 163.2 610.8 163.7 611.6 164.2C612.5 164.7 613.3 165.1 614.2 165.4C615.1 165.8 615.9 166 616.8 166.2C617.6 166.4 618.5 166.5 619.4 166.5C620.2 166.6 621.5 166.4 621.9 166.4" fill="none" stroke="var(--bio-dna-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><path d="M474.8 75.6C475.3 75.6 476.6 75.4 477.4 75.5C478.3 75.5 479.1 75.6 480 75.8C480.9 76 481.7 76.3 482.6 76.7C483.4 77 484.3 77.4 485.2 77.9C486 78.4 486.9 79 487.7 79.6C488.6 80.3 489.5 81 490.3 81.7C491.2 82.5 492 83.4 492.9 84.3C493.8 85.2 494.6 86.1 495.5 87.2C496.3 88.2 497.2 89.3 498.1 90.4C498.9 91.5 499.8 92.7 500.6 93.9C501.5 95.2 502.4 96.4 503.2 97.8C504.1 99.1 504.9 100.4 505.8 101.8C506.7 103.2 507.5 104.6 508.4 106.1C509.2 107.5 510.1 109 511 110.5C511.8 111.9 512.7 113.5 513.5 115C514.4 116.5 515.3 118 516.1 119.5C517 121.1 517.8 122.6 518.7 124.1C519.6 125.6 520.4 127.2 521.3 128.7C522.2 130.2 523 131.7 523.9 133.1C524.7 134.6 525.6 136.1 526.5 137.5C527.3 138.9 528.2 140.3 529 141.7C529.9 143 530.8 144.4 531.6 145.6C532.5 146.9 533.3 148.2 534.2 149.4C535.1 150.6 535.9 151.7 536.8 152.8C537.6 153.9 538.5 154.9 539.4 155.9C540.2 156.9 541.1 157.8 541.9 158.7C542.8 159.5 543.7 160.3 544.5 161.1C545.4 161.8 546.2 162.5 547.1 163C548 163.6 548.8 164.1 549.7 164.6C550.5 165 551.4 165.4 552.3 165.7C553.1 166 554 166.2 554.8 166.3C555.7 166.5 557 166.5 557.4 166.5" fill="none" stroke="var(--bio-dna-edge)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M474.8 75.6C475.3 75.6 476.6 75.4 477.4 75.5C478.3 75.5 479.1 75.6 480 75.8C480.9 76 481.7 76.3 482.6 76.7C483.4 77 484.3 77.4 485.2 77.9C486 78.4 486.9 79 487.7 79.6C488.6 80.3 489.5 81 490.3 81.7C491.2 82.5 492 83.4 492.9 84.3C493.8 85.2 494.6 86.1 495.5 87.2C496.3 88.2 497.2 89.3 498.1 90.4C498.9 91.5 499.8 92.7 500.6 93.9C501.5 95.2 502.4 96.4 503.2 97.8C504.1 99.1 504.9 100.4 505.8 101.8C506.7 103.2 507.5 104.6 508.4 106.1C509.2 107.5 510.1 109 511 110.5C511.8 111.9 512.7 113.5 513.5 115C514.4 116.5 515.3 118 516.1 119.5C517 121.1 517.8 122.6 518.7 124.1C519.6 125.6 520.4 127.2 521.3 128.7C522.2 130.2 523 131.7 523.9 133.1C524.7 134.6 525.6 136.1 526.5 137.5C527.3 138.9 528.2 140.3 529 141.7C529.9 143 530.8 144.4 531.6 145.6C532.5 146.9 533.3 148.2 534.2 149.4C535.1 150.6 535.9 151.7 536.8 152.8C537.6 153.9 538.5 154.9 539.4 155.9C540.2 156.9 541.1 157.8 541.9 158.7C542.8 159.5 543.7 160.3 544.5 161.1C545.4 161.8 546.2 162.5 547.1 163C548 163.6 548.8 164.1 549.7 164.6C550.5 165 551.4 165.4 552.3 165.7C553.1 166 554 166.2 554.8 166.3C555.7 166.5 557 166.5 557.4 166.5" fill="none" stroke="var(--bio-dna)" stroke-width="13.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M474.8 75.6C475.3 75.6 476.6 75.4 477.4 75.5C478.3 75.5 479.1 75.6 480 75.8C480.9 76 481.7 76.3 482.6 76.7C483.4 77 484.3 77.4 485.2 77.9C486 78.4 486.9 79 487.7 79.6C488.6 80.3 489.5 81 490.3 81.7C491.2 82.5 492 83.4 492.9 84.3C493.8 85.2 494.6 86.1 495.5 87.2C496.3 88.2 497.2 89.3 498.1 90.4C498.9 91.5 499.8 92.7 500.6 93.9C501.5 95.2 502.4 96.4 503.2 97.8C504.1 99.1 504.9 100.4 505.8 101.8C506.7 103.2 507.5 104.6 508.4 106.1C509.2 107.5 510.1 109 511 110.5C511.8 111.9 512.7 113.5 513.5 115C514.4 116.5 515.3 118 516.1 119.5C517 121.1 517.8 122.6 518.7 124.1C519.6 125.6 520.4 127.2 521.3 128.7C522.2 130.2 523 131.7 523.9 133.1C524.7 134.6 525.6 136.1 526.5 137.5C527.3 138.9 528.2 140.3 529 141.7C529.9 143 530.8 144.4 531.6 145.6C532.5 146.9 533.3 148.2 534.2 149.4C535.1 150.6 535.9 151.7 536.8 152.8C537.6 153.9 538.5 154.9 539.4 155.9C540.2 156.9 541.1 157.8 541.9 158.7C542.8 159.5 543.7 160.3 544.5 161.1C545.4 161.8 546.2 162.5 547.1 163C548 163.6 548.8 164.1 549.7 164.6C550.5 165 551.4 165.4 552.3 165.7C553.1 166 554 166.2 554.8 166.3C555.7 166.5 557 166.5 557.4 166.5" fill="none" stroke="var(--bio-dna-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><path d="M216.8 75.5C217.2 75.5 218.5 75.5 219.4 75.6C220.2 75.7 221.1 75.9 221.9 76.2C222.8 76.5 223.7 76.8 224.5 77.3C225.4 77.7 226.2 78.2 227.1 78.8C228 79.3 228.8 80 229.7 80.7C230.5 81.4 231.4 82.2 232.3 83C233.1 83.9 234 84.8 234.8 85.8C235.7 86.7 236.6 87.8 237.4 88.8C238.3 89.9 239.1 91.1 240 92.2C240.9 93.4 241.7 94.7 242.6 95.9C243.4 97.2 244.3 98.5 245.2 99.9C246 101.2 246.9 102.6 247.7 104.1C248.6 105.5 249.5 106.9 250.3 108.4C251.2 109.9 252 111.3 252.9 112.9C253.8 114.4 254.6 115.9 255.5 117.4C256.3 118.9 257.2 120.5 258.1 122C258.9 123.5 259.8 125 260.6 126.6C261.5 128.1 262.4 129.6 263.2 131.1C264.1 132.6 264.9 134 265.8 135.5C266.7 136.9 267.5 138.4 268.4 139.7C269.2 141.1 270.1 142.5 271 143.8C271.8 145.1 272.7 146.4 273.5 147.7C274.4 148.9 275.3 150.1 276.1 151.2C277 152.4 277.8 153.5 278.7 154.5C279.6 155.5 280.4 156.5 281.3 157.4C282.2 158.4 283 159.2 283.9 160C284.7 160.8 285.6 161.5 286.5 162.2C287.3 162.8 288.2 163.4 289 163.9C289.9 164.4 290.8 164.9 291.6 165.2C292.5 165.6 293.3 165.9 294.2 166.1C295.1 166.3 295.9 166.4 296.8 166.5C297.6 166.6 298.9 166.5 299.4 166.5" fill="none" stroke="var(--bio-dna-edge)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M216.8 75.5C217.2 75.5 218.5 75.5 219.4 75.6C220.2 75.7 221.1 75.9 221.9 76.2C222.8 76.5 223.7 76.8 224.5 77.3C225.4 77.7 226.2 78.2 227.1 78.8C228 79.3 228.8 80 229.7 80.7C230.5 81.4 231.4 82.2 232.3 83C233.1 83.9 234 84.8 234.8 85.8C235.7 86.7 236.6 87.8 237.4 88.8C238.3 89.9 239.1 91.1 240 92.2C240.9 93.4 241.7 94.7 242.6 95.9C243.4 97.2 244.3 98.5 245.2 99.9C246 101.2 246.9 102.6 247.7 104.1C248.6 105.5 249.5 106.9 250.3 108.4C251.2 109.9 252 111.3 252.9 112.9C253.8 114.4 254.6 115.9 255.5 117.4C256.3 118.9 257.2 120.5 258.1 122C258.9 123.5 259.8 125 260.6 126.6C261.5 128.1 262.4 129.6 263.2 131.1C264.1 132.6 264.9 134 265.8 135.5C266.7 136.9 267.5 138.4 268.4 139.7C269.2 141.1 270.1 142.5 271 143.8C271.8 145.1 272.7 146.4 273.5 147.7C274.4 148.9 275.3 150.1 276.1 151.2C277 152.4 277.8 153.5 278.7 154.5C279.6 155.5 280.4 156.5 281.3 157.4C282.2 158.4 283 159.2 283.9 160C284.7 160.8 285.6 161.5 286.5 162.2C287.3 162.8 288.2 163.4 289 163.9C289.9 164.4 290.8 164.9 291.6 165.2C292.5 165.6 293.3 165.9 294.2 166.1C295.1 166.3 295.9 166.4 296.8 166.5C297.6 166.6 298.9 166.5 299.4 166.5" fill="none" stroke="var(--bio-dna)" stroke-width="13.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M216.8 75.5C217.2 75.5 218.5 75.5 219.4 75.6C220.2 75.7 221.1 75.9 221.9 76.2C222.8 76.5 223.7 76.8 224.5 77.3C225.4 77.7 226.2 78.2 227.1 78.8C228 79.3 228.8 80 229.7 80.7C230.5 81.4 231.4 82.2 232.3 83C233.1 83.9 234 84.8 234.8 85.8C235.7 86.7 236.6 87.8 237.4 88.8C238.3 89.9 239.1 91.1 240 92.2C240.9 93.4 241.7 94.7 242.6 95.9C243.4 97.2 244.3 98.5 245.2 99.9C246 101.2 246.9 102.6 247.7 104.1C248.6 105.5 249.5 106.9 250.3 108.4C251.2 109.9 252 111.3 252.9 112.9C253.8 114.4 254.6 115.9 255.5 117.4C256.3 118.9 257.2 120.5 258.1 122C258.9 123.5 259.8 125 260.6 126.6C261.5 128.1 262.4 129.6 263.2 131.1C264.1 132.6 264.9 134 265.8 135.5C266.7 136.9 267.5 138.4 268.4 139.7C269.2 141.1 270.1 142.5 271 143.8C271.8 145.1 272.7 146.4 273.5 147.7C274.4 148.9 275.3 150.1 276.1 151.2C277 152.4 277.8 153.5 278.7 154.5C279.6 155.5 280.4 156.5 281.3 157.4C282.2 158.4 283 159.2 283.9 160C284.7 160.8 285.6 161.5 286.5 162.2C287.3 162.8 288.2 163.4 289 163.9C289.9 164.4 290.8 164.9 291.6 165.2C292.5 165.6 293.3 165.9 294.2 166.1C295.1 166.3 295.9 166.4 296.8 166.5C297.6 166.6 298.9 166.5 299.4 166.5" fill="none" stroke="var(--bio-dna-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><path d="M376.8 75.5C377.2 75.5 378.5 75.4 379.4 75.5C380.2 75.6 381.1 75.7 381.9 75.9C382.8 76.1 383.7 76.4 384.5 76.8C385.4 77.2 386.2 77.6 387.1 78.1C388 78.6 388.8 79.2 389.7 79.9C390.5 80.5 391.4 81.3 392.3 82.1C393.1 82.8 394 83.7 394.8 84.6C395.7 85.5 396.6 86.5 397.4 87.6C398.3 88.6 399.1 89.7 400 90.8C400.9 92 401.7 93.2 402.6 94.4C403.4 95.7 404.3 97 405.2 98.3C406 99.6 406.9 101 407.7 102.4C408.6 103.8 409.5 105.2 410.3 106.6C411.2 108.1 412 109.6 412.9 111.1C413.8 112.5 414.6 114.1 415.5 115.6C416.3 117.1 417.2 118.6 418.1 120.1C418.9 121.7 419.8 123.2 420.6 124.7C421.5 126.2 422.4 127.8 423.2 129.3C424.1 130.8 424.9 132.3 425.8 133.7C426.7 135.2 427.5 136.6 428.4 138.1C429.2 139.5 430.1 140.9 431 142.2C431.8 143.6 432.7 144.9 433.5 146.2C434.4 147.4 435.3 148.7 436.1 149.8C437 151 437.8 152.2 438.7 153.2C439.6 154.3 440.4 155.4 441.3 156.3C442.2 157.3 443 158.2 443.9 159C444.7 159.9 445.6 160.6 446.5 161.4C447.3 162.1 448.2 162.7 449 163.3C449.9 163.8 450.8 164.3 451.6 164.8C452.5 165.2 453.3 165.5 454.2 165.8C455.1 166.1 455.9 166.3 456.8 166.4C457.6 166.5 458.9 166.5 459.4 166.5" fill="none" stroke="var(--bio-dna-edge)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M376.8 75.5C377.2 75.5 378.5 75.4 379.4 75.5C380.2 75.6 381.1 75.7 381.9 75.9C382.8 76.1 383.7 76.4 384.5 76.8C385.4 77.2 386.2 77.6 387.1 78.1C388 78.6 388.8 79.2 389.7 79.9C390.5 80.5 391.4 81.3 392.3 82.1C393.1 82.8 394 83.7 394.8 84.6C395.7 85.5 396.6 86.5 397.4 87.6C398.3 88.6 399.1 89.7 400 90.8C400.9 92 401.7 93.2 402.6 94.4C403.4 95.7 404.3 97 405.2 98.3C406 99.6 406.9 101 407.7 102.4C408.6 103.8 409.5 105.2 410.3 106.6C411.2 108.1 412 109.6 412.9 111.1C413.8 112.5 414.6 114.1 415.5 115.6C416.3 117.1 417.2 118.6 418.1 120.1C418.9 121.7 419.8 123.2 420.6 124.7C421.5 126.2 422.4 127.8 423.2 129.3C424.1 130.8 424.9 132.3 425.8 133.7C426.7 135.2 427.5 136.6 428.4 138.1C429.2 139.5 430.1 140.9 431 142.2C431.8 143.6 432.7 144.9 433.5 146.2C434.4 147.4 435.3 148.7 436.1 149.8C437 151 437.8 152.2 438.7 153.2C439.6 154.3 440.4 155.4 441.3 156.3C442.2 157.3 443 158.2 443.9 159C444.7 159.9 445.6 160.6 446.5 161.4C447.3 162.1 448.2 162.7 449 163.3C449.9 163.8 450.8 164.3 451.6 164.8C452.5 165.2 453.3 165.5 454.2 165.8C455.1 166.1 455.9 166.3 456.8 166.4C457.6 166.5 458.9 166.5 459.4 166.5" fill="none" stroke="var(--bio-dna)" stroke-width="13.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M376.8 75.5C377.2 75.5 378.5 75.4 379.4 75.5C380.2 75.6 381.1 75.7 381.9 75.9C382.8 76.1 383.7 76.4 384.5 76.8C385.4 77.2 386.2 77.6 387.1 78.1C388 78.6 388.8 79.2 389.7 79.9C390.5 80.5 391.4 81.3 392.3 82.1C393.1 82.8 394 83.7 394.8 84.6C395.7 85.5 396.6 86.5 397.4 87.6C398.3 88.6 399.1 89.7 400 90.8C400.9 92 401.7 93.2 402.6 94.4C403.4 95.7 404.3 97 405.2 98.3C406 99.6 406.9 101 407.7 102.4C408.6 103.8 409.5 105.2 410.3 106.6C411.2 108.1 412 109.6 412.9 111.1C413.8 112.5 414.6 114.1 415.5 115.6C416.3 117.1 417.2 118.6 418.1 120.1C418.9 121.7 419.8 123.2 420.6 124.7C421.5 126.2 422.4 127.8 423.2 129.3C424.1 130.8 424.9 132.3 425.8 133.7C426.7 135.2 427.5 136.6 428.4 138.1C429.2 139.5 430.1 140.9 431 142.2C431.8 143.6 432.7 144.9 433.5 146.2C434.4 147.4 435.3 148.7 436.1 149.8C437 151 437.8 152.2 438.7 153.2C439.6 154.3 440.4 155.4 441.3 156.3C442.2 157.3 443 158.2 443.9 159C444.7 159.9 445.6 160.6 446.5 161.4C447.3 162.1 448.2 162.7 449 163.3C449.9 163.8 450.8 164.3 451.6 164.8C452.5 165.2 453.3 165.5 454.2 165.8C455.1 166.1 455.9 166.3 456.8 166.4C457.6 166.5 458.9 166.5 459.4 166.5" fill="none" stroke="var(--bio-dna-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/><path d="M314.8 75.5C315.3 75.5 316.6 75.5 317.4 75.6C318.3 75.7 319.1 75.9 320 76.1C320.9 76.4 321.7 76.7 322.6 77.1C323.4 77.5 324.3 78 325.2 78.6C326 79.1 326.9 79.7 327.7 80.4C328.6 81.1 329.5 81.9 330.3 82.7C331.2 83.5 332 84.4 332.9 85.4C333.8 86.3 334.6 87.3 335.5 88.4C336.3 89.5 337.2 90.6 338.1 91.8C338.9 92.9 339.8 94.2 340.6 95.4C341.5 96.7 342.4 98 343.2 99.4C344.1 100.7 344.9 102.1 345.8 103.5C346.7 104.9 347.5 106.3 348.4 107.8C349.2 109.3 350.1 110.8 351 112.3C351.8 113.7 352.7 115.3 353.5 116.8C354.4 118.3 355.3 119.8 356.1 121.4C357 122.9 357.8 124.4 358.7 125.9C359.6 127.5 360.4 129 361.3 130.5C362.2 132 363 133.4 363.9 134.9C364.7 136.4 365.6 137.8 366.5 139.2C367.3 140.6 368.2 142 369 143.3C369.9 144.6 370.8 145.9 371.6 147.2C372.5 148.4 373.3 149.6 374.2 150.8C375.1 151.9 375.9 153 376.8 154.1C377.6 155.1 378.5 156.1 379.4 157.1C380.2 158 381.1 158.9 381.9 159.7C382.8 160.5 383.7 161.2 384.5 161.9C385.4 162.6 386.2 163.2 387.1 163.7C388 164.2 388.8 164.7 389.7 165.1C390.5 165.5 391.4 165.8 392.3 166C393.1 166.2 394 166.4 394.8 166.5C395.7 166.6 397 166.5 397.4 166.5" fill="none" stroke="var(--bio-dna-edge)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M314.8 75.5C315.3 75.5 316.6 75.5 317.4 75.6C318.3 75.7 319.1 75.9 320 76.1C320.9 76.4 321.7 76.7 322.6 77.1C323.4 77.5 324.3 78 325.2 78.6C326 79.1 326.9 79.7 327.7 80.4C328.6 81.1 329.5 81.9 330.3 82.7C331.2 83.5 332 84.4 332.9 85.4C333.8 86.3 334.6 87.3 335.5 88.4C336.3 89.5 337.2 90.6 338.1 91.8C338.9 92.9 339.8 94.2 340.6 95.4C341.5 96.7 342.4 98 343.2 99.4C344.1 100.7 344.9 102.1 345.8 103.5C346.7 104.9 347.5 106.3 348.4 107.8C349.2 109.3 350.1 110.8 351 112.3C351.8 113.7 352.7 115.3 353.5 116.8C354.4 118.3 355.3 119.8 356.1 121.4C357 122.9 357.8 124.4 358.7 125.9C359.6 127.5 360.4 129 361.3 130.5C362.2 132 363 133.4 363.9 134.9C364.7 136.4 365.6 137.8 366.5 139.2C367.3 140.6 368.2 142 369 143.3C369.9 144.6 370.8 145.9 371.6 147.2C372.5 148.4 373.3 149.6 374.2 150.8C375.1 151.9 375.9 153 376.8 154.1C377.6 155.1 378.5 156.1 379.4 157.1C380.2 158 381.1 158.9 381.9 159.7C382.8 160.5 383.7 161.2 384.5 161.9C385.4 162.6 386.2 163.2 387.1 163.7C388 164.2 388.8 164.7 389.7 165.1C390.5 165.5 391.4 165.8 392.3 166C393.1 166.2 394 166.4 394.8 166.5C395.7 166.6 397 166.5 397.4 166.5" fill="none" stroke="var(--bio-dna)" stroke-width="13.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M314.8 75.5C315.3 75.5 316.6 75.5 317.4 75.6C318.3 75.7 319.1 75.9 320 76.1C320.9 76.4 321.7 76.7 322.6 77.1C323.4 77.5 324.3 78 325.2 78.6C326 79.1 326.9 79.7 327.7 80.4C328.6 81.1 329.5 81.9 330.3 82.7C331.2 83.5 332 84.4 332.9 85.4C333.8 86.3 334.6 87.3 335.5 88.4C336.3 89.5 337.2 90.6 338.1 91.8C338.9 92.9 339.8 94.2 340.6 95.4C341.5 96.7 342.4 98 343.2 99.4C344.1 100.7 344.9 102.1 345.8 103.5C346.7 104.9 347.5 106.3 348.4 107.8C349.2 109.3 350.1 110.8 351 112.3C351.8 113.7 352.7 115.3 353.5 116.8C354.4 118.3 355.3 119.8 356.1 121.4C357 122.9 357.8 124.4 358.7 125.9C359.6 127.5 360.4 129 361.3 130.5C362.2 132 363 133.4 363.9 134.9C364.7 136.4 365.6 137.8 366.5 139.2C367.3 140.6 368.2 142 369 143.3C369.9 144.6 370.8 145.9 371.6 147.2C372.5 148.4 373.3 149.6 374.2 150.8C375.1 151.9 375.9 153 376.8 154.1C377.6 155.1 378.5 156.1 379.4 157.1C380.2 158 381.1 158.9 381.9 159.7C382.8 160.5 383.7 161.2 384.5 161.9C385.4 162.6 386.2 163.2 387.1 163.7C388 164.2 388.8 164.7 389.7 165.1C390.5 165.5 391.4 165.8 392.3 166C393.1 166.2 394 166.4 394.8 166.5C395.7 166.6 397 166.5 397.4 166.5" fill="none" stroke="var(--bio-dna-hi)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(-2.1 -1.6)"/></g><text class="bio-label" font-weight="700" x="151.0" y="80.5" text-anchor="end">5′</text><text class="bio-label" font-weight="700" x="151.0" y="153.0" text-anchor="end">3′</text><text class="bio-label" font-weight="700" x="649.0" y="79.6" text-anchor="start">3′</text><text class="bio-label" font-weight="700" x="649.0" y="157.2" text-anchor="start">5′</text><path class="bio-casing" d="M471.2 66.5L632.3 66.5M471.2 70.5L471.2 62.5M632.3 70.5L632.3 62.5" stroke-width="3"/><path class="bio-dimension" d="M471.2 66.5L632.3 66.5M471.2 70.5L471.2 62.5M632.3 70.5L632.3 62.5"/><text class="bio-label" data-small x="551.7" y="61.5" text-anchor="middle">One turn: 3.5 nm, 10.4 base pairs</text><path class="bio-casing" d="M680 76.5L680 165.5M676 76.5L684 76.5M676 165.5L684 165.5" stroke-width="3"/><path class="bio-dimension" d="M680 76.5L680 165.5M676 76.5L684 76.5M676 165.5L684 165.5"/><text class="bio-label" data-small x="686" y="125" text-anchor="start">2 nm</text><path class="bio-casing" d="M415.5 177.5L400 177.5M415.5 173.5L415.5 181.5M400 173.5L400 181.5" stroke-width="3"/><path class="bio-dimension" d="M415.5 177.5L400 177.5M415.5 173.5L415.5 181.5M400 173.5L400 181.5"/><text class="bio-label" data-small x="407.7" y="190.5" text-anchor="middle">0.34 nm per base pair</text><path class="bio-casing" d="M276.1 135.5L136 135.5" stroke-width="3.2"/><path class="bio-leader" d="M276.1 135.5L136 135.5"/><circle class="bio-anchor" cx="276.1" cy="135.5" r="1.9"/><text class="bio-label" x="130" y="139.6" text-anchor="end">Major groove</text><path class="bio-casing" d="M369 130.3L311.8 187.5L136 187.5" stroke-width="3.2"/><path class="bio-leader" d="M369 130.3L311.8 187.5L136 187.5"/><circle class="bio-anchor" cx="369" cy="130.3" r="1.9"/><text class="bio-label" x="130" y="191.7" text-anchor="end">Base pair</text><path class="bio-casing" d="M356 121.1L281.3 46.5L136 46.5" stroke-width="3.2"/><path class="bio-leader" d="M356 121.1L281.3 46.5L136 46.5"/><circle class="bio-anchor" cx="356" cy="121.1" r="1.9"/><text class="bio-label" x="130" y="43.4" text-anchor="end"><tspan x="130" dy="0">Sugar–phosphate</tspan><tspan x="130" dy="1.25em">backbone</tspan></text><path class="bio-casing" d="M461.9 124.5L525 187.5L696 187.5" stroke-width="3.2"/><path class="bio-leader" d="M461.9 124.5L525 187.5L696 187.5"/><circle class="bio-anchor" cx="461.9" cy="124.5" r="1.9"/><text class="bio-label" x="702" y="191.7" text-anchor="start">Minor groove</text><rect class="bio-key" x="190" y="246" width="14" height="10" rx="2.5" fill="url(#bio-v-baseA)" stroke="var(--bio-baseA-edge)"/><text class="bio-label" data-small x="210" y="254">Adenine (A)</text><rect class="bio-key" x="308" y="246" width="14" height="10" rx="2.5" fill="url(#bio-v-baseT)" stroke="var(--bio-baseT-edge)"/><text class="bio-label" data-small x="328" y="254">Thymine (T)</text><rect class="bio-key" x="426" y="246" width="14" height="10" rx="2.5" fill="url(#bio-v-baseG)" stroke="var(--bio-baseG-edge)"/><text class="bio-label" data-small x="446" y="254">Guanine (G)</text><rect class="bio-key" x="544" y="246" width="14" height="10" rx="2.5" fill="url(#bio-v-baseC)" stroke="var(--bio-baseC-edge)"/><text class="bio-label" data-small x="564" y="254">Cytosine (C)</text></svg></div><div class="bio-foot"><span>Hover along the helix · ← → step through the pairs</span><span data-readout>Pair 1 of 31 · A–T · 2 hydrogen bonds · 0.17 nm from the 5′ end</span></div></div><figcaption class="iso-legend"><span class="iso-caption">B-DNA, the main form of DNA in cells. Two sugar–phosphate backbones wind round a common axis in a right-handed double helix and run antiparallel, one 5′→3′ and the other 3′→5′. Bases pair across the helix, adenine with thymine by two hydrogen bonds and guanine with cytosine by three (shown on the highlighted pair). Each pair rises 0.34 nm along the axis, the helix is about 2 nm across and makes one turn every 10.4 base pairs (3.5 nm), and the uneven spacing of the backbones leaves a major and a minor groove. The sequence shown is an example. Sources: Watson & Crick 1953, Nature 171:737; Franklin & Gosling 1953, Nature 171:740; Wang 1979, PNAS 76:200; Pauling & Corey 1956, Arch Biochem Biophys 65:164.</span></figcaption></figure></div></main><script type="module">const AZIMUTH = 45;
+const ELEVATION = 30;
+const SHADES = 4;
+const RADIANS = Math.PI / 180;
+const UNIT = Math.sqrt(1.6);
+function cameraOf({ scale, azimuth = AZIMUTH, elevation = ELEVATION }) {
+    const a = azimuth * RADIANS;
+    const e = elevation * RADIANS;
+    return { sinA: Math.sin(a), cosA: Math.cos(a), sinE: Math.sin(e), cosE: Math.cos(e), k: scale * UNIT };
+}
+function iso([x, y, z], projection) {
+    const { origin } = projection;
+    const { sinA, cosA, sinE, cosE, k } = cameraOf(projection);
+    return [origin[0] + (x * sinA - y * cosA) * k, origin[1] + ((x * cosA + y * sinA) * sinE - z * cosE) * k];
+}
+function towardViewer(projection) {
+    const { sinA, cosA } = cameraOf(projection);
+    return [cosA, sinA];
+}
+function depthOf([x, y, z], projection) {
+    const { sinA, cosA, sinE, cosE } = cameraOf(projection);
+    return (x * cosA + y * sinA) * cosE + z * sinE;
+}
+const tenth = (value) => {
+    const text = (Math.round(value * 10) / 10).toFixed(1).replace(/\.0$/, "");
+    return text === "-0" ? "0" : text;
+};
+function pathOf(points, closed = false) {
+    if (!points.length)
+        return "";
+    return points.map(([x, y], at) => `${at ? "L" : "M"}${tenth(x)} ${tenth(y)}`).join("") + (closed ? "Z" : "");
+}
+const joinPaths = (paths) => paths.filter(Boolean).join("");
+function roundedPlan({ x, y, w, d, r }, steps = 8) {
+    const radius = Math.max(0, Math.min(r, w / 2, d / 2));
+    const corners = [
+        [x + w - radius, y + radius, -90],
+        [x + w - radius, y + d - radius, 0],
+        [x + radius, y + d - radius, 90],
+        [x + radius, y + radius, 180],
+    ];
+    const out = [];
+    for (const [cx, cy, start] of corners) {
+        const count = radius > 0 ? steps : 0;
+        for (let step = 0; step <= count; step++) {
+            const angle = (start + (count ? (90 * step) / count : 45)) * RADIANS;
+            out.push([cx + radius * Math.cos(angle), cy + radius * Math.sin(angle)]);
+        }
+    }
+    return out;
+}
+function signedArea(points) {
+    let area = 0;
+    for (let index = 0; index < points.length; index++) {
+        const [ax, ay] = points[index];
+        const [bx, by] = points[(index + 1) % points.length];
+        area += ax * by - bx * ay;
+    }
+    return area / 2;
+}
+const oriented = (points) => (signedArea(points) < 0 ? [...points].reverse() : points);
+function convexHull(points) {
+    const sorted = [...points].sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+    if (sorted.length < 3)
+        return sorted;
+    const cross = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+    const lower = [];
+    for (const point of sorted) {
+        while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], point) <= 0)
+            lower.pop();
+        lower.push(point);
+    }
+    const upper = [];
+    for (let index = sorted.length - 1; index >= 0; index--) {
+        const point = sorted[index];
+        while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], point) <= 0)
+            upper.pop();
+        upper.push(point);
+    }
+    return [...lower.slice(0, -1), ...upper.slice(0, -1)];
+}
+function runsOf(flags, want) {
+    const count = flags.length;
+    const runs = [];
+    const start = flags.findIndex((flag, index) => flag !== flags[(index + count - 1) % count]);
+    if (start < 0)
+        return flags[0] === want ? [Array.from({ length: count + 1 }, (_, index) => index % count)] : [];
+    let run = null;
+    for (let step = 0; step < count; step++) {
+        const index = (start + step) % count;
+        if (flags[index] === want) {
+            if (!run)
+                run = [index];
+            run.push((index + 1) % count);
+        }
+        else if (run) {
+            runs.push(run);
+            run = null;
+        }
+    }
+    if (run)
+        runs.push(run);
+    return runs;
+}
+function extrude(ring, z, height, projection, options = {}) {
+    const convex = options.convex ?? true;
+    const count = ring.length;
+    const counter = signedArea(ring) > 0;
+    const [vx, vy] = towardViewer(projection);
+    const { sinA, cosA } = cameraOf(projection);
+    const normals = ring.map(([ax, ay], index) => {
+        const [bx, by] = ring[(index + 1) % count];
+        const dx = bx - ax;
+        const dy = by - ay;
+        const length = Math.hypot(dx, dy) || 1;
+        return (counter ? [dy / length, -dx / length] : [-dy / length, dx / length]);
+    });
+    const facing = normals.map(([nx, ny]) => nx * vx + ny * vy > 1e-9);
+    const top = ring.map(([x, y]) => iso([x, y, z + height], projection));
+    const bottom = ring.map(([x, y]) => iso([x, y, z], projection));
+    const outline = [];
+    const crease = [];
+    for (const run of runsOf(facing, false))
+        outline.push(pathOf(run.map((index) => top[index])));
+    for (const run of runsOf(facing, true)) {
+        crease.push(pathOf(run.map((index) => top[index])));
+        if (height > 0)
+            outline.push(pathOf(run.map((index) => bottom[index])));
+    }
+    if (height > 0) {
+        for (let index = 0; index < count; index++) {
+            if (facing[(index + count - 1) % count] !== facing[index])
+                outline.push(pathOf([top[index], bottom[index]]));
+        }
+    }
+    let fill;
+    if (convex) {
+        fill = pathOf(convexHull([...top, ...bottom]), true);
+    }
+    else {
+        const parts = [pathOf(oriented(top), true), pathOf(oriented(bottom), true)];
+        for (let index = 0; index < count; index++) {
+            if (!facing[index])
+                continue;
+            const next = (index + 1) % count;
+            parts.push(pathOf(oriented([top[index], top[next], bottom[next], bottom[index]]), true));
+        }
+        fill = parts.join("");
+    }
+    const buckets = Array.from({ length: SHADES }, () => []);
+    if (height > 0) {
+        const [lx, ly] = [-sinA, cosA];
+        for (let index = 0; index < count; index++) {
+            if (!facing[index])
+                continue;
+            const [nx, ny] = normals[index];
+            const lit = (nx * lx + ny * ly + 1) / 2;
+            const shade = Math.min(SHADES - 1, Math.max(0, Math.floor(lit * SHADES)));
+            const next = (index + 1) % count;
+            buckets[shade].push(pathOf(oriented([top[index], top[next], bottom[next], bottom[index]]), true));
+        }
+    }
+    let bevel;
+    if (options.bevel && options.bevel > 0) {
+        const by = options.bevel;
+        const inset = ring.map(([x, y], index) => {
+            const [ax, ay] = normals[(index + count - 1) % count];
+            const [bx, by2] = normals[index];
+            const mx = ax + bx;
+            const my = ay + by2;
+            const length = Math.hypot(mx, my) || 1;
+            return [x - (mx / length) * by, y - (my / length) * by];
+        });
+        const insetTop = inset.map(([x, y]) => iso([x, y, z + height], projection));
+        bevel = runsOf(facing, true)
+            .map((run) => pathOf([top[run[0]], ...run.slice(1, -1).map((index) => insetTop[index]), top[run[run.length - 1]]]))
+            .join("");
+    }
+    return {
+        fill,
+        outline: outline.join(""),
+        crease: crease.join(""),
+        top: pathOf(oriented(top), true),
+        shades: buckets.map((paths) => paths.join("")),
+        bevel,
+    };
+}
+const ringOf = (plan, steps = 8) => roundedPlan(plan, steps);
+function slabOf(plan, z, height, projection, steps = 8, bevel = 0) {
+    return extrude(ringOf(plan, steps), z, height, projection, { convex: true, bevel });
+}
+function circleRing(cx, cy, radius, steps = 40) {
+    return Array.from({ length: steps }, (_, step) => {
+        const angle = (step / steps) * Math.PI * 2;
+        return [cx + radius * Math.cos(angle), cy + radius * Math.sin(angle)];
+    });
+}
+function cylinder(cx, cy, radius, z, height, projection, steps = 32, bevel = 0) {
+    return extrude(circleRing(cx, cy, radius, steps), z, height, projection, { convex: true, bevel });
+}
+const insetPlan = ({ x, y, w, d, r }, by) => ({ x: x + by, y: y + by, w: w - by * 2, d: d - by * 2, r: Math.max(0, r - by) });
+function onTop(points, z, projection, closed = false) {
+    return pathOf(points.map(([x, y]) => iso([x, y, z], projection)), closed);
+}
+const planOutline = (plan, z, projection, steps = 8) => onTop(ringOf(plan, steps), z, projection, true);
+const lineOnTop = (from, to, z, projection) => onTop([from, to], z, projection);
+const segment = (from, to, projection) => pathOf([iso(from, projection), iso(to, projection)]);
+const rise = (at, from, to, projection) => segment([at[0], at[1], from], [at[0], at[1], to], projection);
+const ring = (cx, cy, radius, z, projection, steps = 40) => onTop(circleRing(cx, cy, radius, steps), z, projection, true);
+const pointsAt = (points, projection) => points.map((point) => iso(point, projection));
+function dotGrid(x, y, columns, rows, gap, z, projection) {
+    const dots = [];
+    for (let row = 0; row < rows; row++) {
+        for (let column = 0; column < columns; column++)
+            dots.push(iso([x + column * gap, y + row * gap, z], projection));
+    }
+    return dots;
+}
+function corners({ x, y, w, d }, inset = 0) {
+    return [
+        [x + inset, y + inset],
+        [x + w - inset, y + inset],
+        [x + inset, y + d - inset],
+        [x + w - inset, y + d - inset],
+    ];
+}
+function boxCorners({ x, y, w, d }, z0, z1) {
+    const out = [];
+    for (const px of [x, x + w])
+        for (const py of [y, y + d])
+            for (const z of [z0, z1])
+                out.push([px, py, z]);
+    return out;
+}
+function knurl(cx, cy, radius, z0, z1, count, projection, inset = 0.4) {
+    const [vx, vy] = towardViewer(projection);
+    const lines = [];
+    for (let index = 0; index < count; index++) {
+        const angle = (index / count) * Math.PI * 2;
+        const nx = Math.cos(angle);
+        const ny = Math.sin(angle);
+        if (nx * vx + ny * vy < 0.15)
+            continue;
+        lines.push(segment([cx + radius * nx, cy + radius * ny, z0 + inset], [cx + radius * nx, cy + radius * ny, z1 - inset], projection));
+    }
+    return lines.join("");
+}
+function sideArc(cx, cy, radius, z, projection, steps = 24) {
+    const [vx, vy] = towardViewer(projection);
+    const facing = Math.atan2(vy, vx);
+    const points = [];
+    for (let step = 0; step <= steps; step++) {
+        const angle = facing - Math.PI / 2 + (step / steps) * Math.PI;
+        points.push(iso([cx + radius * Math.cos(angle), cy + radius * Math.sin(angle), z], projection));
+    }
+    return pathOf(points);
+}
+function ringSeam(ring, z, projection) {
+    const count = ring.length;
+    const counter = signedArea(ring) > 0;
+    const [vx, vy] = towardViewer(projection);
+    const facing = ring.map(([ax, ay], index) => {
+        const [bx, by] = ring[(index + 1) % count];
+        const dx = bx - ax;
+        const dy = by - ay;
+        const [nx, ny] = counter ? [dy, -dx] : [-dy, dx];
+        return nx * vx + ny * vy > 1e-9;
+    });
+    return runsOf(facing, true).map((run) => pathOf(run.map((index) => iso([ring[index][0], ring[index][1], z], projection)))).join("");
+}
+const sideSeam = (plan, z, projection, steps = 8) => ringSeam(ringOf(plan, steps), z, projection);
+function sideRing(center, radius, axis, projection, steps = 20) {
+    const [px, py, pz] = center;
+    const points = [];
+    for (let step = 0; step < steps; step++) {
+        const angle = (step / steps) * Math.PI * 2;
+        const u = radius * Math.cos(angle);
+        const v = radius * Math.sin(angle);
+        points.push(iso(axis === "x" ? [px, py + u, pz + v] : [px + u, py, pz + v], projection));
+    }
+    return pathOf(points, true);
+}
+function coil(from, to, center, radius, turns, axis, projection, perTurn = 16) {
+    const count = Math.max(1, Math.round(turns * perTurn));
+    const back = [];
+    const front = [];
+    let run = [];
+    let near = null;
+    for (let index = 0; index <= count; index++) {
+        const share = index / count;
+        const angle = share * turns * Math.PI * 2;
+        const u = radius * Math.cos(angle);
+        const v = radius * Math.sin(angle);
+        const along = from + (to - from) * share;
+        const point = axis === "x" ? [along, center[0] + u, center[1] + v] : [center[0] + u, along, center[1] + v];
+        const normal = axis === "x" ? [0, Math.cos(angle), Math.sin(angle)] : [Math.cos(angle), 0, Math.sin(angle)];
+        const facing = depthOf(normal, projection) > 0;
+        const flat = iso(point, projection);
+        if (near === null)
+            near = facing;
+        if (facing !== near) {
+            run.push(flat);
+            (near ? front : back).push(pathOf(run));
+            run = [flat];
+            near = facing;
+            continue;
+        }
+        run.push(flat);
+    }
+    if (run.length > 1)
+        (near ? front : back).push(pathOf(run));
+    return { back: back.join(""), front: front.join("") };
+}
+function topTicks(from, to, step, every, edge, z, lengths, projection, axis = "x") {
+    const minor = [];
+    const major = [];
+    const first = Math.ceil(from / step) * step;
+    for (let at = first, index = Math.round(first / step); at <= to + 1e-9; at += step, index++) {
+        const big = index % every === 0;
+        const length = big ? lengths[1] : lengths[0];
+        const a = axis === "x" ? [at, edge] : [edge, at];
+        const b = axis === "x" ? [at, edge + length] : [edge + length, at];
+        (big ? major : minor).push(lineOnTop(a, b, z, projection));
+    }
+    return { minor: minor.join(""), major: major.join("") };
+}
+function sideTicks(from, to, step, every, face, top, lengths, projection, axis = "x") {
+    const minor = [];
+    const major = [];
+    const first = Math.ceil(from / step) * step;
+    for (let at = first, index = Math.round(first / step); at <= to + 1e-9; at += step, index++) {
+        const big = index % every === 0;
+        const length = big ? lengths[1] : lengths[0];
+        const a = axis === "x" ? [at, face, top] : [face, at, top];
+        const b = axis === "x" ? [at, face, top - length] : [face, at, top - length];
+        (big ? major : minor).push(segment(a, b, projection));
+    }
+    return { minor: minor.join(""), major: major.join("") };
+}
+function radialTicks(cx, cy, radius, count, every, z, lengths, projection, from = 0, span = Math.PI * 2) {
+    const minor = [];
+    const major = [];
+    const closed = Math.abs(span - Math.PI * 2) < 1e-9;
+    const steps = closed ? count : count + 1;
+    for (let index = 0; index < steps; index++) {
+        const angle = from + (index / count) * span;
+        const big = index % every === 0;
+        const inner = radius - (big ? lengths[1] : lengths[0]);
+        const sx = Math.sin(angle);
+        const sy = -Math.cos(angle);
+        (big ? major : minor).push(lineOnTop([cx + sx * inner, cy + sy * inner], [cx + sx * radius, cy + sy * radius], z, projection));
+    }
+    return { minor: minor.join(""), major: major.join("") };
+}
+const haloOf = (plan, z, height, projection) => slabOf(plan, z, height, projection).fill;
+function axisVector(projection, [dx, dy, dz]) {
+    const origin = iso([0, 0, 0], projection);
+    const moved = iso([dx, dy, dz], projection);
+    return [moved[0] - origin[0], moved[1] - origin[1]];
+}
+const fine = (value) => Math.round(value * 100) / 100;
+function translateAlong(projection, by) {
+    const [x, y] = axisVector(projection, by);
+    return `translate(${fine(x)} ${fine(y)})`;
+}
+const thousandth = (value) => Math.round(value * 1000) / 1000;
+function axesAt(at, z, projection) {
+    const origin = iso([at[0], at[1], z], projection);
+    const along = (point) => {
+        const [px, py] = iso(point, projection);
+        return [px - origin[0], py - origin[1]];
+    };
+    return { origin, x: along([at[0] + 1, at[1], z]), y: along([at[0], at[1] + 1, z]), z: along([at[0], at[1], z + 1]) };
+}
+const matrixOf = (u, v, origin) => `matrix(${thousandth(u[0])} ${thousandth(u[1])} ${thousandth(v[0])} ${thousandth(v[1])} ${thousandth(origin[0])} ${thousandth(origin[1])})`;
+function holdStill(element, [dx, dy]) {
+    const text = dx || dy ? `translate(${-dx} ${-dy})` : "";
+    element.querySelectorAll("[data-hold]").forEach((node) => (text ? node.setAttribute("transform", text) : node.removeAttribute("transform")));
+}
+function topMatrix(at, z, projection, along = "x") {
+    const { origin, x, y } = axesAt(at, z, projection);
+    return along === "x" ? matrixOf(x, y, origin) : matrixOf([-y[0], -y[1]], x, origin);
+}
+function sideMatrix(at, z, projection, face) {
+    const { origin, x, y, z: up } = axesAt(at, z, projection);
+    const down = [-up[0], -up[1]];
+    return face === "left" ? matrixOf(x, down, origin) : matrixOf([-y[0], -y[1]], down, origin);
+}
+function screenRise(height, projection) {
+    const { cosE, k } = cameraOf(projection);
+    return height * cosE * k;
+}
+function fitProjection(points, width, height, { pad = 24, headroom = 0, azimuth = AZIMUTH, elevation = ELEVATION } = {}) {
+    const unit = { origin: [0, 0], scale: 1, azimuth, elevation };
+    const flat = points.map((point) => iso(point, unit));
+    const xs = flat.map(([x]) => x);
+    const ys = flat.map(([, y]) => y);
+    const left = Math.min(...xs);
+    const right = Math.max(...xs);
+    const up = Math.min(...ys);
+    const down = Math.max(...ys);
+    const scale = Math.min((width - pad * 2) / (right - left), (height - pad * 2 - headroom) / (down - up));
+    return {
+        origin: [width / 2 - ((left + right) / 2) * scale, headroom + (height - headroom) / 2 - ((up + down) / 2) * scale],
+        scale,
+        azimuth,
+        elevation,
+    };
+}
+const escape = (text) => text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const attrs = (pairs) => Object.entries(pairs)
+    .filter(([, value]) => value !== undefined && value !== false)
+    .map(([key, value]) => ` ${key}="${escape(String(value))}"`)
+    .join("");
+function solidSvg(paths, { tone = "hi", crease = "faint", halo = false, lit = false, flat = false, className, inner = "" } = {}) {
+    const parts = [];
+    if (halo)
+        parts.push(`<path class="iso-halo" d="${paths.fill}"/>`);
+    parts.push(`<path class="iso-fill" d="${paths.fill}"/>`);
+    if (!flat) {
+        paths.shades.forEach((d, shade) => {
+            if (d)
+                parts.push(`<path class="iso-shade" data-shade="${shade}" d="${d}"/>`);
+        });
+        parts.push(`<path class="iso-top" d="${paths.top}"/>`);
+    }
+    if (crease !== "none" && paths.crease)
+        parts.push(`<path class="iso-line iso-crease" data-tone="${crease}" d="${paths.crease}"/>`);
+    if (crease !== "none" && paths.bevel)
+        parts.push(`<path class="iso-line iso-bevel" data-tone="${crease}" d="${paths.bevel}"/>`);
+    if (inner)
+        parts.push(inner);
+    parts.push(`<path class="iso-line iso-edge" data-tone="${tone}" d="${paths.outline}"/>`);
+    return `<g${attrs({ class: className ? `iso-solid ${className}` : "iso-solid", "data-lit": lit ? "" : undefined, "data-seamless": paths.seamless ? "" : undefined })}>${parts.join("")}</g>`;
+}
+function lineSvg(d, { tone = "lo", dotted = false, dashed = false, flow = false, className, free } = {}) {
+    if (!d)
+        return "";
+    return `<path${attrs({
+        class: className ? `iso-line ${className}` : "iso-line",
+        "data-tone": tone,
+        "data-free": free === true ? "" : free || undefined,
+        "data-dotted": dotted ? "" : undefined,
+        "data-dashed": dashed ? "" : undefined,
+        "data-flow": flow ? "" : undefined,
+        d,
+    })}/>`;
+}
+function dotsSvg(points, { size = 0.5, tone = "mid", pulse = false } = {}) {
+    const dots = points
+        .map(([x, y, alpha], index) => `<circle cx="${tenth(x)}" cy="${tenth(y)}" r="${size}"${alpha !== undefined && alpha < 1 ? ` fill-opacity="${Math.max(0, alpha).toFixed(2)}"` : ""}${pulse ? ` data-pulse="" style="--pulse-at:${(index * 137) % 1600}ms"` : ""}/>`)
+        .join("");
+    return `<g class="iso-dots" data-tone="${tone}">${dots}</g>`;
+}
+function fadedSvg(list, style = {}) {
+    const groups = new Map();
+    for (const entry of list) {
+        const [d, alpha] = Array.isArray(entry) ? entry : [entry.d, entry.alpha];
+        if (!d || !(alpha > 0.02))
+            continue;
+        const level = Math.min(1, Math.round(alpha * 20) / 20);
+        groups.set(level, (groups.get(level) ?? "") + d);
+    }
+    return [...groups].map(([alpha, d]) => (alpha >= 1 ? lineSvg(d, style) : `<g opacity="${alpha.toFixed(2)}">${lineSvg(d, style)}</g>`)).join("");
+}
+function fadeLineSvg(points, { fade = [0, 0], tone = "lo", className, stops = 6 } = {}) {
+    if (points.length < 2)
+        return "";
+    const ease = (t) => t * t * (3 - 2 * t);
+    const hashOf = (text) => {
+        let hash = 2166136261;
+        for (let index = 0; index < text.length; index++)
+            hash = Math.imul(hash ^ text.charCodeAt(index), 16777619);
+        return (hash >>> 0).toString(36);
+    };
+    const lengths = [0];
+    for (let index = 1; index < points.length; index++)
+        lengths.push(lengths[index - 1] + Math.hypot(points[index][0] - points[index - 1][0], points[index][1] - points[index - 1][1]));
+    const at = (length) => {
+        let index = 1;
+        while (index < points.length - 1 && lengths[index] < length)
+            index++;
+        const span = lengths[index] - lengths[index - 1] || 1;
+        const t = Math.max(0, Math.min(1, (length - lengths[index - 1]) / span));
+        return [points[index - 1][0] + (points[index][0] - points[index - 1][0]) * t, points[index - 1][1] + (points[index][1] - points[index - 1][1]) * t];
+    };
+    const pieceOf = (from, to) => [at(from), ...points.filter((_, index) => lengths[index] > from + 1e-6 && lengths[index] < to - 1e-6), at(to)];
+    const total = lengths[lengths.length - 1];
+    if (total < 1e-6)
+        return "";
+    let [start, end] = Array.isArray(fade) ? fade : [fade, fade];
+    if (start + end > total) {
+        const share = total / (start + end);
+        start *= share;
+        end *= share;
+    }
+    const paint = `var(--microscope-${tone})`;
+    const ramp = (piece, rising) => {
+        const d = pathOf(piece);
+        const [x1, y1] = piece[0];
+        const [x2, y2] = piece[piece.length - 1];
+        const id = `iso-fade-${hashOf(`${d}|${tone}|${rising}`)}`;
+        const marks = Array.from({ length: stops + 1 }, (_, index) => {
+            const t = index / stops;
+            const alpha = ease(rising ? t : 1 - t);
+            return `<stop offset="${t.toFixed(3)}" stop-opacity="${alpha.toFixed(3)}" style="stop-color:${paint}"/>`;
+        }).join("");
+        const gradient = `<linearGradient id="${id}" gradientUnits="userSpaceOnUse" x1="${tenth(x1)}" y1="${tenth(y1)}" x2="${tenth(x2)}" y2="${tenth(y2)}">${marks}</linearGradient>`;
+        return `<defs>${gradient}</defs><path${attrs({ class: className ? `iso-line ${className}` : "iso-line", "data-tone": tone, "data-free": rising ? "start" : "end", d, style: `stroke:url(#${id})` })}/>`;
+    };
+    const parts = [];
+    if (start > 0.05)
+        parts.push(ramp(pieceOf(0, start), true));
+    if (total - end - start > 0.05)
+        parts.push(lineSvg(pathOf(pieceOf(start, total - end)), { tone, className }));
+    if (end > 0.05)
+        parts.push(ramp(pieceOf(total - end, total), false));
+    return `<g class="iso-fade">${parts.join("")}</g>`;
+}
+function wireSvg(from, to, { via = [], tone = "lo", dotted = false, dashed = false, flow = false, ends = "both", size = 1.2 } = {}) {
+    const d = pathOf([from, ...via, to]);
+    const end = ([x, y]) => `<circle class="iso-wire-end" cx="${tenth(x)}" cy="${tenth(y)}" r="${size}"/>`;
+    return `<g class="iso-wire" data-tone="${tone}">${lineSvg(d, { tone, dotted, dashed, flow })}${ends === "both" || ends === "from" ? end(from) : ""}${ends === "both" || ends === "to" ? end(to) : ""}</g>`;
+}
+function faceTextSvg(transform, text, { size = 3, tone = "mid", anchor = "start" } = {}) {
+    return `<text class="iso-face-text" data-tone="${tone}" transform="${transform}" font-size="${size}" text-anchor="${anchor}">${escape(text)}</text>`;
+}
+function groupSvg(children, extra = {}) {
+    return `<g${attrs(extra)}>${Array.isArray(children) ? children.join("") : children}</g>`;
+}
+function figureSvg({ width, height, label, body, standalone = false, className }) {
+    const style = standalone ? `<style>${ISO_CSS}</style>` : "";
+    return `<svg${attrs({
+        xmlns: "http://www.w3.org/2000/svg",
+        class: `iso-svg${standalone ? " iso" : ""}${className ? ` ${className}` : ""}`,
+        "data-theme": standalone || undefined,
+        viewBox: `0 0 ${width} ${height}`,
+        role: "img",
+        "aria-label": label,
+    })}>${style}${Array.isArray(body) ? body.join("") : body}</svg>`;
+}
+function swatchSvg(mark) {
+    if (mark === "raised" || mark === "flat" || mark === "lit") {
+        const body = mark === "flat" ? "M2 6.5 8 3.5 14 6.5 8 9.5Z" : "M2 4.5 8 1.5 14 4.5 14 6 8 9 2 6Z";
+        const crease = mark === "flat" ? "" : `<path class="iso-swatch-crease" d="M2 4.5 8 7.5 14 4.5"/>`;
+        return `<svg class="iso-swatch" data-mark="${mark}" viewBox="0 0 16 10" aria-hidden="true"><path d="${body}"/>${crease}</svg>`;
+    }
+    return `<svg class="iso-swatch" data-mark="${mark}" viewBox="0 0 16 10" aria-hidden="true"><path d="M1.5 5h13"/></svg>`;
+}
+function plateHtml({ fig, title, hint, readout = "", keys = [], caption, body }) {
+    const corner = (name, text, extra = "") => `<span class="iso-plate-corner" data-corner="${name}"${extra}>${escape(text)}</span>`;
+    const legend = keys.length || caption
+        ? `<figcaption class="iso-legend">${keys.length ? `<span class="iso-keys">${keys.map((key) => `<span class="iso-key">${swatchSvg(key.mark)}${escape(key.label)}</span>`).join("")}</span>` : ""}${caption ? `<span class="iso-caption">${escape(caption)}</span>` : ""}</figcaption>`
+        : "";
+    return `<figure class="iso-figure"><div class="iso-plate"><div class="iso-plate-corners" aria-hidden="true">${corner("fig", fig)}${title ? corner("title", title) : ""}${hint ? corner("hint", hint) : ""}${corner("readout", readout, " data-readout")}</div>${body}</div>${legend}</figure>`;
+}
+function pageHtml({ title, theme = "dark", body, script = "", width = 650 }) {
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(title)}</title><style>${ISO_CSS}${PAGE_CSS.replace("__WIDTH__", String(width))}</style></head><body class="iso" data-theme="${theme}"><main class="iso-page">${body}</main>${script ? `<script type="module">${script.replace(/<\/(script)/gi, "<\\/$1")}<\/script>` : ""}</body></html>`;
+}
+const PAGE_CSS = `
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body[data-theme="light"]{color-scheme:light}
+body{margin:0;background:var(--microscope-page);color:var(--microscope-text);font:14px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.iso-page{width:min(__WIDTH__px,100% - 32px);margin:64px auto 96px}
+`;
+const ISO_CSS = `
+.iso{
+  --microscope-page:#0b0b0b;--microscope-card:#131313;--microscope-text:#a3a3a3;--microscope-strong:#e6e6e6;--microscope-muted:#6e6e6e;
+  --microscope-paper:#131313;--microscope-face:#1b1b1b;--microscope-top:#1c1c1c;
+  --microscope-shade-0:#0f0f0f;--microscope-shade-1:#121212;--microscope-shade-2:#151515;--microscope-shade-3:#181818;
+  --microscope-lit-top:#262626;--microscope-lit-shade:#1d1d1d;
+  --microscope-hi:#d4d4d4;--microscope-mid:#6a6a6a;--microscope-lo:#3e3e3e;--microscope-faint:#2a2a2a;--microscope-lit:#ffffff;
+  --microscope-halo:#050505;--microscope-halo-opacity:.9;--microscope-dot:#e6e6e6;
+  --microscope-red:#ff6b6b;--microscope-green:#6be0a0;--microscope-blue:#6b9bff;
+  --microscope-weight:.6px;--microscope-ease:cubic-bezier(.32,.72,0,1);
+  --microscope-mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --microscope-lift:inset 0 1px 0 0 #ffffff0a,inset 0 0 0 1px #ffffff06,0 0 0 1px #00000026,0 1px 1px -.5px #00000014,0 3px 3px -1.5px #00000014,0 6px 6px -3px #00000014,0 12px 12px -6px #00000014;
+}
+.iso[data-theme="light"]{
+  --microscope-page:#f2f2ef;--microscope-card:#fbfbfa;--microscope-text:#57575a;--microscope-strong:#18181a;--microscope-muted:#8c8c90;
+  --microscope-paper:#fbfbfa;--microscope-face:#ffffff;--microscope-top:#ffffff;
+  --microscope-shade-0:#dcdcd9;--microscope-shade-1:#e5e5e2;--microscope-shade-2:#ededea;--microscope-shade-3:#f4f4f1;
+  --microscope-lit-top:#ffffff;--microscope-lit-shade:#eeeeeb;
+  --microscope-hi:#26262a;--microscope-mid:#8a8a8f;--microscope-lo:#b4b4b8;--microscope-faint:#d4d4d6;--microscope-lit:#000000;
+  --microscope-halo:#8a8a80;--microscope-halo-opacity:.32;--microscope-dot:#3a3a3e;
+  --microscope-red:#e5484d;--microscope-green:#30a46c;--microscope-blue:#3e63dd;
+  --microscope-lift:inset 0 1px 0 0 #ffffff,0 0 0 1px #0000000f,0 1px 1px -.5px #0000000a,0 3px 3px -1.5px #0000000a,0 6px 6px -3px #0000000a,0 12px 12px -6px #0000000a;
+}
+.iso-svg{display:block;width:100%;height:auto;overflow:visible}
+.iso-svg path,.iso-svg circle{vector-effect:non-scaling-stroke}
+.iso-fill{fill:var(--microscope-paper);stroke:none}
+.iso-solid[data-lit]>.iso-fill{fill:var(--microscope-face)}
+.iso-shade,.iso-top{stroke:none}
+.iso-shade[data-shade="0"]{fill:var(--microscope-shade-0)}
+.iso-shade[data-shade="1"]{fill:var(--microscope-shade-1)}
+.iso-shade[data-shade="2"]{fill:var(--microscope-shade-2)}
+.iso-shade[data-shade="3"]{fill:var(--microscope-shade-3)}
+.iso-top{fill:var(--microscope-top)}
+.iso-solid[data-lit]>.iso-top{fill:var(--microscope-lit-top)}
+.iso-solid[data-lit]>.iso-shade{fill:var(--microscope-lit-shade)}
+.iso-solid[data-seamless]>.iso-shade,.iso-solid[data-seamless]>.iso-top{stroke-width:.4;stroke-linejoin:round}
+.iso-solid[data-seamless]>.iso-shade[data-shade="0"]{stroke:var(--microscope-shade-0)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="1"]{stroke:var(--microscope-shade-1)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="2"]{stroke:var(--microscope-shade-2)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="3"]{stroke:var(--microscope-shade-3)}
+.iso-solid[data-seamless]>.iso-top{stroke:var(--microscope-top)}
+.iso-solid[data-seamless][data-lit]>.iso-top{stroke:var(--microscope-lit-top)}
+.iso-solid[data-seamless][data-lit]>.iso-shade{stroke:var(--microscope-lit-shade)}
+.iso-solid[data-lit]>.iso-edge{stroke:var(--microscope-lit)}
+.iso-halo{fill:var(--microscope-halo);stroke:none;filter:blur(9px);opacity:var(--microscope-halo-opacity);transform:translateY(3px)}
+.iso-line{fill:none;stroke:var(--microscope-lo);stroke-width:var(--microscope-weight);stroke-linecap:round;stroke-linejoin:round}
+.iso-line[data-tone="hi"]{stroke:var(--microscope-hi)}
+.iso-line[data-tone="mid"]{stroke:var(--microscope-mid)}
+.iso-line[data-tone="lo"]{stroke:var(--microscope-lo)}
+.iso-line[data-tone="faint"]{stroke:var(--microscope-faint)}
+.iso-line[data-tone="lit"]{stroke:var(--microscope-lit)}
+.iso-line[data-tone="red"]{stroke:var(--microscope-red)}
+.iso-line[data-tone="green"]{stroke:var(--microscope-green)}
+.iso-line[data-tone="blue"]{stroke:var(--microscope-blue)}
+.iso-line[data-dotted]{stroke-dasharray:.01 3.5;stroke-width:1}
+.iso-line[data-dashed]{stroke-dasharray:3 3}
+.iso-line[data-flow]{stroke-dasharray:2 6}
+.iso-wire-end{fill:var(--microscope-paper);stroke:var(--microscope-lo);stroke-width:var(--microscope-weight)}
+.iso-wire[data-tone="hi"] .iso-wire-end{stroke:var(--microscope-hi)}
+.iso-wire[data-tone="mid"] .iso-wire-end{stroke:var(--microscope-mid)}
+.iso-wire[data-tone="faint"] .iso-wire-end{stroke:var(--microscope-faint)}
+.iso-wire[data-tone="lit"] .iso-wire-end{stroke:var(--microscope-lit)}
+.iso-dots circle{fill:var(--microscope-dot);stroke:none;opacity:.32}
+.iso-dots[data-tone="hi"] circle{opacity:.85}
+.iso-dots[data-tone="mid"] circle{opacity:.45}
+.iso-dots[data-tone="lo"] circle{opacity:.22}
+.iso-dots[data-tone="faint"] circle{opacity:.12}
+.iso-face-text{fill:var(--microscope-mid);font-family:var(--microscope-mono);letter-spacing:.04em}
+.iso-face-text[data-tone="hi"]{fill:var(--microscope-hi)}
+.iso-face-text[data-tone="lo"]{fill:var(--microscope-lo)}
+.iso-face-text[data-tone="faint"]{fill:var(--microscope-faint)}
+.tb-body{fill:var(--microscope-shade-2);stroke:none}
+.tb-shine{fill:var(--microscope-top);stroke:none}
+.tb-shade{fill:var(--microscope-shade-0);stroke:none}
+.tb-ring{fill:none;stroke:var(--microscope-lo);stroke-width:.45;stroke-linecap:butt;stroke-linejoin:round}
+.tb-ring[data-tone="mid"]{stroke:var(--microscope-mid)}
+.tb-ring[data-tone="faint"]{stroke:var(--microscope-faint)}
+.tb-ring[data-tone="hi"]{stroke:var(--microscope-hi)}
+@keyframes iso-flow{to{stroke-dashoffset:-32}}
+@keyframes iso-pulse{0%,100%{opacity:.18}12%{opacity:1}40%{opacity:.18}}
+.iso-line[data-flow]{animation:iso-flow 1600ms linear infinite}
+.iso-dots circle[data-pulse]{animation:iso-pulse 1600ms steps(1,end) infinite;animation-delay:var(--pulse-at,0ms)}
+.iso-figure{margin:32px 0 36px}
+.iso-plate{position:relative;padding:52px 24px;border-radius:0;background:var(--microscope-card);box-shadow:0 0 0 1px var(--microscope-mid);--microscope-paper:var(--microscope-card)}
+.iso-plate-corners{position:absolute;inset:18px 20px;pointer-events:none}
+.iso-plate-corner{position:absolute;color:var(--microscope-muted);font-family:var(--microscope-mono);font-size:10.5px;line-height:1;letter-spacing:.04em;white-space:nowrap}
+.iso-plate-corner[data-corner="fig"]{top:0;left:0;color:var(--microscope-text)}
+.iso-plate-corner[data-corner="title"]{top:0;right:0;text-transform:uppercase;letter-spacing:.1em}
+.iso-plate-corner[data-corner="hint"]{bottom:0;left:0;text-transform:uppercase;letter-spacing:.1em}
+.iso-plate-corner[data-corner="readout"]{right:0;bottom:0;color:var(--microscope-text);font-variant-numeric:tabular-nums}
+.iso-plate .iso-svg{margin:0 auto}
+.iso-legend{display:grid;gap:8px;margin-top:12px;color:var(--microscope-muted);font-size:13px;line-height:1.55}
+.iso-keys{display:flex;flex-wrap:wrap;gap:6px 18px}
+.iso-key{display:inline-flex;align-items:center;gap:7px}
+.iso-swatch{width:16px;height:10px;flex:none;overflow:visible}
+.iso-swatch path{fill:none;stroke:var(--microscope-hi);stroke-width:1;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.iso-swatch[data-mark="raised"] path,.iso-swatch[data-mark="flat"] path{stroke:var(--microscope-mid)}
+.iso-swatch[data-mark="lit"] path{stroke:var(--microscope-lit)}
+.iso-swatch[data-mark="dim"] path{stroke:var(--microscope-lo)}
+.iso-swatch[data-mark="dotted"] path{stroke-dasharray:.01 3;stroke-width:1.4}
+.iso-swatch[data-mark="dashed"] path{stroke-dasharray:3 2.5}
+.iso-swatch[data-mark="red"] path{stroke:var(--microscope-red)}
+.iso-swatch[data-mark="green"] path{stroke:var(--microscope-green)}
+.iso-swatch[data-mark="blue"] path{stroke:var(--microscope-blue)}
+.iso-swatch-crease{stroke:var(--microscope-lo)!important}
+@media (max-width:560px){.iso-plate{padding:48px 12px 70px}.iso-plate-corner[data-corner="hint"]{bottom:18px}}
+@media (prefers-reduced-motion:reduce){.iso-line[data-flow],.iso-dots circle[data-pulse]{animation:none}}
+`;
+
+
+const SWATCHES = {
+  head: ["#f3a650", "#ffd8a4", "#c9741f", "#a85d17"],
+  tail: ["#efdfb2", "#fbf2d8", "#d8c28a", "#c2a766"],
+  rotor: ["#4fb3ae", "#ace6e1", "#2b827d", "#1f6460"],
+  stator: ["#7192cf", "#c2d3f3", "#47659f", "#36507f"],
+  rod: ["#f5c94b", "#fff0b3", "#c99a1b", "#9c7710"],
+  hub: ["#f0a23f", "#ffd59a", "#c2781a", "#965a10"],
+  alpha: ["#c9aee6", "#efe4fa", "#9675bd", "#775a9e"],
+  beta: ["#9373c9", "#cdb9ec", "#664899", "#4f357b"],
+  proton: ["#e5484d", "#ffa3a5", "#b2272c", "#8a1c20"],
+  atp: ["#76c46a", "#c8edbf", "#4a9640", "#3a7932"],
+  dna: ["#4a8fd8", "#b5d3f4", "#2c66aa", "#204f86"],
+  baseA: ["#e5534b", "#ffb3ae", "#b33a33", "#8f2b26"],
+  baseT: ["#f2c14e", "#fff0b8", "#c4952a", "#9a721a"],
+  baseG: ["#58a65c", "#c3e8c4", "#3b7d3f", "#2e6331"],
+  baseC: ["#4e79c7", "#bcd0f3", "#345aa0", "#26457e"],
+  rna: ["#e8763c", "#ffc8a6", "#b5521f", "#8c3e16"],
+  chlorophyll: ["#5cb85c", "#bfe6b6", "#3b8a3b", "#2d6b2d"],
+  cytosol: ["#fbf6ec", "#ffffff", "#efe4cc", "#d9c9a6"],
+  capsid: ["#8ea6cf", "#d6e2f5", "#5e78a8", "#47608c"],
+  sheath: ["#5fb58c", "#bfe7d2", "#3a8762", "#2c6a4c"],
+  fibre: ["#a98bd1", "#e2d6f2", "#7d60a8", "#634a8a"],
+  peptidoglycan: ["#c9d77a", "#ecf3c4", "#9aab48", "#7c8b35"],
+  cuticle: ["#e9c46a", "#f8e6b8", "#c99a2e", "#a07a1f"],
+  epidermis: ["#eef3e2", "#fbfdf6", "#d3dfbd", "#9fb27e"],
+  palisade: ["#cfe6b0", "#eef7e2", "#a8cc80", "#78a356"],
+  spongy: ["#dcedc6", "#f3f9ea", "#b9d699", "#88aa66"],
+  guard: ["#b8dc93", "#e4f3d3", "#8dbb62", "#638f3d"],
+  xylem: ["#e6b8a8", "#f7e2da", "#c98b76", "#a1614d"],
+  phloem: ["#b7c4ea", "#e1e7f8", "#8a9dd3", "#6577ad"],
+  sheathcell: ["#e5e9c8", "#f7f9ea", "#c8cf9a", "#9aa36a"],
+  actin: ["#e7854f", "#ffc9a8", "#bf5d2b", "#97461d"],
+  myosin: ["#6d8fd6", "#c3d3f5", "#4566ac", "#334f8a"],
+  zdisc: ["#6b6f7a", "#b5b9c2", "#474b55", "#33363e"],
+  wall: ["#a7c76b", "#dcedbd", "#7c9c43", "#617c31"],
+};
+
+const RAD = Math.PI / 180;
+const r1 = (value) => (Math.round(value * 10) / 10).toString();
+
+function screenScale(P) {
+  return cameraOf(P).k;
+}
+
+function bioCss(swatches = SWATCHES) {
+  const vars = Object.entries(swatches)
+    .map(([name, [base, hi, lo, edge]]) => `--bio-${name}:${base};--bio-${name}-hi:${hi};--bio-${name}-lo:${lo};--bio-${name}-edge:${edge};`)
+    .join("");
+  return `
+.bio{${vars}--bio-air:#f7fbf2;--bio-outside:#eef5fc;--bio-cytoplasm:#fbf5e8;--bio-periplasm:#f2f6e4;--bio-halo:rgba(255,255,255,.82);--bio-page:#ffffff;--bio-ink:#26262b;--bio-soft:#5d5d66;--bio-leader:#6b6b74;--bio-region:#8a8a94;--bio-ims:#eef5fc;--bio-matrix:#f7f1fb;--bio-arrow:#3a3a42;--bio-flow:#d9363c}
+.bio[data-theme="dark"],.iso[data-theme="dark"] .bio{--bio-air:#182016;--bio-outside:#16202b;--bio-cytoplasm:#221d16;--bio-periplasm:#1b2116;--bio-halo:rgba(18,19,23,.82);--bio-page:#121317;--bio-ink:#ececf1;--bio-soft:#b4b4bd;--bio-leader:#9c9ca6;--bio-region:#8b8b96;--bio-ims:#16202b;--bio-matrix:#1f1a27;--bio-arrow:#d8d8de;--bio-flow:#ff6b6f}
+.bio-body{stroke-width:.9;stroke-linejoin:round}
+.bio-label{fill:var(--bio-ink);font:500 11.5px/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;letter-spacing:.005em}
+.bio-label[data-small]{font-size:10px;fill:var(--bio-soft)}
+.bio-region{fill:var(--bio-region);font:600 10px/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;letter-spacing:.12em}
+.bio-leader{fill:none;stroke:var(--bio-leader);stroke-width:.8;stroke-linecap:round;stroke-linejoin:round}
+.bio-casing{fill:none;stroke:var(--bio-halo);stroke-linecap:round;stroke-linejoin:round}
+.bio-anchor{fill:var(--bio-leader);stroke:var(--bio-halo);stroke-width:1}
+.bio-arrow{fill:none;stroke:var(--bio-arrow);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.bio-arrow-head{fill:var(--bio-arrow)}
+.bio-arrow[data-flow]{stroke:var(--bio-flow);stroke-width:2.2;opacity:.85}
+.bio-arrow-head[data-flow]{fill:var(--bio-flow);opacity:.85}
+.bio-tail{fill:none;stroke-width:.8;stroke-linecap:round}
+.bio-glyph{font:700 6.2px/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:central}
+.bio .iso-plate.bio-plate{padding:22px 22px 16px;background:var(--bio-page);box-shadow:0 0 0 1px color-mix(in srgb,var(--bio-region) 35%,transparent);border-radius:4px}
+.bio .bio-svg{border-radius:3px}
+.bio-title{margin:0 0 14px;color:var(--bio-ink);font:600 15px/1.35 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+.bio-fig{margin-right:10px;color:#c2410c;font-weight:700}
+.bio[data-theme="dark"] .bio-fig{color:#fb923c}
+.bio-foot{display:flex;justify-content:space-between;gap:16px;margin-top:10px;color:var(--bio-soft);font:12px/1.4 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums}
+.bio .iso-legend{color:var(--bio-soft);font:13px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+.bio .iso-stage{outline:none}
+.bio .iso-stage:focus-visible{box-shadow:0 0 0 2px color-mix(in srgb,var(--bio-flow) 45%,transparent);border-radius:3px}
+.bio-dimension{fill:none;stroke:var(--bio-soft);stroke-width:.9;stroke-linecap:round}
+.bio-hbond{fill:var(--bio-page);stroke:var(--bio-ink);stroke-width:.6}
+.bio-key{stroke-width:.8}
+@media (max-width:560px){.bio-foot{flex-direction:column}}
+${Object.keys(swatches)
+  .map((name) => `.bio-body[data-swatch="${name}"]{stroke:var(--bio-${name}-edge)}.bio-tail[data-swatch="${name}"]{stroke:var(--bio-${name}-lo)}`)
+  .join("\n")}
+`;
+}
+
+function bioDefs(names = Object.keys(SWATCHES)) {
+  const stops = (list) => list.map(([offset, name]) => `<stop offset="${offset}" style="stop-color:var(${name})"/>`).join("");
+  return `<defs>${names
+    .map(
+      (name) =>
+        `<radialGradient id="bio-r-${name}" cx=".38" cy=".3" r=".78" fx=".34" fy=".26">${stops([[0, `--bio-${name}-hi`], [0.5, `--bio-${name}`], [1, `--bio-${name}-lo`]])}</radialGradient>` +
+        `<linearGradient id="bio-l-${name}" x1="0" y1="0" x2="1" y2="0">${stops([[0, `--bio-${name}-lo`], [0.28, `--bio-${name}`], [0.48, `--bio-${name}-hi`], [0.72, `--bio-${name}`], [1, `--bio-${name}-lo`]])}</linearGradient>` +
+        `<linearGradient id="bio-v-${name}" x1="0" y1="0" x2="0" y2="1">${stops([[0, `--bio-${name}-hi`], [0.55, `--bio-${name}`], [1, `--bio-${name}-lo`]])}</linearGradient>`,
+    )
+    .join("")}</defs>`;
+}
+
+const fill = (kind, name) => `url(#bio-${kind}-${name})`;
+
+function sphere(P, centre, r, swatch, { extra = "" } = {}) {
+  const [x, y] = iso(centre, P);
+  return `<circle class="bio-body" data-swatch="${swatch}" cx="${r1(x)}" cy="${r1(y)}" r="${r1(r * screenScale(P))}" fill="${fill("r", swatch)}"${extra}/>`;
+}
+
+function ellipsoid(P, centre, across, tall, swatch, { extra = "" } = {}) {
+  const { sinE, cosE } = cameraOf(P);
+  const k = screenScale(P);
+  const [x, y] = iso(centre, P);
+  return `<ellipse class="bio-body" data-swatch="${swatch}" cx="${r1(x)}" cy="${r1(y)}" rx="${r1(across * k)}" ry="${r1(Math.hypot(across * sinE, tall * cosE) * k)}" fill="${fill("r", swatch)}"${extra}/>`;
+}
+
+function capsule(P, base, r, length, swatch, { extra = "" } = {}) {
+  const k = screenScale(P);
+  const [bx, by] = iso(base, P);
+  const [, ty] = iso([base[0], base[1], base[2] + length], P);
+  const w = r * k;
+  const d = `M${r1(bx - w)} ${r1(ty)}L${r1(bx - w)} ${r1(by)}A${r1(w)} ${r1(w)} 0 0 0 ${r1(bx + w)} ${r1(by)}L${r1(bx + w)} ${r1(ty)}A${r1(w)} ${r1(w)} 0 0 0 ${r1(bx - w)} ${r1(ty)}Z`;
+  return `<path class="bio-body" data-swatch="${swatch}" d="${d}" fill="${fill("l", swatch)}"${extra}/>`;
+}
+
+function smoothPath(points, closed = false) {
+  if (points.length < 2) return "";
+  const at = (index) => points[closed ? (index + points.length) % points.length : Math.max(0, Math.min(points.length - 1, index))];
+  let d = `M${r1(points[0][0])} ${r1(points[0][1])}`;
+  const count = closed ? points.length : points.length - 1;
+  for (let i = 0; i < count; i++) {
+    const p0 = at(i - 1);
+    const p1 = at(i);
+    const p2 = at(i + 1);
+    const p3 = at(i + 2);
+    const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+    const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+    d += `C${r1(c1[0])} ${r1(c1[1])} ${r1(c2[0])} ${r1(c2[1])} ${r1(p2[0])} ${r1(p2[1])}`;
+  }
+  return closed ? d + "Z" : d;
+}
+
+function cell(P, centre, across, tall, swatch, { radius = Math.min(across, tall) * 0.35, extra = "" } = {}) {
+  const k = screenScale(P);
+  const { cosE } = cameraOf(P);
+  const [x, y] = iso(centre, P);
+  const w = (across * k) / 2;
+  const h = (tall * k * cosE) / 2;
+  const r = Math.min(radius * k, w, h);
+  const d = `M${r1(x - w + r)} ${r1(y - h)}L${r1(x + w - r)} ${r1(y - h)}Q${r1(x + w)} ${r1(y - h)} ${r1(x + w)} ${r1(y - h + r)}L${r1(x + w)} ${r1(y + h - r)}Q${r1(x + w)} ${r1(y + h)} ${r1(x + w - r)} ${r1(y + h)}L${r1(x - w + r)} ${r1(y + h)}Q${r1(x - w)} ${r1(y + h)} ${r1(x - w)} ${r1(y + h - r)}L${r1(x - w)} ${r1(y - h + r)}Q${r1(x - w)} ${r1(y - h)} ${r1(x - w + r)} ${r1(y - h)}Z`;
+  return `<path class="bio-body" data-swatch="${swatch}" d="${d}" fill="url(#bio-r-${swatch})"${extra}/>`;
+}
+
+function rope(P, points3, r, swatch) {
+  const k = screenScale(P);
+  const d = smoothPath(points3.map((p) => iso(p, P)));
+  const w = 2 * r * k;
+  return (
+    `<path d="${d}" fill="none" stroke="var(--bio-${swatch}-edge)" stroke-width="${r1(w + 1.8)}" stroke-linecap="round" stroke-linejoin="round"/>` +
+    `<path d="${d}" fill="none" stroke="var(--bio-${swatch})" stroke-width="${r1(w)}" stroke-linecap="round" stroke-linejoin="round"/>` +
+    `<path d="${d}" fill="none" stroke="var(--bio-${swatch}-hi)" stroke-width="${r1(w * 0.32)}" stroke-linecap="round" stroke-linejoin="round" opacity=".75" transform="translate(${r1(-w * 0.16)} ${r1(-w * 0.12)})"/>`
+  );
+}
+
+function head(direction, tip, size) {
+  const angle = Math.atan2(direction[1], direction[0]);
+  const back = [tip[0] - Math.cos(angle) * size, tip[1] - Math.sin(angle) * size];
+  const side = [Math.cos(angle + Math.PI / 2) * size * 0.42, Math.sin(angle + Math.PI / 2) * size * 0.42];
+  return `M${r1(tip[0])} ${r1(tip[1])}L${r1(back[0] + side[0])} ${r1(back[1] + side[1])}L${r1(back[0] - side[0])} ${r1(back[1] - side[1])}Z`;
+}
+
+const unit2 = (v) => {
+  const length = Math.hypot(v[0], v[1]) || 1;
+  return [v[0] / length, v[1] / length];
+};
+
+function arrowParts(d, tip, direction, { flow, size, tail }) {
+  const attr = flow ? ' data-flow=""' : "";
+  const width = flow ? 2.2 : 1.6;
+  const heads = [head(direction, tip, size), ...(tail ? [head(tail.direction, tail.tip, size)] : [])].join("");
+  return `<path class="bio-casing" d="${d}" stroke-width="${r1(width + 2.6)}"/><path class="bio-casing" d="${heads}" stroke-width="2.4"/><path class="bio-arrow"${attr} d="${d}"/><path class="bio-arrow-head"${attr} d="${heads}"/>`;
+}
+
+function arrow(points, { flow = false, size = 7.5, both = false, bend = null, tone = null } = {}) {
+  if (tone) return arrow(points, { flow, size, both, bend }).replace(/class="bio-arrow"( data-flow="")?/g, `class="bio-arrow"$1 style="stroke:var(--bio-${tone}-lo)"`).replace(/class="bio-arrow-head"( data-flow="")?/g, `class="bio-arrow-head"$1 style="fill:var(--bio-${tone}-lo)"`);
+  const n = points.length;
+  if (bend !== null && n === 2) {
+    const [from, to] = points;
+    const mid = [(from[0] + to[0]) / 2, (from[1] + to[1]) / 2];
+    const normal = unit2([-(to[1] - from[1]), to[0] - from[0]]);
+    const control = [mid[0] + normal[0] * bend, mid[1] + normal[1] * bend];
+    const endDir = unit2([to[0] - control[0], to[1] - control[1]]);
+    const end = [to[0] - endDir[0] * size * 0.7, to[1] - endDir[1] * size * 0.7];
+    const startDir = unit2([from[0] - control[0], from[1] - control[1]]);
+    const start = both ? [from[0] - startDir[0] * size * 0.7, from[1] - startDir[1] * size * 0.7] : from;
+    const d = `M${r1(start[0])} ${r1(start[1])}Q${r1(control[0])} ${r1(control[1])} ${r1(end[0])} ${r1(end[1])}`;
+    return arrowParts(d, to, endDir, { flow, size, tail: both ? { tip: from, direction: startDir } : null });
+  }
+  const endDir = unit2([points[n - 1][0] - points[n - 2][0], points[n - 1][1] - points[n - 2][1]]);
+  const trimmed = points.map((p) => [...p]);
+  trimmed[n - 1] = [points[n - 1][0] - endDir[0] * size * 0.7, points[n - 1][1] - endDir[1] * size * 0.7];
+  let tail = null;
+  if (both) {
+    const startDir = unit2([points[0][0] - points[1][0], points[0][1] - points[1][1]]);
+    trimmed[0] = [points[0][0] - startDir[0] * size * 0.7, points[0][1] - startDir[1] * size * 0.7];
+    tail = { tip: points[0], direction: startDir };
+  }
+  return arrowParts(smoothPath(trimmed), points[n - 1], endDir, { flow, size, tail });
+}
+
+function rotationArrow(P, centre, radius, from, to, { size = 7, steps = 64 } = {}) {
+  const { cosA, sinA } = cameraOf(P);
+  const view = Math.atan2(sinA, cosA) / RAD;
+  const back = [];
+  const front = [];
+  for (let i = 0; i <= steps; i++) {
+    const angle = from + ((to - from) * i) / steps;
+    const point = iso([centre[0] + radius * Math.cos(angle * RAD), centre[1] + radius * Math.sin(angle * RAD), centre[2]], P);
+    (Math.cos((angle - view) * RAD) < 0 ? back : front).push(point);
+  }
+  const id = `spin-${Math.round(centre[0])}-${Math.round(centre[1])}-${Math.round(centre[2])}`;
+  const tag = (svg) => svg.replace(/class="bio-arrow"/g, `class="bio-arrow" data-arrow="${id}"`).replace(/class="bio-arrow-head"/g, `class="bio-arrow-head" data-arrow="${id}"`);
+  const line = (points) => (points.length > 1 ? `<path class="bio-casing" d="${smoothPath(points)}" stroke-width="4.2"/><path class="bio-arrow" d="${smoothPath(points)}"/>` : "");
+  const ahead = Math.cos((to - view) * RAD) >= 0;
+  const headed = ahead ? front : back;
+  const plain = ahead ? back : front;
+  return { back: tag(ahead ? line(plain) : arrow(headed, { size })), front: tag(ahead ? arrow(headed, { size }) : line(plain)) };
+}
+
+function arcPoints(P, centre, radius, from, to, steps = 32) {
+  return Array.from({ length: steps + 1 }, (_, index) => {
+    const a = (from + ((to - from) * index) / steps) * RAD;
+    return iso([centre[0] + radius * Math.cos(a), centre[1] + radius * Math.sin(a), centre[2]], P);
+  });
+}
+
+function label(text, anchor, { side = "left", x, drop = 0, small = false } = {}) {
+  const sign = side === "left" ? -1 : 1;
+  const elbow = [anchor[0] + sign * Math.abs(drop), anchor[1] + drop];
+  const end = [x - sign * 6, elbow[1]];
+  const points = drop ? [anchor, elbow, end] : [anchor, end];
+  const d = `M${points.map((p) => `${r1(p[0])} ${r1(p[1])}`).join("L")}`;
+  const lines = String(text).split("\n");
+  const size = small ? 10 : 11.5;
+  const top = elbow[1] + size * 0.36 - ((lines.length - 1) * size * 1.25) / 2;
+  const body = lines.length === 1 ? text : lines.map((line, index) => `<tspan x="${r1(x)}" dy="${index ? "1.25em" : 0}">${line}</tspan>`).join("");
+  return `<path class="bio-casing" d="${d}" stroke-width="3.2"/><path class="bio-leader" d="${d}"/><circle class="bio-anchor" cx="${r1(anchor[0])}" cy="${r1(anchor[1])}" r="1.9"/><text class="bio-label"${small ? " data-small" : ""} x="${r1(x)}" y="${r1(top)}" text-anchor="${side === "left" ? "end" : "start"}">${body}</text>`;
+}
+
+function region(text, x, y, anchor = "start") {
+  return `<text class="bio-region" x="${r1(x)}" y="${r1(y)}" text-anchor="${anchor}">${text}</text>`;
+}
+
+const wave = (P, from, to, amplitude, waves, along) => {
+  const steps = 10;
+  return Array.from({ length: steps + 1 }, (_, index) => {
+    const t = index / steps;
+    const side = Math.sin(t * Math.PI * 2 * waves) * amplitude;
+    return iso([from[0] + (to[0] - from[0]) * t + along[0] * side, from[1] + (to[1] - from[1]) * t + along[1] * side, from[2] + (to[2] - from[2]) * t], P);
+  });
+};
+
+function bilayer(P, { x0, x1, y0, y1, z0, z1 }, { spacing = 9, head: hr = 3.6, skip = () => false } = {}) {
+  const mid = (z0 + z1) / 2;
+  const { cosA, sinA } = cameraOf(P);
+  const out = [];
+  const top = [[x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]].map((p) => iso(p, P));
+  out.push(`<path d="M${top.map((p) => `${r1(p[0])} ${r1(p[1])}`).join("L")}Z" fill="var(--bio-head-lo)" opacity=".55"/>`);
+  const heads = [];
+  let row = 0;
+  for (let y = y0 + spacing / 2; y <= y1 - spacing / 2 + 0.01; y += spacing * 0.87, row++) {
+    for (let x = x0 + spacing / 2 + (row % 2 ? spacing / 2 : 0); x <= x1 - spacing / 2 + 0.01; x += spacing) {
+      if (!skip([x, y])) heads.push([x, y, z1]);
+    }
+  }
+  heads.sort((a, b) => depthOf(a, P) - depthOf(b, P));
+  for (const p of heads) out.push(ellipsoid(P, p, hr, hr * 0.7, "head"));
+  const faces = [];
+  if (sinA > 0.05) faces.push({ a: [x0, y1], b: [x1, y1], along: [1, 0] });
+  if (cosA > 0.05) faces.push({ a: [x1, y1], b: [x1, y0], along: [0, -1] });
+  for (const face of faces) {
+    const corners = [[...face.a, z1], [...face.b, z1], [...face.b, z0], [...face.a, z0]].map((p) => iso(p, P));
+    out.push(`<path d="M${corners.map((p) => `${r1(p[0])} ${r1(p[1])}`).join("L")}Z" fill="var(--bio-tail-hi)"/>`);
+    const length = Math.hypot(face.b[0] - face.a[0], face.b[1] - face.a[1]);
+    const count = Math.max(1, Math.round(length / spacing));
+    const tails = [];
+    const faceHeads = [];
+    for (let i = 0; i < count; i++) {
+      const s = (i + 0.5) / count;
+      const p = [face.a[0] + (face.b[0] - face.a[0]) * s, face.a[1] + (face.b[1] - face.a[1]) * s];
+      for (const [zh, zm] of [[z1 - hr, mid + 0.8], [z0 + hr, mid - 0.8]]) {
+        for (const side of [-0.32, 0.32]) {
+          const from = [p[0] + face.along[0] * side * spacing, p[1] + face.along[1] * side * spacing, zh];
+          const to = [from[0], from[1], zm];
+          tails.push(smoothPath(wave(P, from, to, spacing * 0.08, 1.5, face.along)));
+        }
+        faceHeads.push([p[0], p[1], zh]);
+      }
+    }
+    out.push(`<path class="bio-tail" data-swatch="tail" d="${tails.join("")}"/>`);
+    for (const p of faceHeads) out.push(sphere(P, p, hr, "head"));
+  }
+  return out.join("");
+}
+
+function doubleHelix(P, start, end, { radius = 10, rise = 3.4, perTurn = 10.5, groove = 140, hand = "right", sequence = "ATGCGTACCA", strand = "dna", r = 2.2, baseR = r * 0.75, phase = 0, highlight = -1 } = {}) {
+  const axis = [end[0] - start[0], end[1] - start[1], end[2] - start[2]];
+  const length = Math.hypot(...axis);
+  const a = axis.map((v) => v / length);
+  const helper = Math.abs(a[2]) < 0.9 ? [0, 0, 1] : [1, 0, 0];
+  const u0 = [a[1] * helper[2] - a[2] * helper[1], a[2] * helper[0] - a[0] * helper[2], a[0] * helper[1] - a[1] * helper[0]];
+  const un = Math.hypot(...u0);
+  const u = u0.map((v) => v / un);
+  const v = [a[1] * u[2] - a[2] * u[1], a[2] * u[0] - a[0] * u[2], a[0] * u[1] - a[1] * u[0]];
+  const sense = (hand === "right" ? -1 : 1) * (360 / perTurn);
+  const at = (s, deg) => {
+    const t = (deg + phase) * RAD;
+    return [0, 1, 2].map((i) => start[i] + a[i] * s + radius * (Math.cos(t) * u[i] + Math.sin(t) * v[i]));
+  };
+  const pairs = Math.floor(length / rise);
+  const items = [];
+  const meta = [];
+  const PAIR = { A: "T", T: "A", G: "C", C: "G" };
+  const samples = pairs * 6;
+  const centreDepth = (along) => depthOf(start.map((value, index) => value + a[index] * along), P);
+  for (const offset of [0, groove]) {
+    const points = Array.from({ length: samples + 1 }, (_, i) => {
+      const along = (i / samples) * pairs * rise;
+      const point = at(along, (along / rise) * sense + offset);
+      return { point, front: depthOf(point, P) >= centreDepth(along) };
+    });
+    let run = [points[0]];
+    const flush = () => {
+      if (run.length < 2) return;
+      const depths = run.map((entry) => depthOf(entry.point, P));
+      items.push({ d: run[1].front ? Math.max(...depths) : Math.min(...depths), svg: rope(P, run.map((entry) => entry.point), r, strand) });
+    };
+    for (let i = 1; i < points.length; i++) {
+      if (points[i].front !== points[i - 1].front && run.length > 1) {
+        run.push(points[i]);
+        flush();
+        run = [points[i - 1], points[i]];
+        continue;
+      }
+      run.push(points[i]);
+    }
+    flush();
+  }
+  for (let i = 0; i < pairs; i++) {
+    const s = (i + 0.5) * rise;
+    const p0 = at(s, (s / rise) * sense);
+    const p1 = at(s, (s / rise) * sense + groove);
+    const mid = p0.map((value, index) => (value + p1[index]) / 2);
+    const base = sequence[i % sequence.length];
+    const half0 = [p0, mid];
+    const half1 = [mid, p1];
+    const lit = i === highlight;
+    const width = lit ? baseR * 1.4 : baseR;
+    items.push({ d: depthOf(p0, P) * 0.5 + depthOf(mid, P) * 0.5 - 0.01, svg: rope(P, half0, width, `base${base}`) });
+    items.push({ d: depthOf(p1, P) * 0.5 + depthOf(mid, P) * 0.5 - 0.01, svg: rope(P, half1, width, `base${PAIR[base]}`) });
+    if (lit) {
+      const bonds = base === "G" || base === "C" ? 3 : 2;
+      const k = screenScale(P);
+      const [mx, my] = iso(mid, P);
+      const [ax, ay] = iso(p0, P);
+      const dir = unit2([ax - mx, ay - my]);
+      const across = [-dir[1], dir[0]];
+      const dots = Array.from({ length: bonds }, (_, b) => {
+        const t = (b - (bonds - 1) / 2) * width * k * 0.62;
+        return `<circle class="bio-hbond" cx="${r1(mx + across[0] * t)}" cy="${r1(my + across[1] * t)}" r="${r1(Math.max(0.9, width * k * 0.2))}"/>`;
+      }).join("");
+      items.push({ d: Math.max(depthOf(p0, P), depthOf(p1, P)) * 0.5 + depthOf(mid, P) * 0.5, svg: dots });
+    }
+    meta.push({ index: i, base, partner: PAIR[base], mid, ends: [p0, p1] });
+  }
+  items.pairs = meta;
+  items.point = (along, which) => at(along, (along / rise) * sense + (which ? groove : 0));
+  items.length3 = pairs * rise;
+  return items;
+}
+
+function dimension(from, to, text, { offset = 10, tick = 4, gap = 5 } = {}) {
+  const dir = unit2([to[0] - from[0], to[1] - from[1]]);
+  const normal = [dir[1], -dir[0]];
+  const a = [from[0] + normal[0] * offset, from[1] + normal[1] * offset];
+  const b = [to[0] + normal[0] * offset, to[1] + normal[1] * offset];
+  const t = (p) => `M${r1(p[0] - normal[0] * tick)} ${r1(p[1] - normal[1] * tick)}L${r1(p[0] + normal[0] * tick)} ${r1(p[1] + normal[1] * tick)}`;
+  const mid = [(a[0] + b[0]) / 2 + normal[0] * gap, (a[1] + b[1]) / 2 + normal[1] * gap];
+  const vertical = Math.abs(dir[1]) > Math.abs(dir[0]);
+  const anchor = vertical ? (normal[0] > 0 ? "start" : "end") : "middle";
+  const baseline = vertical ? mid[1] + 4 : normal[1] < 0 ? mid[1] : mid[1] + 9;
+  return `<path class="bio-casing" d="M${r1(a[0])} ${r1(a[1])}L${r1(b[0])} ${r1(b[1])}${t(a)}${t(b)}" stroke-width="3"/><path class="bio-dimension" d="M${r1(a[0])} ${r1(a[1])}L${r1(b[0])} ${r1(b[1])}${t(a)}${t(b)}"/><text class="bio-label" data-small x="${r1(mid[0])}" y="${r1(baseline)}" text-anchor="${anchor}">${text}</text>`;
+}
+
+function key(entries, x, y, { gap = 18, columns = entries.length } = {}) {
+  return entries
+    .map(([swatch, text], index) => {
+      const col = index % columns;
+      const row = Math.floor(index / columns);
+      const cx = x + col * 118;
+      const cy = y + row * gap;
+      return `<rect class="bio-key" x="${r1(cx)}" y="${r1(cy - 8)}" width="14" height="10" rx="2.5" fill="url(#bio-v-${swatch})" stroke="var(--bio-${swatch}-edge)"/><text class="bio-label" data-small x="${r1(cx + 20)}" y="${r1(cy)}">${text}</text>`;
+    })
+    .join("");
+}
+
+function figurePage({ fig, title, svg, aria, readout, hint, caption, theme, css = "", script = "", width = 800 }) {
+  const stage = `<div class="iso-stage bio-stage" tabindex="0" role="slider" aria-label="${aria}" aria-valuemin="0" aria-valuemax="1000000" aria-valuenow="0" aria-valuetext="${readout}">${svg}</div>`;
+  const body = `<figure class="iso-figure bio-figure"><div class="iso-plate bio-plate"><p class="bio-title"><span class="bio-fig">${fig}</span>${title}</p>${stage}<div class="bio-foot"><span>${hint}</span><span data-readout>${readout}</span></div></div><figcaption class="iso-legend"><span class="iso-caption">${caption}</span></figcaption></figure>`;
+  return pageHtml({ title: title.split(",")[0], theme, body: `<style>${bioCss()}${css}</style><div class="bio" data-theme="${theme}">${body}</div>`, script, width });
+}
+
+function bioSvg({ width, height, label, body }) {
+  return figureSvg({ width, height, label, body: [bioDefs(), ...body], className: "bio-svg" });
+}
+
+function membraneLoop(P, points3, { thickness = 4.5, swatch = "head" } = {}) {
+  const flat = points3.map((p) => iso(p, P));
+  const d = smoothPath(flat, true);
+  const k = screenScale(P);
+  return `<path d="${d}" fill="none" stroke="var(--bio-${swatch}-edge)" stroke-width="${r1(thickness * k + 2)}" stroke-linejoin="round"/><path d="${d}" fill="none" stroke="var(--bio-${swatch})" stroke-width="${r1(thickness * k)}" stroke-linejoin="round"/><path d="${d}" fill="none" stroke="var(--bio-tail-hi)" stroke-width="${r1(thickness * k * 0.36)}" stroke-linejoin="round"/>`;
+}
+
+function sortedSvg(items) {
+  return [...items].sort((a, b) => a.d - b.d).map((item) => item.svg).join("");
+}
+
+function figureDepth(P) {
+  return (point) => depthOf(point, P);
+}
+const DATA = {"P":{"origin":[400,121],"scale":3.600316121633828,"azimuth":90,"elevation":12},"START":[-52.7,0,0],"END":[52.7,0,0],"OPTIONS":{"radius":10,"rise":3.4000000000000004,"perTurn":10.4,"groove":140,"sequence":"ATGGCCTTAACGCGATATCCGGTACAGTCAT","r":1.45,"baseR":1.15,"phase":270},"PAIRS":31,"left":160,"right":640};
+const PAIRS = 31;
+const RISE_NM = 0.34;
+const BP_PER_TURN = 10.4;
+const DIAMETER_NM = 2.0;
+const PITCH_NM = RISE_NM * BP_PER_TURN;
+const SEQUENCE = "ATGGCCTTAACGCGATATCCGGTACAGTCAT";
+const PARTNER = { A: "T", T: "A", G: "C", C: "G" };
+const BONDS = { A: 2, T: 2, G: 3, C: 3 };
+const STEP_S = 0.9;
+
+const SOURCES = [
+  { value: "antiparallel right-handed double helix; A pairs with T, G with C", source: "Watson & Crick 1953, Nature 171:737" },
+  { value: "B-form diffraction: 0.34 nm per base pair, about 2 nm across", source: "Franklin & Gosling 1953, Nature 171:740" },
+  { value: "about 10.4 bp per turn in solution", source: "Wang 1979, PNAS 76:200" },
+  { value: "A–T pairs have two hydrogen bonds and G–C pairs three", source: "Pauling & Corey 1956, Arch Biochem Biophys 65:164" },
+];
+
+function readoutOf(index) {
+  const base = SEQUENCE[index];
+  const partner = PARTNER[base];
+  const from5 = ((index + 0.5) * RISE_NM).toFixed(2);
+  return `Pair ${index + 1} of ${PAIRS} · ${base}–${partner} · ${BONDS[base]} hydrogen bonds · ${from5} nm from the 5′ end`;
+}
+
+const P = DATA.P;
+const stage = document.querySelector(".iso-stage");
+const svg = stage.querySelector("svg");
+const layer = svg.querySelector('[data-live="helix"]');
+const readout = document.querySelector("[data-readout]");
+const still = matchMedia("(prefers-reduced-motion: reduce)");
+let index = 0;
+let touring = !still.matches;
+let visible = false;
+let timer = 0;
+let idle = 0;
+
+function draw() {
+  layer.innerHTML = sortedSvg(doubleHelix(P, DATA.START, DATA.END, { ...DATA.OPTIONS, highlight: index }));
+  const text = readoutOf(index);
+  if (readout.textContent !== text) readout.textContent = text;
+  stage.setAttribute("aria-valuenow", String(index + 1));
+  stage.setAttribute("aria-valuetext", text);
+}
+function show(next) {
+  const clamped = Math.max(0, Math.min(DATA.PAIRS - 1, next));
+  if (clamped === index) return;
+  index = clamped;
+  draw();
+}
+function tour() {
+  clearTimeout(timer);
+  if (!touring || !visible) return;
+  timer = setTimeout(() => {
+    show((index + 1) % DATA.PAIRS);
+    tour();
+  }, STEP_S * 1000);
+}
+function rest() {
+  clearTimeout(idle);
+  idle = setTimeout(() => {
+    touring = !still.matches;
+    tour();
+  }, 3600);
+}
+new IntersectionObserver((entries) => {
+  visible = entries[entries.length - 1].isIntersecting;
+  tour();
+}, { rootMargin: "120px 0px" }).observe(stage);
+stage.addEventListener("pointermove", (event) => {
+  const box = svg.getBoundingClientRect();
+  const x = ((event.clientX - box.left) / box.width) * svg.viewBox.baseVal.width;
+  touring = false;
+  clearTimeout(timer);
+  show(Math.floor(((x - DATA.left) / (DATA.right - DATA.left)) * DATA.PAIRS));
+});
+stage.addEventListener("pointerleave", rest);
+stage.addEventListener("keydown", (event) => {
+  const moves = { ArrowRight: 1, ArrowUp: 1, ArrowLeft: -1, ArrowDown: -1 };
+  if (event.key in moves) {
+    event.preventDefault();
+    touring = false;
+    clearTimeout(timer);
+    show(index + moves[event.key]);
+    rest();
+  } else if (event.key === "Home" || event.key === "End") {
+    event.preventDefault();
+    touring = false;
+    show(event.key === "Home" ? 0 : DATA.PAIRS - 1);
+    rest();
+  }
+});
+draw();
+</script></body></html>

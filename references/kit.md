@@ -1,5 +1,8 @@
 # Kit API
 
+> [!NOTE]
+> This page comes from Anatomy, the engineering skill Microscope was forked from. The worked examples it cites (`dial-indicator`, `desk-computer`, `arcade-cabinet`, `raptor-engine`, `ripple-tank`, `test-rig`, `spot-plate`, `turning-dial`) are engineering figures that Microscope does not ship; they live in [Anatomy's repository](https://github.com/wheresryan22/anatomy/tree/main/examples). Take only the technique from them, and draw every biology figure in the textbook style of `references/biology.md`.
+
 Everything is in `kit/iso-kit.ts`, with the same API in `kit/iso-kit.mjs`. World coordinates are `[x, y, z]`, with x and y on the floor and z up, in units of about 1 px. Screen coordinates are `[sx, sy]` in the SVG viewBox. Paths come back as SVG `d` strings, rounded to 0.1.
 
 ## Contents
