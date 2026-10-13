@@ -1,6 +1,6 @@
-# Contributing to Anatomy
+# Contributing to Microscope
 
-Thank you for helping. Anatomy is judged by how its figures look at 4× zoom, so most of this guide is about checking your work before anyone else does.
+Thank you for helping. Microscope is judged by how its figures look at 4× zoom, so most of this guide is about checking your work before anyone else does.
 
 By taking part you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
@@ -13,121 +13,84 @@ You need:
 - **Claude Code**, Antigravity, OpenCode or Codex, to try the skill itself.
 
 ```sh
-git clone https://github.com/wheresryan22/anatomy.git
-cd anatomy
+git clone https://github.com/starhopp3r/microscope.git
+cd microscope
 ```
 
 To use your working copy as the skill while you change it, link it into your personal skills folder (move any installed copy out of the way first):
 
 ```sh
-ln -s "$PWD" ~/.claude/skills/anatomy
+ln -s "$PWD" ~/.claude/skills/microscope
 ```
 
 For Antigravity, for OpenCode, or for Codex:
 
 ```sh
-ln -s "$PWD" ~/.gemini/antigravity/skills/anatomy
+ln -s "$PWD" ~/.gemini/antigravity/skills/microscope
 ```
 
 ```sh
-ln -s "$PWD" ~/.config/opencode/skills/anatomy
+ln -s "$PWD" ~/.config/opencode/skills/microscope
 ```
 
 ```sh
-ln -s "$PWD" ~/.agents/skills/anatomy
+ln -s "$PWD" ~/.agents/skills/microscope
 ```
 
 ## Building the examples
 
-Each framework-free example is one script that writes standalone pages next to itself. The built pages are committed.
+Each example is a biology figure: one script that writes standalone pages next to itself. The built pages are committed.
 
 ```sh
-node examples/dial-indicator/build.mjs
-node examples/dial-indicator/build.mjs --light
-node examples/desk-computer/build.mjs
-node examples/desk-computer/build.mjs --light
-node examples/arcade-cabinet/build.mjs
-node examples/arcade-cabinet/build.mjs --light
-node examples/ripple-tank/build.mjs
-node examples/ripple-tank/build.mjs --light
-node examples/raptor-engine/build.mjs
-node examples/raptor-engine/build.mjs --light
-node examples/turning-dial/build.mjs
-node examples/turning-dial/build.mjs --light
-node examples/turning-dial/build.mjs --light --verify
-node examples/turning-dial/stress.mjs --light
+node examples/atp-synthase/build.mjs
+node examples/atp-synthase/build.mjs --light
+node examples/dna-double-helix/build.mjs
+node examples/dna-double-helix/build.mjs --light
+node examples/t4-phage/build.mjs
+node examples/t4-phage/build.mjs --light
+node examples/leaf-stoma/build.mjs
+node examples/leaf-stoma/build.mjs --light
+node examples/sarcomere/build.mjs
+node examples/sarcomere/build.mjs --light
 ```
 
-The Raptor builds take a few minutes each; the rest take seconds. `examples/test-rig/` and `examples/spot-plate/` are React components with no build script.
-
-After a build, `git status --short` must show nothing unless you meant to change a figure. CI runs exactly these commands and then `git diff --exit-code`.
+Each takes a second or two. After a build, `git status --short` must show nothing unless you meant to change a figure. CI runs exactly these commands and then `git diff --exit-code`.
 
 ## The checks
 
 Run the ones that match what you touched, and read every PNG they write: open it and look. Put screenshots in `shots/`, which is ignored.
 
-**Browser driver regressions.** When changing `scripts/drive.mjs`, check that failed browser evaluations exit nonzero and successful evaluations still work.
+**Regression tests.** All of them, before any pull request. The browser tests need Chrome or Chromium.
 
 ```sh
-node --test scripts/drive.test.mjs
+node --test scripts/*.test.mjs
 ```
 
-**Geometry audit.** For figures with pipes, cables or round parts. It must end `audit passed`, with every failing line at 0.
+**Labels and arrows.** Every biology figure, both themes, at rest and in motion. Each run must end `labels: 0 problems`.
 
 ```sh
-node examples/raptor-engine/build.mjs --audit
+node scripts/labels.mjs examples/atp-synthase/atp-synthase-light.html --reduced
+node scripts/labels.mjs examples/atp-synthase/atp-synthase-light.html --drive --frames 30 --every 250
+node scripts/labels.mjs examples/atp-synthase/atp-synthase.html --drive --frames 30 --every 250
 ```
 
-**Line ends.** Every seam, rib, tick and pointer must end on a stroke, a dot or an outline. It must print `line ends: 0`; `--out` rings the failures.
+**Capture.** Stills, phone width, close-ups and the reduced-motion pose.
 
 ```sh
-node scripts/lines.mjs examples/dial-indicator/dial-indicator-light.html --out shots/lines-light.png
-node scripts/lines.mjs examples/dial-indicator/dial-indicator.html --out shots/lines.png
+node scripts/capture.mjs examples/leaf-stoma/leaf-stoma-light.html --out shots/desk.png
+node scripts/capture.mjs examples/leaf-stoma/leaf-stoma-light.html --out shots/phone.png --width 390
+node scripts/capture.mjs examples/leaf-stoma/leaf-stoma-light.html --out shots/stoma.png --zoom 150,250,200,150 --zoom-scale 3
+node scripts/capture.mjs examples/leaf-stoma/leaf-stoma-light.html --out shots/still.png --reduced
 ```
 
-**Capture.** Stills, phone width, hover, keys and 4× close-ups, with WebGL on.
+**Drive.** Scripted sessions: move, click, key, wait, and contact sheets that catch pops in the motion.
 
 ```sh
-node scripts/capture.mjs examples/ripple-tank/ripple-tank-light.html --out shots/desk.png
-node scripts/capture.mjs examples/ripple-tank/ripple-tank-light.html --out shots/phone.png --width 390
-node scripts/capture.mjs examples/ripple-tank/ripple-tank-light.html --out shots/joint.png --zoom 200,80,220,170
-node scripts/capture.mjs examples/ripple-tank/ripple-tank-light.html --out shots/still.png --reduced
+node scripts/drive.mjs examples/t4-phage/t4-phage-light.html '[["wait",300],["sheet","shots/t4.png",900,12,".iso-plate",0.5,null,4]]'
+node scripts/drive.mjs examples/sarcomere/sarcomere-light.html '[["key","ArrowRight"],["wait",2800],["shot","shots/contracted.png"]]'
 ```
 
-**Drive.** Scripted sessions: move, click, key, wait for a phase, and contact sheets slowed down to catch pops in a shader. `--no-webgl` checks the SVG fallback.
-
-```sh
-node scripts/drive.mjs examples/raptor-engine/raptor-engine-light.html '[["wait",1500],["key","i"],["wait",3000],["shot","shots/firing.png"]]'
-node scripts/drive.mjs examples/raptor-engine/raptor-engine.html '[["wait",1500],["shot","shots/no-webgl.png"]]' --no-webgl
-node scripts/drive.mjs examples/raptor-engine/raptor-engine-light.html --actions ignite.json
-```
-
-Anything with `until` or `eval` goes in an actions file. This `ignite.json` waits for the engine to rest, then films the start of ignition at 20× slow motion:
-
-```json
-[
-  ["key", "Escape"],
-  ["until", "document.querySelector('[data-readout]').textContent.includes('cold')", 15000],
-  ["slow", 0.05],
-  ["key", "i"],
-  ["sheet", "shots/ignite.png", 100, 16],
-  ["slow", 1]
-]
-```
-
-**3D figures.** The orbit audit is slow (budget 30 to 40 s per part for a full run), so iterate with `--quick` and run the full audit in the background. Only a full run's `turn audit passed` counts.
-
-```sh
-node examples/turning-dial/build.mjs --light --audit --quick
-node examples/turning-dial/build.mjs --light --audit > audit.txt 2>&1 &
-node scripts/turn-check.mjs examples/turning-dial/build.mjs --fidelity
-node scripts/turn-check.mjs examples/turning-dial/turning-dial-verify-light.html --order --step 1
-node scripts/turn-check.mjs examples/turning-dial/turning-dial-light.html --lines
-node scripts/turn-check.mjs examples/turning-dial/turning-dial-light.html --perf --width 390 --throttle 4
-node scripts/turn-bench.mjs examples/turning-dial/build.mjs
-```
-
-[`references/verify.md`](references/verify.md) has every option, the review checklist and the common faults. [`references/3d.md`](references/3d.md) covers the 3D checks.
+Anything with `until` or `eval` goes in an actions file (`--actions steps.json`). [`references/verify.md`](references/verify.md) has every option.
 
 ## House rules
 
@@ -136,11 +99,13 @@ These come from [`SKILL.md`](SKILL.md) and [`references/`](references). A pull r
 - **No comments in code.** Not a header, not a note beside a tricky line, not a JSDoc. Put the explanation in names and structure. Tool directives such as `"use client"` are not comments and stay.
 - **Kit changes are opt-in.** A change to `kit/` or `scripts/inline-kit.mjs` adds an option or a function whose default is the old behaviour. Every existing example must rebuild byte-identical; CI checks it. If a change is meant to alter a figure, say so in the pull request and commit the rebuilt pages with it.
 - **Both themes work, and light ships.** Every colour is a token with a light value and a dark override, never a literal in a figure's CSS or shader. Light shaders are designed for paper (normal premultiplied alpha, never `screen`), not dark glows darkened. Build with `--light` and check both pages.
-- **No overlaps.** No pipe or cable passes through anything, at rest, apart or in any frame of a motion. Every crossing is drawn in true depth order, proved by the audit, never tuned by eye. Fix an interlock in the geometry, never with a key bias, and record the true shape of what you draw: a stand-in shape that quiets the audit is a bug.
-- **Lines resolve and textures fade.** Every line ends on something. A rib row, bolt circle, seam or rule line ends on a real edge or fades out; it never stops in the middle of a surface. Curved surfaces shade smoothly, with no tone staircase.
+- **Textbook look, never engineering.** Figures are soft, colour-coded, labelled biology illustrations (`references/biology.md`). No plates, posts, screws, rulers, faceted shading or monochrome.
+- **Labels and arrows are clean.** Leaders are horizontal or one 45° elbow, end in a dot on a visible part and cross nothing; arrows cross nothing; moving parts never pass over a label. `scripts/labels.mjs` must report 0 problems at rest and in motion, in both themes.
+- **Depth order is true.** Parts are painted back to front from their real depth; a part that wraps another is split into back and front pieces.
 - **Shaders never pop.** Every uniform rides an envelope with an attack and a decay, a phase change is a crossfade, and every term reaches zero before any bound or canvas edge. The effect lives in world space in the figure's own camera, and the SVG still reads without WebGL.
 - **Every number is true.** The readout, the motion and the caption come from one model with the real numbers. Docs follow the same rule: never write a number or a feature you have not checked.
-- **Read every PNG.** Look at 4× close-ups of every joint in both themes before you ask for a review.
+- **Every biological claim has a source.** A count, size, rate, direction or structure added to `SKILL.md`, `references/biology.md` or a figure is checked against a primary source (a structure, a review, a textbook or the BioNumbers database), and the pull request names it.
+- **Read every PNG.** Look at close-ups of every label end, arrowhead and junction in both themes before you ask for a review.
 
 ## Changing the skill's text
 
@@ -160,4 +125,4 @@ CI must pass before a merge.
 
 ## Reporting a bug or asking for a figure
 
-Use the [issue forms](https://github.com/wheresryan22/anatomy/issues/new/choose). For a figure that came out wrong, include the prompt, the theme, where the figure lives (HTML, SVG or React), and a screenshot or close-up of the fault.
+Use the [issue forms](https://github.com/starhopp3r/microscope/issues/new/choose). For a figure that came out wrong, include the prompt, the theme, where the figure lives (HTML, SVG or React), and a screenshot or close-up of the fault.

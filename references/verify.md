@@ -1,5 +1,8 @@
 # Verify
 
+> [!NOTE]
+> This page comes from Anatomy, the engineering skill Microscope was forked from. The worked examples it cites (`dial-indicator`, `desk-computer`, `arcade-cabinet`, `raptor-engine`, `ripple-tank`, `test-rig`, `spot-plate`, `turning-dial`) are engineering figures that Microscope does not ship; they live in [Anatomy's repository](https://github.com/wheresryan22/anatomy/tree/main/examples). Take only the technique from them, and draw every biology figure in the textbook style of `references/biology.md`.
+
 Look at the figure the way a demanding reviewer would, before anyone else does. Rendering it is cheap, and guessing is expensive.
 
 ## Capture
@@ -246,6 +249,8 @@ window.requestAnimationFrame = (callback) => raf((now) => {
 **Both paths, and nested.** The dark build should match its baseline, because every light change is gated on `uLight`. Render a dark plate on a light page and a light plate on its own, each with and without WebGL: a `:not([data-theme="dark"])` rule can reach through the page into a dark plate.
 
 ## The review checklist
+For a biology figure, the review is `references/biology.md`, section 11: the biology first, then the textbook look. The checklist below is for the engineering style inherited from Anatomy; for a biology figure, use only its geometry items (painter's order, nothing passing through anything, motion and accessibility), never its look (plates, screws, rulers, monochrome, legend keys).
+
 **It is an object**
 - [ ] At a glance it reads as one real, well-made thing, and you can name it.
 - [ ] Its mechanism maps to the concept: what moves and what that means can be said in one sentence.

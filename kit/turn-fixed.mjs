@@ -3759,7 +3759,7 @@ const T3_MATERIALS = {
 
 function t3MaterialCss() {
   const rules = [];
-  const block = (values) => T3_MAT_KEYS.map((key, i) => `--anatomy-${key}:${values[i]}`).concat(T3_MAT_TUBE.map((key, i) => `--mat-${key}:${values[T3_MAT_KEYS.length + i]}`)).join(";");
+  const block = (values) => T3_MAT_KEYS.map((key, i) => `--microscope-${key}:${values[i]}`).concat(T3_MAT_TUBE.map((key, i) => `--mat-${key}:${values[T3_MAT_KEYS.length + i]}`)).join(";");
   for (const [name, { light, dark }] of Object.entries(T3_MATERIALS)) {
     rules.push(`[data-mat="${name}"]{${block(dark)}}`);
     rules.push(`.iso[data-theme="light"] [data-mat="${name}"]{${block(light)}}`);
@@ -3774,19 +3774,19 @@ function t3MaterialCss() {
 
 function t3Css() {
   const rules = [];
-  const ramp = "--tn-0:var(--anatomy-shade-0);--tn-1:var(--anatomy-shade-1);--tn-2:var(--anatomy-shade-2);--tn-3:var(--anatomy-shade-3);--tn-4:var(--anatomy-top)";
+  const ramp = "--tn-0:var(--microscope-shade-0);--tn-1:var(--microscope-shade-1);--tn-2:var(--microscope-shade-2);--tn-3:var(--microscope-shade-3);--tn-4:var(--microscope-top)";
   rules.push(`.iso-live{${ramp}}`);
   rules.push(`.iso-live [data-mat]{${ramp}}`);
-  rules.push(".iso-live [data-lit]{--tn-0:var(--anatomy-lit-shade);--tn-1:var(--anatomy-lit-shade);--tn-2:var(--anatomy-lit-shade);--tn-3:var(--anatomy-lit-shade);--tn-4:var(--anatomy-lit-top)}");
+  rules.push(".iso-live [data-lit]{--tn-0:var(--microscope-lit-shade);--tn-1:var(--microscope-lit-shade);--tn-2:var(--microscope-lit-shade);--tn-3:var(--microscope-lit-shade);--tn-4:var(--microscope-lit-top)}");
   const colour = "color-mix(in srgb,var(--ta) calc(100% - var(--f,0) * 100%),var(--tb))";
   rules.push(`.iso-tn{stroke-width:.4;stroke-linejoin:round;--ta:var(--tn-0);--tb:var(--tn-1);fill:${colour};stroke:${colour}}`);
   for (let i = 1; i < 4; i++) rules.push(`.iso-tn[data-b="${i}"]{--ta:var(--tn-${i});--tb:var(--tn-${i + 1})}`);
   rules.push(t3MaterialCss());
-  for (const hue of ["red", "green", "blue"]) rules.push(`.tb[data-hue="${hue}"]{--tb-ink:var(--anatomy-${hue})}`);
-  rules.push(".tb[data-hue] .tb-body{fill:color-mix(in srgb,var(--tb-ink) 54%,var(--anatomy-shade-2))}");
-  rules.push(".tb[data-hue] .tb-shine{fill:color-mix(in srgb,var(--tb-ink) 16%,var(--anatomy-top))}");
-  rules.push(".tb[data-hue] .tb-shade{fill:color-mix(in srgb,var(--tb-ink) 30%,var(--anatomy-hi))}");
-  rules.push(".tb[data-hue] .tb-edge{stroke:color-mix(in srgb,var(--tb-ink) 38%,var(--anatomy-hi))}");
+  for (const hue of ["red", "green", "blue"]) rules.push(`.tb[data-hue="${hue}"]{--tb-ink:var(--microscope-${hue})}`);
+  rules.push(".tb[data-hue] .tb-body{fill:color-mix(in srgb,var(--tb-ink) 54%,var(--microscope-shade-2))}");
+  rules.push(".tb[data-hue] .tb-shine{fill:color-mix(in srgb,var(--tb-ink) 16%,var(--microscope-top))}");
+  rules.push(".tb[data-hue] .tb-shade{fill:color-mix(in srgb,var(--tb-ink) 30%,var(--microscope-hi))}");
+  rules.push(".tb[data-hue] .tb-edge{stroke:color-mix(in srgb,var(--tb-ink) 38%,var(--microscope-hi))}");
   rules.push(".tb[data-hue][data-mat] .tb-body{fill:color-mix(in srgb,var(--tb-ink) 62%,var(--mat-body))}");
   rules.push(".tb[data-hue][data-mat] .tb-shine{fill:color-mix(in srgb,var(--tb-ink) 22%,var(--mat-shine))}");
   rules.push(".tb[data-hue][data-mat] .tb-shade{fill:color-mix(in srgb,var(--tb-ink) 46%,var(--mat-shade))}");

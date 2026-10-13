@@ -19,7 +19,7 @@ function usage(message) {
   if (message) console.error(`publish: ${message}\n`);
   console.log(`Copy a figure into a local clone of the community gallery, ready for a pull request.
 
-  node scripts/publish.mjs <figure folder> --into <anatomy-community clone> --id <kebab-id> --title "..." --prompt "..." --author <github user>
+  node scripts/publish.mjs <figure folder> --into <microscope-community clone> --id <kebab-id> --title "..." --prompt "..." --author <github user>
       [--agent "Claude Code"|OpenCode|Codex|Antigravity|Other] [--model "..."] [--minutes 45] [--tokens 1.2M] [--no-session]
       [--license MIT|CC-BY-4.0] [--tags a,b]
       [--build build.mjs] [--pages a.html,b.html] [--kind "SVG + WebGL"] [--audit] [--no-preview] [--force]
@@ -38,7 +38,7 @@ there; everyone else gets a fork, made for them.`);
 }
 
 function parse(argv) {
-  const options = { agent: "Claude Code", license: "MIT", build: "build.mjs", tags: [], upstream: "wheresryan22/anatomy-community" };
+  const options = { agent: "Claude Code", license: "MIT", build: "build.mjs", tags: [], upstream: "starhopp3r/microscope-community" };
   const take = (index) => {
     const value = argv[index + 1];
     if (value === undefined || value.startsWith("--")) usage(`${argv[index]} needs a value`);
@@ -138,7 +138,7 @@ export function publish(options) {
   const source = resolve(options.source);
   const repo = resolve(options.into);
   if (!existsSync(join(source, options.build))) throw new Error(`no ${options.build} in ${source}`);
-  if (!existsSync(join(repo, "figures")) || !existsSync(join(repo, "scripts", "validate.mjs"))) throw new Error(`${repo} doesn't look like a clone of anatomy-community (no figures/ or scripts/validate.mjs)`);
+  if (!existsSync(join(repo, "figures")) || !existsSync(join(repo, "scripts", "validate.mjs"))) throw new Error(`${repo} doesn't look like a clone of microscope-community (no figures/ or scripts/validate.mjs)`);
   if (inside(SKILL, source) && !inside(join(SKILL, "examples"), source)) throw new Error("the figure folder is inside the skill itself; publish the folder where the figure was built");
   const author = options.author.replace(/^@/, "");
   if (!/^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$/.test(author)) throw new Error("--author must be a GitHub username");
@@ -293,7 +293,7 @@ async function submit(options) {
     }
     if (step.pr) {
       const open = gh(["pr", "list", "--repo", step.pr.repo, "--head", plan.branch, "--state", "open", "--json", "url", "--jq", ".[0].url"]).stdout.trim();
-      const url = open || run("gh", ["pr", "create", "--repo", step.pr.repo, "--base", "main", "--head", step.pr.head, "--title", step.pr.title, "--body", `${published.figure.prompt}\n\nPublished with Anatomy's publish.mjs.`]);
+      const url = open || run("gh", ["pr", "create", "--repo", step.pr.repo, "--base", "main", "--head", step.pr.head, "--title", step.pr.title, "--body", `${published.figure.prompt}\n\nPublished with Microscope's publish.mjs.`]);
       console.log(`\nSubmitted: ${url}\nThe checks run there, and a preview of your figure appears on it when they finish.`);
     }
   }
@@ -317,7 +317,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     if (preview) console.log(`  preview: ${preview} (not committed; CI makes the real one)`);
     const where = `figures/${figure.author.toLowerCase()}/${figure.id}`;
     console.log(`\nCheck it:\n  cd ${repo}\n  node scripts/validate.mjs ${where}`);
-    console.log(`\nWhen you are happy with it, from your fork of anatomy-community:\n  git switch -c figure/${figure.id}\n  git add ${where}\n  git commit -m "Add ${figure.title.replace(/"/g, "'")}"\n  git push -u origin figure/${figure.id}\n  gh pr create --repo wheresryan22/anatomy-community --fill`);
+    console.log(`\nWhen you are happy with it, from your fork of microscope-community:\n  git switch -c figure/${figure.id}\n  git add ${where}\n  git commit -m "Add ${figure.title.replace(/"/g, "'")}"\n  git push -u origin figure/${figure.id}\n  gh pr create --repo starhopp3r/microscope-community --fill`);
   } catch (error) {
     console.error(`publish: ${error.message}`);
     process.exit(1);

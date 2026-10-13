@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Anatomy explains an idea as a real machine, instrument, tool or piece of furniture. It is not a chart library, and it does not draw people or exact maps.
+        Microscope draws a biological structure or process as an interactive, textbook-quality figure: molecules, cells, microbes, plants, animals and the lab techniques that study them. It is not a chart library or a molecular viewer, and it does not draw whole people or exact maps.
   - type: dropdown
     id: request
     attributes:
@@ -22,8 +22,8 @@ body:
     id: idea
     attributes:
       label: The idea
-      description: For a figure, name the idea it should explain and its real numbers (sizes, counts, rates, thresholds), or the object you have in mind and what should move. For anything else, describe the change.
-      placeholder: A connection pool of 10 connections; requests borrow one and give it back, and wait in a queue when all 10 are busy.
+      description: For a figure, name the structure or process, the organism, and its real numbers (sizes, counts, stoichiometry, rates), or the specimen you have in mind and what should move. For anything else, describe the change.
+      placeholder: Kinesin-1 walking along a microtubule in a neuron, 8 nm per step and one ATP per step, carrying a vesicle toward the plus end.
     validations:
       required: true
   - type: dropdown

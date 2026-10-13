@@ -1,6 +1,12 @@
 # Craft
 
+> [!NOTE]
+> This page comes from Anatomy, the engineering skill Microscope was forked from. The worked examples it cites (`dial-indicator`, `desk-computer`, `arcade-cabinet`, `raptor-engine`, `ripple-tank`, `test-rig`, `spot-plate`, `turning-dial`) are engineering figures that Microscope does not ship; they live in [Anatomy's repository](https://github.com/wheresryan22/anatomy/tree/main/examples). Take only the technique from them, and draw every biology figure in the textbook style of `references/biology.md`.
+
 How a figure comes to read as a crafted object rather than a diagram. Every rule here came from a figure that was rejected or approved by a demanding reviewer.
+
+> [!IMPORTANT]
+> This page is the engineering style inherited from Anatomy: machines on workbenches, monochrome, plates, screws and rulers. A Microscope biology figure never looks like this; its look is the textbook style in `references/biology.md`. From this page, use only the geometry: painter's order (section 5), and turned parts, tubes and clearance (section 8), when a figure needs them.
 
 ## Contents
 1. What "crafted" means
@@ -36,7 +42,7 @@ Reviewers rejected each of these, so don't do them:
 - **Wireframes.** See-through boxes where the back edges show.
 - **Colour everywhere.** Keep it monochrome unless colour is the subject: one lit accent plus true RGB only for colour channels. A fluid is not colour by default: oil in a sight glass, water in a tank and coolant in a pipe are tints of the figure's own inks, and the `--no-webgl` fallback draws the same tint the shader does. A blind-test bench painted its oil saturated orange in an otherwise grey figure, and its fallback oil was grey.
 - **Text in the drawing.** Allow at most one tiny engraved label (`FaceText` on a face). Everything else goes in the card corners, legend or caption.
-- **Copying a reference.** Take mood and finish from a reference, then invent the object.
+- **Copying a reference.** Take mood and finish from a reference, then invent the object. For a specimen, take the facts from papers and structures, never the drawing.
 - **Raw pointer jumps.** Parts that snap to the cursor. Ease everything.
 - **Pipes through pipes.** On the first Raptor the owner zoomed in and found cables and lines passing through the main ducts and through each other, "which makes no sense". At 1× it looked fine. Every pipe and cable keeps clear of everything but its own connection, every crossing is drawn in true depth order, and `kit/audit.mjs` proves both (section 8, "Clearance and crossings").
 - **Textures that stop.** On the same close-up, rows of bolt dots on the chamber stopped dead in the middle of the surface, and the bell and throat were shaded as a staircase of flat tone blocks. Both read as broken. The owner's words: if a texture has to end, "we'd rather fade them out at the end than an instant stop". Shade curved surfaces smoothly, and make a texture end on a real edge or fade out (section 8, "Shading and textures on curved surfaces").
@@ -205,14 +211,14 @@ A `Solid` with `lit` gets a white edge and a lighter top. Use it for the moving 
 
 `ISO_CSS` defines tokens on `.iso`, with dark as the default and `.iso[data-theme="light"]` for light. Every fill and stroke reads a token, so a theme is just a token set. To tune one:
 
-- **Paper** (`--anatomy-paper`) equals the card colour, so fills hide what is behind without showing as patches.
+- **Paper** (`--microscope-paper`) equals the card colour, so fills hide what is behind without showing as patches.
 - **Shades.** Four steps from darkest (0, facing away from the light) to lightest (3). Keep them close: about 3% apart in luminance.
 - **Lines.** In dark mode, `hi` is near-white and `faint` barely above the paper. Light mode inverts this.
 - **Halo.** A blurred dark fill under the base: strong in dark mode, about 30% in light.
 
 **Light ships.** Every figure on the isometrics site is light, and that includes its shaders. Design light first and keep dark working where that is cheap. What the seven shader conversions taught about the drawing:
 - **Every colour is a token.** A colour typed into a figure's CSS or its shader is a theme bug waiting to happen. Give it a light value and a dark override (`.x { --x: … }`, then `.iso[data-theme="dark"] .x { --x: … }`). Where the shader needs the same colour, read it from the token (`webgl.md`, section 8.3).
-- **Cavities get their own token set.** The inside of a furnace mouth, a ladle, a vessel seen through a cutaway, a water column or a duct window is darker for a reason: soot, refractory, depth, shadow. Give its group a class that redefines `--anatomy-paper`, `--anatomy-face`, `--anatomy-top`, the four shades and the line tones to darker, warmer or bluer greys. Keep all the tones so it still has form, mix it toward the light's hue by a variable the live code writes, and set the tokens to `inherit` in dark. Glows then have a ground, without a black box.
+- **Cavities get their own token set.** The inside of a furnace mouth, a ladle, a vessel seen through a cutaway, a water column or a duct window is darker for a reason: soot, refractory, depth, shadow. Give its group a class that redefines `--microscope-paper`, `--microscope-face`, `--microscope-top`, the four shades and the line tones to darker, warmer or bluer greys. Keep all the tones so it still has form, mix it toward the light's hue by a variable the live code writes, and set the tokens to `inherit` in dark. Glows then have a ground, without a black box.
 - **Mind nested themes.** A dark plate can sit on a light page. A rule written `.iso:not([data-theme="dark"]) .x` also matches through the page around it. Order the dark rule after the light one, or key on the plate's own theme.
 - **Opacity fades a pale colour to grey.** Anything that fades by opacity in light (a fallback glow, a lit accent) gets a saturated token, and its tints are multiply-blended so the lines under them stay visible.
 

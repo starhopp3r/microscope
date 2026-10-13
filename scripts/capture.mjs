@@ -108,6 +108,9 @@ async function main() {
     "--no-first-run",
     "--no-default-browser-check",
     "--hide-scrollbars",
+    "--disable-background-timer-throttling",
+    "--disable-renderer-backgrounding",
+    "--disable-backgrounding-occluded-windows",
     "--allow-file-access-from-files",
     "--enable-unsafe-swiftshader",
     "--ignore-gpu-blocklist",
@@ -195,8 +198,16 @@ async function main() {
       }
       await sleep(1200);
     }
+    const within = (promise, ms) => Promise.race([promise, sleep(ms).then(() => null)]);
     const shoot = async (path, clip, scale) => {
-      const shot = await send("Page.captureScreenshot", { format: "png", captureBeyondViewport: true, clip: { ...clip, scale } });
+      const params = { format: "png", captureBeyondViewport: true, clip: { ...clip, scale } };
+      let shot = await within(send("Page.captureScreenshot", params), 15000);
+      if (!shot) {
+        await send("Page.bringToFront");
+        await evaluate(`new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(() => done(true))))`);
+        shot = await within(send("Page.captureScreenshot", params), 15000);
+      }
+      if (!shot?.result?.data) throw new Error(`Screenshot stalled: Chrome produced no frame for ${path}`);
       mkdirSync(dirname(path), { recursive: true });
       writeFileSync(path, Buffer.from(shot.result.data, "base64"));
     };

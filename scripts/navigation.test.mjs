@@ -11,7 +11,7 @@ import test from "node:test";
 const execute = promisify(execFile);
 
 async function run(name, kind) {
-  const directory = await mkdtemp(join(tmpdir(), "anatomy-navigation-"));
+  const directory = await mkdtemp(join(tmpdir(), "microscope-navigation-"));
   try {
     let target = join(directory, "figure.html");
     if (kind === "valid") await writeFile(target, '<!doctype html><div class="iso-plate" style="width:100px;height:100px">Figure</div>');
@@ -23,7 +23,7 @@ async function run(name, kind) {
     }
     const args = [fileURLToPath(new URL(`${name}.mjs`, import.meta.url)), target, ...(name === "capture" ? ["--out", join(directory, "shot.png"), "--wait", "0"] : ["[]"])];
     try {
-      return { code: 0, ...await execute(process.execPath, args, { timeout: 30000 }) };
+      return { code: 0, ...await execute(process.execPath, args, { timeout: 60000 }) };
     } catch (error) {
       return { code: error.code, stdout: error.stdout, stderr: error.stderr };
     }

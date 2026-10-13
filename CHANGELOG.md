@@ -1,11 +1,26 @@
 # Changelog
 
-All notable changes to Anatomy are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Releases follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html); entries from before the first release are dated.
+All notable changes to Microscope are recorded here. Microscope is a fork of [Anatomy](https://github.com/wheresryan22/anatomy); entries before the fork describe Anatomy and keep its names and links. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Releases follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html); entries from before the first release are dated.
 
 ## [Unreleased]
 
+### Changed
+
+- Forked from Anatomy as Microscope and tuned for biology: molecular biology, cell biology, microbiology, botany and zoology. `name: microscope` in `SKILL.md`, invoked as `/microscope` (`$microscope` in Codex). The CSS tokens are now `--microscope-*`, the repository is `starhopp3r/microscope` and the community gallery `starhopp3r/microscope-community`.
+- Biology figures now look like textbook illustrations (Campbell, Alberts, OpenStax) and never like engineering drawings. `SKILL.md` sets the textbook style: soft, colour-coded, gradient-shaded bodies, phospholipid bilayers, tinted compartments, labels with leader lines and process arrows, with no plates, screws, rulers, faceted shading or monochrome. Its workflow starts from the organism's true numbers with sources, chooses the textbook view, plans labels and arrows, draws with `kit/bio.mjs`, and reviews the biology and the look.
+- The evals are six biology prompts: ATP synthase, the E. coli flagellar motor, a leaf section with stomata, a ribosome translating mRNA, a fish gill's countercurrent exchange and a gel electrophoresis tank.
+
+### Removed
+
+- The eight engineering examples inherited from Anatomy (`dial-indicator`, `desk-computer`, `arcade-cabinet`, `raptor-engine`, `ripple-tank`, `test-rig`, `spot-plate`, `turning-dial`), their README images and `references/walkthrough.md`. The inherited references note that those examples live in Anatomy's repository. `publish.test.mjs` now publishes `atp-synthase`, and `orbit-sampling.test.mjs` keeps only the argument checks that need no 3D page.
+
 ### Added
 
+- Four more biology examples, one per field, each with labels and arrows checked at rest and in motion in both themes: `dna-double-helix` (molecular biology: right-handed B-DNA, base pairs and hydrogen bonds, grooves, measurement brackets), `t4-phage` (microbiology: T4 attachment, tail contraction and DNA injection through the Gram-negative envelope), `leaf-stoma` (botany: a broad bean leaf in cross-section with a stoma opening) and `sarcomere` (zoology: sliding filaments and the A band, I band and H zone). `kit/bio.mjs` gains `cell`, `dimension`, `key`, `figurePage` and `bioSvg`, `doubleHelix` gains `phase`, `baseR` and `highlight`, and `arrow` gains `tone`.
+- `kit/bio.mjs`: the biology drawing kit. A textbook palette as CSS tokens in both themes, gradient bodies (`sphere`, `ellipsoid`, `capsule`), `rope` for strands and stalks, `bilayer` and `membraneLoop` for membranes, `doubleHelix` for B-DNA with coloured base pairs and on-screen handedness corrected for the mirror-handed camera, `arrow` and `arcPoints` for flows and rotation, `label` and `region` for names, and `sortedSvg`. `scripts/inline-kit.mjs` gains `bioScript()`.
+- `examples/atp-synthase/`: the biology reference. Mitochondrial ATP synthase in a phospholipid bilayer between the tinted intermembrane space and matrix, with a colour-coded rotor, stator, central stalk and α₃β₃ head, H⁺ flow and rotation arrows, labels with leader lines and a sourced caption. Protons step the eight-subunit ring 45° at a time and one ATP leaves the head every 120°. CI builds it.
+- `scripts/labels.mjs`: the label and arrow check for biology figures, in headless Chrome, at rest and across frames of motion. It fails leaders that aren't horizontal, vertical or 45°, leaders without a dot, crossing leaders or arrows, leaders or text touching arrows, overlapping or out-of-figure labels, and moving parts that pass over labels. `kit/bio.mjs` draws leaders in columns with horizontal or single-elbow routes and halos, curved reaction arrows with tangent-aligned heads, and `rotationArrow`, which passes behind its axis.
+- `references/biology.md`: the textbook style, colour conventions, views and levels of scale, concepts and how textbooks draw them, true numbers fact-checked against primary sources, recipes for every biological form with `kit/bio.mjs`, counts, handedness, polarity and compartments, labels and arrows, biological time, anti-patterns, the biology and textbook review, and the ATP synthase design.
 - Antigravity support, alongside Claude Code, OpenCode and Codex. Documented user and project installation paths in the README and CONTRIBUTING, updated SKILL.md compatibility, and added Antigravity to the bug report form.
 
 ### Changed

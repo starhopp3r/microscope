@@ -42,7 +42,7 @@ function pngOf(bytes) {
 }
 
 async function capture(mode, interaction, timed = false, zoom = false) {
-  const directory = await mkdtemp(join(tmpdir(), "anatomy-current-crop-"));
+  const directory = await mkdtemp(join(tmpdir(), "microscope-current-crop-"));
   try {
     const page = join(directory, "figure.html"), output = join(directory, "capture.png");
     const change = mode === "resize" ? 'plate.style.width="180px";plate.style.height="120px";' : mode === "move" ? 'plate.style.transform="translate(200px,120px)";' : "";
@@ -52,7 +52,7 @@ async function capture(mode, interaction, timed = false, zoom = false) {
     if (interaction === "key") args.push("--key", "ArrowRight");
     if (timed) args.push("--times", "2500");
     if (zoom) args.push("--zoom", "20,20,40,30", "--zoom-scale", "1");
-    const result = await execute(process.execPath, args, { timeout: 30000 });
+    const result = await execute(process.execPath, args, { timeout: 60000 });
     const png = pngOf(await readFile(timed ? output.replace(/\.png$/, "-2500.png") : output));
     return { ...result, png };
   } finally {

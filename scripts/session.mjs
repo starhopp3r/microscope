@@ -69,7 +69,7 @@ export function measure(files, { prompt = "" } = {}) {
   const head = squash(prompt).slice(0, 48);
   const start =
     (head && asks.find((entry) => squash(textOf(entry)).includes(head))) ??
-    asks.find((entry) => /\/anatomy\b|\banatomy\b/i.test(textOf(entry))) ??
+    asks.find((entry) => /\/microscope\b|\bmicroscope\b/i.test(textOf(entry))) ??
     mainEntries[0];
   if (!start) return null;
   const end = asks.find((entry) => entry.timestamp > start.timestamp && /\bpublish\b/i.test(textOf(entry)) && /\b(community|gallery)\b/i.test(textOf(entry)));

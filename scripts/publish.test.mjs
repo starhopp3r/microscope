@@ -10,7 +10,7 @@ import { publish, rewriteSkillPaths } from "./publish.mjs";
 const SKILL = resolve(import.meta.dirname, "..");
 
 function gallery() {
-  const repo = mkdtempSync(join(tmpdir(), "anatomy-gallery-"));
+  const repo = mkdtempSync(join(tmpdir(), "microscope-gallery-"));
   mkdirSync(join(repo, "figures"));
   mkdirSync(join(repo, "scripts"));
   writeFileSync(join(repo, "scripts", "validate.mjs"), "");
@@ -39,18 +39,18 @@ test("skill paths are rewritten to the gallery's .skill link, and nothing else",
 test("publishing copies only the source, under the author, and it rebuilds byte for byte", () => {
   const repo = gallery();
   try {
-    const { dest, figure } = publish({ source: join(SKILL, "examples", "dial-indicator"), into: repo, id: "dial-indicator", title: "Dial indicator", prompt: "/anatomy a dial indicator", author: "Octo-Cat", agent: "Codex", license: "MIT", build: "build.mjs", tags: [], date: "2026-10-12", noPreview: true });
-    assert.equal(dest, join(repo, "figures", "octo-cat", "dial-indicator"));
+    const { dest, figure } = publish({ source: join(SKILL, "examples", "atp-synthase"), into: repo, id: "atp-synthase", title: "ATP synthase", prompt: "/microscope show how ATP synthase makes ATP", author: "Octo-Cat", agent: "Codex", license: "MIT", build: "build.mjs", tags: [], date: "2026-10-12", noPreview: true });
+    assert.equal(dest, join(repo, "figures", "octo-cat", "atp-synthase"));
     assert.equal(figure.author, "Octo-Cat");
-    assert.ok(!existsSync(join(dest, "src", "dial-indicator.html")) && !existsSync(join(dest, "src", "dial-indicator-light.html")) && !existsSync(join(dest, "poster.png")), "no built pages or poster are left");
+    assert.ok(!existsSync(join(dest, "src", "atp-synthase.html")) && !existsSync(join(dest, "src", "atp-synthase-light.html")) && !existsSync(join(dest, "poster.png")), "no built pages or poster are left");
     assert.equal(figure.kind, "SVG");
     assert.equal(figure.skill.kit, fingerprintOfSkill(SKILL));
     assert.deepEqual(figure.build, [["src/build.mjs", "--light"], ["src/build.mjs"]]);
-    assert.deepEqual(figure.pages, { dark: "src/dial-indicator.html", light: "src/dial-indicator-light.html" });
+    assert.deepEqual(figure.pages, { dark: "src/atp-synthase.html", light: "src/atp-synthase-light.html" });
     for (const command of figure.build) assert.equal(spawnSync(process.execPath, command, { cwd: dest }).status, 0);
-    for (const page of ["dial-indicator.html", "dial-indicator-light.html"]) assert.ok(readFileSync(join(dest, "src", page)).equals(readFileSync(join(SKILL, "examples", "dial-indicator", page))), page);
+    for (const page of ["atp-synthase.html", "atp-synthase-light.html"]) assert.ok(readFileSync(join(dest, "src", page)).equals(readFileSync(join(SKILL, "examples", "atp-synthase", page))), page);
     assert.ok(existsSync(join(repo, ".skill", "kit", "iso-kit.mjs")));
-    assert.throws(() => publish({ source: join(SKILL, "examples", "dial-indicator"), into: repo, id: "dial-indicator", title: "x", prompt: "x", author: "octo-cat", agent: "Codex", license: "MIT", build: "build.mjs", tags: [], noPreview: true }), /already exists/);
+    assert.throws(() => publish({ source: join(SKILL, "examples", "atp-synthase"), into: repo, id: "atp-synthase", title: "x", prompt: "x", author: "octo-cat", agent: "Codex", license: "MIT", build: "build.mjs", tags: [], noPreview: true }), /already exists/);
   } finally {
     rmSync(repo, { recursive: true, force: true });
   }
@@ -59,7 +59,7 @@ test("publishing copies only the source, under the author, and it rebuilds byte 
 test("publishing refuses a folder that is not a gallery clone", () => {
   const empty = mkdtempSync(join(tmpdir(), "not-gallery-"));
   try {
-    assert.throws(() => publish({ source: join(SKILL, "examples", "dial-indicator"), into: empty, id: "x", title: "x", prompt: "x", author: "x", agent: "Codex", license: "MIT", build: "build.mjs", tags: [], noPreview: true }), /doesn't look like a clone of anatomy-community/);
+    assert.throws(() => publish({ source: join(SKILL, "examples", "atp-synthase"), into: empty, id: "x", title: "x", prompt: "x", author: "x", agent: "Codex", license: "MIT", build: "build.mjs", tags: [], noPreview: true }), /doesn't look like a clone of microscope-community/);
   } finally {
     rmSync(empty, { recursive: true, force: true });
   }
@@ -68,13 +68,13 @@ test("publishing refuses a folder that is not a gallery clone", () => {
 import { submitPlan } from "./publish.mjs";
 
 test("--submit: people who can push get a branch; everyone else a fork made for them", () => {
-  const owner = submitPlan({ login: "wheresryan22", canPush: true, upstream: "wheresryan22/anatomy-community", author: "wheresryan22", id: "token-bucket", title: "Token bucket" });
-  assert.equal(owner.target, "wheresryan22/anatomy-community");
+  const owner = submitPlan({ login: "starhopp3r", canPush: true, upstream: "starhopp3r/microscope-community", author: "starhopp3r", id: "token-bucket", title: "Token bucket" });
+  assert.equal(owner.target, "starhopp3r/microscope-community");
   assert.ok(!owner.steps.some((s) => s.gh?.[1] === "fork"));
-  assert.deepEqual(owner.steps.at(-1).pr, { repo: "wheresryan22/anatomy-community", head: "figure/token-bucket", title: "Add Token bucket" });
-  const guest = submitPlan({ login: "Octo-Cat", canPush: false, upstream: "wheresryan22/anatomy-community", author: "Octo-Cat", id: "token-bucket", title: "Token bucket" });
-  assert.equal(guest.target, "Octo-Cat/anatomy-community");
-  assert.deepEqual(guest.steps[0].gh, ["repo", "fork", "wheresryan22/anatomy-community", "--clone=false"]);
+  assert.deepEqual(owner.steps.at(-1).pr, { repo: "starhopp3r/microscope-community", head: "figure/token-bucket", title: "Add Token bucket" });
+  const guest = submitPlan({ login: "Octo-Cat", canPush: false, upstream: "starhopp3r/microscope-community", author: "Octo-Cat", id: "token-bucket", title: "Token bucket" });
+  assert.equal(guest.target, "Octo-Cat/microscope-community");
+  assert.deepEqual(guest.steps[0].gh, ["repo", "fork", "starhopp3r/microscope-community", "--clone=false"]);
   assert.equal(guest.steps.at(-1).pr.head, "Octo-Cat:figure/token-bucket");
   assert.ok(guest.steps.some((s) => s.git?.[0] === "add" && s.git.at(-1) === "figures/octo-cat/token-bucket"), "only the figure's folder is added");
 });

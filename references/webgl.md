@@ -1,5 +1,8 @@
 # WebGL inside the drawing
 
+> [!NOTE]
+> This page comes from Anatomy, the engineering skill Microscope was forked from. The worked examples it cites (`dial-indicator`, `desk-computer`, `arcade-cabinet`, `raptor-engine`, `ripple-tank`, `test-rig`, `spot-plate`, `turning-dial`) are engineering figures that Microscope does not ship; they live in [Anatomy's repository](https://github.com/wheresryan22/anatomy/tree/main/examples). Take only the technique from them, and draw every biology figure in the textbook style of `references/biology.md`.
+
 How to put a shader effect (fire, water, light, glow) inside an isometric figure so it reads as part of the same object, seen through the same camera. Two shipped examples do this: `examples/raptor-engine/` (a plume, shock, splash and steam under a rocket engine) and `examples/ripple-tank/` (caustics, shadows and a rippled water surface). Read their `live.js` next to this page.
 
 The user loved the first shader figure, but noticed that the colour changed instantly between its phases, as if the effect had been cut. So the bar is: **nothing pops, nothing is cut, and everything sits in the drawing's perspective.** Every rule below came from a bug that broke that bar.
@@ -341,7 +344,7 @@ A glow on white with nothing around it reads as a stain. Give it the ground it r
 - **Cavities in the SVG take a darker token set.** A group class redefines the kit tokens for everything inside it:
   - the afterburner's `.ab-inside`: paper `#4a453f`, shades `#3c3833` to `#544e47`, lines `#5e5952` to `#9b958b`;
   - the tokamak's `.tk-cavity`: `#66646e` to `#8b8992`;
-  - the foundry's sooted bore tones (`--fd-bore-*-sooted`, a `color-mix` of `--anatomy-shade-0` with `--fd-soot-ink: #2f2a25`);
+  - the foundry's sooted bore tones (`--fd-bore-*-sooted`, a `color-mix` of `--microscope-shade-0` with `--fd-soot-ink: #2f2a25`);
   - the glory hole's `--gf-void` and `--gf-bore`;
   - the reactor's water-column gradient (`--rx-water-top`, `-mid`, `-deep`, from `#edf2f4` to `#c9d7e0`).
   
@@ -401,7 +404,7 @@ Hot bodies run dull red → orange → yellow → near-white, in that order and 
 - **Nested themes.** `.iso:not([data-theme="dark"]) .x` also matches through the light page around a dark plate. That is how the reactor's dark fallback got multiplied into black. Put the dark rule after the light one, at equal specificity, or key on the plate's own theme: the forge uses `.iso-plate[data-plate="light"]`.
 - **How the fallback blends.** Multiply its saturated tints, which darken and leave the lines under them visible. Normal-blend its pale cores, because multiply can't lighten: the reactor's no-WebGL core is a radial gradient from `#fff` at .85 to `#dcefff` at .3, blended normally.
   - Fallback colours come from the same ramp as the shader: the foundry's `glowLightCss`, and the glass furnace's `gatherInk`, which mirrors the shader's gather ink exactly.
-  - Opacity on a pale token fades to grey, so give the fallback the saturated hue: the tokamak's fallback rings set `--anatomy-lit: #e0409c` and `--anatomy-hi: #f27ec0`.
+  - Opacity on a pale token fades to grey, so give the fallback the saturated hue: the tokamak's fallback rings set `--microscope-lit: #e0409c` and `--microscope-hi: #f27ec0`.
 - **Fallback shape changes crossfade.** The tokamak's no-WebGL plasma ring is 11 precomputed rings (`LIMITED_RINGS`). Neighbouring rings are crossfaded with linear weights that sum to 1, on the same eased radius the shader draws. With 6 rings a doubled outline showed mid-fade.
 - **Nothing with gaps goes under a translucent ink.** Whatever the SVG draws shows through an ink that isn't fully opaque. The forge's heat band was a set of strokes with paper between them, and it printed grey streaks through the bar's 14% transparency. It is now a face filled with the heat gradient.
 - **The handover from fallback to shader is exact.** At first light the canvas ink rises by `u` while the fallback under it goes. A linear `1 − u` on the fallback makes the middle of the fade paler than either end. For an exact linear crossfade, set the fallback's opacity to `(1 − u)/(1 − u·α)`, where α is the canvas ink's alpha where it matters: the glass furnace's `--gf-gather-fade`, with α the gather's centre stop. Its other fallbacks stay at full strength until the shader is nearly in: `clamp(0, calc(var(--gf-fallback, 1) * 12), 1)`.

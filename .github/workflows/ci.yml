@@ -32,37 +32,30 @@ jobs:
           npm install --prefix "$test_deps" --no-audit --no-fund --ignore-scripts react@19.3.0 react-dom@19.3.0 typescript@5.9.3 esbuild@0.28.2
           NODE_PATH="$test_deps/node_modules" node --test scripts/*.test.mjs
 
-      - name: Dial indicator
+      - name: ATP synthase
         run: |
-          node examples/dial-indicator/build.mjs
-          node examples/dial-indicator/build.mjs --light
+          node examples/atp-synthase/build.mjs
+          node examples/atp-synthase/build.mjs --light
 
-      - name: Desk computer
+      - name: DNA double helix
         run: |
-          node examples/desk-computer/build.mjs
-          node examples/desk-computer/build.mjs --light
+          node examples/dna-double-helix/build.mjs
+          node examples/dna-double-helix/build.mjs --light
 
-      - name: Arcade cabinet
+      - name: Bacteriophage T4
         run: |
-          node examples/arcade-cabinet/build.mjs
-          node examples/arcade-cabinet/build.mjs --light
+          node examples/t4-phage/build.mjs
+          node examples/t4-phage/build.mjs --light
 
-      - name: Ripple tank
+      - name: Leaf and stoma
         run: |
-          node examples/ripple-tank/build.mjs
-          node examples/ripple-tank/build.mjs --light
+          node examples/leaf-stoma/build.mjs
+          node examples/leaf-stoma/build.mjs --light
 
-      - name: Turning dial
+      - name: Sarcomere
         run: |
-          node examples/turning-dial/build.mjs
-          node examples/turning-dial/build.mjs --light
-          node examples/turning-dial/build.mjs --light --verify
-          node examples/turning-dial/stress.mjs --light
-
-      - name: Raptor engine
-        run: |
-          node examples/raptor-engine/build.mjs
-          node examples/raptor-engine/build.mjs --light
+          node examples/sarcomere/build.mjs
+          node examples/sarcomere/build.mjs --light
 
       - name: Committed pages are unchanged
         run: |
